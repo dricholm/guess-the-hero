@@ -1,21 +1,41 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
+
 import About from './views/About.vue';
+import Heroes from './views/Heroes.vue';
+import Home from './views/Home.vue';
+import Items from './views/Items.vue';
+import Play from './views/Play.vue';
 
 Vue.use(Router);
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home,
+      component: About,
+      name: 'about',
+      path: '/about',
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About,
+      component: Heroes,
+      name: 'heroes',
+      path: '/heroes',
+    },
+    {
+      component: Home,
+      name: 'home',
+      path: '/',
+    },
+    {
+      component: Items,
+      name: 'items',
+      path: '/items',
+    },
+    {
+      component: Play,
+      name: 'play',
+      path: '/play',
     },
   ],
 });

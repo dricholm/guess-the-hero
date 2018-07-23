@@ -1,5 +1,5 @@
 <template>
   <div>
-    About
+    Play
   </div>
 </template>

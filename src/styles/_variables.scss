@@ -1,0 +1,61 @@
+// Colors
+
+$primary: #4a8855;
+$secondary: #556370;
+$success: #1ba452;
+$info: #39809e;
+$warning: #ccb66b;
+$danger: #790f11;
+$light: #ddd;
+$dark: #0c0d10;
+
+// Options
+
+$enable-rounded: false;
+$enable-shadows: true;
+$enable-gradients: true;
+
+// Body
+
+$body-bg: #161d25;
+$body-color: $light;
+
+// Links
+
+$link-color: $success;
+$link-hover-color: lighten($link-color, 15%);
+
+// Components
+
+$border-radius: 0;
+$border-radius-lg: 0;
+$border-radius-sm: 0;
+
+// Fonts
+
+$font-family-sans-serif: 'Open Sans', Helvetica, Arial, sans-serif;
+$font-size-base: 1.125rem;
+
+$headings-color: #eee;
+
+// Alerts
+
+$alert-bg-level: 8;
+$alert-border-level: 7;
+$alert-color-level: -7;
+
+// Navbar
+
+$navbar-toggler-padding-y: .5rem;
+$navbar-toggler-padding-x: .5rem;
+
+$navbar-dark-color: #7a7d84;
+$navbar-dark-hover-color: $light;
+$navbar-dark-active-color: lighten($info, 40%);
+$navbar-dark-disabled-color: #bbb;
+$navbar-dark-toggler-icon-bg: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="lightgrey" stroke-width="2" stroke-miterlimit="10" d="M2 7h25M2 15h25M2 23h25"/%3E%3C/svg%3E');
+$navbar-dark-toggler-border-color: transparent;
+
+// Close
+
+$close-color: #fff;

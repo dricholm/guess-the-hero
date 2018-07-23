@@ -1,33 +1,37 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-typescript" target="_blank">typescript</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa" target="_blank">pwa</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-unit-jest" target="_blank">unit-jest</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div>
+    <div class="container">
+      <h1>{{ msg }}</h1>
+      <p>Lorem <a href="#">ipsum</a> dolor sit, amet consectetur adipisicing elit. Unde nostrum deserunt, ex maxime amet aliquam tenetur possimus, aspernatur, voluptatibus debitis quam. Possimus eveniet ipsam eum voluptates adipisci labore perspiciatis dolorum?</p>
+
+      <div class="input-group">
+        <input class="form-control" type="text" placeholder="Hero name"/>
+        <div class="input-group-append">
+          <button class="btn btn-primary">Send</button>
+        </div>
+      </div>
+
+      <br/>
+
+      <button class="btn btn-primary mr-3 mb-3">Primary</button>
+      <button class="btn btn-secondary mr-3 mb-3">Secondary</button>
+      <button class="btn btn-info mr-3 mb-3">Info</button>
+      <button class="btn btn-success mr-3 mb-3">Success</button>
+      <button class="btn btn-warning mr-3 mb-3">Warning</button>
+      <button class="btn btn-danger mr-3 mb-3">Danger</button>
+      <button class="btn btn-link mr-3 mb-3">Link</button>
+
+      <br/>
+
+      <div class="alert alert-primary">Primary alert</div>
+      <div class="alert alert-secondary">Secondary alert</div>
+      <div class="alert alert-info">Info alert</div>
+      <div class="alert alert-success">Success alert</div>
+      <div class="alert alert-warning">Warning alert</div>
+      <div class="alert alert-danger">Danger alert</div>
+      <div class="alert alert-dark">Dark alert</div>
+      <div class="alert alert-light">Light alert</div>
+    </div>
   </div>
 </template>
 
@@ -39,21 +43,3 @@ export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
   <div>
-    About
+    Heroes
   </div>
 </template>
