@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test": "vue-cli-service test:unit"
+    "test": "vue-cli-service test:unit",
+    "coverage": "vue-cli-service test:unit --coverage"
   },
   "dependencies": {
     "register-service-worker": "^1.0.0",
