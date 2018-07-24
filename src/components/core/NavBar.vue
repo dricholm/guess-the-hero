@@ -1,6 +1,8 @@
 <template>
   <nav class="navbar">
-    <router-link class="navbar-brand" to="/">Guess the Hero</router-link>
+    <span @click="show = false">
+      <router-link class="navbar-brand" to="/">Guess the Hero</router-link>
+    </span>
 
     <button class="navbar-toggler" type="button" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation" @click="toggleNavbar">
       <span class="navbar-toggler-icon"></span>
