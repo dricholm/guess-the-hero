@@ -8,6 +8,8 @@
         Dota 2 is a registered trademark of Valve Corporation.
         <br>This site and service are not related in any way to Valve Corporation.
       </p>
+      <router-link to="/about">About</router-link>
+      &middot;
       <a href="https://github.com/dricholm/guess-the-hero">GitHub</a>
     </div>
   </footer>

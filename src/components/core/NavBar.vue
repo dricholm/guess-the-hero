@@ -19,9 +19,6 @@
         <li class="nav-item">
           <router-link class="nav-link" to="/items">Items</router-link>
         </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/about">About</router-link>
-        </li>
       </ul>
     </div>
   </nav>
@@ -104,7 +101,7 @@ export default class NavBar extends Vue {
     transition: max-height 500ms ease-in-out;
 
     &.show {
-      max-height: 176px;
+      max-height: 132px;
     }
 
     &::after {
@@ -125,7 +122,7 @@ export default class NavBar extends Vue {
 
     @include media-breakpoint-up('md') {
       flex-basis: auto;
-      max-height: 176px;
+      max-height: 132px;
 
       &.show::after {
         transform: scaleX(0);
