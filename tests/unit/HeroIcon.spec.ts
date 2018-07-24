@@ -11,7 +11,7 @@ describe('HeroIcon.vue', () => {
     const img = wrapper.find('img');
 
     expect(img.attributes().alt).toBe('Anti-Mage');
-    expect(img.attributes().src).not.toBe('#');
+    expect(img.attributes().src).toContain('antimage');
     expect(img.classes()).toContain('icon');
     expect(img.classes()).not.toContain('portrait');
   });

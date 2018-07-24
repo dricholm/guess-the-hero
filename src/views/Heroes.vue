@@ -1,20 +1,28 @@
 <template>
-  <div>
+  <div class="container">
     <h1>Heroes</h1>
 
-    <HeroIcon :id="n" v-for="n in 113" :key="n" type="portrait"/>
+    <HeroList title="Strength" :filter="attributeHeroes('str')" type="portrait"/>
+    <HeroList title="Agility" :filter="attributeHeroes('agi')" type="portrait"/>
+    <HeroList title="Intelligence" :filter="attributeHeroes('int')" type="portrait"/>
   </div>
 </template>
 
 <script lang="ts">
+import heroes from 'dotaconstants/build/heroes.json';
 import { Component, Vue } from 'vue-property-decorator';
 
-import HeroIcon from '@/components/HeroIcon.vue';
+import HeroList from '@/components/HeroList.vue';
+import Hero from '@/interfaces/Hero';
 
 @Component({
   components: {
-    HeroIcon,
+    HeroList,
   },
 })
-export default class Heroes extends Vue {}
+export default class Heroes extends Vue {
+  private attributeHeroes(attribute: string) {
+    return (data: Hero) => data.primary_attr === attribute;
+  }
+}
 </script>

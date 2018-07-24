@@ -3,30 +3,34 @@
 </template>
 
 <script lang="ts">
+import heroes from 'dotaconstants/build/heroes.json';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
-import { heroes } from '@/data/heroes';
+import Hero from '@/interfaces/Hero';
 
 @Component
 export default class HeroIcon extends Vue {
   @Prop(Number) private id!: number;
-  @Prop({ default: 'icon' }) private type!: string;
+  @Prop({ default: 'icon' })
+  private type!: string;
 
   get name(): string {
-    return heroes[this.id].name;
+    return (heroes[this.id] as Hero).name;
   }
 
   get localizedName(): string {
-    return this.valid ? heroes[this.id].localizedName : 'Invalid hero';
+    return this.valid
+      ? (heroes[this.id] as Hero).localized_name
+      : 'Invalid hero';
   }
 
   get valid(): boolean {
-    return typeof heroes[this.id] !== 'undefined';
+    return typeof (heroes[this.id] as Hero) !== 'undefined';
   }
 
   get imageSrc(): string {
     const folder = this.type === 'portrait' ? 'portraits' : 'heroes';
-    return this.valid ? require(`@/assets/images/${folder}/${this.name}.png`) : '#';
+    return this.valid ? `/img/${folder}/${this.name}.png` : '#';
   }
 }
 </script>
