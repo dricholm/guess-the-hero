@@ -34,7 +34,11 @@ $border-radius-sm: 0;
 // Fonts
 
 $font-family-sans-serif: 'Open Sans', Helvetica, Arial, sans-serif;
+
 $font-size-base: 1.125rem;
+$font-size-lg: ($font-size-base * 1.25);
+
+$line-height-base: 1.5;
 
 $headings-color: #eee;
 
@@ -46,8 +50,19 @@ $alert-color-level: -7;
 
 // Navbar
 
-$navbar-toggler-padding-y: .5rem;
-$navbar-toggler-padding-x: .5rem;
+$nav-link-padding-y: .5rem;
+$nav-link-padding-x: 1rem;
+
+$navbar-nav-link-padding-x: 0.75rem;
+
+$navbar-brand-font-size: $font-size-lg;
+
+$nav-link-height: ($font-size-base * $line-height-base + $nav-link-padding-y * 2);
+$navbar-brand-height: $navbar-brand-font-size * $line-height-base;
+$navbar-brand-padding-y: ($nav-link-height - $navbar-brand-height);
+
+$navbar-toggler-padding-y: 1rem;
+$navbar-toggler-padding-x: 1rem;
 
 $navbar-dark-color: #7a7d84;
 $navbar-dark-hover-color: $light;
@@ -59,3 +74,6 @@ $navbar-dark-toggler-border-color: transparent;
 // Close
 
 $close-color: #fff;
+
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';

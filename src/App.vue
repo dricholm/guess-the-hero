@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <NavBar/>
     <main>
       <router-view/>
@@ -25,4 +25,28 @@ export default class App extends Vue {}
 
 <style lang="scss">
 @import './styles/style.scss';
+
+.app {
+  background: linear-gradient(lighten(#161d25, 15%), #161d25);
+  display: grid;
+  grid-template-areas:
+    'nav'
+    'main'
+    'footer';
+  grid-template-columns: auto;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+
+  NavBar {
+    grid-area: nav;
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  Footer {
+    grid-area: footer;
+  }
+}
 </style>
