@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mb-4">
     <h2 v-if="title">
       {{ title }}
     </h2>

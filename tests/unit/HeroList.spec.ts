@@ -12,7 +12,7 @@ describe('HeroList.vue', () => {
 
     expect(title.exists()).toBe(false);
     expect(+list.at(0).attributes().id).toBe(102);
-    expect(+list.at(0).attributes().id).toBe(102);
+    expect(+list.at(1).attributes().id).toBe(73);
     expect(list.length).toBe(115);
   });
 
