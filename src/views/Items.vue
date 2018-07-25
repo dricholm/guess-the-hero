@@ -9,8 +9,8 @@
     <ItemList title="Common" :ids="common"/>
     <ItemList title="Support" :ids="support"/>
     <ItemList title="Caster" :ids="caster"/>
-    <ItemList title="Weapons" :ids="weapons"/>
     <ItemList title="Armor" :ids="armor"/>
+    <ItemList title="Weapons" :ids="weapons"/>
     <ItemList title="Artifacts" :ids="artifacts"/>
     <ItemList title="Secret Shop" :ids="secretShop"/>
     <ItemList title="Dropped" :ids="dropped"/>
@@ -73,7 +73,7 @@ export default class Items extends Vue {
     ];
   }
 
-  get weapons(): number[] {
+  get armor(): number[] {
     return [
       131,
       125,
@@ -93,7 +93,7 @@ export default class Items extends Vue {
     ];
   }
 
-  get armor(): number[] {
+  get weapons(): number[] {
     return [
       149,
       151,
