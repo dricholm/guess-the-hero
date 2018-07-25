@@ -4,7 +4,7 @@
       {{ title }}
     </h2>
 
-    <HeroIcon :id="hero.id" v-for="hero in heroes" :key="hero.id" :type="type"/>
+    <HeroIcon :id="hero.id" v-for="hero in heroes" :key="hero.id" :type="type" class="hero-icon"/>
   </div>
 </template>
 
@@ -41,3 +41,18 @@ export default class HeroList extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.hero-icon {
+  box-shadow: $box-shadow;
+  filter: saturate(40%);
+  margin: 0 1rem 1rem 0;
+  transition: all 300ms ease-out;
+
+  &:hover {
+    box-shadow: $box-shadow-lg;
+    filter: saturate(100%);
+    transform: scale(1.3);
+  }
+}
+</style>

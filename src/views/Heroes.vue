@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container my-5">
     <h1>Heroes</h1>
 
     <HeroList title="Strength" :filter="attributeHeroes('str')" type="portrait"/>

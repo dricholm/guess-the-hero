@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container my-5">
     <h1>Items</h1>
 
     <ItemIcon :id="+n" v-for="n in ids" :key="n"/>
