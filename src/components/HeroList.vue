@@ -23,7 +23,7 @@ import Hero from '@/interfaces/Hero';
 export default class HeroList extends Vue {
   @Prop(String) private title!: string;
   @Prop(String) private type!: string;
-  @Prop({ default: () => () => true })
+  @Prop({ default: () => () => true, type: Function })
   private filter!: (data: Hero) => boolean;
 
   get heroes(): Hero[] {

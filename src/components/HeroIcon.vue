@@ -11,7 +11,7 @@ import Hero from '@/interfaces/Hero';
 @Component
 export default class HeroIcon extends Vue {
   @Prop(Number) private id!: number;
-  @Prop({ default: 'icon' })
+  @Prop({ default: 'icon', type: String })
   private type!: string;
 
   get name(): string {

@@ -20,7 +20,7 @@ import ItemIcon from '@/components/ItemIcon.vue';
 })
 export default class ItemList extends Vue {
   @Prop(String) private title!: string;
-  @Prop({ default: () => [] })
+  @Prop({ default: () => [], type: Array })
   private ids!: number[];
 }
 </script>
