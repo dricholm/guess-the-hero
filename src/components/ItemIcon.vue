@@ -11,14 +11,15 @@ import Item from '@/interfaces/Item';
 
 @Component
 export default class ItemIcon extends Vue {
-  @Prop(Number) private id!: number;
+  @Prop({ default: 0, type: Number })
+  private id!: number;
 
   get name(): string {
     return itemIds[this.id];
   }
 
   get localizedName(): string {
-    return this.valid ? (items[this.name] as Item).dname : 'Invalid item';
+    return this.valid ? (items[this.name] as Item).dname : 'Empty';
   }
 
   get valid(): boolean {
@@ -30,7 +31,7 @@ export default class ItemIcon extends Vue {
       ? this.name.startsWith('recipe_')
         ? '/img/items/recipe.png'
         : `/img/items/${this.name}.png`
-      : '#';
+      : '/img/items/emptyitembg.png';
   }
 }
 </script>

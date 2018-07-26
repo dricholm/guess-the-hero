@@ -1,5 +1,5 @@
 <template>
-    <img :src="imageSrc" :alt="localizedName" :class="{portrait: type === 'portrait', icon: type !== 'portrait'}"/>
+  <img :src="imageSrc" :alt="localizedName" :class="{portrait: type === 'portrait', icon: type !== 'portrait'}"/>
 </template>
 
 <script lang="ts">
@@ -10,7 +10,8 @@ import Hero from '@/interfaces/Hero';
 
 @Component
 export default class HeroIcon extends Vue {
-  @Prop(Number) private id!: number;
+  @Prop({ default: 0, type: Number })
+  private id!: number;
   @Prop({ default: 'icon', type: String })
   private type!: string;
 
@@ -19,9 +20,7 @@ export default class HeroIcon extends Vue {
   }
 
   get localizedName(): string {
-    return this.valid
-      ? (heroes[this.id] as Hero).localized_name
-      : 'Invalid hero';
+    return this.valid ? (heroes[this.id] as Hero).localized_name : 'Empty';
   }
 
   get valid(): boolean {
@@ -30,7 +29,9 @@ export default class HeroIcon extends Vue {
 
   get imageSrc(): string {
     const folder = this.type === 'portrait' ? 'portraits' : 'heroes';
-    return this.valid ? `/img/${folder}/${this.name}.png` : '#';
+    return this.valid
+      ? `/img/${folder}/${this.name}.png`
+      : `/img/${folder}/npc_dota_hero_default.png`;
   }
 }
 </script>
