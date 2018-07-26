@@ -4,7 +4,7 @@
       {{ title }}
     </h2>
 
-    <ItemIcon :id="itemId" v-for="itemId in ids" :key="itemId"/>
+    <ItemIcon :id="itemId" v-for="itemId in ids" :key="itemId" :backpack="backpack"/>
   </div>
 </template>
 
@@ -22,5 +22,7 @@ export default class ItemList extends Vue {
   @Prop(String) private title!: string;
   @Prop({ default: () => [], type: Array })
   private ids!: number[];
+  @Prop({ default: false, type: Boolean })
+  private backpack!: boolean;
 }
 </script>

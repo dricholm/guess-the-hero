@@ -11,7 +11,8 @@ describe('ItemIcon.vue', () => {
     const img = wrapper.find('img');
 
     expect(img.attributes().alt).toBe('Blink Dagger');
-    expect(img.attributes().src).toContain('blink');
+    expect(img.attributes().src).toBe('/img/items/blink.png');
+    expect(img.classes()).not.toContain('backpack');
   });
 
   it('should show recipe', () => {
@@ -22,7 +23,8 @@ describe('ItemIcon.vue', () => {
     const img = wrapper.find('img');
 
     expect(img.attributes().alt).toBe('Magic Wand Recipe');
-    expect(img.attributes().src).toContain('recipe');
+    expect(img.attributes().src).toBe('/img/items/recipe.png');
+    expect(img.classes()).not.toContain('backpack');
   });
 
   it('should show invalid item', () => {
@@ -32,7 +34,21 @@ describe('ItemIcon.vue', () => {
 
     const img = wrapper.find('img');
 
-    expect(img.attributes().alt).toBe('Invalid item');
-    expect(img.attributes().src).toBe('#');
+    expect(img.attributes().alt).toBe('Empty');
+    expect(img.attributes().src).toBe('/img/items/emptyitembg.png');
+    expect(img.classes()).not.toContain('backpack');
+  });
+
+  it('should show backpack item', () => {
+    const wrapper = shallowMount(ItemIcon, {
+      propsData: {
+        backpack: true,
+        id: 1,
+      },
+    });
+
+    const img = wrapper.find('img');
+
+    expect(img.classes()).toContain('backpack');
   });
 });

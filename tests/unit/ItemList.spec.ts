@@ -29,4 +29,18 @@ describe('ItemList.vue', () => {
     expect(title.exists()).toBe(false);
     expect(list.length).toBe(0);
   });
+
+  it('should show backpack items', () => {
+    const wrapper = shallowMount(ItemList, {
+      propsData: {
+        backpack: true,
+        ids: [1],
+        title: 'Backpack',
+      },
+    });
+
+    const list = wrapper.findAll({ name: 'ItemIcon' });
+
+    expect(list.at(0).attributes().backpack).toBe('true');
+  });
 });

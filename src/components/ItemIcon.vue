@@ -1,5 +1,5 @@
 <template>
-  <img :src="imageSrc" :alt="localizedName"/>
+  <img :src="imageSrc" :alt="localizedName" :class="{ backpack }"/>
 </template>
 
 <script lang="ts">
@@ -13,6 +13,8 @@ import Item from '@/interfaces/Item';
 export default class ItemIcon extends Vue {
   @Prop({ default: 0, type: Number })
   private id!: number;
+  @Prop({ default: false, type: Boolean })
+  private backpack!: boolean;
 
   get name(): string {
     return itemIds[this.id];
@@ -42,5 +44,10 @@ img {
   height: 64px;
   display: inline-block;
   width: 88px;
+}
+
+.backpack {
+  clip-path: inset(5% 0);
+  filter: grayscale(1);
 }
 </style>
