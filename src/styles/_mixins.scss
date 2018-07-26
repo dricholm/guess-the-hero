@@ -1,3 +1,5 @@
+@import 'node_modules/bootstrap/scss/mixins';
+
 @mixin button-variant($background, $border, $hover-background: lighten($background, 7.5%), $hover-border: lighten($border, 10%), $active-background: lighten($background, 10%), $active-border: lighten($border, 12.5%)) {
   color: color-yiq($background);
   @include gradient-bg($background);
@@ -49,4 +51,8 @@
   }
 }
 
-@import 'node_modules/bootstrap/scss/mixins';
+@mixin bg-gradient-variant($parent, $color) {
+  #{$parent} {
+    background: $color linear-gradient(180deg, $color, darken($color, 15%)) repeat-x !important;
+  }
+}

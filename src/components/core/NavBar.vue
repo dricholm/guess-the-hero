@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="md" type="dark" class="navbar" :class="{ shown }">
+  <b-navbar toggleable="md" type="dark" variant="overlay" class="navbar" :class="{ shown }">
     <b-navbar-brand to="/" class="navbar-brand" @click="shown = false">
       Guess the Hero
     </b-navbar-brand>
@@ -48,7 +48,6 @@ export default class NavBar extends Vue {
 
 <style lang="scss" scoped>
 .navbar {
-  background-color: rgba(0, 0, 0, 0.4);
   box-shadow: $box-shadow;
   position: relative;
 

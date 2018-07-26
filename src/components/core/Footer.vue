@@ -4,10 +4,12 @@
       <p>
         Copyright &copy; 2018 Dávid Richolm
       </p>
+
       <p>
         Dota 2 is a registered trademark of Valve Corporation.
         <br>This site and service are not related in any way to Valve Corporation.
       </p>
+
       <b-link to="/about">About</b-link>
       &middot;
       <b-link href="https://github.com/dricholm/guess-the-hero">GitHub</b-link>
@@ -26,7 +28,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 })
 export default class Footer extends Vue {}
 </script>
-
 
 <style lang="scss" scoped>
 footer {
