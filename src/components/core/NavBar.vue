@@ -1,25 +1,28 @@
 <template>
-  <b-navbar toggleable="md" type="dark" variant="overlay" class="navbar" :class="{ shown }">
-    <b-navbar-brand to="/" class="navbar-brand" @click="shown = false">
-      Guess the Hero
-    </b-navbar-brand>
+  <header>
+    <b-navbar toggleable="md" type="dark" variant="overlay" class="navbar" :class="{ shown }">
+      <b-navbar-brand to="/" class="navbar-brand" @click="shown = false">
+        Guess the Hero
+      </b-navbar-brand>
 
-    <b-navbar-toggle target="navContent"/>
+      <b-navbar-toggle target="navContent"/>
 
-    <b-collapse is-nav id="navContent" v-model="shown">
-      <b-navbar-nav>
-        <b-nav-item to="/play">
-          Play
-        </b-nav-item>
-        <b-nav-item to="/heroes">
-          Heroes
-        </b-nav-item>
-        <b-nav-item to="/items">
-          Items
-        </b-nav-item>
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
+      <b-collapse is-nav id="navContent" v-model="shown">
+        <b-navbar-nav>
+          <b-nav-item to="/play">
+            Play
+          </b-nav-item>
+          <b-nav-item to="/heroes">
+            Heroes
+          </b-nav-item>
+          <b-nav-item to="/items">
+            Items
+          </b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+    <Backdrop v-if="shown" @click.native="shown = false"/>
+  </header>
 </template>
 
 <script lang="ts">
@@ -31,8 +34,11 @@ import bNavbarNav from 'bootstrap-vue/es/components/navbar/navbar-nav';
 import bNavbarToggle from 'bootstrap-vue/es/components/navbar/navbar-toggle';
 import { Component, Vue } from 'vue-property-decorator';
 
+import Backdrop from '@/components/core/Backdrop.vue';
+
 @Component({
   components: {
+    Backdrop,
     bCollapse,
     bNavItem,
     bNavbar,
@@ -51,6 +57,10 @@ export default class NavBar extends Vue {
   box-shadow: $box-shadow;
   position: relative;
 
+  * {
+    z-index: $zindex-popover;
+  }
+
   &::after {
     background: $primary;
     bottom: 0;
@@ -61,6 +71,7 @@ export default class NavBar extends Vue {
     transition: transform 350ms ease-out;
     transform: scaleX(0);
     width: 100vw;
+    z-index: $zindex-popover;
   }
 
   &.shown::after {
@@ -85,12 +96,12 @@ export default class NavBar extends Vue {
       .nav-item {
         .nav-link {
           border-top: 1px solid rgba(255, 255, 255, 0.3);
-          color: #ccc;
+          color: $gray-500;
           padding: $nav-link-padding-y $nav-link-padding-x;
           text-transform: uppercase;
 
           @include hover-focus {
-            color: #eee;
+            color: $gray-300;
             text-decoration: none;
           }
 
