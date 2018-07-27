@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import ItemIcon from '@/components/ItemIcon.vue';
+import ItemIcon from '@/components/items/ItemIcon.vue';
 
 describe('ItemIcon.vue', () => {
   it('should show Blink Dagger', () => {

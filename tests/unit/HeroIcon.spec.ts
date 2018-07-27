@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import HeroIcon from '@/components/HeroIcon.vue';
+import HeroIcon from '@/components/heroes/HeroIcon.vue';
 
 describe('HeroIcon.vue', () => {
   it('should show Anti-Mage', () => {

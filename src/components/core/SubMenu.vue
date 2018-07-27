@@ -11,12 +11,10 @@ import bNav from 'bootstrap-vue/es/components/nav/nav';
 import bNavItem from 'bootstrap-vue/es/components/nav/nav-item';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
-import Collapse from '@/components/Collapse.vue';
 import SubMenuItem from '@/interfaces/SubMenuItem';
 
 @Component({
   components: {
-    Collapse,
     bNav,
     bNavItem,
   },

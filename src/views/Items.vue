@@ -21,7 +21,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import ItemList from '@/components/ItemList.vue';
+import ItemList from '@/components/items/ItemList.vue';
 
 @Component({
   components: {

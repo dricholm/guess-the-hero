@@ -10,7 +10,7 @@
         <br>This site and service are not related in any way to Valve Corporation.
       </p>
 
-      <b-link to="/about">About</b-link>
+      <b-link :to="{ name: 'about' }">About</b-link>
       &middot;
       <b-link href="https://github.com/dricholm/guess-the-hero">GitHub</b-link>
     </div>

@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import ItemList from '@/components/ItemList.vue';
+import ItemList from '@/components/items/ItemList.vue';
 
 describe('ItemList.vue', () => {
   it('should show items', () => {
@@ -15,9 +15,9 @@ describe('ItemList.vue', () => {
     const list = wrapper.findAll({ name: 'ItemIcon' });
 
     expect(title.text()).toBe('Item list');
+    expect(list.length).toBe(2);
     expect(+list.at(0).attributes().id).toBe(1);
     expect(+list.at(1).attributes().id).toBe(133);
-    expect(list.length).toBe(2);
   });
 
   it('should not show anything', () => {

@@ -12,7 +12,7 @@
 import heroes from 'dotaconstants/build/heroes.json';
 import { Component, Vue } from 'vue-property-decorator';
 
-import HeroList from '@/components/HeroList.vue';
+import HeroList from '@/components/heroes/HeroList.vue';
 import Hero from '@/interfaces/Hero';
 
 @Component({

@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import HeroList from '@/components/HeroList.vue';
+import HeroList from '@/components/heroes/HeroList.vue';
 import Hero from '@/interfaces/Hero';
 
 describe('HeroList.vue', () => {
@@ -11,9 +11,9 @@ describe('HeroList.vue', () => {
     const list = wrapper.findAll({ name: 'HeroIcon' });
 
     expect(title.exists()).toBe(false);
+    expect(list.length).toBe(115);
     expect(+list.at(0).attributes().id).toBe(102);
     expect(+list.at(1).attributes().id).toBe(73);
-    expect(list.length).toBe(115);
   });
 
   it('should show one hero', () => {
@@ -28,7 +28,7 @@ describe('HeroList.vue', () => {
     const list = wrapper.findAll({ name: 'HeroIcon' });
 
     expect(title.text()).toBe('List title');
-    expect(+list.at(0).attributes().id).toBe(105);
     expect(list.length).toBe(1);
+    expect(+list.at(0).attributes().id).toBe(105);
   });
 });

@@ -11,7 +11,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
-import ItemIcon from '@/components/ItemIcon.vue';
+import ItemIcon from '@/components/items/ItemIcon.vue';
 
 @Component({
   components: {
