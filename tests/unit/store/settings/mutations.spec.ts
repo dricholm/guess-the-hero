@@ -1,0 +1,27 @@
+import { mutations } from '@/store/settings/mutations';
+
+describe('mutations', () => {
+  it('saveSettings', () => {
+    const state = {
+      durationMax: 300,
+      durationMin: 20,
+      gameMode: 0,
+      mmrMax: 9000,
+      mmrMin: 2000,
+    };
+
+    mutations.saveSettings(state, {
+      durationMax: 50,
+      durationMin: 10,
+      gameMode: 1,
+      mmrMax: 5000,
+      mmrMin: 1000,
+    });
+
+    expect(state.durationMax).toBe(50);
+    expect(state.durationMin).toBe(10);
+    expect(state.gameMode).toBe(1);
+    expect(state.mmrMax).toBe(5000);
+    expect(state.mmrMin).toBe(1000);
+  });
+});
