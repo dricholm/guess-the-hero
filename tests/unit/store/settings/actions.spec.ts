@@ -1,6 +1,6 @@
 import { actions } from '@/store/settings/actions';
 
-describe('actions', () => {
+describe('settings actions', () => {
   it('saveStorage', () => {
     const commit = jest.fn();
     const state = {

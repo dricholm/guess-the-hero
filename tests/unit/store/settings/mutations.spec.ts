@@ -1,8 +1,9 @@
 import { mutations } from '@/store/settings/mutations';
+import SettingsState from '@/store/settings/types';
 
-describe('mutations', () => {
+describe('settings mutations', () => {
   it('saveSettings', () => {
-    const state = {
+    const state: SettingsState = {
       durationMax: 300,
       durationMin: 20,
       gameMode: 0,
