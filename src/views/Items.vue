@@ -2,19 +2,19 @@
   <div class="container my-5">
     <h1>Items</h1>
 
-    <ItemList title="Consumables" :ids="consumables"/>
-    <ItemList title="Attributes" :ids="attributes"/>
-    <ItemList title="Armaments" :ids="armaments"/>
-    <ItemList title="Arcane" :ids="arcane"/>
-    <ItemList title="Common" :ids="common"/>
-    <ItemList title="Support" :ids="support"/>
-    <ItemList title="Caster" :ids="caster"/>
-    <ItemList title="Armor" :ids="armor"/>
-    <ItemList title="Weapons" :ids="weapons"/>
-    <ItemList title="Artifacts" :ids="artifacts"/>
-    <ItemList title="Secret Shop" :ids="secretShop"/>
-    <ItemList title="Dropped" :ids="dropped"/>
-    <ItemList title="Removed" :ids="removed"/>
+    <ItemList title="Consumables" :ids="consumables" class="mb-5"/>
+    <ItemList title="Attributes" :ids="attributes" class="mb-5"/>
+    <ItemList title="Armaments" :ids="armaments" class="mb-5"/>
+    <ItemList title="Arcane" :ids="arcane" class="mb-5"/>
+    <ItemList title="Common" :ids="common" class="mb-5"/>
+    <ItemList title="Support" :ids="support" class="mb-5"/>
+    <ItemList title="Caster" :ids="caster" class="mb-5"/>
+    <ItemList title="Armor" :ids="armor" class="mb-5"/>
+    <ItemList title="Weapons" :ids="weapons" class="mb-5"/>
+    <ItemList title="Artifacts" :ids="artifacts" class="mb-5"/>
+    <ItemList title="Secret Shop" :ids="secretShop" class="mb-5"/>
+    <ItemList title="Dropped" :ids="dropped" class="mb-5"/>
+    <ItemList title="Removed" :ids="removed" class="mb-5"/>
   </div>
 </template>
 

@@ -10,22 +10,17 @@
         <br>This site and service are not related in any way to Valve Corporation.
       </p>
 
-      <b-link :to="{ name: 'about' }">About</b-link>
+      <router-link :to="{ name: 'about' }">About</router-link>
       &middot;
-      <b-link href="https://github.com/dricholm/guess-the-hero">GitHub</b-link>
+      <a href="https://github.com/dricholm/guess-the-hero">GitHub</a>
     </div>
   </footer>
 </template>
 
 <script lang="ts">
-import bLink from 'bootstrap-vue/es/components/link/link';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
-@Component({
-  components: {
-    bLink,
-  },
-})
+@Component
 export default class Footer extends Vue {}
 </script>
 

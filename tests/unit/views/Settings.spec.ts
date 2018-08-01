@@ -27,7 +27,6 @@ describe('Settings.vue', () => {
     state = {
       durationMax: 300,
       durationMin: 20,
-      gameMode: 0,
       mmrMax: 9000,
       mmrMin: 2000,
     };
@@ -43,8 +42,6 @@ describe('Settings.vue', () => {
     });
 
     const numbers = wrapper.findAll('input[type="number"]');
-    const gameMode = wrapper.findAll('input[type="radio"]');
-    const checked = wrapper.find('input[type="radio"]:checked');
 
     expect(getters.settings).toHaveBeenCalledTimes(1);
 
@@ -53,20 +50,12 @@ describe('Settings.vue', () => {
     expect(+numbers.at(1).attributes().value).toBe(state.mmrMax);
     expect(+numbers.at(2).attributes().value).toBe(state.durationMin);
     expect(+numbers.at(3).attributes().value).toBe(state.durationMax);
-
-    expect(gameMode.length).toBe(2);
-    expect(+gameMode.at(0).attributes().value).toBe(0);
-    expect(+gameMode.at(1).attributes().value).toBe(1);
-    expect(+checked.attributes().value).toBe(
-      +gameMode.at(0).attributes().value
-    );
   });
 
   it('should dispatch action with input values', () => {
     const wrapper = mount(Settings, { localVue, store });
 
     const numbers = wrapper.findAll('input[type="number"]');
-    const gameMode = wrapper.findAll('input[type="radio"]');
     const form = wrapper.find('form');
 
     expect(actions.saveStorage).toHaveBeenCalledTimes(0);
@@ -75,7 +64,6 @@ describe('Settings.vue', () => {
     numbers.at(1).setValue(5000);
     numbers.at(2).setValue(30);
     numbers.at(3).setValue(90);
-    gameMode.at(1).trigger('click');
     form.trigger('submit');
 
     expect(actions.saveStorage).toHaveBeenCalledTimes(1);
@@ -84,7 +72,6 @@ describe('Settings.vue', () => {
       {
         durationMax: 90,
         durationMin: 30,
-        gameMode: 1,
         mmrMax: 5000,
         mmrMin: 1000,
       },

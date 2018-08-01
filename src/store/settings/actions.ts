@@ -12,7 +12,6 @@ export const actions: ActionTree<SettingsState, {}> = {
     const saveData: SettingsState = {
       durationMax: Math.max(durationMin, durationMax),
       durationMin: Math.min(durationMin, durationMax),
-      gameMode: data.gameMode,
       mmrMax: Math.max(mmrMin, mmrMax),
       mmrMin: Math.min(mmrMin, mmrMax),
     };

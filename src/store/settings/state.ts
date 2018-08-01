@@ -6,7 +6,6 @@ export default (): SettingsState => {
     return {
       durationMax: 300,
       durationMin: 20,
-      gameMode: 0,
       mmrMax: 9000,
       mmrMin: 2000,
     };

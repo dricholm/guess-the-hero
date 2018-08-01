@@ -6,7 +6,6 @@ describe('settings actions', () => {
     const state = {
       durationMax: 300,
       durationMin: 20,
-      gameMode: 0,
       mmrMax: 9000,
       mmrMin: 2000,
     };
@@ -18,7 +17,6 @@ describe('settings actions', () => {
       {
         durationMax: 10,
         durationMin: 200,
-        gameMode: 1,
         mmrMax: '',
         mmrMin: 10,
       }
@@ -27,7 +25,6 @@ describe('settings actions', () => {
     expect(commit).toHaveBeenCalledWith('saveSettings', {
       durationMax: 200,
       durationMin: 10,
-      gameMode: 1,
       mmrMax: 9999,
       mmrMin: 10,
     });

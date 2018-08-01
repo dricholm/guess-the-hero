@@ -1,5 +1,5 @@
 <template>
-  <img :src="imageSrc" :alt="localizedName" :class="{portrait: type === 'portrait', icon: type !== 'portrait'}"/>
+  <img :src="imageSrc" :alt="localizedName" :class="{ portrait: type === 'portrait', icon: type !== 'portrait', small: small }"/>
 </template>
 
 <script lang="ts">
@@ -14,6 +14,8 @@ export default class HeroIcon extends Vue {
   private id!: number;
   @Prop({ default: 'icon', type: String })
   private type!: string;
+  @Prop({ default: false, type: Boolean })
+  private small!: boolean;
 
   get name(): string {
     return (heroes[this.id] as Hero).name;
@@ -45,6 +47,11 @@ img {
 .icon {
   height: 72px;
   width: 128px;
+
+  &.small {
+    height: 36px;
+    width: 64px;
+  }
 }
 
 .portrait {

@@ -3,11 +3,9 @@
 
     <b-form @submit.prevent="submit()">
 
-      <b-card-group deck>
-        <b-card bg-variant="overlay"
-                header="MMR"
-                header-bg-variant="dark"
-                header-class="text-uppercase font-weight-bold">
+      <div class="settings-layout">
+
+        <card header="MMR" class="mmr">
           <div class="card-text">
             <b-form-row>
               <b-form-group id="filter"
@@ -34,58 +32,37 @@
               </b-form-group>
             </b-form-row>
           </div>
-        </b-card>
+        </card>
 
-        <b-card bg-variant="overlay"
-                header="Duration"
-                header-bg-variant="dark"
-                header-class="text-uppercase font-weight-bold">
-          <div class="card-text">
-            <b-form-row>
-              <b-form-group id="filter"
-                            label="Minimum"
-                            label-for="duration-min"
-                            description="minutes"
-                            class="col">
-                <b-form-input id="duration-min"
-                              type="number"
-                              v-model.number="formData.durationMin"
-                              min="0"
-                              placeholder="0">
-                </b-form-input>
-              </b-form-group>
-              <b-form-group id="filter"
-                            label="Maximum"
-                            label-for="duration-max"
-                            description="minutes"
-                            class="col">
-                <b-form-input id="duration-max"
-                              type="number"
-                              v-model.number="formData.durationMax"
-                              max="999"
-                              placeholder="999">
-                </b-form-input>
-              </b-form-group>
-            </b-form-row>
-          </div>
-        </b-card>
-
-        <b-card bg-variant="overlay"
-                header="Game mode"
-                header-bg-variant="dark"
-                header-class="text-uppercase font-weight-bold"
-                body-class="d-flex flex-column justify-content-center">
-          <div class="card-text">
-            <b-form-group>
-              <b-form-radio-group id="gameMode"
-                                  v-model.number="formData.gameMode"
-                                  :options="gameModes"
-                                  name="gameMode"
-                                  stacked/>
+        <card header="Duration" class="duration">
+          <b-form-row>
+            <b-form-group id="filter"
+                          label="Minimum"
+                          label-for="duration-min"
+                          description="minutes"
+                          class="col">
+              <b-form-input id="duration-min"
+                            type="number"
+                            v-model.number="formData.durationMin"
+                            min="0"
+                            placeholder="0">
+              </b-form-input>
             </b-form-group>
-          </div>
-        </b-card>
-      </b-card-group>
+            <b-form-group id="filter"
+                          label="Maximum"
+                          label-for="duration-max"
+                          description="minutes"
+                          class="col">
+              <b-form-input id="duration-max"
+                            type="number"
+                            v-model.number="formData.durationMax"
+                            max="999"
+                            placeholder="999">
+              </b-form-input>
+            </b-form-group>
+          </b-form-row>
+        </card>
+      </div>
 
       <div class="d-flex justify-content-center mt-4">
         <b-button variant="primary" size="lg" type="submit" class="mr-3">
@@ -100,27 +77,23 @@
 
 <script lang="ts">
 import bButton from 'bootstrap-vue/es/components/button/button';
-import bCard from 'bootstrap-vue/es/components/card/card';
-import bCardGroup from 'bootstrap-vue/es/components/card/card-group';
 import bFormGroup from 'bootstrap-vue/es/components/form-group/form-group';
 import bFormInput from 'bootstrap-vue/es/components/form-input/form-input';
-import bFormRadioGroup from 'bootstrap-vue/es/components/form-radio/form-radio-group';
 import bForm from 'bootstrap-vue/es/components/form/form';
 import bFormRow from 'bootstrap-vue/es/components/layout/form-row';
 import { Component, Vue } from 'vue-property-decorator';
 import { Action, Getter } from 'vuex-class';
 
+import Card from '@/components/core/Card.vue';
 import SettingsState from '@/store/settings/types';
 
 @Component({
   components: {
+    Card,
     bButton,
-    bCard,
-    bCardGroup,
     bForm,
     bFormGroup,
     bFormInput,
-    bFormRadioGroup,
     bFormRow,
   },
 })
@@ -133,7 +106,6 @@ export default class Settings extends Vue {
   private formData: SettingsState = {
     durationMax: 300,
     durationMin: 20,
-    gameMode: 0,
     mmrMax: 9000,
     mmrMin: 2000,
   };
@@ -147,7 +119,6 @@ export default class Settings extends Vue {
     this.formData = {
       durationMax: this.state.durationMax,
       durationMin: this.state.durationMin,
-      gameMode: this.state.gameMode,
       mmrMax: this.state.mmrMax,
       mmrMin: this.state.mmrMin,
     };
@@ -160,10 +131,37 @@ export default class Settings extends Vue {
     this.formData = {
       durationMax: this.state.durationMax,
       durationMin: this.state.durationMin,
-      gameMode: this.state.gameMode,
       mmrMax: this.state.mmrMax,
       mmrMin: this.state.mmrMin,
     };
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.settings-layout {
+  display: grid;
+  grid-gap: $spacer;
+  grid-template-areas:
+    'mmr'
+    'duration';
+  grid-template-columns: 1fr;
+  grid-template-rows:
+    auto
+    auto;
+
+  @include media-breakpoint-up(md) {
+    grid-template-areas: 'mmr duration game-mode';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .mmr {
+    grid-area: mmr;
+  }
+
+  .duration {
+    grid-area: duration;
+  }
+}
+</style>

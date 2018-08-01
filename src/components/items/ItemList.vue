@@ -1,10 +1,10 @@
 <template>
-  <div class="mb-4">
+  <div>
     <h2 v-if="title">
       {{ title }}
     </h2>
 
-    <ItemIcon :id="itemId" v-for="itemId in ids" :key="itemId" :backpack="backpack"/>
+    <ItemIcon :id="itemId" v-for="(itemId, index) in ids" :key="`${keyPrefix}-${index}`" :backpack="backpack" :class="{ 'mr-2 mb-2': spacing }"/>
   </div>
 </template>
 
@@ -24,5 +24,9 @@ export default class ItemList extends Vue {
   private ids!: number[];
   @Prop({ default: false, type: Boolean })
   private backpack!: boolean;
+  @Prop({ default: false, type: Boolean })
+  private spacing!: boolean;
+  @Prop({ default: 'item', type: String })
+  private keyPrefix!: string;
 }
 </script>

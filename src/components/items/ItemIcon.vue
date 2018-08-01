@@ -47,7 +47,8 @@ img {
 }
 
 .backpack {
-  clip-path: inset(5% 0);
   filter: grayscale(1);
+  height: 48px;
+  width: 66px;
 }
 </style>

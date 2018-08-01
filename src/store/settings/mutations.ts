@@ -6,7 +6,6 @@ export const mutations: MutationTree<SettingsState> = {
   saveSettings(state: SettingsState, payload: SettingsState) {
     state.durationMax = payload.durationMax;
     state.durationMin = payload.durationMin;
-    state.gameMode = payload.gameMode;
     state.mmrMax = payload.mmrMax;
     state.mmrMin = payload.mmrMin;
   },

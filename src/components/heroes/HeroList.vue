@@ -4,13 +4,13 @@
       {{ title }}
     </h2>
 
-    <HeroIcon :id="hero.id" v-for="hero in heroes" :key="hero.id" :type="type" class="hero-icon"/>
+    <HeroIcon :id="hero.id" v-for="hero in heroes" :key="hero.id" :type="type" class="hero-icon" :small="small" @click.native="click(hero.id)"/>
   </div>
 </template>
 
 <script lang="ts">
 import heroes from 'dotaconstants/build/heroes.json';
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
 import HeroIcon from '@/components/heroes/HeroIcon.vue';
 import Hero from '@/interfaces/Hero';
@@ -25,6 +25,13 @@ export default class HeroList extends Vue {
   @Prop(String) private type!: string;
   @Prop({ default: () => () => true, type: Function })
   private filter!: (data: Hero) => boolean;
+  @Prop({ default: false, type: Boolean })
+  private small!: boolean;
+
+  @Emit()
+  private click(heroId: number) {
+    // TS lint empty block
+  }
 
   get heroes(): Hero[] {
     return Object.values(heroes as Hero)
