@@ -56,7 +56,7 @@ export default class Loader extends Vue {
 
   .line-2 {
     @extend .line;
-    transform: rotate(135deg) translate(-70px, -40px);
+    transform: rotate(490deg) translate(-70px, -40px);
   }
 
   @keyframes anim-line-1 {
@@ -70,10 +70,10 @@ export default class Loader extends Vue {
       transform: rotate(40deg) translate(-10px, -50px);
     }
     40% {
-      transform: rotate(135deg) translate(-70px, -40px);
+      transform: rotate(130deg) translate(-70px, -40px);
     }
     60% {
-      transform: rotate(135deg) translate(-70px, -40px);
+      transform: rotate(130deg) translate(-70px, -40px);
     }
     70% {
       transform: rotate(220deg) translate(-40px, 40px);
@@ -88,10 +88,10 @@ export default class Loader extends Vue {
 
   @keyframes anim-line-2 {
     0% {
-      transform: rotate(135deg) translate(-70px, -40px);
+      transform: rotate(130deg) translate(-70px, -40px);
     }
     10% {
-      transform: rotate(135deg) translate(-70px, -40px);
+      transform: rotate(130deg) translate(-70px, -40px);
     }
     20% {
       transform: rotate(220deg) translate(-40px, 40px);
@@ -106,10 +106,10 @@ export default class Loader extends Vue {
       transform: rotate(400deg) translate(-10px, -50px);
     }
     80% {
-      transform: rotate(495deg) translate(-70px, -40px);
+      transform: rotate(490deg) translate(-70px, -40px);
     }
     100% {
-      transform: rotate(495deg) translate(-70px, -40px);
+      transform: rotate(490deg) translate(-70px, -40px);
     }
   }
 
