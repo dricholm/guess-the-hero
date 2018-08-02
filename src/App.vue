@@ -28,7 +28,7 @@ export default class App extends Vue {}
 @import '../node_modules/bootstrap-vue/dist/bootstrap-vue.css';
 
 .app {
-  background: linear-gradient(lighten(#161d25, 15%), #161d25);
+  background: linear-gradient(lighten(#161d25, 15%), #161d25) fixed;
   display: grid;
   grid-template-areas:
     'nav'

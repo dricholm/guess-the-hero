@@ -16,7 +16,7 @@
       </card>
 
       <card header="Hero" class="hero">
-        <hero-picker class="hero" :selectedHero="selectedHero" :disabled="isGameStopped" @filter="onFilter" @pick="onPick"/>
+        <hero-picker class="hero" :selectedHero="selectedHero" :disabled="isGameStopped" @filter="onFilter" @select="onSelectHero" @pick="onPick"/>
       </card>
 
       <card header="Heroes" class="heroes">

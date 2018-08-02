@@ -1,59 +1,51 @@
-import { mount, shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 
 import HeroPicker from '@/components/game/HeroPicker.vue';
 
 describe('HeroPicker.vue', () => {
   it('should show default state', () => {
-    const wrapper = shallowMount(HeroPicker, {
-      stubs: {
-        bButton: true,
-      },
-    });
+    const wrapper = mount(HeroPicker);
 
-    const input = wrapper.find({ name: 'bFormInput' });
+    const input = wrapper.find('input[type="text"]');
     const heroIcon = wrapper.find({ name: 'HeroIcon' });
-    const button = wrapper.find('bbutton-stub');
+    const button = wrapper.find('button');
 
     expect(input.attributes()).not.toContain('disabled');
-    expect(+heroIcon.attributes().id).toBe(0);
-    expect(button.attributes().disabled).toBe('true');
+    expect(+heroIcon.props().id).toBe(0);
+    expect(button.attributes().disabled).toBe('disabled');
   });
 
   it('should show hero', () => {
-    const wrapper = shallowMount(HeroPicker, {
+    const wrapper = mount(HeroPicker, {
       propsData: {
         selectedHero: 1,
       },
-      stubs: {
-        bButton: true,
-      },
     });
 
-    const input = wrapper.find({ name: 'bFormInput' });
+    const input = wrapper.find('input[type="text"]');
     const heroIcon = wrapper.find({ name: 'HeroIcon' });
-    const button = wrapper.find('bbutton-stub');
+    const button = wrapper.find('button');
 
     expect(input.attributes()).not.toContain('disabled');
-    expect(+heroIcon.attributes().id).toBe(1);
+    expect(+heroIcon.props().id).toBe(1);
     expect(button.attributes()).not.toContain('disabled');
   });
 
   it('should be disabled', () => {
-    const wrapper = shallowMount(HeroPicker, {
+    const wrapper = mount(HeroPicker, {
       propsData: {
         disabled: true,
         selectedHero: 1,
       },
-      stubs: { bButton: true },
     });
 
-    const input = wrapper.find({ name: 'bFormInput' });
+    const input = wrapper.find('input[type="text"]');
     const heroIcon = wrapper.find({ name: 'HeroIcon' });
-    const button = wrapper.find('bbutton-stub');
+    const button = wrapper.find('button');
 
     expect(input.attributes()).not.toContain('disabled');
-    expect(+heroIcon.attributes().id).toBe(1);
-    expect(button.attributes().disabled).toBe('true');
+    expect(+heroIcon.props().id).toBe(1);
+    expect(button.attributes().disabled).toBe('disabled');
   });
 
   it('should emit filter', () => {
@@ -78,6 +70,42 @@ describe('HeroPicker.vue', () => {
     const button = wrapper.find('button');
 
     button.trigger('click');
+
+    expect(wrapper.emitted('pick')).toBeTruthy();
+  });
+
+  it('should show suggestion', () => {
+    const wrapper = mount(HeroPicker);
+
+    const input = wrapper.find('input[type="text"]');
+    const suggestion = wrapper.find('.filter-input');
+
+    input.setValue('tech');
+    expect(suggestion.attributes()['data-suggested']).toBe('Techies');
+  });
+
+  it('should emit select', () => {
+    const wrapper = mount(HeroPicker);
+
+    const form = wrapper.find('form');
+    const input = wrapper.find('input[type="text"]');
+
+    input.setValue('anti');
+    form.trigger('submit');
+
+    expect(wrapper.emitted('select')[0]).toEqual([1]);
+  });
+
+  it('should emit pick when submitted', () => {
+    const wrapper = mount(HeroPicker, {
+      propsData: {
+        selectedHero: 1,
+      },
+    });
+
+    const form = wrapper.find('form');
+
+    form.trigger('submit');
 
     expect(wrapper.emitted('pick')).toBeTruthy();
   });

@@ -37,6 +37,7 @@ export default class Loader extends Vue {
   margin: ($spacer * 1.25) auto;
   overflow: hidden;
   position: relative;
+  transition: background 1s ease-out;
   width: 100px;
 
   .line {
@@ -46,6 +47,7 @@ export default class Loader extends Vue {
     position: absolute;
     top: 0;
     transform-origin: center;
+    transition: background 1s ease-out;
     width: 20px;
   }
 
