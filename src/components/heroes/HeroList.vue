@@ -52,6 +52,7 @@ export default class HeroList extends Vue {
 <style lang="scss" scoped>
 .hero-icon {
   box-shadow: $box-shadow;
+  cursor: pointer;
   filter: saturate(40%);
   margin: 0 1rem 1rem 0;
   transition: all 300ms ease-out;

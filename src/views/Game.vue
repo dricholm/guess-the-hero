@@ -1,18 +1,16 @@
 <template>
   <div class="container my-5">
-    <div v-if="isLoading">
-      Loading
-    </div>
+    <loader :isLoading="isLoading" :error="error" v-if="isLoading || error"/>
 
-    <div v-if="error">
-      Error
-    </div>
+    <card header="Error" v-if="error" class="mb-3">
+      Could not fetch match data.
+    </card>
 
     <card header="Result" v-if="submitted" class="mb-3">
       <result :correct="correct" :matchId="currentMatch.matchId" :heroId="currentMatch.heroId" @next="onNext" />
     </card>
 
-    <div class="game-layout">
+    <div class="game-layout" v-if="!isLoading && !error">
       <card header="Inventory" class="inventory">
         <Inventory class="mx-auto" :inventory="inventory" :backpack="backpack"/>
       </card>
@@ -34,6 +32,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import { Action, Getter } from 'vuex-class';
 
 import Card from '@/components/core/Card.vue';
+import Loader from '@/components/core/Loader.vue';
 import HeroPicker from '@/components/game/HeroPicker.vue';
 import Inventory from '@/components/game/Inventory.vue';
 import Result from '@/components/game/Result.vue';
@@ -50,6 +49,7 @@ import SettingsState from '@/store/settings/types';
     HeroList,
     HeroPicker,
     Inventory,
+    Loader,
     Result,
   },
 })
