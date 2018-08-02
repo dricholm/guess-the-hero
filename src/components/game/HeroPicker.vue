@@ -101,6 +101,7 @@ export default class HeroPicker extends Vue {
 
     if (this.suggestedId > 0 && this.suggestedId !== this.selectedHero) {
       this.select(this.suggestedId);
+      this.filter('');
       this.filterName = '';
       this.suggestedId = 0;
     }

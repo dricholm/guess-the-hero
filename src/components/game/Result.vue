@@ -13,10 +13,10 @@
 
     <ul class="sites">
       <li>
-        <a :href="`https://www.dotabuff.com/matches/${matchId}`">DotaBuff</a>
+        <a :href="`https://www.dotabuff.com/matches/${matchId}`" target="_blank">DotaBuff</a>
       </li>
       <li>
-        <a :href="`https://www.opendota.com/matches/${matchId}`">OpenDota</a>
+        <a :href="`https://www.opendota.com/matches/${matchId}`" target="_blank">OpenDota</a>
       </li>
     </ul>
 

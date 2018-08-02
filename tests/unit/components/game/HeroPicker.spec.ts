@@ -94,6 +94,7 @@ describe('HeroPicker.vue', () => {
     form.trigger('submit');
 
     expect(wrapper.emitted('select')[0]).toEqual([1]);
+    expect(wrapper.emitted('filter')[1]).toEqual(['']);
   });
 
   it('should emit pick when submitted', () => {
