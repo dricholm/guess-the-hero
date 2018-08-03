@@ -6,7 +6,7 @@
       Could not fetch match data.
     </card>
 
-    <card header="Result" v-if="submitted" class="mb-3">
+    <card header="Result" v-if="submitted" class="mb-3" id="results">
       <result :correct="correct" :matchId="currentMatch.matchId" :heroId="currentMatch.heroId" @next="onNext" />
     </card>
 
@@ -125,7 +125,15 @@ export default class Game extends Vue {
     if (this.isGameStopped) {
       return;
     }
+
     this.submitted = true;
+
+    this.$nextTick(() => {
+      const resultsEl = this.$el.querySelector('#results');
+      if (resultsEl !== null) {
+        resultsEl.scrollIntoView();
+      }
+    });
   }
 
   private onNext() {
