@@ -22,6 +22,8 @@
       <card header="Heroes" class="heroes">
         <HeroList small :filter="heroFilter()" @click="onSelectHero"/>
       </card>
+
+      <stats :stats="currentMatch" class="stats"/>
     </div>
   </div>
 </template>
@@ -36,6 +38,7 @@ import Loader from '@/components/core/Loader.vue';
 import HeroPicker from '@/components/game/HeroPicker.vue';
 import Inventory from '@/components/game/Inventory.vue';
 import Result from '@/components/game/Result.vue';
+import Stats from '@/components/game/Stats.vue';
 import HeroIcon from '@/components/heroes/HeroIcon.vue';
 import HeroList from '@/components/heroes/HeroList.vue';
 import Hero from '@/interfaces/Hero';
@@ -51,6 +54,7 @@ import SettingsState from '@/store/settings/types';
     Inventory,
     Loader,
     Result,
+    Stats,
   },
 })
 export default class Game extends Vue {
@@ -139,9 +143,11 @@ export default class Game extends Vue {
   grid-template-areas:
     'inventory'
     'hero'
-    'heroes';
+    'heroes'
+    'stats';
   grid-template-columns: 1fr;
   grid-template-rows:
+    auto
     auto
     auto
     auto;
@@ -150,9 +156,11 @@ export default class Game extends Vue {
   @include media-breakpoint-up(lg) {
     grid-template-areas:
       'inventory hero'
-      'heroes heroes';
+      'heroes heroes'
+      'stats stats';
     grid-template-columns: 1fr 1fr;
     grid-template-rows:
+      auto
       auto
       auto;
   }
@@ -167,6 +175,10 @@ export default class Game extends Vue {
 
   .heroes {
     grid-area: heroes;
+  }
+
+  .stats {
+    grid-area: stats;
   }
 }
 </style>

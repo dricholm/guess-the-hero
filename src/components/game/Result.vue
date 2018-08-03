@@ -26,7 +26,6 @@
   </div>
 </template>
 
-
 <script lang="ts">
 import bButton from 'bootstrap-vue/es/components/button/button';
 import heroes from 'dotaconstants/build/heroes.json';
