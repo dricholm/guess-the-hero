@@ -51,21 +51,21 @@ export default class HeroList extends Vue {
   grid-auto-flow: row dense;
   grid-auto-rows: 72px;
   grid-gap: $spacer;
-  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
   width: 100%;
 
   &.grid-portrait {
     grid-auto-columns: 71px;
     grid-auto-rows: 94px;
     grid-gap: $spacer;
-    grid-template-columns: repeat(auto-fit, minmax(71px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(71px, 1fr));
   }
 
   &.small {
     grid-auto-columns: 64px;
     grid-auto-rows: 36px;
     grid-gap: $spacer;
-    grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
   }
 
   .hero-icon {

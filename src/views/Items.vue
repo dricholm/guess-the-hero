@@ -2,29 +2,69 @@
   <div class="container my-5">
     <h1>Items</h1>
 
-    <ItemList title="Consumables" :ids="consumables" class="mb-5"/>
-    <ItemList title="Attributes" :ids="attributes" class="mb-5"/>
-    <ItemList title="Armaments" :ids="armaments" class="mb-5"/>
-    <ItemList title="Arcane" :ids="arcane" class="mb-5"/>
-    <ItemList title="Common" :ids="common" class="mb-5"/>
-    <ItemList title="Support" :ids="support" class="mb-5"/>
-    <ItemList title="Caster" :ids="caster" class="mb-5"/>
-    <ItemList title="Armor" :ids="armor" class="mb-5"/>
-    <ItemList title="Weapons" :ids="weapons" class="mb-5"/>
-    <ItemList title="Artifacts" :ids="artifacts" class="mb-5"/>
-    <ItemList title="Secret Shop" :ids="secretShop" class="mb-5"/>
-    <ItemList title="Dropped" :ids="dropped" class="mb-5"/>
-    <ItemList title="Removed" :ids="removed" class="mb-5"/>
+    <card header="Consumables" class="mb-3">
+      <ItemList :ids="consumables"/>
+    </card>
+
+    <card header="Attributes" class="mb-3">
+      <ItemList :ids="attributes"/>
+    </card>
+
+    <card header="Armaments" class="mb-3">
+      <ItemList :ids="armaments"/>
+    </card>
+
+    <card header="Arcane" class="mb-3">
+      <ItemList :ids="arcane"/>
+    </card>
+
+    <card header="Common" class="mb-3">
+      <ItemList :ids="common"/>
+    </card>
+
+    <card header="Support" class="mb-3">
+      <ItemList :ids="support"/>
+    </card>
+
+    <card header="Caster" class="mb-3">
+      <ItemList :ids="caster"/>
+    </card>
+
+    <card header="Armor" class="mb-3">
+      <ItemList :ids="armor"/>
+    </card>
+
+    <card header="Weapons" class="mb-3">
+      <ItemList :ids="weapons"/>
+    </card>
+
+    <card header="Artifacts" class="mb-3">
+      <ItemList :ids="artifacts"/>
+    </card>
+
+    <card header="Secret Shop" class="mb-3">
+      <ItemList :ids="secretShop"/>
+    </card>
+
+    <card header="Dropped" class="mb-3">
+      <ItemList :ids="dropped"/>
+    </card>
+
+    <card header="Removed" class="mb-3">
+      <ItemList :ids="removed"/>
+    </card>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
+import Card from '@/components/core/Card.vue';
 import ItemList from '@/components/items/ItemList.vue';
 
 @Component({
   components: {
+    Card,
     ItemList,
   },
 })

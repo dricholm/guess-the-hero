@@ -1,18 +1,18 @@
 <template>
   <div class="inventory-container">
-    <ItemList :ids="inventory" prefix="inventory" spacing/>
-    <ItemList :ids="backpack" prefix="backpack" backpack spacing/>
+    <ItemIcon v-for="(id, index) in inventory" :id="id" :key="`i-${index}`" class="inventory-item"/>
+    <ItemIcon v-for="(id, index) in backpack" :id="id" :key="`b-${index}`" backpack class="inventory-item"/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
-import ItemList from '@/components/items/ItemList.vue';
+import ItemIcon from '@/components/items/ItemIcon.vue';
 
 @Component({
   components: {
-    ItemList,
+    ItemIcon,
   },
 })
 export default class Inventory extends Vue {
@@ -28,8 +28,25 @@ export default class Inventory extends Vue {
   background: linear-gradient(#24272c, #1a1b20);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  max-width: 380px;
-  padding: $spacer;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 312px;
+  padding: $spacer 0;
   text-align: center;
+
+  .inventory-item {
+    margin-bottom: $spacer * 0.5;
+    margin-right: $spacer * 0.5;
+  }
+
+  :nth-child(3n+3) {
+    margin-right: 0;
+  }
+
+  :nth-child(n+7) {
+    margin-bottom: 0;
+  }
 }
 </style>

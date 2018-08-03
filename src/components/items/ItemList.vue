@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <h2 v-if="title">
-      {{ title }}
-    </h2>
-
+  <div class="item-grid">
     <ItemIcon :id="itemId" v-for="(itemId, index) in ids" :key="`${keyPrefix}-${index}`" :backpack="backpack" :class="{ 'mr-2 mb-2': spacing }"/>
   </div>
 </template>
@@ -19,7 +15,6 @@ import ItemIcon from '@/components/items/ItemIcon.vue';
   },
 })
 export default class ItemList extends Vue {
-  @Prop(String) private title!: string;
   @Prop({ default: () => [], type: Array })
   private ids!: number[];
   @Prop({ default: false, type: Boolean })
@@ -30,3 +25,22 @@ export default class ItemList extends Vue {
   private keyPrefix!: string;
 }
 </script>
+
+<style lang="scss" scoped>
+.item-grid {
+  display: grid;
+  grid-auto-columns: 88px;
+  grid-auto-flow: row dense;
+  grid-auto-rows: 64px;
+  grid-gap: $spacer * 0.5;
+  grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+  width: 100%;
+
+  &.grid-backpack {
+    grid-auto-columns: 66px;
+    grid-auto-rows: 48px;
+    grid-gap: $spacer;
+    grid-template-columns: repeat(auto-fit, minmax(66px, 1fr));
+  }
+}
+</style>

@@ -7,14 +7,11 @@ describe('ItemList.vue', () => {
     const wrapper = shallowMount(ItemList, {
       propsData: {
         ids: [1, 133],
-        title: 'Item list',
       },
     });
 
-    const title = wrapper.find('h2');
     const list = wrapper.findAll({ name: 'ItemIcon' });
 
-    expect(title.text()).toBe('Item list');
     expect(list.length).toBe(2);
     expect(+list.at(0).attributes().id).toBe(1);
     expect(+list.at(1).attributes().id).toBe(133);
@@ -23,10 +20,8 @@ describe('ItemList.vue', () => {
   it('should not show anything', () => {
     const wrapper = shallowMount(ItemList);
 
-    const title = wrapper.find('h2');
     const list = wrapper.findAll({ name: 'ItemIcon' });
 
-    expect(title.exists()).toBe(false);
     expect(list.length).toBe(0);
   });
 
@@ -35,7 +30,6 @@ describe('ItemList.vue', () => {
       propsData: {
         backpack: true,
         ids: [1],
-        title: 'Backpack',
       },
     });
 

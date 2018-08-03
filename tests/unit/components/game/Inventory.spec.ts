@@ -6,19 +6,31 @@ describe('Inventory.vue', () => {
   it('should show items', () => {
     const wrapper = shallowMount(Inventory, {
       propsData: {
-        backpack: [0, 0, 0],
+        backpack: [10, 0, 0],
         inventory: [1, 133, 0, 0, 0, 0],
       },
     });
 
-    const list = wrapper.findAll({ name: 'ItemList' });
+    const items = wrapper.findAll({ name: 'ItemIcon' });
 
-    expect(list.length).toBe(2);
-    expect(list.at(0).attributes().ids).toBe('1,133,0,0,0,0');
-    expect(list.at(0).attributes().backpack).toBeUndefined();
-    expect(list.at(0).attributes().spacing).toBe('');
-    expect(list.at(1).attributes().ids).toBe('0,0,0');
-    expect(list.at(1).attributes().backpack).toBe('');
-    expect(list.at(1).attributes().spacing).toBe('');
+    expect(items.length).toBe(9);
+    expect(items.at(0).attributes().id).toBe('1');
+    expect(items.at(0).attributes().backpack).toBeUndefined();
+    expect(items.at(1).attributes().id).toBe('133');
+    expect(items.at(1).attributes().backpack).toBeUndefined();
+    expect(items.at(2).attributes().id).toBe('0');
+    expect(items.at(2).attributes().backpack).toBeUndefined();
+    expect(items.at(3).attributes().id).toBe('0');
+    expect(items.at(3).attributes().backpack).toBeUndefined();
+    expect(items.at(4).attributes().id).toBe('0');
+    expect(items.at(4).attributes().backpack).toBeUndefined();
+    expect(items.at(5).attributes().id).toBe('0');
+    expect(items.at(5).attributes().backpack).toBeUndefined();
+    expect(items.at(6).attributes().id).toBe('10');
+    expect(items.at(6).attributes().backpack).toBe('');
+    expect(items.at(7).attributes().id).toBe('0');
+    expect(items.at(7).attributes().backpack).toBe('');
+    expect(items.at(8).attributes().id).toBe('0');
+    expect(items.at(8).attributes().backpack).toBe('');
   });
 });
