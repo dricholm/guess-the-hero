@@ -1,9 +1,5 @@
 <template>
-  <div class="mb-4">
-    <h2 v-if="title">
-      {{ title }}
-    </h2>
-
+  <div class="hero-grid" :class="{ 'grid-portrait': type === 'portrait', 'small': small}">
     <HeroIcon :id="hero.id" v-for="hero in heroes" :key="hero.id" :type="type" class="hero-icon" :small="small" @click.native="click(hero.id)"/>
   </div>
 </template>
@@ -21,7 +17,6 @@ import Hero from '@/interfaces/Hero';
   },
 })
 export default class HeroList extends Vue {
-  @Prop(String) private title!: string;
   @Prop(String) private type!: string;
   @Prop({ default: () => () => true, type: Function })
   private filter!: (data: Hero) => boolean;
@@ -33,7 +28,7 @@ export default class HeroList extends Vue {
     // TS lint empty block
   }
 
-  get heroes(): Hero[] {
+  private get heroes(): Hero[] {
     return Object.values(heroes as Hero)
       .filter(this.filter)
       .sort((a: Hero, b: Hero) => {
@@ -50,17 +45,40 @@ export default class HeroList extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.hero-icon {
-  box-shadow: $box-shadow;
-  cursor: pointer;
-  filter: saturate(40%);
-  margin: 0 1rem 1rem 0;
-  transition: all 300ms ease-out;
+.hero-grid {
+  display: grid;
+  grid-auto-columns: 128px;
+  grid-auto-flow: row dense;
+  grid-auto-rows: 72px;
+  grid-gap: $spacer;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  width: 100%;
 
-  &:hover {
-    box-shadow: $box-shadow-lg;
-    filter: saturate(100%);
-    transform: scale(1.3);
+  &.grid-portrait {
+    grid-auto-columns: 71px;
+    grid-auto-rows: 94px;
+    grid-gap: $spacer;
+    grid-template-columns: repeat(auto-fit, minmax(71px, 1fr));
+  }
+
+  &.small {
+    grid-auto-columns: 64px;
+    grid-auto-rows: 36px;
+    grid-gap: $spacer;
+    grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+  }
+
+  .hero-icon {
+    box-shadow: $box-shadow;
+    cursor: pointer;
+    filter: saturate(40%);
+    transition: all 300ms ease-out;
+
+    &:hover {
+      box-shadow: $box-shadow-lg;
+      filter: saturate(100%);
+      transform: scale(1.3);
+    }
   }
 }
 </style>

@@ -1,10 +1,16 @@
 <template>
   <div class="container my-5">
-    <h1>Heroes</h1>
+    <card header="Strength" class="mb-3">
+      <HeroList :filter="attributeHeroes('str')" type="portrait"/>
+    </card>
 
-    <HeroList title="Strength" :filter="attributeHeroes('str')" type="portrait"/>
-    <HeroList title="Agility" :filter="attributeHeroes('agi')" type="portrait"/>
-    <HeroList title="Intelligence" :filter="attributeHeroes('int')" type="portrait"/>
+    <card header="Agility" class="mb-3">
+      <HeroList :filter="attributeHeroes('agi')" type="portrait"/>
+    </card>
+
+    <card header="Intelligence" class="mb-3">
+      <HeroList :filter="attributeHeroes('int')" type="portrait"/>
+    </card>
   </div>
 </template>
 
@@ -12,11 +18,13 @@
 import heroes from 'dotaconstants/build/heroes.json';
 import { Component, Vue } from 'vue-property-decorator';
 
+import Card from '@/components/core/Card.vue';
 import HeroList from '@/components/heroes/HeroList.vue';
 import Hero from '@/interfaces/Hero';
 
 @Component({
   components: {
+    Card,
     HeroList,
   },
 })
