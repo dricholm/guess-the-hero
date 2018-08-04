@@ -40,11 +40,12 @@ export default class HeroIcon extends Vue {
 
 <style lang="scss" scoped>
 img {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-size: cover;
   display: inline-block;
 }
 
 .icon {
+  background-image: url('/img/heroes/npc_dota_hero_default.png');
   height: 72px;
   width: 128px;
 
@@ -55,6 +56,7 @@ img {
 }
 
 .portrait {
+  background-image: url('/img/portraits/npc_dota_hero_default.png');
   height: 94px;
   width: 71px;
 }

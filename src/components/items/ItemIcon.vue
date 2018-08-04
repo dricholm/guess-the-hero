@@ -40,7 +40,8 @@ export default class ItemIcon extends Vue {
 
 <style lang="scss" scoped>
 img {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-image: url('/img/items/emptyitembg.png');
+  background-size: cover;
   height: 64px;
   display: inline-block;
   width: 88px;
