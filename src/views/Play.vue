@@ -2,7 +2,9 @@
   <div>
     <SubMenu :items="subMenu"/>
 
-    <router-view/>
+    <transition name="route-change">
+      <router-view/>
+    </transition>
 
   </div>
 </template>

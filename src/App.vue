@@ -2,7 +2,9 @@
   <div class="app">
     <NavBar/>
     <main>
-      <router-view/>
+      <transition name="route-change">
+        <router-view/>
+      </transition>
     </main>
     <Footer/>
   </div>

@@ -7,15 +7,17 @@
     <div class="landing-overlay"></div>
 
     <div class="container landing-content my-5">
-      <h1 class="my-5 font-weight-bold">
+      <h1 class="my-5 font-weight-bold enter-top">
         Test your Dota 2 knowledge
       </h1>
 
-      <p class="my-3">
+      <p class="my-3 enter-top delay-1000">
         How well can you guess a hero from seeing their purchased items?
       </p>
 
-      <router-link :to="{ name: 'game' }" class="btn btn-primary btn-lg px-5 text-uppercase my-3">Play now</router-link>
+      <router-link :to="{ name: 'game' }" class="btn btn-primary btn-lg px-5 text-uppercase my-3 enter-button">
+        Play now
+      </router-link>
     </div>
   </div>
 </template>
@@ -119,6 +121,45 @@ export default class Home extends Vue {
     justify-content: center;
     position: relative;
     text-align: center;
+
+    .enter-top {
+      animation: enter-top 500ms ease-out forwards;
+      animation-delay: 400ms;
+      opacity: 0;
+    }
+
+    .delay-1000 {
+      animation-delay: 1000ms;
+    }
+
+    @keyframes enter-top {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .enter-button {
+      animation: enter-button 400ms ease-out forwards;
+      animation-delay: 1500ms;
+      opacity: 0;
+    }
+
+    @keyframes enter-button {
+      from {
+        opacity: 0;
+        transform: scale(0.6);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
   }
 }
 </style>

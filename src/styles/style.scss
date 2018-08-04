@@ -18,3 +18,18 @@
 .bg-overlay {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
 }
+
+.route-change-enter-active {
+  animation: enter 400ms;
+  animation-delay: 200ms;
+  opacity: 0;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

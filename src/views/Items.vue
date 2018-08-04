@@ -1,7 +1,5 @@
 <template>
   <div class="container my-5">
-    <h1>Items</h1>
-
     <card header="Consumables" class="mb-3">
       <ItemList :ids="consumables"/>
     </card>

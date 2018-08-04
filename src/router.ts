@@ -6,6 +6,7 @@ import Game from './views/Game.vue';
 import Heroes from './views/Heroes.vue';
 import Home from './views/Home.vue';
 import Items from './views/Items.vue';
+import NotFound from './views/NotFound.vue';
 import Play from './views/Play.vue';
 import Settings from './views/Settings.vue';
 
@@ -49,6 +50,11 @@ export default new Router({
       ],
       component: Play,
       path: '/play',
+    },
+    {
+      component: NotFound,
+      name: 'notFound',
+      path: '**',
     },
   ],
 });
