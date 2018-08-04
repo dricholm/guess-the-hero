@@ -32,8 +32,8 @@ export default class HeroIcon extends Vue {
   get imageSrc(): string {
     const folder = this.type === 'portrait' ? 'portraits' : 'heroes';
     return this.valid
-      ? `/img/${folder}/${this.name}.png`
-      : `/img/${folder}/npc_dota_hero_default.png`;
+      ? `/img/${folder}/${this.name}.jpg`
+      : `/img/${folder}/npc_dota_hero_default.jpg`;
   }
 }
 </script>
@@ -45,7 +45,7 @@ img {
 }
 
 .icon {
-  background-image: url('/img/heroes/npc_dota_hero_default.png');
+  background-image: url('/img/heroes/npc_dota_hero_default.jpg');
   height: 72px;
   width: 128px;
 
@@ -56,7 +56,7 @@ img {
 }
 
 .portrait {
-  background-image: url('/img/portraits/npc_dota_hero_default.png');
+  background-image: url('/img/portraits/npc_dota_hero_default.jpg');
   height: 94px;
   width: 71px;
 }

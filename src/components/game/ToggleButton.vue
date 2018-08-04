@@ -26,35 +26,6 @@ export default class ToggleButton extends Vue {
   private toggle() {
     this.shown = !this.shown;
   }
-  // HERO STATS
-  // KDA
-  // LH/DN
-  // level
-  // roaming
-  // lane
-  // role
-  // radiant/dire
-  // roshans killed
-  // stun
-  // teamfight participation
-
-  // FARM
-  // gold
-  // gold spent
-  // gpm
-  // xpm
-
-  // DAMAGE/HEAL
-  // hero dmg
-  // hero heal
-  // tower dmg
-  // tower kill
-
-  // MATCH
-  // avgMmr
-  // duration
-  // patch
-  // win/lose
 }
 </script>
 
@@ -64,7 +35,6 @@ export default class ToggleButton extends Vue {
   display: flex;
   font-size: $font-size-lg;
   justify-content: space-between;
-  padding: ($spacer * 0.5) ($spacer * 0.75);
   transition: background 300ms ease-out;
   width: 100%;
 
@@ -76,7 +46,7 @@ export default class ToggleButton extends Vue {
     cursor: pointer;
     display: flex;
     outline: none;
-    padding: 0;
+    padding: ($spacer * 0.5) ($spacer * 0.75);
     position: relative;
     text-align: left;
     text-transform: uppercase;
@@ -102,7 +72,7 @@ export default class ToggleButton extends Vue {
   .stat-value {
     color: $success;
     font-weight: $font-weight-bold;
-    margin: 0;
+    margin: 0 ($spacer * 0.75);
     opacity: 0;
     overflow: hidden;
     text-align: right;
