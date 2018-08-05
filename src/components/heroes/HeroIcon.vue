@@ -1,14 +1,19 @@
 <template>
-  <img :src="imageSrc" :alt="localizedName" :class="{ portrait: type === 'portrait', icon: type !== 'portrait', small: small }"/>
+  <img :src="imageSrc" :alt="localizedName" :class="{ portrait: type === 'portrait', icon: type !== 'portrait', small: small }" v-bTooltip="localizedName"/>
 </template>
 
 <script lang="ts">
+import bTooltip from 'bootstrap-vue/es/directives/tooltip/tooltip';
 import heroes from 'dotaconstants/build/heroes.json';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 import Hero from '@/interfaces/Hero';
 
-@Component
+@Component({
+  directives: {
+    bTooltip,
+  },
+})
 export default class HeroIcon extends Vue {
   @Prop({ default: 0, type: Number })
   private id!: number;

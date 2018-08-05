@@ -1,7 +1,7 @@
 <template>
   <div class="landing">
     <div class="landing-items">
-      <HeroIcon v-for="id in heroIds" :id="id" :key="id" class="lp-icon"/>
+      <HeroIcon v-for="id in heroIds" :id="id" :key="id" class="lp-icon" disabled/>
     </div>
 
     <div class="landing-overlay"></div>

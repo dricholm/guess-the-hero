@@ -1,15 +1,20 @@
 <template>
-  <img :src="imageSrc" :alt="localizedName" :class="{ backpack }"/>
+  <img :src="imageSrc" :alt="localizedName" :class="{ backpack }" v-bTooltip="localizedName"/>
 </template>
 
 <script lang="ts">
+import bTooltip from 'bootstrap-vue/es/directives/tooltip/tooltip';
 import itemIds from 'dotaconstants/build/item_ids.json';
 import items from 'dotaconstants/build/items.json';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 import Item from '@/interfaces/Item';
 
-@Component
+@Component({
+  directives: {
+    bTooltip,
+  },
+})
 export default class ItemIcon extends Vue {
   @Prop({ default: 0, type: Number })
   private id!: number;
@@ -42,8 +47,9 @@ export default class ItemIcon extends Vue {
 img {
   background-image: url('/img/items/emptyitembg.jpg');
   background-size: cover;
-  height: 64px;
+  cursor: pointer;
   display: inline-block;
+  height: 64px;
   width: 88px;
 }
 
