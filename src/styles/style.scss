@@ -34,3 +34,30 @@
     opacity: 1;
   }
 }
+
+.one-card {
+  @include media-breakpoint-up(lg) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+}
+
+.card-enter-active {
+  animation: card-anim 500ms ease-out forwards;
+}
+
+.card-leave-active {
+  animation: card-anim 500ms ease-in reverse forwards;
+}
+
+@keyframes card-anim {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

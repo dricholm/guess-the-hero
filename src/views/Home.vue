@@ -58,6 +58,7 @@ export default class Home extends Vue {
   .landing-items {
     animation: items 60s infinite alternate;
     display: grid;
+    filter: grayscale(0.8) blur(2px);
     grid-template-columns: repeat(auto-fit, 12.5vmin);
     position: absolute;
     transform: skew(-0.2rad) scale(1.3);
@@ -73,13 +74,8 @@ export default class Home extends Vue {
     }
 
     .lp-icon {
-      filter: grayscale(0.8) blur(2px);
       height: 12.5vmin * 0.5625;
       width: 12.5vmin;
-    }
-
-    :nth-child(3n) {
-      animation: icon-animation 15s infinite alternate;
     }
 
     :nth-child(11n) {
@@ -87,19 +83,6 @@ export default class Home extends Vue {
       grid-row: span 2;
       height: 12.5vmin * 0.5625 * 2;
       width: 12.5vmin * 2;
-    }
-
-    @keyframes icon-animation {
-      0% {
-        filter: grayscale(0.8) blur(3px);
-        transform: none;
-        z-index: 0;
-      }
-      100% {
-        filter: grayscale(0.8) blur(1px);
-        transform: translate(-5px, -5px) scale(1.1);
-        z-index: 1;
-      }
     }
   }
 

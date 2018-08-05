@@ -6,36 +6,36 @@
       <div class="settings-layout">
 
         <card header="MMR" class="mmr">
-          <div class="card-text">
-            <b-form-row>
-              <b-form-group id="filter"
-                            label="Minimum"
-                            label-for="mmr-min"
-                            class="col">
-                <b-form-input id="mmr-min"
-                              type="number"
-                              v-model.number="formData.mmrMin"
-                              min="0"
-                              placeholder="0">
-                </b-form-input>
-              </b-form-group>
-              <b-form-group id="filter"
-                            label="Maximum"
-                            label-for="mmr-max"
-                            class="col">
-                <b-form-input id="mmr-max"
-                              type="number"
-                              v-model.number="formData.mmrMax"
-                              max="9999"
-                              placeholder="9999">
-                </b-form-input>
-              </b-form-group>
-            </b-form-row>
-          </div>
+          <b-form-row class="w-100">
+            <b-form-group id="filter"
+                          label="Minimum"
+                          label-for="mmr-min"
+                          class="col">
+              <b-form-input id="mmr-min"
+                            type="number"
+                            v-model.number="formData.mmrMin"
+                            min="0"
+                            max="9999"
+                            placeholder="0">
+              </b-form-input>
+            </b-form-group>
+            <b-form-group id="filter"
+                          label="Maximum"
+                          label-for="mmr-max"
+                          class="col">
+              <b-form-input id="mmr-max"
+                            type="number"
+                            v-model.number="formData.mmrMax"
+                            min="0"
+                            max="9999"
+                            placeholder="9999">
+              </b-form-input>
+            </b-form-group>
+          </b-form-row>
         </card>
 
         <card header="Duration" class="duration">
-          <b-form-row>
+          <b-form-row class="w-100">
             <b-form-group id="filter"
                           label="Minimum"
                           label-for="duration-min"
@@ -45,6 +45,7 @@
                             type="number"
                             v-model.number="formData.durationMin"
                             min="0"
+                            max="999"
                             placeholder="0">
               </b-form-input>
             </b-form-group>
@@ -56,6 +57,7 @@
               <b-form-input id="duration-max"
                             type="number"
                             v-model.number="formData.durationMax"
+                            min="0"
                             max="999"
                             placeholder="999">
               </b-form-input>
@@ -64,11 +66,20 @@
         </card>
       </div>
 
+
       <div class="d-flex justify-content-center mt-4">
         <b-button variant="primary" size="lg" type="submit" class="mr-3">
           Save
         </b-button>
       </div>
+
+      <transition name="card">
+        <div class="one-card" v-if="saved">
+          <card header="Saved" class="my-3">
+            Settings saved!
+          </card>
+        </div>
+      </transition>
 
     </b-form>
 
@@ -103,6 +114,8 @@ export default class Settings extends Vue {
   @Getter('settings', { namespace: 'settings' })
   private state!: SettingsState;
 
+  private saved: boolean = false;
+
   private formData: SettingsState = {
     durationMax: 300,
     durationMin: 20,
@@ -125,7 +138,13 @@ export default class Settings extends Vue {
   }
 
   private submit() {
-    this.saveSettings(this.formData);
+    const result = this.saveSettings(this.formData);
+
+    this.saved = true;
+
+    setTimeout(() => {
+      this.saved = false;
+    }, 2000);
 
     // Reload from store in case empty values were submitted
     this.formData = {
@@ -151,7 +170,7 @@ export default class Settings extends Vue {
     auto;
 
   @include media-breakpoint-up(md) {
-    grid-template-areas: 'mmr duration game-mode';
+    grid-template-areas: 'mmr duration';
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
   }

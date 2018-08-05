@@ -2,9 +2,18 @@
   <div class="container my-5">
     <loader :isLoading="isLoading" :error="error" v-if="isLoading || error"/>
 
-    <card header="Error" v-if="error" class="mb-3">
-      Could not fetch match data.
-    </card>
+    <transition name="card">
+      <div class="one-card" v-if="error">
+        <card header="Error" class="mb-3" bodyClass="justify-content-between">
+          <p class="mr-3">
+            Could not fetch match data.
+          </p>
+          <b-button variant="primary" @click="queryMatch">
+            Try again
+          </b-button>
+        </card>
+      </div>
+    </transition>
 
     <card header="Result" v-if="submitted" class="mb-3" id="results">
       <result :correct="correct" :matchId="currentMatch.matchId" :heroId="currentMatch.heroId" @next="onNext" />
@@ -29,6 +38,7 @@
 </template>
 
 <script lang="ts">
+import bButton from 'bootstrap-vue/es/components/button/button';
 import heroes from 'dotaconstants/build/heroes.json';
 import { Component, Vue } from 'vue-property-decorator';
 import { Action, Getter } from 'vuex-class';
@@ -55,6 +65,7 @@ import SettingsState from '@/store/settings/types';
     Loader,
     Result,
     Stats,
+    bButton,
   },
 })
 export default class Game extends Vue {
