@@ -9,6 +9,7 @@
     "test": "vue-cli-service test:unit --watch",
     "coverage": "vue-cli-service test:unit --coverage",
     "inspect": "vue-cli-service inspect",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
@@ -56,5 +57,6 @@
       "vue-cli-service lint",
       "git add"
     ]
-  }
+  },
+  "homepage": "https://dricholm.github.io/guess-the-hero"
 }

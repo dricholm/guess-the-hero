@@ -36,16 +36,16 @@ export default class ItemIcon extends Vue {
   get imageSrc(): string {
     return this.valid
       ? this.name.startsWith('recipe_')
-        ? '/img/items/recipe.jpg'
-        : `/img/items/${this.name}.jpg`
-      : '/img/items/emptyitembg.jpg';
+        ? `${process.env.BASE_URL}img/items/recipe.jpg`
+        : `${process.env.BASE_URL}img/items/${this.name}.jpg`
+      : `${process.env.BASE_URL}img/items/emptyitembg.jpg`;
   }
 }
 </script>
 
 <style lang="scss" scoped>
 img {
-  background-image: url('/img/items/emptyitembg.jpg');
+  background-image: url('../../../public/img/items/emptyitembg.jpg');
   background-size: cover;
   cursor: pointer;
   display: inline-block;
