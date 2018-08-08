@@ -53,13 +53,11 @@ import { Component, Vue } from 'vue-property-decorator';
 
 import Card from '@/components/core/Card.vue';
 import StatList from '@/components/core/StatList.vue';
-import HeroIcon from '@/components/heroes/HeroIcon.vue';
 import Hero from '@/interfaces/Hero';
 
 @Component({
   components: {
     Card,
-    HeroIcon,
     StatList,
   },
 })
