@@ -3,7 +3,9 @@ import Router from 'vue-router';
 
 import About from './views/About.vue';
 import Game from './views/Game.vue';
+import HeroDetail from './views/HeroDetail.vue';
 import Heroes from './views/Heroes.vue';
+import HeroesRoot from './views/HeroesRoot.vue';
 import Home from './views/Home.vue';
 import Items from './views/Items.vue';
 import NotFound from './views/NotFound.vue';
@@ -22,8 +24,19 @@ export default new Router({
       path: '/about',
     },
     {
-      component: Heroes,
-      name: 'heroes',
+      children: [
+        {
+          component: Heroes,
+          name: 'heroes',
+          path: '',
+        },
+        {
+          component: HeroDetail,
+          name: 'heroDetail',
+          path: ':id',
+        },
+      ],
+      component: HeroesRoot,
       path: '/heroes',
     },
     {
@@ -41,7 +54,7 @@ export default new Router({
         {
           component: Game,
           name: 'game',
-          path: '/',
+          path: '',
         },
         {
           component: Settings,

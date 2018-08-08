@@ -39,6 +39,7 @@ export default class Card extends Vue {
   .card-body {
     display: flex;
     flex: 1 1 auto;
+    flex-wrap: wrap;
     padding: $spacer * 1.25;
   }
 }

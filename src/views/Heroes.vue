@@ -1,15 +1,7 @@
 <template>
   <div class="container my-5">
-    <card header="Strength" class="mb-3">
-      <HeroList :filter="attributeHeroes('str')" type="portrait"/>
-    </card>
-
-    <card header="Agility" class="mb-3">
-      <HeroList :filter="attributeHeroes('agi')" type="portrait"/>
-    </card>
-
-    <card header="Intelligence" class="mb-3">
-      <HeroList :filter="attributeHeroes('int')" type="portrait"/>
+    <card v-for="collection in heroesByAttribute" :header="collection.title" :key="collection.title" class="mb-3">
+      <HeroList :filter="collection.filter" type="portrait" @click="onClick" />
     </card>
   </div>
 </template>
@@ -29,8 +21,29 @@ import Hero from '@/interfaces/Hero';
   },
 })
 export default class Heroes extends Vue {
+  private get heroesByAttribute() {
+    return [
+      {
+        filter: this.attributeHeroes('str'),
+        title: 'Strength',
+      },
+      {
+        filter: this.attributeHeroes('agi'),
+        title: 'Agility',
+      },
+      {
+        filter: this.attributeHeroes('int'),
+        title: 'Intelligence',
+      },
+    ];
+  }
+
   private attributeHeroes(attribute: string) {
     return (data: Hero) => data.primary_attr === attribute;
+  }
+
+  private onClick(heroId: number) {
+    this.$router.push({ name: 'heroDetail', params: { id: heroId.toString() }});
   }
 }
 </script>

@@ -29,7 +29,7 @@ export default class HeroList extends Vue {
   }
 
   private get heroes(): Hero[] {
-    return Object.values(heroes as Hero)
+    return Object.values<Hero>(heroes)
       .filter(this.filter)
       .sort((a: Hero, b: Hero) => {
         if (a.localized_name < b.localized_name) {
@@ -74,7 +74,7 @@ export default class HeroList extends Vue {
     filter: saturate(40%);
     transition: all 300ms ease-out;
 
-    &:hover {
+    @include hover-focus {
       box-shadow: $box-shadow-lg;
       filter: saturate(100%);
       transform: scale(1.3);
