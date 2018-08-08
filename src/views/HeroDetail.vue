@@ -18,17 +18,7 @@
     </card>
 
     <card header="Stats" class="stats">
-      <ul class="desc-list">
-        <li v-for="stat in stats" :key="stat.id">
-          <p class="desc-term">
-            {{ stat.title }}
-          </p>
-          <p class="desc-line"></p>
-          <p class="desc-value">
-            {{ stat.value }}
-          </p>
-        </li>
-      </ul>
+      <stat-list :stats="stats"/>
     </card>
 
     <card header="Links" class="links">
@@ -62,6 +52,7 @@ import heroes from 'dotaconstants/build/heroes.json';
 import { Component, Vue } from 'vue-property-decorator';
 
 import Card from '@/components/core/Card.vue';
+import StatList from '@/components/core/StatList.vue';
 import HeroIcon from '@/components/heroes/HeroIcon.vue';
 import Hero from '@/interfaces/Hero';
 
@@ -69,6 +60,7 @@ import Hero from '@/interfaces/Hero';
   components: {
     Card,
     HeroIcon,
+    StatList,
   },
 })
 export default class HeroDetail extends Vue {

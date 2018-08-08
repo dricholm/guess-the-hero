@@ -127,8 +127,8 @@ describe('HeroDetail.vue', () => {
       stubs: ['router-link'],
     });
 
-    const title = wrapper.findAll('.stats .desc-term');
-    const stats = wrapper.findAll('.stats .desc-value');
+    const title = wrapper.findAll('.stats .stat-title');
+    const stats = wrapper.findAll('.stats .stat-value');
     expect(title.length).toBe(23);
     expect(stats.length).toBe(23);
 
