@@ -12,28 +12,28 @@
       <toggleButton title="Teamfight participation" :value="teamfight"/>
     </card>
 
-    <card header="Economy" class="economy-stats" body-class="flex-column  justify-content-center">
+    <card header="Economy" class="economy-stats" body-class="flex-column justify-content-center">
       <toggleButton title="Gold" :value="formatNumber(stats.gold)"/>
       <toggleButton title="Gold spent" :value="formatNumber(stats.goldSpent)"/>
       <toggleButton title="GPM" :value="formatNumber(stats.gpm)"/>
       <toggleButton title="XPM" :value="formatNumber(stats.xpm)"/>
     </card>
 
-    <card header="Damage and heal" class="damage-stats" body-class="flex-column  justify-content-center">
+    <card header="Damage and heal" class="damage-stats" body-class="flex-column justify-content-center">
       <toggleButton title="Hero damage" :value="formatNumber(stats.heroDamage)"/>
       <toggleButton title="Hero heal" :value="formatNumber(stats.heroHealing)"/>
       <toggleButton title="Tower damage" :value="formatNumber(stats.towerDamage)"/>
       <toggleButton title="Towers destroyed" :value="stats.towersKilled"/>
     </card>
 
-    <card header="Position" class="position-stats" body-class="flex-column  justify-content-center">
+    <card header="Position" class="position-stats" body-class="flex-column justify-content-center">
       <toggleButton title="Team" :value="team"/>
       <toggleButton title="Roaming" :value="roaming"/>
       <toggleButton title="Lane" :value="lane"/>
       <toggleButton title="Role" :value="laneRole"/>
     </card>
 
-    <card header="Match" class="match-stats" body-class="flex-column  justify-content-center">
+    <card header="Match" class="match-stats" body-class="flex-column justify-content-center">
       <toggleButton title="Average MMR" :value="stats.avgMmr"/>
       <toggleButton title="Duration" :value="duration"/>
       <toggleButton title="Patch" :value="stats.patch"/>
