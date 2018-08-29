@@ -27,10 +27,10 @@ describe('Inventory.vue', () => {
     expect(items.at(5).attributes().id).toBe('0');
     expect(items.at(5).attributes().backpack).toBeUndefined();
     expect(items.at(6).attributes().id).toBe('10');
-    expect(items.at(6).attributes().backpack).toBe('');
+    expect(items.at(6).attributes().backpack).toBe('true');
     expect(items.at(7).attributes().id).toBe('0');
-    expect(items.at(7).attributes().backpack).toBe('');
+    expect(items.at(7).attributes().backpack).toBe('true');
     expect(items.at(8).attributes().id).toBe('0');
-    expect(items.at(8).attributes().backpack).toBe('');
+    expect(items.at(8).attributes().backpack).toBe('true');
   });
 });

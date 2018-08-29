@@ -72,12 +72,25 @@ export default class HeroList extends Vue {
     box-shadow: $box-shadow;
     cursor: pointer;
     filter: saturate(40%);
-    transition: all 300ms ease-out;
+    transition: filter 300ms ease-out;
 
     @include hover-focus {
+      animation: pop-out 300ms forwards;
       box-shadow: $box-shadow-lg;
       filter: saturate(100%);
-      transform: scale(1.3);
+      z-index: 1;
+    }
+
+    @keyframes pop-out {
+      0% {
+        transform: scale(1);
+      }
+      75% {
+        transform: scale(1.4);
+      }
+      100% {
+        transform: scale(1.3);
+      }
     }
   }
 }

@@ -9,7 +9,7 @@ describe('HeroList.vue', () => {
 
     const list = wrapper.findAll({ name: 'HeroIcon' });
 
-    expect(list.length).toBe(115);
+    expect(list.length).toBe(116);
     expect(+list.at(0).attributes().id).toBe(102);
     expect(+list.at(1).attributes().id).toBe(73);
   });
