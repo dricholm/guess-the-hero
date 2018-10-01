@@ -1,5 +1,7 @@
 # Guess the Hero
 
+[![Build Status](https://travis-ci.com/dricholm/guess-the-hero.svg?branch=master)](https://travis-ci.com/dricholm/guess-the-hero)
+
 A webapp for guessing DotA 2 heroes in public matches by seeing only the items purchased.
 
 ## Live demo
@@ -36,6 +38,9 @@ npm run lint
 
 ```
 npm test
+
+# Watch mode
+npm run test:watch
 ```
 
 ### Generate unit test code coverage
