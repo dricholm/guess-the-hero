@@ -72,7 +72,7 @@ export default class Items extends Vue {
   }
 
   get attributes(): number[] {
-    return [16, 13, 14, 15, 20, 17, 18, 19, 21, 22, 23];
+    return [16, 13, 14, 15, 20, 17, 18, 19, 261, 21, 22, 23];
   }
 
   get armaments(): number[] {
@@ -80,28 +80,28 @@ export default class Items extends Vue {
   }
 
   get arcane(): number[] {
-    return [34, 244, 27, 28, 29, 25, 31, 56, 57, 30, 26, 215, 37, 1];
+    return [34, 244, 27, 28, 29, 25, 31, 279, 56, 57, 30, 26, 215, 37, 1];
   }
 
   get common(): number[] {
-    return [36, 77, 75, 73, 178, 50, 63, 67, 69, 65, 48, 247];
+    return [36, 77, 75, 73, 178, 63, 50, 67, 69, 172, 164, 65, 48, 247];
   }
 
   get support(): number[] {
-    return [88, 94, 86, 92, 214, 212, 187, 180, 185, 81, 79, 267, 90, 231];
+    return [88, 94, 86, 92, 214, 187, 180, 185, 81, 79, 269, 267, 90, 231];
   }
 
   get caster(): number[] {
     return [
       254,
       190,
-      232,
       102,
+      232,
       106,
-      229,
       104,
       100,
       206,
+      229,
       98,
       108,
       225,
@@ -117,15 +117,15 @@ export default class Items extends Vue {
       125,
       127,
       129,
-      242,
       256,
-      116,
+      242,
       226,
-      119,
+      116,
       263,
-      123,
-      121,
+      119,
       147,
+      121,
+      123,
       114,
       112,
     ];
@@ -157,14 +157,14 @@ export default class Items extends Vue {
       162,
       170,
       259,
-      172,
-      164,
       252,
       166,
       174,
       210,
       168,
+      273,
       154,
+      277,
       160,
       156,
       158,
@@ -172,7 +172,7 @@ export default class Items extends Vue {
   }
 
   get secretShop(): number[] {
-    return [59, 61, 60, 9, 32, 55, 24, 51, 58, 53, 52, 54];
+    return [41, 56, 57, 59, 61, 60, 9, 32, 55, 24, 51, 58, 53, 52, 54];
   }
 
   get dropped(): number[] {
@@ -180,7 +180,7 @@ export default class Items extends Vue {
   }
 
   get removed(): number[] {
-    return [71, 239];
+    return [71, 239, 212];
   }
 }
 </script>
