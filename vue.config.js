@@ -1,5 +1,4 @@
 module.exports = {
-  baseUrl: process.env.BASE_URL,
   css: {
     loaderOptions: {
       sass: {
@@ -14,4 +13,5 @@ module.exports = {
       },
     },
   },
+  publicPath: process.env.BASE_URL,
 };

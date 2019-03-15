@@ -46,10 +46,10 @@ describe('Settings.vue', () => {
     expect(getters.settings).toHaveBeenCalledTimes(1);
 
     expect(numbers.length).toBe(4);
-    expect(+numbers.at(0).attributes().value).toBe(state.mmrMin);
-    expect(+numbers.at(1).attributes().value).toBe(state.mmrMax);
-    expect(+numbers.at(2).attributes().value).toBe(state.durationMin);
-    expect(+numbers.at(3).attributes().value).toBe(state.durationMax);
+    expect(+(numbers.at(0).element as HTMLInputElement).value).toBe(state.mmrMin);
+    expect(+(numbers.at(1).element as HTMLInputElement).value).toBe(state.mmrMax);
+    expect(+(numbers.at(2).element as HTMLInputElement).value).toBe(state.durationMin);
+    expect(+(numbers.at(3).element as HTMLInputElement).value).toBe(state.durationMax);
   });
 
   it('should dispatch action with input values', () => {
