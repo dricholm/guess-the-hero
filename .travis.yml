@@ -1,6 +1,9 @@
 language: node_js
 node_js:
-  - 'node'
+# FIXME: Use Node <11.11 for Jest compatibility
+# See: https://github.com/facebook/jest/issues/8069
+#  - 'node'
+  - '11.10.1'
 
 branches:
   only:

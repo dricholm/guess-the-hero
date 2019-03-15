@@ -23,7 +23,7 @@ export default class HeroIcon extends Vue {
   private small!: boolean;
 
   get name(): string {
-    return (heroes[this.id] as Hero).name;
+    return this.valid ? (heroes[this.id] as Hero).name : 'Empty';
   }
 
   get localizedName(): string {
