@@ -14,4 +14,7 @@ module.exports = {
     },
   },
   publicPath: process.env.BASE_URL,
+  pwa: {
+    manifestPath: 'manifest.webmanifest',
+  },
 };
