@@ -1,5 +1,5 @@
 <template>
-  <div class="container my-5">
+  <div class="container my-5 item-categories">
     <card header="Consumables" class="mb-3">
       <ItemList :ids="consumables" />
     </card>
@@ -16,16 +16,16 @@
       <ItemList :ids="arcane" />
     </card>
 
-    <card header="Common" class="mb-3">
-      <ItemList :ids="common" />
+    <card header="Accessories" class="mb-3">
+      <ItemList :ids="accessories" />
     </card>
 
     <card header="Support" class="mb-3">
       <ItemList :ids="support" />
     </card>
 
-    <card header="Caster" class="mb-3">
-      <ItemList :ids="caster" />
+    <card header="Magical" class="mb-3">
+      <ItemList :ids="magical" />
     </card>
 
     <card header="Armor" class="mb-3">
@@ -53,6 +53,18 @@
     </card>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.item-categories {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: $spacer;
+
+  @include media-breakpoint-up('lg') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
@@ -83,7 +95,7 @@ export default class Items extends Vue {
     return [34, 244, 27, 28, 29, 25, 31, 279, 56, 57, 30, 26, 215, 37, 1];
   }
 
-  get common(): number[] {
+  get accessories(): number[] {
     return [36, 77, 75, 73, 178, 63, 50, 67, 69, 172, 164, 65, 48, 247];
   }
 
@@ -91,7 +103,7 @@ export default class Items extends Vue {
     return [88, 94, 86, 92, 214, 187, 180, 185, 81, 79, 269, 267, 90, 231];
   }
 
-  get caster(): number[] {
+  get magical(): number[] {
     return [
       254,
       190,
