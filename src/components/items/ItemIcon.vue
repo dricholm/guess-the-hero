@@ -1,5 +1,10 @@
 <template>
-  <img :src="imageSrc" :alt="localizedName" :class="{ backpack }" v-bTooltip="localizedName"/>
+  <img
+    :src="imageSrc"
+    :alt="localizedName"
+    :class="{ backpack }"
+    v-bTooltip="localizedName"
+  />
 </template>
 
 <script lang="ts">

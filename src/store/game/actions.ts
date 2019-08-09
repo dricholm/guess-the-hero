@@ -13,7 +13,7 @@ export const actions: ActionTree<GameState, {}> = {
         settings.durationMin,
         settings.durationMax,
         settings.mmrMin,
-        settings.mmrMax
+        settings.mmrMax,
       );
       commit('saveMatchData', matchData);
     } catch (error) {

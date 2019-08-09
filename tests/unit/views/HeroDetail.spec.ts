@@ -92,11 +92,11 @@ describe('HeroDetail.vue', () => {
     expect(links.length).toBe(2);
     expect(links.at(0).text()).toBe('DotaBuff');
     expect(links.at(0).attributes().href).toBe(
-      'https://dotabuff.com/heroes/queen-of-pain'
+      'https://dotabuff.com/heroes/queen-of-pain',
     );
     expect(links.at(1).text()).toBe('OpenDota');
     expect(links.at(1).attributes().href).toBe(
-      'https://opendota.com/heroes/39'
+      'https://opendota.com/heroes/39',
     );
   });
 
@@ -114,7 +114,7 @@ describe('HeroDetail.vue', () => {
 
     const image = wrapper.find('.overview img');
     expect(image.attributes().src).toContain(
-      'heroes/npc_dota_hero_antimage.jpg'
+      'heroes/npc_dota_hero_antimage.jpg',
     );
   });
 
@@ -154,7 +154,7 @@ describe('HeroDetail.vue', () => {
     expect(stats.at(8).text()).toBe(amStats.base_mr.toString());
     expect(title.at(9).text()).toBe('Base attack');
     expect(stats.at(9).text()).toBe(
-      `${amStats.base_attack_min} - ${amStats.base_attack_max}`
+      `${amStats.base_attack_min} - ${amStats.base_attack_max}`,
     );
     expect(title.at(10).text()).toBe('Base STR');
     expect(stats.at(10).text()).toBe(amStats.base_str.toString());

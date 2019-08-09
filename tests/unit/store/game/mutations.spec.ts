@@ -172,7 +172,7 @@ describe('game mutations', () => {
     expect(state.currentMatch.roshansKilled).toBe(dummyData.roshansKilled);
     expect(state.currentMatch.stuns).toBe(dummyData.stuns);
     expect(state.currentMatch.teamfightParticipation).toBe(
-      dummyData.teamfightParticipation
+      dummyData.teamfightParticipation,
     );
     expect(state.currentMatch.towerDamage).toBe(dummyData.towerDamage);
     expect(state.currentMatch.towersKilled).toBe(dummyData.towersKilled);

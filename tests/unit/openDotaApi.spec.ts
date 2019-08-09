@@ -60,8 +60,8 @@ describe('OpenDotaApi', () => {
         new RegExp(
           'WHERE%0A' +
             'public_matches.avg_mmr%20%3E%202000%20AND%20public_matches.avg_mmr%20%3C%206000%0AAND%0A' +
-            'public_matches.duration%20%3E%20600%20AND%20public_matches.duration%20%3C%205400%0AORDER'
-        )
+            'public_matches.duration%20%3E%20600%20AND%20public_matches.duration%20%3C%205400%0AORDER',
+        ),
       )
       .reply(200, { rows: [mockBody] });
 
@@ -115,8 +115,8 @@ describe('OpenDotaApi', () => {
         new RegExp(
           'WHERE%0A' +
             'public_matches.avg_mmr%20%3E%202000%20AND%20public_matches.avg_mmr%20%3C%206000%0AAND%0A' +
-            'public_matches.duration%20%3E%20600%20AND%20public_matches.duration%20%3C%205400%0AORDER'
-        )
+            'public_matches.duration%20%3E%20600%20AND%20public_matches.duration%20%3C%205400%0AORDER',
+        ),
       )
       .reply(200, { rows: [] });
 

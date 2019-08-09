@@ -24,7 +24,9 @@ describe('HeroIcon.vue', () => {
     const img = wrapper.find('img');
 
     expect(img.attributes().alt).toBe('Empty');
-    expect(img.attributes().src).toBe('/img/portraits/npc_dota_hero_default.jpg');
+    expect(img.attributes().src).toBe(
+      '/img/portraits/npc_dota_hero_default.jpg',
+    );
     expect(img.classes()).toContain('portrait');
     expect(img.classes()).not.toContain('icon');
   });

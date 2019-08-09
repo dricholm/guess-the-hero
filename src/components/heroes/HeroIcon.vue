@@ -1,5 +1,14 @@
 <template>
-  <img :src="imageSrc" :alt="localizedName" :class="{ portrait: type === 'portrait', icon: type !== 'portrait', small: small }" v-bTooltip="localizedName"/>
+  <img
+    :src="imageSrc"
+    :alt="localizedName"
+    :class="{
+      portrait: type === 'portrait',
+      icon: type !== 'portrait',
+      small: small,
+    }"
+    v-bTooltip="localizedName"
+  />
 </template>
 
 <script lang="ts">

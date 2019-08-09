@@ -4,7 +4,6 @@ module.exports = {
     '^.+\\.vue$': 'vue-jest',
     '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$':
       'jest-transform-stub',
-    '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.tsx?$': 'ts-jest',
   },
   moduleNameMapper: {
@@ -16,4 +15,8 @@ module.exports = {
   ],
   transformIgnorePatterns: ['node_modules/(?!bootstrap-vue/)'],
   setupFiles: ['./tests/config.ts', './tests/browserMocks.ts'],
+  watchPlugins: [
+    'jest-watch-typeahead/filename',
+    'jest-watch-typeahead/testname',
+  ],
 };

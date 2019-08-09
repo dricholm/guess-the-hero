@@ -1,11 +1,17 @@
 <template>
   <header>
-    <b-navbar toggleable="md" type="dark" variant="overlay" class="navbar" :class="{ shown }">
+    <b-navbar
+      toggleable="md"
+      type="dark"
+      variant="overlay"
+      class="navbar"
+      :class="{ shown }"
+    >
       <b-navbar-brand to="/" class="navbar-brand" @click="shown = false">
         Guess the Hero
       </b-navbar-brand>
 
-      <b-navbar-toggle target="navContent"/>
+      <b-navbar-toggle target="navContent" />
 
       <b-collapse is-nav id="navContent" v-model="shown">
         <b-navbar-nav>
@@ -21,7 +27,7 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <Backdrop v-if="shown" @click.native="shown = false"/>
+    <Backdrop v-if="shown" @click.native="shown = false" />
   </header>
 </template>
 

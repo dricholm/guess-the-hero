@@ -1,6 +1,6 @@
 <template>
   <div class="container my-5">
-    <loader :isLoading="isLoading" :error="error" v-if="isLoading || error"/>
+    <loader :isLoading="isLoading" :error="error" v-if="isLoading || error" />
 
     <transition name="card">
       <div class="one-card" v-if="error">
@@ -16,23 +16,39 @@
     </transition>
 
     <card header="Result" v-if="submitted" class="mb-3" id="results">
-      <result :correct="correct" :matchId="currentMatch.matchId" :heroId="currentMatch.heroId" @next="onNext" />
+      <result
+        :correct="correct"
+        :matchId="currentMatch.matchId"
+        :heroId="currentMatch.heroId"
+        @next="onNext"
+      />
     </card>
 
     <div class="game-layout" v-if="!isLoading && !error">
       <card header="Inventory" class="inventory">
-        <Inventory class="mx-auto" :inventory="inventory" :backpack="backpack"/>
+        <Inventory
+          class="mx-auto"
+          :inventory="inventory"
+          :backpack="backpack"
+        />
       </card>
 
       <card header="Hero" class="hero">
-        <hero-picker class="hero" :selectedHero="selectedHero" :disabled="isGameStopped" @filter="onFilter" @select="onSelectHero" @pick="onPick"/>
+        <hero-picker
+          class="hero"
+          :selectedHero="selectedHero"
+          :disabled="isGameStopped"
+          @filter="onFilter"
+          @select="onSelectHero"
+          @pick="onPick"
+        />
       </card>
 
       <card header="Heroes" class="heroes">
-        <HeroList small :filter="heroFilter()" @click="onSelectHero"/>
+        <HeroList small :filter="heroFilter()" @click="onSelectHero" />
       </card>
 
-      <stats :stats="currentMatch" class="stats"/>
+      <stats :stats="currentMatch" class="stats" />
     </div>
   </div>
 </template>

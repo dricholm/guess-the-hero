@@ -1,6 +1,17 @@
 <template>
-  <div class="hero-grid" :class="{ 'grid-portrait': type === 'portrait', 'small': small}">
-    <HeroIcon :id="hero.id" v-for="hero in heroes" :key="hero.id" :type="type" class="hero-icon" :small="small" @click.native="click(hero.id)"/>
+  <div
+    class="hero-grid"
+    :class="{ 'grid-portrait': type === 'portrait', small: small }"
+  >
+    <HeroIcon
+      :id="hero.id"
+      v-for="hero in heroes"
+      :key="hero.id"
+      :type="type"
+      class="hero-icon"
+      :small="small"
+      @click.native="click(hero.id)"
+    />
   </div>
 </template>
 

@@ -1,6 +1,11 @@
 <template>
   <div class="container my-5">
-    <card v-for="collection in heroesByAttribute" :header="collection.title" :key="collection.title" class="mb-3">
+    <card
+      v-for="collection in heroesByAttribute"
+      :header="collection.title"
+      :key="collection.title"
+      class="mb-3"
+    >
       <HeroList :filter="collection.filter" type="portrait" @click="onClick" />
     </card>
   </div>
@@ -43,7 +48,10 @@ export default class Heroes extends Vue {
   }
 
   private onClick(heroId: number) {
-    this.$router.push({ name: 'heroDetail', params: { id: heroId.toString() }});
+    this.$router.push({
+      name: 'heroDetail',
+      params: { id: heroId.toString() },
+    });
   }
 }
 </script>

@@ -1,33 +1,49 @@
 <template>
   <div class="container my-5 detail-layout" v-if="!error">
     <div class="navigation">
-      <router-link v-if="previousHero" :to="{ name: 'heroDetail', params: { id: previousHero.id.toString() }}" class="hero-link prev">
-        {{ previousHero.localized_name }}
-      </router-link>
+      <router-link
+        v-if="previousHero"
+        :to="{ name: 'heroDetail', params: { id: previousHero.id.toString() } }"
+        class="hero-link prev"
+        >{{ previousHero.localized_name }}</router-link
+      >
 
-      <router-link v-if="nextHero" :to="{ name: 'heroDetail', params: { id: nextHero.id.toString() }}" class="hero-link next">
-        {{ nextHero.localized_name }}
-      </router-link>
+      <router-link
+        v-if="nextHero"
+        :to="{ name: 'heroDetail', params: { id: nextHero.id.toString() } }"
+        class="hero-link next"
+        >{{ nextHero.localized_name }}</router-link
+      >
     </div>
 
     <card header="Overview" class="overview">
       <div class="overview-content">
-        <img :src="heroImage" :alt="hero.localized_name" class="hero-image">
+        <img :src="heroImage" :alt="hero.localized_name" class="hero-image" />
         <h2 class="overview-title">{{ hero.localized_name }}</h2>
       </div>
     </card>
 
     <card header="Stats" class="stats">
-      <stat-list :stats="stats"/>
+      <stat-list :stats="stats" />
     </card>
 
     <card header="Links" class="links">
       <ul class="sites">
         <li>
-          <a :href="`https://dotabuff.com/heroes/${hero.localized_name.toLowerCase().replace(/ /g, '-')}`" target="_blank">DotaBuff</a>
+          <a
+            :href="
+              `https://dotabuff.com/heroes/${hero.localized_name
+                .toLowerCase()
+                .replace(/ /g, '-')}`
+            "
+            target="_blank"
+            >DotaBuff</a
+          >
         </li>
         <li>
-          <a :href="`https://opendota.com/heroes/${hero.id}`" target="_blank">OpenDota</a>
+          <a :href="`https://opendota.com/heroes/${hero.id}`" target="_blank"
+            >OpenDota</a
+          >
         </li>
       </ul>
     </card>
@@ -36,12 +52,8 @@
   <div class="container my-5" v-else>
     <card header="Error">
       <div>
-        <p>
-          Hero was not found
-        </p>
-        <router-link :to="{ name: 'heroes' }">
-          Go back to heroes
-        </router-link>
+        <p>Hero was not found</p>
+        <router-link :to="{ name: 'heroes' }">Go back to heroes</router-link>
       </div>
     </card>
   </div>
@@ -69,7 +81,7 @@ export default class HeroDetail extends Vue {
   };
 
   private get error(): boolean {
-    return !heroes.hasOwnProperty(this.$route.params.id);
+    return !Object.prototype.hasOwnProperty.call(heroes, this.$route.params.id);
   }
 
   private get hero(): Hero {
@@ -104,7 +116,7 @@ export default class HeroDetail extends Vue {
 
   private get currentIndex(): number {
     return this.heroIdList.findIndex(
-      (value: number) => value === +this.$route.params.id
+      (value: number) => value === +this.$route.params.id,
     );
   }
 

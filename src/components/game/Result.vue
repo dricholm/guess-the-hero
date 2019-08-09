@@ -1,11 +1,14 @@
 <template>
   <div class="result-layout">
-    <h3 class="result" :class="{ 'text-success': correct, 'text-danger': !correct }">
+    <h3
+      class="result"
+      :class="{ 'text-success': correct, 'text-danger': !correct }"
+    >
       {{ correct ? 'Correct' : 'Incorrect' }}
     </h3>
 
     <div class="hero-portrait">
-      <hero-icon :id="heroId" class="mr-2 mb-2"/>
+      <hero-icon :id="heroId" class="mr-2 mb-2" />
       <h3 class="text-uppercase font-weight-bold">
         {{ heroName }}
       </h3>
@@ -13,10 +16,14 @@
 
     <ul class="sites">
       <li>
-        <a :href="`https://www.dotabuff.com/matches/${matchId}`" target="_blank">DotaBuff</a>
+        <a :href="`https://www.dotabuff.com/matches/${matchId}`" target="_blank"
+          >DotaBuff</a
+        >
       </li>
       <li>
-        <a :href="`https://www.opendota.com/matches/${matchId}`" target="_blank">OpenDota</a>
+        <a :href="`https://www.opendota.com/matches/${matchId}`" target="_blank"
+          >OpenDota</a
+        >
       </li>
     </ul>
 

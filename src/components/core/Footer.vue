@@ -7,7 +7,8 @@
 
       <p>
         Dota 2 is a registered trademark of Valve Corporation.
-        <br>This site and service are not related in any way to Valve Corporation.
+        <br />This site and service are not related in any way to Valve
+        Corporation.
       </p>
 
       <router-link :to="{ name: 'about' }">About</router-link>

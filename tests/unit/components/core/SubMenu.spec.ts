@@ -6,7 +6,10 @@ describe('SubMenu.vue', () => {
   it('should show items', () => {
     const wrapper = mount(SubMenu, {
       propsData: {
-        items: [{ name: 'Home', to: '/home' }, { name: 'Second', to: '/home/second' }],
+        items: [
+          { name: 'Home', to: '/home' },
+          { name: 'Second', to: '/home/second' },
+        ],
       },
     });
 

@@ -1,7 +1,13 @@
 <template>
   <div class="landing">
     <div class="landing-items">
-      <HeroIcon v-for="id in heroIds" :id="id" :key="id" class="lp-icon" disabled/>
+      <HeroIcon
+        v-for="id in heroIds"
+        :id="id"
+        :key="id"
+        class="lp-icon"
+        disabled
+      />
     </div>
 
     <div class="landing-overlay"></div>
@@ -15,9 +21,11 @@
         How well can you guess a hero from seeing their purchased items?
       </p>
 
-      <router-link :to="{ name: 'game' }" class="btn btn-primary btn-lg px-5 text-uppercase my-3 enter-button">
-        Play now
-      </router-link>
+      <router-link
+        :to="{ name: 'game' }"
+        class="btn btn-primary btn-lg px-5 text-uppercase my-3 enter-button"
+        >Play now</router-link
+      >
     </div>
   </div>
 </template>
@@ -142,7 +150,6 @@ export default class Home extends Vue {
         transform: scale(1);
       }
     }
-
   }
 }
 </style>

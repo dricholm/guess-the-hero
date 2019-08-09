@@ -1,7 +1,18 @@
 <template>
   <div class="inventory-container">
-    <ItemIcon v-for="(id, index) in inventory" :id="id" :key="`i-${index}`" class="inventory-item"/>
-    <ItemIcon v-for="(id, index) in backpack" :id="id" :key="`b-${index}`" backpack class="inventory-item"/>
+    <ItemIcon
+      v-for="(id, index) in inventory"
+      :id="id"
+      :key="`i-${index}`"
+      class="inventory-item"
+    />
+    <ItemIcon
+      v-for="(id, index) in backpack"
+      :id="id"
+      :key="`b-${index}`"
+      backpack
+      class="inventory-item"
+    />
   </div>
 </template>
 
@@ -41,11 +52,11 @@ export default class Inventory extends Vue {
     margin-right: $spacer * 0.5;
   }
 
-  :nth-child(3n+3) {
+  :nth-child(3n + 3) {
     margin-right: 0;
   }
 
-  :nth-child(n+7) {
+  :nth-child(n + 7) {
     margin-bottom: 0;
   }
 }
