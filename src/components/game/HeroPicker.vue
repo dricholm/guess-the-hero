@@ -1,23 +1,31 @@
 <template>
   <b-form class="hero-picker-layout" @submit.prevent="submit">
     <div class="filter-input" :data-suggested="suggestedName">
-      <b-form-input id="hero-input"
-                    type="text"
-                    v-model="filterName"
-                    @input.native="inputHero(filterName)"
-                    placeholder="Search hero name"
-                    size="lg"
-                    :disabled="disabled"/>
+      <b-form-input
+        id="hero-input"
+        type="text"
+        v-model="filterName"
+        @input.native="inputHero(filterName)"
+        placeholder="Search hero name"
+        size="lg"
+        :disabled="disabled"
+      />
     </div>
 
     <div class="d-flex my-3 align-items-center">
-      <HeroIcon :id="selectedHero" class="mr-2 mb-2"/>
+      <HeroIcon :id="selectedHero" class="mr-2 mb-2" />
       <h3 class="text-uppercase font-weight-bold">
         {{ heroName }}
       </h3>
     </div>
 
-    <b-button variant="primary" block size="lg" :disabled="disabled || selectedHero === 0" @click="pick">
+    <b-button
+      variant="primary"
+      block
+      size="lg"
+      :disabled="disabled || selectedHero === 0"
+      @click="pick"
+    >
       Pick
     </b-button>
   </b-form>
@@ -85,7 +93,7 @@ export default class HeroPicker extends Vue {
       this.suggestedId = 0;
     } else {
       const matchingHero = this.heroData.find(([id, data]: [string, Hero]) =>
-        data.localized_name.toLowerCase().startsWith(text.toLowerCase())
+        data.localized_name.toLowerCase().startsWith(text.toLowerCase()),
       );
       this.suggestedId =
         typeof matchingHero === 'undefined' ? 0 : +matchingHero[0];
@@ -94,7 +102,11 @@ export default class HeroPicker extends Vue {
   }
 
   private submit() {
-    if (this.selectedHero > 0 && this.suggestedId === 0 && this.filterName === '') {
+    if (
+      this.selectedHero > 0 &&
+      this.suggestedId === 0 &&
+      this.filterName === ''
+    ) {
       this.pick();
       return;
     }

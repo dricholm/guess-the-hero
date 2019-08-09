@@ -1,6 +1,12 @@
 <template>
   <div class="item-grid">
-    <ItemIcon :id="itemId" v-for="(itemId, index) in ids" :key="`${keyPrefix}-${index}`" :backpack="backpack" :class="{ 'mr-2 mb-2': spacing }"/>
+    <ItemIcon
+      :id="itemId"
+      v-for="(itemId, index) in ids"
+      :key="`${keyPrefix}-${index}`"
+      :backpack="backpack"
+      :class="{ 'mr-2 mb-2': spacing }"
+    />
   </div>
 </template>
 

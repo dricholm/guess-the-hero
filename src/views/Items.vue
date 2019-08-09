@@ -1,55 +1,55 @@
 <template>
   <div class="container my-5">
     <card header="Consumables" class="mb-3">
-      <ItemList :ids="consumables"/>
+      <ItemList :ids="consumables" />
     </card>
 
     <card header="Attributes" class="mb-3">
-      <ItemList :ids="attributes"/>
+      <ItemList :ids="attributes" />
     </card>
 
     <card header="Armaments" class="mb-3">
-      <ItemList :ids="armaments"/>
+      <ItemList :ids="armaments" />
     </card>
 
     <card header="Arcane" class="mb-3">
-      <ItemList :ids="arcane"/>
+      <ItemList :ids="arcane" />
     </card>
 
     <card header="Common" class="mb-3">
-      <ItemList :ids="common"/>
+      <ItemList :ids="common" />
     </card>
 
     <card header="Support" class="mb-3">
-      <ItemList :ids="support"/>
+      <ItemList :ids="support" />
     </card>
 
     <card header="Caster" class="mb-3">
-      <ItemList :ids="caster"/>
+      <ItemList :ids="caster" />
     </card>
 
     <card header="Armor" class="mb-3">
-      <ItemList :ids="armor"/>
+      <ItemList :ids="armor" />
     </card>
 
     <card header="Weapons" class="mb-3">
-      <ItemList :ids="weapons"/>
+      <ItemList :ids="weapons" />
     </card>
 
     <card header="Artifacts" class="mb-3">
-      <ItemList :ids="artifacts"/>
+      <ItemList :ids="artifacts" />
     </card>
 
     <card header="Secret Shop" class="mb-3">
-      <ItemList :ids="secretShop"/>
+      <ItemList :ids="secretShop" />
     </card>
 
     <card header="Dropped" class="mb-3">
-      <ItemList :ids="dropped"/>
+      <ItemList :ids="dropped" />
     </card>
 
     <card header="Removed" class="mb-3">
-      <ItemList :ids="removed"/>
+      <ItemList :ids="removed" />
     </card>
   </div>
 </template>

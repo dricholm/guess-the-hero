@@ -54,9 +54,13 @@ describe('Result.vue', () => {
     const links = wrapper.findAll('a');
 
     expect(links.at(0).text()).toBe('DotaBuff');
-    expect(links.at(0).attributes().href).toBe('https://www.dotabuff.com/matches/123456');
+    expect(links.at(0).attributes().href).toBe(
+      'https://www.dotabuff.com/matches/123456',
+    );
     expect(links.at(1).text()).toBe('OpenDota');
-    expect(links.at(1).attributes().href).toBe('https://www.opendota.com/matches/123456');
+    expect(links.at(1).attributes().href).toBe(
+      'https://www.opendota.com/matches/123456',
+    );
   });
 
   it('should emit next', () => {

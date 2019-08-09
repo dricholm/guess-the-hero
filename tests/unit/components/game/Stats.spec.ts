@@ -129,7 +129,9 @@ describe('Stats.vue', () => {
     expect(statToggle.at(7).text()).toBe('Stun duration');
     expect(statValue.at(7).text()).toBe(`${defaultStats.stuns} sec`);
     expect(statToggle.at(8).text()).toBe('Teamfight participation');
-    expect(statValue.at(8).text()).toBe(`${defaultStats.teamfightParticipation}%`);
+    expect(statValue.at(8).text()).toBe(
+      `${defaultStats.teamfightParticipation}%`,
+    );
     expect(statToggle.at(9).text()).toBe('Gold');
     expect(statValue.at(9).text()).toBe(defaultStats.gold.toString());
     expect(statToggle.at(10).text()).toBe('Gold spent');

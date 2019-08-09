@@ -1,11 +1,10 @@
 <template>
   <div>
-    <SubMenu :items="subMenu"/>
+    <SubMenu :items="subMenu" />
 
     <transition name="route-change">
-      <router-view/>
+      <router-view />
     </transition>
-
   </div>
 </template>
 

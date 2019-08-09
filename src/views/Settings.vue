@@ -1,34 +1,39 @@
 <template>
   <div class="container my-5">
-
     <b-form @submit.prevent="submit()">
-
       <div class="settings-layout">
-
         <card header="MMR" class="mmr">
           <b-form-row class="w-100">
-            <b-form-group id="filter"
-                          label="Minimum"
-                          label-for="mmr-min"
-                          class="col">
-              <b-form-input id="mmr-min"
-                            type="number"
-                            v-model.number="formData.mmrMin"
-                            min="0"
-                            max="9999"
-                            placeholder="0">
+            <b-form-group
+              id="filter"
+              label="Minimum"
+              label-for="mmr-min"
+              class="col"
+            >
+              <b-form-input
+                id="mmr-min"
+                type="number"
+                v-model.number="formData.mmrMin"
+                min="0"
+                max="9999"
+                placeholder="0"
+              >
               </b-form-input>
             </b-form-group>
-            <b-form-group id="filter"
-                          label="Maximum"
-                          label-for="mmr-max"
-                          class="col">
-              <b-form-input id="mmr-max"
-                            type="number"
-                            v-model.number="formData.mmrMax"
-                            min="0"
-                            max="9999"
-                            placeholder="9999">
+            <b-form-group
+              id="filter"
+              label="Maximum"
+              label-for="mmr-max"
+              class="col"
+            >
+              <b-form-input
+                id="mmr-max"
+                type="number"
+                v-model.number="formData.mmrMax"
+                min="0"
+                max="9999"
+                placeholder="9999"
+              >
               </b-form-input>
             </b-form-group>
           </b-form-row>
@@ -36,36 +41,43 @@
 
         <card header="Duration" class="duration">
           <b-form-row class="w-100">
-            <b-form-group id="filter"
-                          label="Minimum"
-                          label-for="duration-min"
-                          description="minutes"
-                          class="col">
-              <b-form-input id="duration-min"
-                            type="number"
-                            v-model.number="formData.durationMin"
-                            min="0"
-                            max="999"
-                            placeholder="0">
+            <b-form-group
+              id="filter"
+              label="Minimum"
+              label-for="duration-min"
+              description="minutes"
+              class="col"
+            >
+              <b-form-input
+                id="duration-min"
+                type="number"
+                v-model.number="formData.durationMin"
+                min="0"
+                max="999"
+                placeholder="0"
+              >
               </b-form-input>
             </b-form-group>
-            <b-form-group id="filter"
-                          label="Maximum"
-                          label-for="duration-max"
-                          description="minutes"
-                          class="col">
-              <b-form-input id="duration-max"
-                            type="number"
-                            v-model.number="formData.durationMax"
-                            min="0"
-                            max="999"
-                            placeholder="999">
+            <b-form-group
+              id="filter"
+              label="Maximum"
+              label-for="duration-max"
+              description="minutes"
+              class="col"
+            >
+              <b-form-input
+                id="duration-max"
+                type="number"
+                v-model.number="formData.durationMax"
+                min="0"
+                max="999"
+                placeholder="999"
+              >
               </b-form-input>
             </b-form-group>
           </b-form-row>
         </card>
       </div>
-
 
       <div class="d-flex justify-content-center mt-4">
         <b-button variant="primary" size="lg" type="submit" class="mr-3">
@@ -80,9 +92,7 @@
           </card>
         </div>
       </transition>
-
     </b-form>
-
   </div>
 </template>
 

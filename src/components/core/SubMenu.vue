@@ -1,6 +1,11 @@
 <template>
   <b-nav>
-    <b-nav-item v-for="item in items" :key="item.name" :to="item.to" :exact="item.exact">
+    <b-nav-item
+      v-for="item in items"
+      :key="item.name"
+      :to="item.to"
+      :exact="item.exact"
+    >
       {{ item.name }}
     </b-nav-item>
   </b-nav>

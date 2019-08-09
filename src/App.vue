@@ -1,12 +1,12 @@
 <template>
   <div class="app">
-    <NavBar/>
+    <NavBar />
     <main>
       <transition name="route-change">
-        <router-view/>
+        <router-view />
       </transition>
     </main>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
@@ -48,7 +48,7 @@ export default class App extends Vue {}
     grid-area: main;
   }
 
-  Footer {
+  footer {
     grid-area: footer;
   }
 }

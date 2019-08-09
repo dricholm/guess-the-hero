@@ -19,7 +19,7 @@ describe('settings actions', () => {
         durationMin: 200,
         mmrMax: '',
         mmrMin: 10,
-      }
+      },
     );
 
     expect(commit).toHaveBeenCalledWith('saveSettings', {
