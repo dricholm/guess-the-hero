@@ -16,7 +16,9 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "lib": ["es2017", "dom", "dom.iterable", "scripthost"]
+    "lib": ["es2017", "dom", "dom.iterable", "scripthost"],
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "include": [
     "src/**/*.ts",

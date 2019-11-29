@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
+import heroesJson from 'dotaconstants/build/heroes.json';
 
 import HeroList from '@/components/heroes/HeroList.vue';
 import Hero from '@/interfaces/Hero';
@@ -9,9 +10,7 @@ describe('HeroList.vue', () => {
 
     const list = wrapper.findAll({ name: 'HeroIcon' });
 
-    expect(list.length).toBe(117);
-    expect(+list.at(0).attributes().id).toBe(102);
-    expect(+list.at(1).attributes().id).toBe(73);
+    expect(list.length).toBe(Object.values(heroesJson).length);
   });
 
   it('should show one hero', () => {

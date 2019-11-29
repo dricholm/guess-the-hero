@@ -97,11 +97,13 @@
 </template>
 
 <script lang="ts">
-import bButton from 'bootstrap-vue/es/components/button/button';
-import bFormGroup from 'bootstrap-vue/es/components/form-group/form-group';
-import bFormInput from 'bootstrap-vue/es/components/form-input/form-input';
-import bForm from 'bootstrap-vue/es/components/form/form';
-import bFormRow from 'bootstrap-vue/es/components/layout/form-row';
+import {
+  BButton,
+  BFormGroup,
+  BFormInput,
+  BForm,
+  BFormRow,
+} from 'bootstrap-vue';
 import { Component, Vue } from 'vue-property-decorator';
 import { Action, Getter } from 'vuex-class';
 
@@ -111,11 +113,11 @@ import SettingsState from '@/store/settings/types';
 @Component({
   components: {
     Card,
-    bButton,
-    bForm,
-    bFormGroup,
-    bFormInput,
-    bFormRow,
+    BButton,
+    BForm,
+    BFormGroup,
+    BFormInput,
+    BFormRow,
   },
 })
 export default class Settings extends Vue {
@@ -132,11 +134,6 @@ export default class Settings extends Vue {
     mmrMax: 9000,
     mmrMin: 2000,
   };
-
-  private gameModes: Array<{ text: string; value: number }> = [
-    { text: 'All Pick', value: 0 },
-    { text: 'Random', value: 1 },
-  ];
 
   private created() {
     this.formData = {

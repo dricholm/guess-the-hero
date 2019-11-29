@@ -7,20 +7,21 @@
       icon: type !== 'portrait',
       small: small,
     }"
-    v-bTooltip="localizedName"
+    v-b-tooltip
+    :title="localizedName"
   />
 </template>
 
 <script lang="ts">
-import bTooltip from 'bootstrap-vue/es/directives/tooltip/tooltip';
-import heroes from 'dotaconstants/build/heroes.json';
+import { VBTooltip } from 'bootstrap-vue';
+import heroesJson from 'dotaconstants/build/heroes.json';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 import Hero from '@/interfaces/Hero';
 
 @Component({
   directives: {
-    bTooltip,
+    bTooltip: VBTooltip,
   },
 })
 export default class HeroIcon extends Vue {
@@ -32,15 +33,24 @@ export default class HeroIcon extends Vue {
   private small!: boolean;
 
   get name(): string {
-    return this.valid ? (heroes[this.id] as Hero).name : 'Empty';
+    return this.valid
+      ? (heroesJson[this.id.toString() as keyof typeof heroesJson] as Hero).name
+      : 'Empty';
   }
 
   get localizedName(): string {
-    return this.valid ? (heroes[this.id] as Hero).localized_name : 'Empty';
+    return this.valid
+      ? (heroesJson[this.id.toString() as keyof typeof heroesJson] as Hero)
+          .localized_name
+      : 'Empty';
   }
 
   get valid(): boolean {
-    return typeof (heroes[this.id] as Hero) !== 'undefined';
+    return (
+      typeof (heroesJson[
+        this.id.toString() as keyof typeof heroesJson
+      ] as Hero) !== 'undefined'
+    );
   }
 
   get imageSrc(): string {

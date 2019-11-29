@@ -74,13 +74,14 @@ describe('HeroPicker.vue', () => {
     expect(wrapper.emitted('pick')).toBeTruthy();
   });
 
-  it('should show suggestion', () => {
+  it('should show suggestion', async () => {
     const wrapper = mount(HeroPicker);
 
     const input = wrapper.find('input[type="text"]');
     const suggestion = wrapper.find('.filter-input');
 
     input.setValue('tech');
+    await wrapper.vm.$nextTick();
     expect(suggestion.attributes()['data-suggested']).toBe('Techies');
   });
 

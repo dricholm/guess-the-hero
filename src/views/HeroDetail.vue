@@ -60,7 +60,7 @@
 </template>
 
 <script lang="ts">
-import heroes from 'dotaconstants/build/heroes.json';
+import heroesJson from 'dotaconstants/build/heroes.json';
 import { Component, Vue } from 'vue-property-decorator';
 
 import Card from '@/components/core/Card.vue';
@@ -81,15 +81,18 @@ export default class HeroDetail extends Vue {
   };
 
   private get error(): boolean {
-    return !Object.prototype.hasOwnProperty.call(heroes, this.$route.params.id);
+    return !Object.prototype.hasOwnProperty.call(
+      heroesJson,
+      this.$route.params.id,
+    );
   }
 
   private get hero(): Hero {
-    return heroes[this.$route.params.id];
+    return heroesJson[this.$route.params.id as keyof typeof heroesJson] as Hero;
   }
 
   private get heroIdList(): number[] {
-    return Object.values<Hero>(heroes)
+    return Object.values<Hero>(heroesJson)
       .sort((a: Hero, b: Hero) => {
         if (
           this.attributeOrder[a.primary_attr] <
@@ -124,14 +127,22 @@ export default class HeroDetail extends Vue {
     if (this.currentIndex === 0) {
       return null;
     }
-    return heroes[this.heroIdList[this.currentIndex - 1]];
+    return heroesJson[
+      this.heroIdList[
+        this.currentIndex - 1
+      ].toString() as keyof typeof heroesJson
+    ];
   }
 
   private get nextHero(): Hero | null {
     if (this.currentIndex === this.heroIdList.length - 1) {
       return null;
     }
-    return heroes[this.heroIdList[this.currentIndex + 1]];
+    return heroesJson[
+      this.heroIdList[
+        this.currentIndex + 1
+      ].toString() as keyof typeof heroesJson
+    ];
   }
 
   private get heroImage(): string {
@@ -144,7 +155,10 @@ export default class HeroDetail extends Vue {
       { title: 'Attack type', value: this.hero.attack_type },
       { title: 'Roles', value: this.hero.roles.join(', ') },
       { title: 'Base health', value: this.hero.base_health },
-      { title: 'Base health regen', value: this.hero.base_health_regen },
+      {
+        title: 'Base health regen',
+        value: this.hero.base_health_regen ? this.hero.base_health_regen : 0,
+      },
       { title: 'Base mana', value: this.hero.base_mana },
       { title: 'Base mana regen', value: this.hero.base_mana_regen },
       { title: 'Base armor', value: this.hero.base_armor },

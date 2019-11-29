@@ -3,21 +3,22 @@
     :src="imageSrc"
     :alt="localizedName"
     :class="{ backpack }"
-    v-bTooltip="localizedName"
+    v-b-tooltip
+    :title="localizedName"
   />
 </template>
 
 <script lang="ts">
-import bTooltip from 'bootstrap-vue/es/directives/tooltip/tooltip';
-import itemIds from 'dotaconstants/build/item_ids.json';
-import items from 'dotaconstants/build/items.json';
+import { VBTooltip } from 'bootstrap-vue';
+import itemIdsJson from 'dotaconstants/build/item_ids.json';
+import itemsJson from 'dotaconstants/build/items.json';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 import Item from '@/interfaces/Item';
 
 @Component({
   directives: {
-    bTooltip,
+    bTooltip: VBTooltip,
   },
 })
 export default class ItemIcon extends Vue {
@@ -27,15 +28,20 @@ export default class ItemIcon extends Vue {
   private backpack!: boolean;
 
   get name(): string {
-    return itemIds[this.id];
+    return itemIdsJson[this.id.toString() as keyof typeof itemIdsJson];
   }
 
   get localizedName(): string {
-    return this.valid ? (items[this.name] as Item).dname : 'Empty';
+    return this.valid
+      ? (itemsJson[this.name as keyof typeof itemsJson] as Item).dname
+      : 'Empty';
   }
 
   get valid(): boolean {
-    return typeof itemIds[this.id] !== 'undefined';
+    return (
+      typeof itemIdsJson[this.id.toString() as keyof typeof itemIdsJson] !==
+      'undefined'
+    );
   }
 
   get imageSrc(): string {

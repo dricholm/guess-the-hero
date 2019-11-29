@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import * as heroesData from 'dotaconstants/build/heroes.json';
+import heroesJson from 'dotaconstants/build/heroes.json';
 
 import Hero from '@/interfaces/Hero';
 import Heroes from '@/views/Heroes.vue';
@@ -25,7 +25,7 @@ describe('Heroes.vue', () => {
 
     const imgs = bodies.at(0).findAll('img');
 
-    const strHeroes = Object.values<Hero>(heroesData)
+    const strHeroes = Object.values<Hero>(heroesJson)
       .filter((hero: Hero) => hero.primary_attr === 'str')
       .sort((a: Hero, b: Hero) => {
         if (a.localized_name < b.localized_name) {
@@ -53,7 +53,7 @@ describe('Heroes.vue', () => {
 
     const imgs = bodies.at(1).findAll('img');
 
-    const agiHeroes = Object.values<Hero>(heroesData)
+    const agiHeroes = Object.values<Hero>(heroesJson)
       .filter((hero: Hero) => hero.primary_attr === 'agi')
       .sort((a: Hero, b: Hero) => {
         if (a.localized_name < b.localized_name) {
@@ -81,7 +81,7 @@ describe('Heroes.vue', () => {
 
     const imgs = bodies.at(2).findAll('img');
 
-    const intHeroes = Object.values<Hero>(heroesData)
+    const intHeroes = Object.values<Hero>(heroesJson)
       .filter((hero: Hero) => hero.primary_attr === 'int')
       .sort((a: Hero, b: Hero) => {
         if (a.localized_name < b.localized_name) {

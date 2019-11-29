@@ -36,7 +36,7 @@ describe('ToggleButton.vue', () => {
     expect(wrapper.classes()).toContain('active');
   });
 
-  it('should toggle state', () => {
+  it('should toggle state', async () => {
     const wrapper = shallowMount(ToggleButton, {
       propsData: {
         title: 'Title',
@@ -44,11 +44,10 @@ describe('ToggleButton.vue', () => {
       },
     });
 
-    const button = wrapper.find('button');
-
     expect(wrapper.classes()).not.toContain('active');
 
-    button.trigger('click');
+    wrapper.find('button').trigger('click');
+    await wrapper.vm.$nextTick();
 
     expect(wrapper.classes()).toContain('active');
   });

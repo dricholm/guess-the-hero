@@ -12,7 +12,6 @@
 </template>
 
 <script lang="ts">
-import heroes from 'dotaconstants/build/heroes.json';
 import { Component, Vue } from 'vue-property-decorator';
 
 import Card from '@/components/core/Card.vue';
