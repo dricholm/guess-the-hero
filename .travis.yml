@@ -1,8 +1,8 @@
 language: node_js
 node_js:
-# FIXME: Use Node <11.11 for Jest compatibility
-# See: https://github.com/facebook/jest/issues/8069
-#  - 'node'
+  # FIXME: Use Node <11.11 for Jest compatibility
+  # See: https://github.com/facebook/jest/issues/8069
+  #  - 'node'
   - '11.10.1'
 
 branches:
@@ -11,8 +11,11 @@ branches:
 
 script:
   - npm run lint
-  - npm run test
+  - npm run coverage
   - npm run build
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
 deploy:
   provider: pages
