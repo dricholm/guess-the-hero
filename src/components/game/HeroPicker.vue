@@ -32,10 +32,8 @@
 </template>
 
 <script lang="ts">
-import bButton from 'bootstrap-vue/es/components/button/button';
-import bFormInput from 'bootstrap-vue/es/components/form-input/form-input';
-import bForm from 'bootstrap-vue/es/components/form/form';
-import heroes from 'dotaconstants/build/heroes.json';
+import { BButton, BFormInput, BForm } from 'bootstrap-vue';
+import heroesJson from 'dotaconstants/build/heroes.json';
 import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
 import HeroIcon from '@/components/heroes/HeroIcon.vue';
@@ -44,9 +42,9 @@ import Hero from '@/interfaces/Hero';
 @Component({
   components: {
     HeroIcon,
-    bButton,
-    bForm,
-    bFormInput,
+    BButton,
+    BForm,
+    BFormInput,
   },
 })
 export default class HeroPicker extends Vue {
@@ -75,16 +73,20 @@ export default class HeroPicker extends Vue {
   private get heroName(): string {
     return this.selectedHero === 0
       ? 'Pick a hero'
-      : (heroes[this.selectedHero] as Hero).localized_name;
+      : (heroesJson[
+          this.selectedHero.toString() as keyof typeof heroesJson
+        ] as Hero).localized_name;
   }
 
   private get heroData(): Array<[string, Hero]> {
-    return Object.entries(heroes);
+    return Object.entries(heroesJson);
   }
 
   private get suggestedName(): string {
     return this.suggestedId > 0
-      ? (heroes[this.suggestedId] as Hero).localized_name
+      ? (heroesJson[
+          this.suggestedId.toString() as keyof typeof heroesJson
+        ] as Hero).localized_name
       : '';
   }
 

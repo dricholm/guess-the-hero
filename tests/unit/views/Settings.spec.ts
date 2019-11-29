@@ -60,11 +60,10 @@ describe('Settings.vue', () => {
     );
   });
 
-  it('should dispatch action with input values', () => {
+  it('should dispatch action with input values', async () => {
     const wrapper = mount(Settings, { localVue, store });
 
     const numbers = wrapper.findAll('input[type="number"]');
-    const form = wrapper.find('form');
 
     expect(actions.saveStorage).toHaveBeenCalledTimes(0);
 
@@ -72,18 +71,16 @@ describe('Settings.vue', () => {
     numbers.at(1).setValue(5000);
     numbers.at(2).setValue(30);
     numbers.at(3).setValue(90);
-    form.trigger('submit');
+    await wrapper.vm.$nextTick();
+    wrapper.find('form').trigger('submit');
+    await wrapper.vm.$nextTick();
 
     expect(actions.saveStorage).toHaveBeenCalledTimes(1);
-    expect(actions.saveStorage).toHaveBeenCalledWith(
-      expect.any(Object),
-      {
-        durationMax: 90,
-        durationMin: 30,
-        mmrMax: 5000,
-        mmrMin: 1000,
-      },
-      undefined,
-    );
+    expect(actions.saveStorage).toHaveBeenCalledWith(expect.any(Object), {
+      durationMax: 90,
+      durationMin: 30,
+      mmrMax: 5000,
+      mmrMin: 1000,
+    });
   });
 });

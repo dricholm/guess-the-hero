@@ -4,6 +4,13 @@
   </transition>
 </template>
 
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class Backdrop extends Vue {}
+</script>
+
 <style lang="scss" scoped>
 .backdrop {
   background-color: $modal-backdrop-bg;

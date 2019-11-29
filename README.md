@@ -1,50 +1,35 @@
 # Guess the Hero
 
 [![Build Status](https://travis-ci.com/dricholm/guess-the-hero.svg?branch=master)](https://travis-ci.com/dricholm/guess-the-hero)
+[![codecov](https://codecov.io/gh/dricholm/guess-the-hero/branch/master/graph/badge.svg)](https://codecov.io/gh/dricholm/guess-the-hero)
 
 A webapp for guessing DotA 2 heroes in public matches by seeing only the items purchased.
 
-## Live demo
+## Live version
 
-A live demo is available [here](https://dricholm.github.io/guess-the-hero/).
+The live version is available [here](https://dricholm.github.io/guess-the-hero/).
 
-## NPM commands
+## NPM scripts
 
-### Project setup
+```sh
+# Install dependencies
+$ npm install
 
-```
-npm install
-```
+# Serve application in development mode with hot reload
+$ npm start
 
-### Compiles and hot-reloads for development
+# Build application for production mode
+$ npm run build
 
-```
-npm start
-```
+# Run lint
+$ npm run lint
 
-### Compiles and minifies for production
+# Run unit tests
+$ npm test
 
-```
-npm run build
-```
+# Run unit tests in watch mode
+$ npm run test:watch
 
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Run your unit tests
-
-```
-npm test
-
-# Watch mode
-npm run test:watch
-```
-
-### Generate unit test code coverage
-
-```
-npm run coverage
+# Generate unit test code coverage
+$ npm run coverage
 ```

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import * as heroes from 'dotaconstants/build/heroes.json';
+import heroesJson from 'dotaconstants/build/heroes.json';
 
 import Hero from '@/interfaces/Hero';
 import HeroDetail from '@/views/HeroDetail.vue';
@@ -132,7 +132,7 @@ describe('HeroDetail.vue', () => {
     expect(title.length).toBe(23);
     expect(stats.length).toBe(23);
 
-    const amStats: Hero = heroes[1];
+    const amStats: Hero = heroesJson[1];
 
     expect(title.at(0).text()).toBe('Primary attribute');
     expect(stats.at(0).text()).toBe(amStats.primary_attr);
@@ -143,7 +143,9 @@ describe('HeroDetail.vue', () => {
     expect(title.at(3).text()).toBe('Base health');
     expect(stats.at(3).text()).toBe(amStats.base_health.toString());
     expect(title.at(4).text()).toBe('Base health regen');
-    expect(stats.at(4).text()).toBe(amStats.base_health_regen.toString());
+    expect(stats.at(4).text()).toBe(
+      amStats.base_health_regen ? amStats.base_health_regen.toString() : '',
+    );
     expect(title.at(5).text()).toBe('Base mana');
     expect(stats.at(5).text()).toBe(amStats.base_mana.toString());
     expect(title.at(6).text()).toBe('Base mana regen');

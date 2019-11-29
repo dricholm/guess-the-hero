@@ -1,7 +1,6 @@
-import * as nock from 'nock';
+import nock from 'nock';
 
 import { actions } from '@/store/game/actions';
-import { GameStats } from '@/store/game/types';
 
 describe('game actions', () => {
   beforeEach(() => {

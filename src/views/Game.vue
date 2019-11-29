@@ -54,8 +54,7 @@
 </template>
 
 <script lang="ts">
-import bButton from 'bootstrap-vue/es/components/button/button';
-import heroes from 'dotaconstants/build/heroes.json';
+import { BButton } from 'bootstrap-vue';
 import { Component, Vue } from 'vue-property-decorator';
 import { Action, Getter } from 'vuex-class';
 
@@ -81,7 +80,7 @@ import SettingsState from '@/store/settings/types';
     Loader,
     Result,
     Stats,
-    bButton,
+    BButton,
   },
 })
 export default class Game extends Vue {

@@ -16,6 +16,10 @@
       <ItemList :ids="arcane" />
     </card>
 
+    <card header="Secret Shop" class="mb-3">
+      <ItemList :ids="secretShop" />
+    </card>
+
     <card header="Accessories" class="mb-3">
       <ItemList :ids="accessories" />
     </card>
@@ -40,12 +44,28 @@
       <ItemList :ids="artifacts" />
     </card>
 
-    <card header="Secret Shop" class="mb-3">
-      <ItemList :ids="secretShop" />
+    <card header="Neutral Tier 1" class="mb-3">
+      <ItemList :ids="neutralTier1" />
     </card>
 
-    <card header="Dropped" class="mb-3">
-      <ItemList :ids="dropped" />
+    <card header="Neutral Tier 2" class="mb-3">
+      <ItemList :ids="neutralTier2" />
+    </card>
+
+    <card header="Neutral Tier 3" class="mb-3">
+      <ItemList :ids="neutralTier3" />
+    </card>
+
+    <card header="Neutral Tier 4" class="mb-3">
+      <ItemList :ids="neutralTier4" />
+    </card>
+
+    <card header="Neutral Tier 5" class="mb-3">
+      <ItemList :ids="neutralTier5" />
+    </card>
+
+    <card header="Roshan" class="mb-3">
+      <ItemList :ids="roshan" />
     </card>
 
     <card header="Removed" class="mb-3">
@@ -80,7 +100,7 @@ import ItemList from '@/components/items/ItemList.vue';
 })
 export default class Items extends Vue {
   get consumables(): number[] {
-    return [46, 38, 237, 188, 42, 43, 216, 39, 44, 257, 40, 45, 41];
+    return [46, 38, 237, 188, 42, 43, 216, 39, 44, 257, 40, 41];
   }
 
   get attributes(): number[] {
@@ -88,11 +108,15 @@ export default class Items extends Vue {
   }
 
   get armaments(): number[] {
-    return [12, 182, 11, 265, 181, 240, 2, 4, 10, 6, 7, 3, 5, 8];
+    return [12, 11, 265, 181, 240, 2, 4, 10, 6, 7, 3, 5, 8];
   }
 
   get arcane(): number[] {
-    return [34, 244, 27, 28, 29, 25, 31, 279, 56, 57, 30, 26, 215, 37, 1];
+    return [34, 244, 27, 28, 29, 25, 31, 279, 30, 26, 215, 37, 1];
+  }
+
+  get secretShop(): number[] {
+    return [56, 57, 59, 61, 60, 9, 32, 55, 24, 51, 58, 53, 52, 54];
   }
 
   get accessories(): number[] {
@@ -183,16 +207,47 @@ export default class Items extends Vue {
     ];
   }
 
-  get secretShop(): number[] {
-    return [41, 56, 57, 59, 61, 60, 9, 32, 55, 24, 51, 58, 53, 52, 54];
+  get neutralTier1(): number[] {
+    return [302, 287, 71, 239, 303, 305, 328, 354, 355, 356, 375, 349];
   }
 
-  get dropped(): number[] {
-    return [117, 33, 260];
+  get neutralTier2(): number[] {
+    return [288, 297, 212, 306, 334, 290, 357, 358, 359, 329, 360];
+  }
+
+  get neutralTier3(): number[] {
+    return [327, 308, 298, 299, 289, 309, 326, 361, 376, 378, 310, 381];
+  }
+
+  get neutralTier4(): number[] {
+    return [330, 300, 311, 325, 335, 336, 362, 363, 364, 365, 379, 377];
+  }
+
+  get neutralTier5(): number[] {
+    return [
+      291,
+      292,
+      293,
+      294,
+      301,
+      313,
+      366,
+      367,
+      368,
+      275,
+      370,
+      371,
+      372,
+      374,
+    ];
+  }
+
+  get roshan(): number[] {
+    return [117, 33, 260, 271];
   }
 
   get removed(): number[] {
-    return [71, 239, 212];
+    return [45, 286, 182, 307];
   }
 }
 </script>

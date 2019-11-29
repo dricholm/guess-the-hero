@@ -12,16 +12,15 @@
 </template>
 
 <script lang="ts">
-import bNav from 'bootstrap-vue/es/components/nav/nav';
-import bNavItem from 'bootstrap-vue/es/components/nav/nav-item';
+import { BNav, BNavItem } from 'bootstrap-vue';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 import SubMenuItem from '@/interfaces/SubMenuItem';
 
 @Component({
   components: {
-    bNav,
-    bNavItem,
+    BNav,
+    BNavItem,
   },
 })
 export default class SubMenu extends Vue {

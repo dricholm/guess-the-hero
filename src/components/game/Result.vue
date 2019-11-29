@@ -34,8 +34,8 @@
 </template>
 
 <script lang="ts">
-import bButton from 'bootstrap-vue/es/components/button/button';
-import heroes from 'dotaconstants/build/heroes.json';
+import { BButton } from 'bootstrap-vue';
+import heroesJson from 'dotaconstants/build/heroes.json';
 import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
 import HeroIcon from '@/components/heroes/HeroIcon.vue';
@@ -44,7 +44,7 @@ import Hero from '@/interfaces/Hero';
 @Component({
   components: {
     HeroIcon,
-    bButton,
+    BButton,
   },
 })
 export default class Result extends Vue {
@@ -56,12 +56,12 @@ export default class Result extends Vue {
   private heroId!: number;
 
   @Emit()
-  private next() {
-    // Empty TS block
-  }
+  private next() {}
 
   private get heroName(): string {
-    return (heroes[this.heroId] as Hero).localized_name;
+    return (heroesJson[
+      this.heroId.toString() as keyof typeof heroesJson
+    ] as Hero).localized_name;
   }
 }
 </script>

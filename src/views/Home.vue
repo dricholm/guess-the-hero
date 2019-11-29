@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts">
-import heroes from 'dotaconstants/build/heroes.json';
+import heroesJson from 'dotaconstants/build/heroes.json';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 import HeroIcon from '@/components/heroes/HeroIcon.vue';
@@ -43,7 +43,7 @@ import HeroIcon from '@/components/heroes/HeroIcon.vue';
 })
 export default class Home extends Vue {
   private get heroIds(): number[] {
-    return this.shuffle(Object.keys(heroes).map((id: string) => +id));
+    return this.shuffle(Object.keys(heroesJson).map((id: string) => +id));
   }
 
   private shuffle(array: any[]) {

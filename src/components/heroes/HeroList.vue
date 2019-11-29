@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import heroes from 'dotaconstants/build/heroes.json';
+import heroesJson from 'dotaconstants/build/heroes.json';
 import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
 import HeroIcon from '@/components/heroes/HeroIcon.vue';
@@ -40,7 +40,7 @@ export default class HeroList extends Vue {
   }
 
   private get heroes(): Hero[] {
-    return Object.values<Hero>(heroes)
+    return Object.values<Hero>(heroesJson)
       .filter(this.filter)
       .sort((a: Hero, b: Hero) => {
         if (a.localized_name < b.localized_name) {

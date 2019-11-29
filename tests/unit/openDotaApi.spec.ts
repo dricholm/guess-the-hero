@@ -1,7 +1,6 @@
-import * as nock from 'nock';
+import nock from 'nock';
 
 import { queryRandom } from '@/openDotaApi';
-import { GameStats } from '@/store/game/types';
 
 describe('OpenDotaApi', () => {
   beforeEach(() => {

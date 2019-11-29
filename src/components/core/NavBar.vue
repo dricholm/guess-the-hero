@@ -32,12 +32,14 @@
 </template>
 
 <script lang="ts">
-import bCollapse from 'bootstrap-vue/es/components/collapse/collapse';
-import bNavItem from 'bootstrap-vue/es/components/nav/nav-item';
-import bNavbar from 'bootstrap-vue/es/components/navbar/navbar';
-import bNavbarBrand from 'bootstrap-vue/es/components/navbar/navbar-brand';
-import bNavbarNav from 'bootstrap-vue/es/components/navbar/navbar-nav';
-import bNavbarToggle from 'bootstrap-vue/es/components/navbar/navbar-toggle';
+import {
+  BCollapse,
+  BNavItem,
+  BNavbar,
+  BNavbarBrand,
+  BNavbarNav,
+  BNavbarToggle,
+} from 'bootstrap-vue';
 import { Component, Vue } from 'vue-property-decorator';
 
 import Backdrop from '@/components/core/Backdrop.vue';
@@ -45,12 +47,12 @@ import Backdrop from '@/components/core/Backdrop.vue';
 @Component({
   components: {
     Backdrop,
-    bCollapse,
-    bNavItem,
-    bNavbar,
-    bNavbarBrand,
-    bNavbarNav,
-    bNavbarToggle,
+    BCollapse,
+    BNavItem,
+    BNavbar,
+    BNavbarBrand,
+    BNavbarNav,
+    BNavbarToggle,
   },
 })
 export default class NavBar extends Vue {
