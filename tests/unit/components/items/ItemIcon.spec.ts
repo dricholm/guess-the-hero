@@ -5,6 +5,7 @@ import ItemIcon from '@/components/items/ItemIcon.vue';
 describe('ItemIcon.vue', () => {
   it('should show Blink Dagger', () => {
     const wrapper = shallowMount(ItemIcon, {
+      attachToDocument: true,
       propsData: { id: 1 },
     });
 
@@ -19,6 +20,7 @@ describe('ItemIcon.vue', () => {
 
   it('should show recipe', () => {
     const wrapper = shallowMount(ItemIcon, {
+      attachToDocument: true,
       propsData: { id: 35 },
     });
 
@@ -33,6 +35,7 @@ describe('ItemIcon.vue', () => {
 
   it('should show invalid item', () => {
     const wrapper = shallowMount(ItemIcon, {
+      attachToDocument: true,
       propsData: { id: 0 },
     });
 
@@ -47,6 +50,7 @@ describe('ItemIcon.vue', () => {
 
   it('should show backpack item', () => {
     const wrapper = shallowMount(ItemIcon, {
+      attachToDocument: true,
       propsData: {
         backpack: true,
         id: 1,

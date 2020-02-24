@@ -65,6 +65,7 @@ describe('Result.vue', () => {
 
   it('should emit next', () => {
     const wrapper = mount(Result, {
+      attachToDocument: true,
       propsData: {
         heroId: 1,
       },

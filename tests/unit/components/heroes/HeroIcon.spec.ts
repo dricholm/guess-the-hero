@@ -5,6 +5,7 @@ import HeroIcon from '@/components/heroes/HeroIcon.vue';
 describe('HeroIcon.vue', () => {
   it('should show Anti-Mage', () => {
     const wrapper = shallowMount(HeroIcon, {
+      attachToDocument: true,
       propsData: { id: 1 },
     });
 
@@ -20,6 +21,7 @@ describe('HeroIcon.vue', () => {
 
   it('should show portrait', () => {
     const wrapper = shallowMount(HeroIcon, {
+      attachToDocument: true,
       propsData: { id: 0, type: 'portrait' },
     });
 
