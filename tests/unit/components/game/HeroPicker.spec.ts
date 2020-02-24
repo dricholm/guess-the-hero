@@ -4,7 +4,7 @@ import HeroPicker from '@/components/game/HeroPicker.vue';
 
 describe('HeroPicker.vue', () => {
   it('should show default state', () => {
-    const wrapper = mount(HeroPicker);
+    const wrapper = mount(HeroPicker, { attachToDocument: true });
 
     const input = wrapper.find('input[type="text"]');
     const heroIcon = wrapper.find({ name: 'HeroIcon' });
@@ -17,6 +17,7 @@ describe('HeroPicker.vue', () => {
 
   it('should show hero', () => {
     const wrapper = mount(HeroPicker, {
+      attachToDocument: true,
       propsData: {
         selectedHero: 1,
       },
@@ -33,6 +34,7 @@ describe('HeroPicker.vue', () => {
 
   it('should be disabled', () => {
     const wrapper = mount(HeroPicker, {
+      attachToDocument: true,
       propsData: {
         disabled: true,
         selectedHero: 1,
@@ -50,6 +52,7 @@ describe('HeroPicker.vue', () => {
 
   it('should emit filter', () => {
     const wrapper = mount(HeroPicker, {
+      attachToDocument: true,
       propsData: {},
     });
 
@@ -62,6 +65,7 @@ describe('HeroPicker.vue', () => {
 
   it('should emit pick', () => {
     const wrapper = mount(HeroPicker, {
+      attachToDocument: true,
       propsData: {
         selectedHero: 1,
       },
@@ -75,7 +79,7 @@ describe('HeroPicker.vue', () => {
   });
 
   it('should show suggestion', async () => {
-    const wrapper = mount(HeroPicker);
+    const wrapper = mount(HeroPicker, { attachToDocument: true });
 
     const input = wrapper.find('input[type="text"]');
     const suggestion = wrapper.find('.filter-input');
@@ -86,7 +90,7 @@ describe('HeroPicker.vue', () => {
   });
 
   it('should emit select', () => {
-    const wrapper = mount(HeroPicker);
+    const wrapper = mount(HeroPicker, { attachToDocument: true });
 
     const form = wrapper.find('form');
     const input = wrapper.find('input[type="text"]');
@@ -100,6 +104,7 @@ describe('HeroPicker.vue', () => {
 
   it('should emit pick when submitted', () => {
     const wrapper = mount(HeroPicker, {
+      attachToDocument: true,
       propsData: {
         selectedHero: 1,
       },

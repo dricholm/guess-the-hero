@@ -20,6 +20,7 @@ export interface GameStats {
   item3: number;
   item4: number;
   item5: number;
+  neutralItem: number;
   kills: number;
   lane: number;
   laneRole: number;

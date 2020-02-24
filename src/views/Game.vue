@@ -118,6 +118,10 @@ export default class Game extends Vue {
     ];
   }
 
+  private get neutralItem(): number {
+    return this.currentMatch.neutralItem;
+  }
+
   private get backpack(): number[] {
     return [
       this.currentMatch.backpack0,

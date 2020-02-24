@@ -6,7 +6,7 @@ import Heroes from '@/views/Heroes.vue';
 
 describe('Heroes.vue', () => {
   it('should cards for each attribute', () => {
-    const wrapper = mount(Heroes);
+    const wrapper = mount(Heroes, { attachToDocument: true });
 
     const titles = wrapper.findAll('div.card-header');
 
@@ -17,7 +17,7 @@ describe('Heroes.vue', () => {
   });
 
   it('should show strength heroes', () => {
-    const wrapper = mount(Heroes);
+    const wrapper = mount(Heroes, { attachToDocument: true });
 
     const bodies = wrapper.findAll('div.card-body');
 
@@ -45,7 +45,7 @@ describe('Heroes.vue', () => {
   });
 
   it('should show agility heroes', () => {
-    const wrapper = mount(Heroes);
+    const wrapper = mount(Heroes, { attachToDocument: true });
 
     const bodies = wrapper.findAll('div.card-body');
 
@@ -73,7 +73,7 @@ describe('Heroes.vue', () => {
   });
 
   it('should show intelligence heroes', () => {
-    const wrapper = mount(Heroes);
+    const wrapper = mount(Heroes, { attachToDocument: true });
 
     const bodies = wrapper.findAll('div.card-body');
 

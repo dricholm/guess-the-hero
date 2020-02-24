@@ -6,6 +6,9 @@
       :key="`i-${index}`"
       class="inventory-item"
     />
+    <div class="d-flex justify-content-center mb-2 w-100">
+      <ItemIcon :id="neutral" neutral />
+    </div>
     <ItemIcon
       v-for="(id, index) in backpack"
       :id="id"
@@ -29,6 +32,8 @@ import ItemIcon from '@/components/items/ItemIcon.vue';
 export default class Inventory extends Vue {
   @Prop({ default: () => [0, 0, 0, 0, 0, 0], type: Array })
   private inventory!: number[];
+  @Prop({ default: () => 0, type: Number })
+  private neutral!: number;
   @Prop({ default: () => [0, 0, 0], type: Array })
   private backpack!: number[];
 }
@@ -52,12 +57,16 @@ export default class Inventory extends Vue {
     margin-right: $spacer * 0.5;
   }
 
-  :nth-child(3n + 3) {
+  :nth-child(-n + 6):nth-child(3n + 3) {
     margin-right: 0;
   }
 
-  :nth-child(n + 7) {
+  :nth-last-child(-n + 3) {
     margin-bottom: 0;
+  }
+
+  :nth-last-child(1) {
+    margin-right: 0;
   }
 }
 </style>
