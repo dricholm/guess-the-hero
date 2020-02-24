@@ -11,7 +11,9 @@ describe('ItemIcon.vue', () => {
     const img = wrapper.find('img');
 
     expect(img.attributes().alt).toBe('Blink Dagger');
-    expect(img.attributes().src).toBe('/img/items/blink.jpg');
+    expect(img.attributes().src).toBe(
+      `${process.env.BASE_URL}img/items/blink.jpg`,
+    );
     expect(img.classes()).not.toContain('backpack');
   });
 
@@ -23,7 +25,9 @@ describe('ItemIcon.vue', () => {
     const img = wrapper.find('img');
 
     expect(img.attributes().alt).toBe('Magic Wand Recipe');
-    expect(img.attributes().src).toBe('/img/items/recipe.jpg');
+    expect(img.attributes().src).toBe(
+      `${process.env.BASE_URL}img/items/recipe.jpg`,
+    );
     expect(img.classes()).not.toContain('backpack');
   });
 
@@ -35,7 +39,9 @@ describe('ItemIcon.vue', () => {
     const img = wrapper.find('img');
 
     expect(img.attributes().alt).toBe('Empty');
-    expect(img.attributes().src).toBe('/img/items/emptyitembg.jpg');
+    expect(img.attributes().src).toBe(
+      `${process.env.BASE_URL}img/items/emptyitembg.jpg`,
+    );
     expect(img.classes()).not.toContain('backpack');
   });
 

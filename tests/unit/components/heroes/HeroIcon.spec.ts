@@ -11,7 +11,9 @@ describe('HeroIcon.vue', () => {
     const img = wrapper.find('img');
 
     expect(img.attributes().alt).toBe('Anti-Mage');
-    expect(img.attributes().src).toBe('/img/heroes/npc_dota_hero_antimage.jpg');
+    expect(img.attributes().src).toBe(
+      `${process.env.BASE_URL}img/heroes/npc_dota_hero_antimage.jpg`,
+    );
     expect(img.classes()).toContain('icon');
     expect(img.classes()).not.toContain('portrait');
   });
@@ -25,7 +27,7 @@ describe('HeroIcon.vue', () => {
 
     expect(img.attributes().alt).toBe('Empty');
     expect(img.attributes().src).toBe(
-      '/img/portraits/npc_dota_hero_default.jpg',
+      `${process.env.BASE_URL}img/portraits/npc_dota_hero_default.jpg`,
     );
     expect(img.classes()).toContain('portrait');
     expect(img.classes()).not.toContain('icon');
