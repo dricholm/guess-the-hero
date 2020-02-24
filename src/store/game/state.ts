@@ -24,6 +24,7 @@ export default (): GameState => {
       item3: 0,
       item4: 0,
       item5: 0,
+      neutralItem: 0,
       kills: 0,
       lane: 0,
       laneRole: 0,

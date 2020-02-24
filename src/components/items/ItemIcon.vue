@@ -2,7 +2,7 @@
   <img
     :src="imageSrc"
     :alt="localizedName"
-    :class="{ backpack }"
+    :class="{ backpack, neutral }"
     v-b-tooltip
     :title="localizedName"
   />
@@ -25,6 +25,8 @@ export default class ItemIcon extends Vue {
   @Prop({ default: 0, type: Number })
   private id!: number;
   @Prop({ default: false, type: Boolean })
+  private neutral!: boolean;
+  @Prop({ default: false, type: Boolean })
   private backpack!: boolean;
 
   get name(): string {
@@ -33,7 +35,7 @@ export default class ItemIcon extends Vue {
 
   get localizedName(): string {
     return this.valid
-      ? (itemsJson[this.name as keyof typeof itemsJson] as Item).dname
+      ? (itemsJson[this.name as keyof typeof itemsJson] as Item)?.dname
       : 'Empty';
   }
 
@@ -68,5 +70,9 @@ img {
   filter: grayscale(1);
   height: 48px;
   width: 66px;
+}
+
+.neutral {
+  clip-path: circle(50%);
 }
 </style>
