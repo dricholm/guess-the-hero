@@ -42,6 +42,6 @@ export default (): GameState => {
       xpm: 0,
     },
     error: false,
-    isLoading: false,
+    isLoading: true,
   };
 };
