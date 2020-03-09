@@ -2,8 +2,7 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        prependData:
-          '@import "src/styles/variables"; @import "src/styles/mixins";',
+        prependData: '@import "src/styles/declarations";',
       },
     },
   },

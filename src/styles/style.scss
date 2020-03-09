@@ -1,20 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
 
-@import 'variables';
-@import 'mixins';
-
-@import 'node_modules/bootstrap/scss/buttons';
-@import 'node_modules/bootstrap/scss/custom-forms';
-@import 'node_modules/bootstrap/scss/forms';
-@import 'node_modules/bootstrap/scss/grid';
-@import 'node_modules/bootstrap/scss/input-group';
-@import 'node_modules/bootstrap/scss/nav';
-@import 'node_modules/bootstrap/scss/navbar';
-@import 'node_modules/bootstrap/scss/reboot';
-@import 'node_modules/bootstrap/scss/transitions';
-@import 'node_modules/bootstrap/scss/tooltip';
-@import 'node_modules/bootstrap/scss/type';
-@import 'node_modules/bootstrap/scss/utilities';
+@import 'declarations';
+@import 'bootstrap';
 
 .bg-overlay {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
@@ -59,5 +46,74 @@
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+.item-popover {
+  background-color: lighten($dark, 5);
+  box-shadow: $box-shadow;
+  max-width: 400px;
+
+  .item-name {
+    font-weight: $font-weight-bold;
+    padding: $spacer $spacer 0 $spacer;
+    text-transform: uppercase;
+  }
+
+  .item-cost {
+    color: $gray-600;
+    font-weight: $font-weight-bold;
+    padding: 0 $spacer $spacer * 0.5 $spacer;
+    margin: 0;
+    text-transform: uppercase;
+
+    .gold {
+      color: #ffdc4b;
+    }
+  }
+
+  .item-body {
+    background-color: $dark;
+    padding: $spacer;
+  }
+
+  dt {
+    background: linear-gradient(
+      90deg,
+      rgba(150, 180, 200, 0.3),
+      rgba(150, 180, 200, 0.2)
+    );
+    font-weight: $font-weight-bold;
+    padding: $spacer * 0.25 $spacer * 0.5;
+  }
+
+  dd {
+    background: linear-gradient(
+      90deg,
+      rgba(150, 180, 200, 0.2),
+      rgba(150, 180, 200, 0.1)
+    );
+    font-size: $font-size-sm;
+    padding: $spacer * 0.25 $spacer * 0.5;
+  }
+
+  .active {
+    color: #c8c8ff;
+
+    dt {
+      background: linear-gradient(
+        90deg,
+        rgba(100, 100, 255, 0.3),
+        rgba(100, 100, 255, 0.2)
+      );
+    }
+
+    dd {
+      background: linear-gradient(
+        90deg,
+        rgba(100, 100, 255, 0.2),
+        rgba(100, 100, 255, 0.1)
+      );
+    }
   }
 }
