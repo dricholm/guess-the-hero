@@ -80,12 +80,17 @@ export default class ItemIcon extends Vue {
     const use = this.use.map(u => `<dt>Use: ${u.name}</dt><dd>${u.desc}</dd>`);
 
     return `
-    <div class="item-name">${this.localizedName}</div>
-    ${
-      item.cost > 0
-        ? `<p class="item-cost">Cost: <span class="gold">${item.cost}</span></p>`
-        : ''
-    }
+    <div class="d-flex p-3">
+      <img src="${this.imageSrc}" class="mr-3 shadow-sm" />
+      <div>
+        <div class="item-name">${this.localizedName}</div>
+        ${
+          item.cost > 0
+            ? `<p class="item-cost">Cost: <span class="gold">${item.cost}</span></p>`
+            : ''
+        }
+      </div>
+    </div>
     <div class="item-body">
       ${
         this.attributes.length > 0

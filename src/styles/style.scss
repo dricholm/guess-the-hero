@@ -50,20 +50,18 @@
 }
 
 .item-popover {
-  background-color: lighten($dark, 5);
+  background: linear-gradient(45deg, darken(#23323c, 3), darken(#23323c, 10));
   box-shadow: $box-shadow;
   max-width: 400px;
 
   .item-name {
     font-weight: $font-weight-bold;
-    padding: $spacer $spacer 0 $spacer;
     text-transform: uppercase;
   }
 
   .item-cost {
     color: $gray-600;
     font-weight: $font-weight-bold;
-    padding: 0 $spacer $spacer * 0.5 $spacer;
     margin: 0;
     text-transform: uppercase;
 
@@ -73,7 +71,7 @@
   }
 
   .item-body {
-    background-color: $dark;
+    background: rgba(0, 0, 0, 0.3);
     padding: $spacer;
   }
 
@@ -98,7 +96,7 @@
   }
 
   .active {
-    color: #c8c8ff;
+    color: #c9c9ff;
 
     dt {
       background: linear-gradient(
