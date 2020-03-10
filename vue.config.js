@@ -15,6 +15,10 @@ module.exports = {
   },
   publicPath: process.env.BASE_URL,
   pwa: {
+    workboxPluginMode: 'InjectManifest',
+    workboxOptions: {
+      swSrc: './src/service-worker.js',
+    },
     manifestPath: 'manifest.webmanifest',
     name: 'Guess the Hero',
     themeColor: '#1f2934',
