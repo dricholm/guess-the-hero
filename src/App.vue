@@ -1,18 +1,8 @@
 <template>
   <div class="app">
-    <div v-if="notificationShown" class="notification">
-      <div class="text-center offline" v-if="isOffline">
-        Offline
-      </div>
-      <div
-        class="d-flex align-items-center justify-content-center p-2 bg-dark"
-        v-if="updateAvailable"
-      >
-        <p class="mb-0 mr-3">
-          Webapp has been updated!
-        </p>
-        <button class="btn btn-primary" @click="refresh">Refresh</button>
-      </div>
+    <div class="notification">
+      <Offline />
+      <AppUpdate />
     </div>
     <NavBar />
     <main>
@@ -27,46 +17,20 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
+import AppUpdate from '@/components/core/AppUpdate.vue';
 import Footer from '@/components/core/Footer.vue';
 import NavBar from '@/components/core/NavBar.vue';
+import Offline from '@/components/core/Offline.vue';
 
 @Component({
   components: {
+    AppUpdate,
     Footer,
     NavBar,
+    Offline,
   },
 })
-export default class App extends Vue {
-  private registration: any;
-  private updateAvailable = false;
-  private isOffline = false;
-
-  created() {
-    document.addEventListener('swUpdated', this.onSwUpdated, {
-      once: true,
-    });
-    window.addEventListener('offline', () => {
-      this.isOffline = true;
-    });
-    window.addEventListener('online', () => {
-      this.isOffline = false;
-    });
-  }
-
-  get notificationShown(): boolean {
-    return this.isOffline || this.updateAvailable;
-  }
-
-  private onSwUpdated(event: any) {
-    this.registration = event.detail;
-    this.updateAvailable = true;
-  }
-
-  refresh() {
-    this.updateAvailable = false;
-    this.registration?.waiting?.postMessage('skipWaiting');
-  }
-}
+export default class App extends Vue {}
 </script>
 
 <style lang="scss">
@@ -89,13 +53,6 @@ export default class App extends Vue {
     position: sticky;
     top: 0;
     z-index: $zindex-tooltip + 1;
-
-    .offline {
-      background: linear-gradient($dark, $danger, $dark);
-      font-weight: $font-weight-bold;
-      padding: $spacer * 0.25;
-      text-transform: uppercase;
-    }
   }
 
   NavBar {
