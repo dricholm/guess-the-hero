@@ -63,6 +63,12 @@ export default class ItemIcon extends Vue {
     };
   }
 
+  private formatDescription(description: string): string {
+    return description
+      .replace(/(-?\d+[x%]?)/g, '<strong>$&</strong>')
+      .replace(/\n/g, '<br />');
+  }
+
   get popoverContent(): string {
     const item = itemsJson[this.name as keyof typeof itemsJson] as Item;
     const attributes = this.attributes.map(
@@ -72,12 +78,16 @@ export default class ItemIcon extends Vue {
         }</strong> ${a.footer || ''}</li>`,
     );
     const active = this.active.map(
-      a => `<dt>Active: ${a.name}</dt><dd>${a.desc}</dd>`,
+      a =>
+        `<dt>Active: ${a.name}</dt><dd>${this.formatDescription(a.desc)}</dd>`,
     );
     const passive = this.passive.map(
-      p => `<dt>Passive: ${p.name}</dt><dd>${p.desc}</dd>`,
+      p =>
+        `<dt>Passive: ${p.name}</dt><dd>${this.formatDescription(p.desc)}</dd>`,
     );
-    const use = this.use.map(u => `<dt>Use: ${u.name}</dt><dd>${u.desc}</dd>`);
+    const use = this.use.map(
+      u => `<dt>Use: ${u.name}</dt><dd>${this.formatDescription(u.desc)}</dd>`,
+    );
 
     return `
     <div class="d-flex p-3">
