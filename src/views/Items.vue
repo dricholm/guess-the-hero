@@ -224,7 +224,7 @@ export default class Items extends Vue {
   }
 
   get neutralTier5(): number[] {
-    return [291, 292, 294, 301, 366, 367, 368, 275, 370, 371, 372, 374];
+    return [291, 292, 294, 301, 366, 367, 368, 369, 370, 371, 372, 374];
   }
 
   get roshan(): number[] {
