@@ -113,5 +113,12 @@ $card-border-width: 0;
 
 $close-color: #fff;
 
-@import 'node_modules/bootstrap/scss/functions';
-@import 'node_modules/bootstrap/scss/variables';
+// Popovers
+
+$popover-border-color: $black;
+
+$popover-arrow-width: 1rem;
+$popover-arrow-height: $popover-arrow-width;
+$popover-arrow-color: #252b30;
+
+$popover-arrow-outer-color: fade-in($popover-border-color, 0.05) !default;

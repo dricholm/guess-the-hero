@@ -1,20 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
 
-@import 'variables';
-@import 'mixins';
+@import 'declarations';
+@import 'bootstrap';
+@import 'bootstrap-vue/src/index.scss';
 
-@import 'node_modules/bootstrap/scss/buttons';
-@import 'node_modules/bootstrap/scss/custom-forms';
-@import 'node_modules/bootstrap/scss/forms';
-@import 'node_modules/bootstrap/scss/grid';
-@import 'node_modules/bootstrap/scss/input-group';
-@import 'node_modules/bootstrap/scss/nav';
-@import 'node_modules/bootstrap/scss/navbar';
-@import 'node_modules/bootstrap/scss/reboot';
-@import 'node_modules/bootstrap/scss/transitions';
-@import 'node_modules/bootstrap/scss/tooltip';
-@import 'node_modules/bootstrap/scss/type';
-@import 'node_modules/bootstrap/scss/utilities';
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
 
 .bg-overlay {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
@@ -59,5 +54,138 @@
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+.item-popover {
+  background: linear-gradient(
+    60deg,
+    #202b34,
+    #21333c 15%,
+    #202b34 20%,
+    #21333c 50%,
+    #202b34 55%,
+    #21333c 75%,
+    #202b34 80%
+  );
+  border: 1px solid #000000;
+  box-shadow: $box-shadow;
+  max-width: 400px;
+  z-index: $zindex-tooltip + 1;
+
+  .item-image {
+    border: 1px solid #000000;
+    box-shadow: $box-shadow-sm;
+    height: 64px;
+    margin-right: $spacer;
+    width: 88px;
+  }
+
+  .item-name {
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+  }
+
+  .item-cost {
+    color: #ffdc4b;
+    font-weight: $font-weight-bold;
+    margin: 0;
+    padding-left: 30px;
+    position: relative;
+    text-transform: uppercase;
+
+    &::before {
+      background: url('../../public/img/gold.png');
+      content: '';
+      height: 17px;
+      left: 0;
+      position: absolute;
+      top: 5px;
+      width: 26px;
+    }
+  }
+
+  .item-body {
+    background: rgba(0, 0, 0, 0.5);
+    font-size: $font-size-sm;
+    padding: $spacer;
+
+    .item-cd {
+      background: #3c3a3a;
+      height: $spacer;
+      margin: $spacer * 0.25;
+      position: relative;
+      width: $spacer;
+      border: 1px solid #000000;
+      border-radius: $spacer * 0.25;
+      overflow: hidden;
+
+      &::after {
+        background: #bdbdbd;
+        clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 50%);
+        content: '';
+        height: $spacer;
+        left: -1px;
+        position: absolute;
+        top: 0;
+        width: $spacer;
+      }
+    }
+
+    dl {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    dt {
+      background: linear-gradient(90deg, #26353f, #1d262f 90%);
+      font-weight: $font-weight-bold;
+      padding: $spacer * 0.25 $spacer * 0.5;
+    }
+
+    dd {
+      background: #1c262f;
+      padding: $spacer * 0.25 $spacer * 0.5;
+    }
+
+    .item-active {
+      dt {
+        background: linear-gradient(90deg, #38387f, #181e30 90%);
+      }
+
+      dd {
+        background: #171d2f;
+      }
+    }
+
+    .item-use {
+      dt {
+        background: linear-gradient(90deg, #273f27, #17231f 90%);
+      }
+
+      dd {
+        background: #162320;
+      }
+    }
+
+    .item-hint {
+      background: #1c262f;
+      padding: $spacer * 0.5;
+    }
+
+    .item-note {
+      background: #253844;
+      padding: $spacer * 0.5;
+    }
+
+    .item-lore {
+      background: #0b1215;
+      color: $text-muted;
+      padding: $spacer * 0.5;
+      margin: $spacer * 1.5 0 0 0;
+    }
+
+    & > *:last-child {
+      margin-bottom: 0;
+    }
   }
 }

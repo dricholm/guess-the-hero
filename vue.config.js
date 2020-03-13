@@ -2,8 +2,7 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        prependData:
-          '@import "src/styles/variables"; @import "src/styles/mixins";',
+        prependData: '@import "src/styles/declarations";',
       },
     },
   },
@@ -16,6 +15,10 @@ module.exports = {
   },
   publicPath: process.env.BASE_URL,
   pwa: {
+    workboxPluginMode: 'InjectManifest',
+    workboxOptions: {
+      swSrc: './src/service-worker.js',
+    },
     manifestPath: 'manifest.webmanifest',
     name: 'Guess the Hero',
     themeColor: '#1f2934',

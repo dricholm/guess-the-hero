@@ -6,6 +6,11 @@ export interface Attribute {
   footer?: string;
 }
 
+export interface ItemProperty {
+  name: string;
+  desc: string;
+}
+
 export default interface Item {
   id: number;
   img: string;
@@ -20,4 +25,8 @@ export default interface Item {
   lore: string;
   components: string[] | null;
   created: boolean;
+  active?: ItemProperty[];
+  passive?: ItemProperty[];
+  use?: ItemProperty[];
+  hint?: string[];
 }

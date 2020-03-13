@@ -1,6 +1,11 @@
-@import 'node_modules/bootstrap/scss/mixins';
-
-@mixin button-variant($background, $border, $hover-background: lighten($background, 7.5%), $hover-border: lighten($border, 10%), $active-background: lighten($background, 10%), $active-border: lighten($border, 12.5%)) {
+@mixin button-variant(
+  $background,
+  $border,
+  $hover-background: lighten($background, 7.5%),
+  $hover-border: lighten($border, 10%),
+  $active-background: lighten($background, 10%),
+  $active-border: lighten($border, 12.5%)
+) {
   color: color-yiq($background);
   @include gradient-bg($background);
   border-color: $border;
@@ -16,9 +21,9 @@
   &.focus {
     // Avoid using mixin so we can pass custom focus shadow properly
     @if $enable-shadows {
-      box-shadow: $btn-box-shadow, 0 0 0 $btn-focus-width rgba($border, .5);
+      box-shadow: $btn-box-shadow, 0 0 0 $btn-focus-width rgba($border, 0.5);
     } @else {
-      box-shadow: 0 0 0 $btn-focus-width rgba($border, .5);
+      box-shadow: 0 0 0 $btn-focus-width rgba($border, 0.5);
     }
   }
 
@@ -43,9 +48,10 @@
     &:focus {
       // Avoid using mixin so we can pass custom focus shadow properly
       @if $enable-shadows {
-        box-shadow: $btn-active-box-shadow, 0 0 0 $btn-focus-width rgba($border, .5);
+        box-shadow: $btn-active-box-shadow,
+          0 0 0 $btn-focus-width rgba($border, 0.5);
       } @else {
-        box-shadow: 0 0 0 $btn-focus-width rgba($border, .5);
+        box-shadow: 0 0 0 $btn-focus-width rgba($border, 0.5);
       }
     }
   }
@@ -53,6 +59,7 @@
 
 @mixin bg-gradient-variant($parent, $color) {
   #{$parent} {
-    background: $color linear-gradient(180deg, $color, darken($color, 15%)) repeat-x !important;
+    background: $color linear-gradient(180deg, $color, darken($color, 15%))
+      repeat-x !important;
   }
 }
