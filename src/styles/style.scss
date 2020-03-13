@@ -2,6 +2,7 @@
 
 @import 'declarations';
 @import 'bootstrap';
+@import 'bootstrap-vue/src/index.scss';
 
 .bg-overlay {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
@@ -73,45 +74,56 @@
   .item-body {
     background: rgba(0, 0, 0, 0.3);
     padding: $spacer;
-  }
-
-  dt {
-    background: linear-gradient(
-      90deg,
-      rgba(150, 180, 200, 0.3),
-      rgba(150, 180, 200, 0.2)
-    );
-    font-weight: $font-weight-bold;
-    padding: $spacer * 0.25 $spacer * 0.5;
-  }
-
-  dd {
-    background: linear-gradient(
-      90deg,
-      rgba(150, 180, 200, 0.2),
-      rgba(150, 180, 200, 0.1)
-    );
-    font-size: $font-size-sm;
-    padding: $spacer * 0.25 $spacer * 0.5;
-  }
-
-  .active {
-    color: #c9c9ff;
 
     dt {
       background: linear-gradient(
         90deg,
-        rgba(100, 100, 255, 0.3),
-        rgba(100, 100, 255, 0.2)
+        rgba(150, 180, 200, 0.3),
+        rgba(150, 180, 200, 0.2)
       );
+      font-weight: $font-weight-bold;
+      padding: $spacer * 0.25 $spacer * 0.5;
     }
 
     dd {
       background: linear-gradient(
         90deg,
-        rgba(100, 100, 255, 0.2),
-        rgba(100, 100, 255, 0.1)
+        rgba(150, 180, 200, 0.2),
+        rgba(150, 180, 200, 0.1)
       );
+      font-size: $font-size-sm;
+      padding: $spacer * 0.25 $spacer * 0.5;
+    }
+
+    .active {
+      color: #c9c9ff;
+
+      dt {
+        background: linear-gradient(
+          90deg,
+          rgba(100, 100, 255, 0.3),
+          rgba(100, 100, 255, 0.2)
+        );
+      }
+
+      dd {
+        background: linear-gradient(
+          90deg,
+          rgba(100, 100, 255, 0.2),
+          rgba(100, 100, 255, 0.1)
+        );
+      }
+    }
+
+    .item-lore {
+      background: rgba(0, 0, 0, 0.3);
+      color: $text-muted;
+      font-size: $font-size-sm;
+      margin: 0;
+    }
+
+    *:last-child {
+      margin-bottom: 0;
     }
   }
 }

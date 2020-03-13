@@ -17,6 +17,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
+import '@/styles/style.scss';
+
 import AppUpdate from '@/components/core/AppUpdate.vue';
 import Footer from '@/components/core/Footer.vue';
 import NavBar from '@/components/core/NavBar.vue';
@@ -33,10 +35,7 @@ import Offline from '@/components/core/Offline.vue';
 export default class App extends Vue {}
 </script>
 
-<style lang="scss">
-@import './styles/style.scss';
-@import '../node_modules/bootstrap-vue/dist/bootstrap-vue.css';
-
+<style lang="scss" scoped>
 .app {
   background: linear-gradient(lighten(#161d25, 15%), #161d25) fixed;
   display: grid;
