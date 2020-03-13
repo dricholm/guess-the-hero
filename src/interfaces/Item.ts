@@ -28,4 +28,5 @@ export default interface Item {
   active?: ItemProperty[];
   passive?: ItemProperty[];
   use?: ItemProperty[];
+  hint?: string[];
 }

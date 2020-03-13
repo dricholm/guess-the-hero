@@ -65,7 +65,7 @@ export default class ItemIcon extends Vue {
 
   private formatDescription(description: string): string {
     return description
-      .replace(/(-?\d+[x%]?)/g, '<strong>$&</strong>')
+      .replace(/(\d+.?\d*%?)/g, '<strong>$&</strong>')
       .replace(/\n/g, '<br />');
   }
 
@@ -73,13 +73,19 @@ export default class ItemIcon extends Vue {
     const item = itemsJson[this.name as keyof typeof itemsJson] as Item;
     const attributes = this.attributes.map(
       a =>
-        `<li>${a.header}<strong class="text-white">${
-          a.value
-        }</strong> ${a.footer || ''}</li>`,
+        `<li>${
+          a.header.startsWith('-')
+            ? `<span class="text-danger">${a.header}</span>`
+            : a.header
+        }<strong class="text-white">${a.value}</strong> ${a.footer || ''}</li>`,
     );
     const active = this.active.map(
       a =>
-        `<dt>Active: ${a.name}</dt><dd>${this.formatDescription(a.desc)}</dd>`,
+        `<dt class="d-flex justify-content-between"><p class="m-0">Active: ${
+          a.name
+        }</p><div class="d-flex m-0" aria-label="Cooldown"><div class="item-cd"></div>${
+          item.cd
+        }</div></dt><dd>${this.formatDescription(a.desc)}</dd>`,
     );
     const passive = this.passive.map(
       p =>
@@ -88,10 +94,19 @@ export default class ItemIcon extends Vue {
     const use = this.use.map(
       u => `<dt>Use: ${u.name}</dt><dd>${this.formatDescription(u.desc)}</dd>`,
     );
+    const hints =
+      item.hint == null
+        ? []
+        : item.hint
+            .filter(hint => hint !== '')
+            .map(
+              hint =>
+                `<p class="item-hint">${this.formatDescription(hint)}</p>`,
+            );
 
     return `
     <div class="d-flex p-3">
-      <img src="${this.imageSrc}" class="mr-3 shadow-sm" />
+      <img src="${this.imageSrc}" class="item-image" />
       <div>
         <div class="item-name">${this.localizedName}</div>
         ${
@@ -109,12 +124,18 @@ export default class ItemIcon extends Vue {
       }
       ${
         this.active.length > 0
-          ? `<dl class="active">${active.join('')}</dl>`
+          ? `<dl class="item-active">${active.join('')}</dl>`
           : ''
       }
       ${this.passive.length > 0 ? `<dl>${passive.join('')}</dl>` : ''}
-      ${this.use.length > 0 ? `<dl class="active">${use.join('')}</dl>` : ''}
-      <p class="text-muted small mb-0">${item.lore}</p>
+      ${this.use.length > 0 ? `<dl class="item-use">${use.join('')}</dl>` : ''}
+      ${hints.length > 0 ? hints.join('') : ''}
+      ${
+        item.notes === ''
+          ? ''
+          : `<p class="item-note">${this.formatDescription(item.notes)}</p>`
+      }
+      ${item.lore === '' ? '' : `<p class="item-lore">${item.lore}</p>`}
     </div>
     `;
   }
