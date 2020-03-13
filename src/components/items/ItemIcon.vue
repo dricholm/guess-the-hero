@@ -83,16 +83,26 @@ export default class ItemIcon extends Vue {
       a =>
         `<dt class="d-flex justify-content-between"><p class="m-0">Active: ${
           a.name
-        }</p><div class="d-flex m-0" aria-label="Cooldown"><div class="item-cd"></div>${
+        }</p>${
           item.cd
-        }</div></dt><dd>${this.formatDescription(a.desc)}</dd>`,
+            ? `<div class="d-flex m-0" aria-label="Cooldown"><div class="item-cd"></div>${item.cd}</div>`
+            : ''
+        }</dt><dd>${this.formatDescription(a.desc)}</dd>`,
     );
     const passive = this.passive.map(
       p =>
         `<dt>Passive: ${p.name}</dt><dd>${this.formatDescription(p.desc)}</dd>`,
     );
     const use = this.use.map(
-      u => `<dt>Use: ${u.name}</dt><dd>${this.formatDescription(u.desc)}</dd>`,
+      u =>
+        `<dt class="d-flex justify-content-between"><p class="m-0">Use: ${
+          u.name
+        }</p>${
+          item.cd
+            ? `<div class="d-flex m-0" aria-label="Cooldown"><div class="item-cd"></div>${item.cd}</div>
+        `
+            : ''
+        }</dt><dd>${this.formatDescription(u.desc)}</dd>`,
     );
     const hints =
       item.hint == null
