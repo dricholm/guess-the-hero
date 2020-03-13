@@ -111,7 +111,7 @@ export default class ItemIcon extends Vue {
         <div class="item-name">${this.localizedName}</div>
         ${
           item.cost > 0
-            ? `<p class="item-cost">Cost: <span class="gold">${item.cost}</span></p>`
+            ? `<p class="item-cost" aria-label="Cost">${item.cost}</p>`
             : ''
         }
       </div>

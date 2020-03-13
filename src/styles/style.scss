@@ -87,13 +87,21 @@ body {
   }
 
   .item-cost {
-    color: $gray-600;
+    color: #ffdc4b;
     font-weight: $font-weight-bold;
     margin: 0;
+    padding-left: 30px;
+    position: relative;
     text-transform: uppercase;
 
-    .gold {
-      color: #ffdc4b;
+    &::before {
+      background: url('../../public/img/gold.png');
+      content: '';
+      height: 17px;
+      left: 0;
+      position: absolute;
+      top: 5px;
+      width: 26px;
     }
   }
 
