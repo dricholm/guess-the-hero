@@ -1,6 +1,11 @@
 self.addEventListener('message', event => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    skipWaiting();
+  switch (event.data) {
+    case 'skipWaiting':
+      skipWaiting();
+      break;
+
+    default:
+      break;
   }
 });
 

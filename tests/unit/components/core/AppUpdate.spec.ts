@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { shallowMount, mount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
 import AppUpdate from '@/components/core/AppUpdate.vue';
 
@@ -22,7 +22,8 @@ describe('AppUpdate.vue', () => {
     expect(button.exists()).toBe(true);
   });
 
-  it('should call skipWaiting if button is clicked', async () => {
+  it('should call skipWaiting and refresh if button is clicked', async () => {
+    jest.spyOn(window.location, 'reload');
     const detail = { waiting: { postMessage: jest.fn() } };
     const wrapper = shallowMount(AppUpdate, { attachToDocument: true });
 
@@ -33,5 +34,6 @@ describe('AppUpdate.vue', () => {
     button.trigger('click');
 
     expect(detail.waiting.postMessage).toHaveBeenCalledWith('skipWaiting');
+    expect(window.location.reload).toHaveBeenCalledTimes(1);
   });
 });

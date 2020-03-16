@@ -32,6 +32,7 @@ export default class AppUpdate extends Vue {
   refresh() {
     this.updateAvailable = false;
     this.registration?.waiting?.postMessage('skipWaiting');
+    window.location.reload();
   }
 }
 </script>
