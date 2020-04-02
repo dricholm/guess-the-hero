@@ -177,7 +177,7 @@ describe('ItemDescription.vue', () => {
 
     propsData.actives[0].desc
       .split('\n')
-      .forEach(text => expect(description.text()).toContain(text));
+      .forEach((text) => expect(description.text()).toContain(text));
     const br = description.find('br');
     expect(br.exists()).toBe(true);
   });

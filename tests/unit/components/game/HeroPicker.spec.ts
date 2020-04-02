@@ -60,7 +60,8 @@ describe('HeroPicker.vue', () => {
 
     input.setValue('al');
 
-    expect(wrapper.emitted('filter')[0]).toEqual(['al']);
+    expect(wrapper.emitted('filter')).toBeDefined();
+    expect(wrapper.emitted('filter')![0]).toEqual(['al']);
   });
 
   it('should emit pick', () => {
@@ -98,8 +99,10 @@ describe('HeroPicker.vue', () => {
     input.setValue('anti');
     form.trigger('submit');
 
-    expect(wrapper.emitted('select')[0]).toEqual([1]);
-    expect(wrapper.emitted('filter')[1]).toEqual(['']);
+    expect(wrapper.emitted('select')).toBeDefined();
+    expect(wrapper.emitted('select')![0]).toEqual([1]);
+    expect(wrapper.emitted('filter')).toBeDefined();
+    expect(wrapper.emitted('filter')![1]).toEqual(['']);
   });
 
   it('should emit pick when submitted', () => {

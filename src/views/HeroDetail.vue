@@ -31,11 +31,9 @@
       <ul class="sites">
         <li>
           <a
-            :href="
-              `https://dotabuff.com/heroes/${hero.localized_name
-                .toLowerCase()
-                .replace(/ /g, '-')}`
-            "
+            :href="`https://dotabuff.com/heroes/${hero.localized_name
+              .toLowerCase()
+              .replace(/ /g, '-')}`"
             target="_blank"
             >DotaBuff</a
           >

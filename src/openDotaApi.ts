@@ -59,8 +59,9 @@ JOIN match_patch ON match_patch.match_id = public_matches.match_id
 WHERE
 public_matches.avg_mmr > ${mmrMin} AND public_matches.avg_mmr < ${mmrMax}
 AND
-public_matches.duration > ${durationMin *
-      60} AND public_matches.duration < ${durationMax * 60}
+public_matches.duration > ${durationMin * 60} AND public_matches.duration < ${
+      durationMax * 60
+    }
 ORDER BY RANDOM()
 LIMIT 1
 `)}`,
