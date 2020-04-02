@@ -1,4 +1,4 @@
-self.addEventListener('message', event => {
+self.addEventListener('message', (event) => {
   switch (event.data) {
     case 'skipWaiting':
       skipWaiting();
