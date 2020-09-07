@@ -1,6 +1,6 @@
-import { shallowMount } from '@vue/test-utils';
-
 import Inventory from '@/components/game/Inventory.vue';
+import ItemIcon from '@/components/items/ItemIcon.vue';
+import { shallowMount } from '@vue/test-utils';
 
 describe('Inventory.vue', () => {
   it('should show items', () => {
@@ -12,7 +12,7 @@ describe('Inventory.vue', () => {
       },
     });
 
-    const items = wrapper.findAll({ name: 'ItemIcon' });
+    const items = wrapper.findAllComponents(ItemIcon);
 
     expect(items.length).toBe(10);
     expect(items.at(0).attributes().id).toBe('1');

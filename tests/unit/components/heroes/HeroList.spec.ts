@@ -1,14 +1,14 @@
-import { shallowMount } from '@vue/test-utils';
-import heroesJson from 'dotaconstants/build/heroes.json';
-
+import HeroIcon from '@/components/heroes/HeroIcon.vue';
 import HeroList from '@/components/heroes/HeroList.vue';
 import Hero from '@/interfaces/Hero';
+import { shallowMount } from '@vue/test-utils';
+import heroesJson from 'dotaconstants/build/heroes.json';
 
 describe('HeroList.vue', () => {
   it('should show all heroes', () => {
     const wrapper = shallowMount(HeroList);
 
-    const list = wrapper.findAll({ name: 'HeroIcon' });
+    const list = wrapper.findAllComponents(HeroIcon);
 
     expect(list.length).toBe(Object.values(heroesJson).length);
   });
@@ -20,7 +20,7 @@ describe('HeroList.vue', () => {
       },
     });
 
-    const list = wrapper.findAll({ name: 'HeroIcon' });
+    const list = wrapper.findAllComponents(HeroIcon);
 
     expect(list.length).toBe(1);
     expect(+list.at(0).attributes().id).toBe(105);

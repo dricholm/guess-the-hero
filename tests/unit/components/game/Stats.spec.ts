@@ -1,7 +1,7 @@
-import { mount, shallowMount } from '@vue/test-utils';
-
+import Card from '@/components/core/Card.vue';
 import Stats from '@/components/game/Stats.vue';
 import { GameStats } from '@/store/game/types';
+import { mount, shallowMount } from '@vue/test-utils';
 
 describe('Stats.vue', () => {
   it('should show card headers', () => {
@@ -51,7 +51,7 @@ describe('Stats.vue', () => {
       },
     });
 
-    const cardHeaders = wrapper.findAll({ name: 'Card' });
+    const cardHeaders = wrapper.findAllComponents(Card);
 
     expect(cardHeaders.length).toBe(5);
     expect(cardHeaders.at(0).attributes().header).toBe('Hero stats');

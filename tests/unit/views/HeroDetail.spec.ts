@@ -1,8 +1,7 @@
-import { mount } from '@vue/test-utils';
-import heroesJson from 'dotaconstants/build/heroes.json';
-
 import Hero from '@/interfaces/Hero';
 import HeroDetail from '@/views/HeroDetail.vue';
+import { mount } from '@vue/test-utils';
+import heroesJson from 'dotaconstants/build/heroes.json';
 
 describe('HeroDetail.vue', () => {
   it('should show error', () => {
@@ -110,7 +109,7 @@ describe('HeroDetail.vue', () => {
     });
 
     const cardBody = wrapper.find('.overview .card-body');
-    expect(cardBody.contains('img')).toBe(true);
+    expect(cardBody.find('img').exists()).toBe(true);
 
     const image = wrapper.find('.overview img');
     expect(image.attributes().src).toContain(
