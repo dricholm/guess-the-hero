@@ -64,7 +64,6 @@ import HeroIcon from '@/components/heroes/HeroIcon.vue';
 import HeroList from '@/components/heroes/HeroList.vue';
 import Hero from '@/interfaces/Hero';
 import type { GameStats } from '@/store/game/types';
-import type SettingsState from '@/store/settings/types';
 
 @Component({
   components: {

@@ -1,6 +1,5 @@
 export interface GameStats {
   assists: number;
-  avgMmr: number;
   backpack0: number;
   backpack1: number;
   backpack2: number;

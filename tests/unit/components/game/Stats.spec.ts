@@ -7,7 +7,6 @@ describe('Stats.vue', () => {
   it('should show card headers', () => {
     const defaultStats: GameStats = {
       assists: 0,
-      avgMmr: 0,
       backpack0: 0,
       backpack1: 0,
       backpack2: 0,
@@ -64,7 +63,6 @@ describe('Stats.vue', () => {
   it('should show stats', () => {
     const defaultStats: GameStats = {
       assists: 0,
-      avgMmr: 0,
       backpack0: 0,
       backpack1: 0,
       backpack2: 0,
@@ -111,8 +109,8 @@ describe('Stats.vue', () => {
     const statToggle = wrapper.findAll('.stat-toggle');
     const statValue = wrapper.findAll('.stat-value');
 
-    expect(statToggle.length).toBe(25);
-    expect(statValue.length).toBe(25);
+    expect(statToggle.length).toBe(24);
+    expect(statValue.length).toBe(24);
 
     expect(statToggle.at(0).text()).toBe('Level');
     expect(statValue.at(0).text()).toBe(defaultStats.level.toString());
@@ -158,20 +156,17 @@ describe('Stats.vue', () => {
     expect(statValue.at(19).text()).toBe('Unknown');
     expect(statToggle.at(20).text()).toBe('Role');
     expect(statValue.at(20).text()).toBe('Unknown');
-    expect(statToggle.at(21).text()).toBe('Average MMR');
-    expect(statValue.at(21).text()).toBe(defaultStats.avgMmr.toString());
-    expect(statToggle.at(22).text()).toBe('Duration');
-    expect(statValue.at(22).text()).toBe('10:10');
-    expect(statToggle.at(23).text()).toBe('Patch');
-    expect(statValue.at(23).text()).toBe(defaultStats.patch);
-    expect(statToggle.at(24).text()).toBe('Result');
-    expect(statValue.at(24).text()).toBe('Win');
+    expect(statToggle.at(21).text()).toBe('Duration');
+    expect(statValue.at(21).text()).toBe('10:10');
+    expect(statToggle.at(22).text()).toBe('Patch');
+    expect(statValue.at(22).text()).toBe(defaultStats.patch);
+    expect(statToggle.at(23).text()).toBe('Result');
+    expect(statValue.at(23).text()).toBe('Win');
   });
 
   it('should show parsed stats', () => {
     const defaultStats: GameStats = {
       assists: 0,
-      avgMmr: 6502,
       backpack0: 0,
       backpack1: 0,
       backpack2: 0,
@@ -217,7 +212,7 @@ describe('Stats.vue', () => {
 
     const statValue = wrapper.findAll('.stat-value');
 
-    expect(statValue.length).toBe(25);
+    expect(statValue.length).toBe(24);
 
     expect(statValue.at(8).text()).toBe(`87%`);
     expect(statValue.at(9).text()).toBe('1,230');

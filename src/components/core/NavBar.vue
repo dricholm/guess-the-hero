@@ -15,7 +15,7 @@
 
       <b-collapse is-nav id="navContent" v-model="shown">
         <b-navbar-nav>
-          <b-nav-item :to="{ name: 'game' }">Play</b-nav-item>
+          <b-nav-item :to="{ name: 'game' }">Game</b-nav-item>
           <b-nav-item :to="{ name: 'heroes' }">Heroes</b-nav-item>
           <b-nav-item :to="{ name: 'items' }">Items</b-nav-item>
         </b-navbar-nav>

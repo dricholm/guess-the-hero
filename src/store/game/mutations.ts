@@ -7,7 +7,6 @@ export const mutations: MutationTree<GameState> = {
     state.error = false;
     state.isLoading = true;
     state.currentMatch.assists = 0;
-    state.currentMatch.avgMmr = 0;
     state.currentMatch.backpack0 = 0;
     state.currentMatch.backpack1 = 0;
     state.currentMatch.backpack2 = 0;
@@ -46,7 +45,6 @@ export const mutations: MutationTree<GameState> = {
   saveMatchData(state: GameState, payload: GameStats) {
     state.isLoading = false;
     state.currentMatch.assists = payload.assists;
-    state.currentMatch.avgMmr = payload.avgMmr;
     state.currentMatch.backpack0 = payload.backpack0;
     state.currentMatch.backpack1 = payload.backpack1;
     state.currentMatch.backpack2 = payload.backpack2;

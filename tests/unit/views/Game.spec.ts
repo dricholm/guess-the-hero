@@ -1,8 +1,7 @@
-import { createLocalVue, mount, shallowMount } from '@vue/test-utils';
-import * as Vuex from 'vuex';
-
 import { GameState } from '@/store/game/types';
 import Game from '@/views/Game.vue';
+import { createLocalVue, shallowMount } from '@vue/test-utils';
+import * as Vuex from 'vuex';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
@@ -29,7 +28,6 @@ describe('Game.vue', () => {
     state = {
       currentMatch: {
         assists: 0,
-        avgMmr: 0,
         backpack0: 0,
         backpack1: 0,
         backpack2: 0,
