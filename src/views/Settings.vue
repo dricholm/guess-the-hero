@@ -87,9 +87,7 @@
 
       <transition name="card">
         <div class="one-card" v-if="saved">
-          <card header="Saved" class="my-3">
-            Settings saved!
-          </card>
+          <card header="Saved" class="my-3">Settings saved!</card>
         </div>
       </transition>
     </b-form>
@@ -108,7 +106,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import { Action, Getter } from 'vuex-class';
 
 import Card from '@/components/core/Card.vue';
-import SettingsState from '@/store/settings/types';
+import type SettingsState from '@/store/settings/types';
 
 @Component({
   components: {

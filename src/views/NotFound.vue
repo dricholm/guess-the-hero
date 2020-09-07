@@ -2,9 +2,7 @@
   <div class="container my-5">
     <h1>Not Found</h1>
 
-    <p>
-      The requested page could not be found.
-    </p>
+    <p>The requested page could not be found.</p>
 
     <p>
       Go back to the

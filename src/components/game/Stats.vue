@@ -76,7 +76,7 @@ import Card from '@/components/core/Card.vue';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 import ToggleButton from '@/components/game/ToggleButton.vue';
-import { GameStats } from '@/store/game/types';
+import type { GameStats } from '@/store/game/types';
 
 @Component({
   components: {

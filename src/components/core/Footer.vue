@@ -1,9 +1,7 @@
 <template>
   <footer>
     <div class="container">
-      <p>
-        Copyright &copy; 2018 Dávid Richolm
-      </p>
+      <p>Copyright &copy; 2018 Dávid Richolm</p>
 
       <p>
         Dota 2 is a registered trademark of Valve Corporation.
