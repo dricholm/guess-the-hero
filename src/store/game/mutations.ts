@@ -64,6 +64,7 @@ export const mutations: MutationTree<GameState> = {
     state.currentMatch.item3 = payload.item3;
     state.currentMatch.item4 = payload.item4;
     state.currentMatch.item5 = payload.item5;
+    state.currentMatch.neutralItem = payload.neutralItem;
     state.currentMatch.kills = payload.kills;
     state.currentMatch.lane = payload.lane;
     state.currentMatch.laneRole = payload.laneRole;

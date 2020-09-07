@@ -26,6 +26,7 @@
           class="mx-auto"
           :inventory="inventory"
           :backpack="backpack"
+          :neutral="neutralItem"
         />
       </card>
 
