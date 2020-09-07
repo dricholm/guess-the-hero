@@ -5,12 +5,8 @@
     <transition name="card">
       <div class="one-card" v-if="error">
         <card header="Error" class="mb-3" bodyClass="justify-content-between">
-          <p class="mr-3">
-            Could not fetch match data.
-          </p>
-          <b-button variant="primary" @click="queryMatch">
-            Try again
-          </b-button>
+          <p class="mr-3">Could not fetch match data.</p>
+          <b-button variant="primary" @click="queryMatch">Try again</b-button>
         </card>
       </div>
     </transition>
@@ -30,6 +26,7 @@
           class="mx-auto"
           :inventory="inventory"
           :backpack="backpack"
+          :neutral="neutralItem"
         />
       </card>
 
@@ -67,8 +64,7 @@ import Stats from '@/components/game/Stats.vue';
 import HeroIcon from '@/components/heroes/HeroIcon.vue';
 import HeroList from '@/components/heroes/HeroList.vue';
 import Hero from '@/interfaces/Hero';
-import { GameStats } from '@/store/game/types';
-import SettingsState from '@/store/settings/types';
+import type { GameStats } from '@/store/game/types';
 
 @Component({
   components: {

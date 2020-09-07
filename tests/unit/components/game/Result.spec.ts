@@ -1,6 +1,6 @@
-import { mount, shallowMount } from '@vue/test-utils';
-
 import Result from '@/components/game/Result.vue';
+import HeroIcon from '@/components/heroes/HeroIcon.vue';
+import { mount, shallowMount } from '@vue/test-utils';
 
 describe('Result.vue', () => {
   it('should show correct', () => {
@@ -37,7 +37,7 @@ describe('Result.vue', () => {
     });
 
     const heroPortrait = wrapper.find('.hero-portrait');
-    const heroIcon = wrapper.find({ name: 'HeroIcon' });
+    const heroIcon = wrapper.findComponent(HeroIcon);
 
     expect(heroPortrait.text()).toBe('Anti-Mage');
     expect(+heroIcon.attributes().id).toBe(1);

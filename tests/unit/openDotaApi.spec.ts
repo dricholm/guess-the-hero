@@ -1,6 +1,5 @@
-import nock from 'nock';
-
 import { queryRandom } from '@/openDotaApi';
+import nock from 'nock';
 
 describe('OpenDotaApi', () => {
   beforeEach(() => {
@@ -14,62 +13,62 @@ describe('OpenDotaApi', () => {
   });
 
   it('queryRandom should return match data', async () => {
+    const matchId = 123456789;
     const mockBody = {
-      assists: 0,
-      avg_mmr: 0,
-      backpack_0: 0,
-      backpack_1: 0,
-      backpack_2: 0,
-      deaths: 0,
-      denies: 0,
       duration: 0,
-      gold: 0,
-      gold_per_min: 0,
-      gold_spent: 0,
-      hero_damage: 0,
-      hero_healing: 0,
-      hero_id: 0,
-      is_roaming: null,
-      item_0: 0,
-      item_1: 0,
-      item_2: 0,
-      item_3: 0,
-      item_4: 0,
-      item_5: 0,
-      kills: 0,
-      lane: 0,
-      lane_role: 0,
-      last_hits: 0,
-      level: 0,
       match_id: 0,
       patch: '',
-      player_slot: 0,
       radiant_win: true,
-      roshans_killed: 0,
-      stuns: 0,
-      teamfight_participation: 0,
-      tower_damage: 0,
-      towers_killed: 0,
-      xp_per_min: 0,
+      players: [
+        {
+          assists: 0,
+          backpack_0: 0,
+          backpack_1: 0,
+          backpack_2: 0,
+          deaths: 0,
+          denies: 0,
+          gold: 0,
+          gold_per_min: 0,
+          gold_spent: 0,
+          hero_damage: 0,
+          hero_healing: 0,
+          hero_id: 0,
+          is_roaming: null,
+          item_0: 0,
+          item_1: 0,
+          item_2: 0,
+          item_3: 0,
+          item_4: 0,
+          item_5: 0,
+          item_neutral: 0,
+          kills: 0,
+          lane: 0,
+          lane_role: 0,
+          last_hits: 0,
+          level: 0,
+          player_slot: 0,
+          roshans_killed: null,
+          stuns: 0,
+          teamfight_participation: 0,
+          tower_damage: 0,
+          towers_killed: null,
+          xp_per_min: 0,
+        },
+      ],
     };
 
-    const mockRequest = nock('https://api.opendota.com/api/')
+    const scope = nock('https://api.opendota.com/api')
       .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
-      .get(
-        new RegExp(
-          'WHERE%0A' +
-            'public_matches.avg_mmr%20%3E%202000%20AND%20public_matches.avg_mmr%20%3C%206000%0AAND%0A' +
-            'public_matches.duration%20%3E%20600%20AND%20public_matches.duration%20%3C%205400%0AORDER',
-        ),
-      )
-      .reply(200, { rows: [mockBody] });
+      .get('/publicMatches')
+      .reply(200, [{ match_id: matchId }])
+      .get(`/matches/${matchId}`)
+      .reply(200, mockBody);
 
-    const response = await queryRandom(10, 90, 2000, 6000);
+    const response = await queryRandom();
 
-    expect(mockRequest.isDone()).toBe(true);
+    expect(scope.isDone()).toBe(true);
     expect(response).toEqual({
       assists: 0,
-      avgMmr: 0,
       backpack0: 0,
       backpack1: 0,
       backpack2: 0,
@@ -89,6 +88,7 @@ describe('OpenDotaApi', () => {
       item3: 0,
       item4: 0,
       item5: 0,
+      neutralItem: 0,
       kills: 0,
       lane: 0,
       laneRole: 0,
@@ -105,25 +105,5 @@ describe('OpenDotaApi', () => {
       towersKilled: 0,
       xpm: 0,
     });
-  });
-
-  it('queryRandom should throw error', async () => {
-    const mockRequest = nock('https://api.opendota.com/api/')
-      .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
-      .get(
-        new RegExp(
-          'WHERE%0A' +
-            'public_matches.avg_mmr%20%3E%202000%20AND%20public_matches.avg_mmr%20%3C%206000%0AAND%0A' +
-            'public_matches.duration%20%3E%20600%20AND%20public_matches.duration%20%3C%205400%0AORDER',
-        ),
-      )
-      .reply(200, { rows: [] });
-
-    try {
-      await queryRandom(10, 90, 2000, 6000);
-    } catch (error) {
-      expect(mockRequest.isDone()).toBe(true);
-      expect(error.message).toEqual('No matches were returned');
-    }
   });
 });

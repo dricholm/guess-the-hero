@@ -63,7 +63,6 @@
       class="match-stats"
       body-class="flex-column justify-content-center"
     >
-      <toggleButton title="Average MMR" :value="stats.avgMmr" />
       <toggleButton title="Duration" :value="duration" />
       <toggleButton title="Patch" :value="stats.patch" />
       <toggleButton title="Result" :value="result" />
@@ -76,7 +75,7 @@ import Card from '@/components/core/Card.vue';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 import ToggleButton from '@/components/game/ToggleButton.vue';
-import { GameStats } from '@/store/game/types';
+import type { GameStats } from '@/store/game/types';
 
 @Component({
   components: {

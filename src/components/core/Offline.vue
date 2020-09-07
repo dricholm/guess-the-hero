@@ -1,7 +1,5 @@
 <template>
-  <div class="offline" v-if="isOffline">
-    Offline
-  </div>
+  <div class="offline" v-if="isOffline">Offline</div>
 </template>
 
 <script lang="ts">

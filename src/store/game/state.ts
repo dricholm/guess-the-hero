@@ -4,7 +4,6 @@ export default (): GameState => {
   return {
     currentMatch: {
       assists: 0,
-      avgMmr: 0,
       backpack0: 0,
       backpack1: 0,
       backpack2: 0,

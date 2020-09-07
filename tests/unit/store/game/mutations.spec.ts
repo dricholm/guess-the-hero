@@ -6,7 +6,6 @@ describe('game mutations', () => {
     const state: GameState = {
       currentMatch: {
         assists: 0,
-        avgMmr: 0,
         backpack0: 0,
         backpack1: 0,
         backpack2: 0,
@@ -57,7 +56,6 @@ describe('game mutations', () => {
     const state: GameState = {
       currentMatch: {
         assists: 0,
-        avgMmr: 0,
         backpack0: 0,
         backpack1: 0,
         backpack2: 0,
@@ -100,7 +98,6 @@ describe('game mutations', () => {
 
     const dummyData = {
       assists: 1,
-      avgMmr: 1000,
       backpack0: 1,
       backpack1: 1,
       backpack2: 2,
@@ -142,7 +139,6 @@ describe('game mutations', () => {
     expect(state.error).toBe(false);
     expect(state.isLoading).toBe(false);
     expect(state.currentMatch.assists).toBe(dummyData.assists);
-    expect(state.currentMatch.avgMmr).toBe(dummyData.avgMmr);
     expect(state.currentMatch.backpack0).toBe(dummyData.backpack0);
     expect(state.currentMatch.backpack1).toBe(dummyData.backpack1);
     expect(state.currentMatch.backpack2).toBe(dummyData.backpack2);
@@ -185,7 +181,6 @@ describe('game mutations', () => {
     const state: GameState = {
       currentMatch: {
         assists: 0,
-        avgMmr: 0,
         backpack0: 0,
         backpack1: 0,
         backpack2: 0,

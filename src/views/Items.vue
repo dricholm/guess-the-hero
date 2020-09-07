@@ -108,11 +108,11 @@ export default class Items extends Vue {
   }
 
   get armaments(): number[] {
-    return [12, 11, 265, 181, 240, 2, 4, 10, 6, 7, 3, 5, 8];
+    return [12, 11, 265, 181, 240, 2, 4, 10, 6, 7, 3, 485, 5, 8];
   }
 
   get arcane(): number[] {
-    return [34, 244, 27, 28, 29, 25, 31, 279, 30, 26, 215, 37, 1];
+    return [34, 244, 27, 28, 29, 25, 31, 279, 30, 26, 473, 215, 37, 1];
   }
 
   get secretShop(): number[] {

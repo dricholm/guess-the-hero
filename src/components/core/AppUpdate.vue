@@ -3,9 +3,7 @@
     class="d-flex align-items-center justify-content-center p-2 bg-dark"
     v-if="updateAvailable"
   >
-    <p class="mb-0 mr-3">
-      Webapp has been updated!
-    </p>
+    <p class="mb-0 mr-3">Webapp has been updated!</p>
     <button class="btn btn-primary" @click="refresh">Refresh</button>
   </div>
 </template>

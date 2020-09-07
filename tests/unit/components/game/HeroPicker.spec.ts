@@ -1,13 +1,13 @@
-import { mount } from '@vue/test-utils';
-
 import HeroPicker from '@/components/game/HeroPicker.vue';
+import HeroIcon from '@/components/heroes/HeroIcon.vue';
+import { mount } from '@vue/test-utils';
 
 describe('HeroPicker.vue', () => {
   it('should show default state', () => {
     const wrapper = mount(HeroPicker, { attachToDocument: true });
 
     const input = wrapper.find('input[type="text"]');
-    const heroIcon = wrapper.find({ name: 'HeroIcon' });
+    const heroIcon = wrapper.findComponent(HeroIcon);
     const button = wrapper.find('button');
 
     expect(input.attributes()).not.toContain('disabled');
@@ -24,7 +24,7 @@ describe('HeroPicker.vue', () => {
     });
 
     const input = wrapper.find('input[type="text"]');
-    const heroIcon = wrapper.find({ name: 'HeroIcon' });
+    const heroIcon = wrapper.findComponent(HeroIcon);
     const button = wrapper.find('button');
 
     expect(input.attributes()).not.toContain('disabled');
@@ -42,7 +42,7 @@ describe('HeroPicker.vue', () => {
     });
 
     const input = wrapper.find('input[type="text"]');
-    const heroIcon = wrapper.find({ name: 'HeroIcon' });
+    const heroIcon = wrapper.findComponent(HeroIcon);
     const button = wrapper.find('button');
 
     expect(input.attributes()).not.toContain('disabled');
