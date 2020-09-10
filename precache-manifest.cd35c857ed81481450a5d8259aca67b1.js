@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b01b8eedba3cff6989c0",
-    "url": "/guess-the-hero/css/app.465a4e7d.css"
+    "revision": "3672ad7a8daa6dc61b22",
+    "url": "/guess-the-hero/css/app.5cd1cb32.css"
   },
   {
     "revision": "4f521787f557cd407eee",
@@ -2324,12 +2324,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/guess-the-hero/img/portraits/npc_dota_hero_zuus.jpg"
   },
   {
-    "revision": "b3715b57a04edbcbc6c01f8e4274b05c",
+    "revision": "8d920c31349015783e28e0a046416a0d",
     "url": "/guess-the-hero/index.html"
   },
   {
-    "revision": "b01b8eedba3cff6989c0",
-    "url": "/guess-the-hero/js/app.b7887936.js"
+    "revision": "3672ad7a8daa6dc61b22",
+    "url": "/guess-the-hero/js/app.b67eac1f.js"
   },
   {
     "revision": "4f521787f557cd407eee",
