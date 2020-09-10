@@ -14,9 +14,9 @@
 
     <div class="d-flex my-3 align-items-center">
       <HeroIcon :id="selectedHero" class="mr-2 mb-2" />
-      <h3 class="text-uppercase font-weight-bold">
+      <h5 class="text-uppercase font-weight-bold hero-name">
         {{ heroName }}
-      </h3>
+      </h5>
     </div>
 
     <b-button
@@ -148,6 +148,10 @@ export default class HeroPicker extends Vue {
       padding-right: $spacer;
       color: $text-muted;
     }
+  }
+
+  .hero-name {
+    hyphens: auto;
   }
 }
 </style>
