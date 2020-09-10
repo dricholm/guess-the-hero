@@ -25,4 +25,16 @@ describe('HeroList.vue', () => {
     expect(list.length).toBe(1);
     expect(+list.at(0).attributes().id).toBe(105);
   });
+
+  it('should emit heroId when clicked', () => {
+    const wrapper = shallowMount(HeroList);
+
+    const list = wrapper.findAllComponents(HeroIcon);
+
+    list.at(0).trigger('click');
+
+    expect(wrapper.emitted('click')).toBeTruthy();
+    expect(wrapper.emitted('click')?.length).toBe(1);
+    expect(wrapper.emitted('click')?.[0]).toStrictEqual([102]);
+  });
 });
