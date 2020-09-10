@@ -35,8 +35,8 @@ jobs:
         env:
           CI: true
       - name: Build website
-        run: npm run generate
-      - name: Coverage
+        run: npm run build
+      - name: Report coverage
         uses: codecov/codecov-action@v1
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
