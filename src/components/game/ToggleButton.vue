@@ -1,12 +1,12 @@
 <template>
-  <div class="stat" :class="{ active: shown }">
-    <button class="stat-toggle" @click="toggle">
+  <button class="stat" :class="{ active: shown }" @click="toggle">
+    <span class="stat-toggle">
       {{ title }}
-    </button>
-    <p class="stat-value">
+    </span>
+    <span class="stat-value">
       {{ value }}
-    </p>
-  </div>
+    </span>
+  </button>
 </template>
 
 <script lang="ts">
@@ -32,6 +32,8 @@ export default class ToggleButton extends Vue {
 <style lang="scss" scoped>
 .stat {
   align-items: center;
+  background: none;
+  border: none;
   display: flex;
   font-size: $font-size-lg;
   justify-content: space-between;
@@ -40,13 +42,11 @@ export default class ToggleButton extends Vue {
 
   .stat-toggle {
     align-items: center;
-    background: none;
-    border: none;
     color: $text-muted;
     cursor: pointer;
     display: flex;
     outline: none;
-    padding: ($spacer * 0.5) ($spacer * 0.75);
+    padding: $spacer * 0.5 $spacer * 0.25 $spacer * 0.5 $spacer * 0.75;
     position: relative;
     text-align: left;
     text-transform: uppercase;
@@ -72,7 +72,7 @@ export default class ToggleButton extends Vue {
   .stat-value {
     color: $success;
     font-weight: $font-weight-bold;
-    margin: 0 ($spacer * 0.75);
+    margin: $spacer * 0.5 ($spacer * 0.75) $spacer * 0.5 $spacer * 0.25;
     opacity: 0;
     overflow: hidden;
     text-align: right;

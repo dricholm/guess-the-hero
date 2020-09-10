@@ -1,5 +1,9 @@
 <template>
-  <div class="loader" :class="{ loading: isLoading, error: error }">
+  <div
+    class="loader"
+    :class="{ loading: isLoading, error: error }"
+    aria-label="Loading"
+  >
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
       <defs>
         <filter id="fancy-goo">
