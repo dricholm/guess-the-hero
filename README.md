@@ -1,6 +1,6 @@
 # Guess the Hero
 
-[![Build Status](https://travis-ci.com/dricholm/guess-the-hero.svg?branch=master)](https://travis-ci.com/dricholm/guess-the-hero)
+![Master](https://github.com/dricholm/guess-the-hero/workflows/Master/badge.svg)
 [![codecov](https://codecov.io/gh/dricholm/guess-the-hero/branch/master/graph/badge.svg)](https://codecov.io/gh/dricholm/guess-the-hero)
 
 A webapp for guessing DotA 2 heroes in public matches by seeing only the items purchased.
