@@ -14,7 +14,7 @@ describe('ToggleButton.vue', () => {
     const button = wrapper.find('button');
     const value = wrapper.find('.stat-value');
 
-    expect(button.text()).toBe('Title');
+    expect(button.text()).toContain('Title');
     expect(value.text()).toBe('Value');
     expect(wrapper.classes()).not.toContain('active');
   });
@@ -31,7 +31,7 @@ describe('ToggleButton.vue', () => {
     const button = wrapper.find('button');
     const value = wrapper.find('.stat-value');
 
-    expect(button.text()).toBe('Title');
+    expect(button.text()).toContain('Title');
     expect(value.text()).toBe('3');
     expect(wrapper.classes()).toContain('active');
   });
