@@ -32,4 +32,10 @@ $ npm run test:watch
 
 # Generate unit test code coverage
 $ npm run coverage
+
+# Run E2E tests
+$ npm run e2e
+
+# Open Cypress
+$ npm run e2e:open
 ```

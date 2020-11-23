@@ -7,6 +7,7 @@
         v-model="filterName"
         @input.native="inputHero(filterName)"
         placeholder="Search hero name"
+        aria-label="Hero name"
         size="lg"
         :disabled="disabled"
       />
