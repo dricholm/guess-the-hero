@@ -24,5 +24,6 @@ yarn-error.log*
 /coverage
 
 # Cypress
+/debug.log
 /cypress/screenshots
 /cypress/videos

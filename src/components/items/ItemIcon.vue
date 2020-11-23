@@ -62,7 +62,7 @@ export default class ItemIcon extends Vue {
 
   get localizedName(): string {
     return this.valid
-      ? (itemsJson[this.name as keyof typeof itemsJson] as Item)?.dname
+      ? (itemsJson[this.name as keyof typeof itemsJson] as Item)?.dname ?? ''
       : 'Empty';
   }
 
@@ -82,7 +82,7 @@ export default class ItemIcon extends Vue {
   }
 
   get cooldown(): number {
-    return this.item.cd || 0;
+    return typeof this.item.cd === 'boolean' ? 0 : this.item.cd;
   }
 
   get popoverTriggers(): string[] {

@@ -1,7 +1,7 @@
 export interface Attribute {
   key: string;
   header: string;
-  value: string;
+  value: string | Array<string>;
   generated?: boolean;
   footer?: string;
 }
@@ -14,16 +14,16 @@ export interface ItemProperty {
 export default interface Item {
   id: number;
   img: string;
-  dname: string;
-  qual: string;
+  dname?: string;
+  qual?: string;
   cost: number;
-  desc: string;
+  desc?: string;
   notes: string;
   attrib: Attribute[];
-  mc: boolean;
-  cd: number;
+  mc: boolean | number;
+  cd: number | boolean;
   lore: string;
-  components: string[] | null;
+  components: Array<string> | null;
   created: boolean;
   active?: ItemProperty[];
   passive?: ItemProperty[];
