@@ -9,7 +9,9 @@
     "test": "vue-cli-service test:unit",
     "test:watch": "vue-cli-service test:unit --watch",
     "coverage": "vue-cli-service test:unit --coverage",
-    "inspect": "vue-cli-service inspect"
+    "inspect": "vue-cli-service inspect",
+    "e2e": "cypress run",
+    "e2e:open": "cypress open"
   },
   "dependencies": {
     "axios": "^0.20.0",
@@ -24,6 +26,7 @@
     "vuex": "^3.5.1"
   },
   "devDependencies": {
+    "@testing-library/cypress": "^7.0.1",
     "@types/jest": "^26.0.13",
     "@types/nock": "^11.1.0",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
@@ -39,7 +42,9 @@
     "@vue/test-utils": "^1.0.5",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
+    "cypress": "^5.6.0",
     "eslint": "^7.8.1",
+    "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^4.2.5",
