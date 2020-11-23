@@ -1,8 +1,8 @@
 import itemsJson from 'dotaconstants/build/items.json';
 import Item from '../../src/interfaces/Item';
 
-describe('heroes', () => {
-  it('should display hero list', () => {
+describe('items', () => {
+  it('should display item list', () => {
     cy.visit('/');
 
     cy.findAllByRole('link', { name: /items/i }).click();
