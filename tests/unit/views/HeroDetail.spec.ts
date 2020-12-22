@@ -4,7 +4,7 @@ import { mount } from '@vue/test-utils';
 import heroesJson from 'dotaconstants/build/heroes.json';
 
 describe('HeroDetail.vue', () => {
-  it('should show error', () => {
+  it('should show error if hero does not exist', () => {
     const $route = { params: { id: 999 } };
     const wrapper = mount(HeroDetail, {
       mocks: {

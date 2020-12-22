@@ -59,7 +59,8 @@
 
 <script lang="ts">
 import heroesJson from 'dotaconstants/build/heroes.json';
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
+import { RouteConfig } from 'vue-router';
 
 import Card from '@/components/core/Card.vue';
 import StatList from '@/components/core/StatList.vue';
@@ -72,6 +73,14 @@ import Hero from '@/interfaces/Hero';
   },
 })
 export default class HeroDetail extends Vue {
+  @Watch('$route', { immediate: true })
+  onRouteChange(to: RouteConfig, from: RouteConfig) {
+    const baseTitle = 'Guess the Hero';
+    document.title = `${
+      this.hero?.localized_name ?? 'Hero not found'
+    } - ${baseTitle}`;
+  }
+
   private attributeOrder: { [attribute: string]: number } = {
     agi: 1,
     int: 2,
