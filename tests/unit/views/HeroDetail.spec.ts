@@ -4,7 +4,7 @@ import { mount } from '@vue/test-utils';
 import heroesJson from 'dotaconstants/build/heroes.json';
 
 describe('HeroDetail.vue', () => {
-  it('should show error', () => {
+  it('should show error if hero does not exist', () => {
     const $route = { params: { id: 999 } };
     const wrapper = mount(HeroDetail, {
       mocks: {
@@ -112,9 +112,7 @@ describe('HeroDetail.vue', () => {
     expect(cardBody.find('img').exists()).toBe(true);
 
     const image = wrapper.find('.overview img');
-    expect(image.attributes().src).toContain(
-      'heroes/npc_dota_hero_antimage.jpg',
-    );
+    expect(image.attributes().src).toContain('heroes/antimage.jpg');
   });
 
   it('should show stats', () => {

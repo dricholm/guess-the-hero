@@ -19,6 +19,9 @@ export default new Router({
       component: About,
       name: 'about',
       path: '/about',
+      meta: {
+        title: 'About',
+      },
     },
     {
       children: [
@@ -26,6 +29,9 @@ export default new Router({
           component: Heroes,
           name: 'heroes',
           path: '',
+          meta: {
+            title: 'Heroes',
+          },
         },
         {
           component: HeroDetail,
@@ -40,21 +46,33 @@ export default new Router({
       component: Home,
       name: 'home',
       path: '/',
+      meta: {
+        title: 'Dota 2 quiz',
+      },
     },
     {
       component: Items,
       name: 'items',
       path: '/items',
+      meta: {
+        title: 'Items',
+      },
     },
     {
       component: Game,
       name: 'game',
       path: '/game',
+      meta: {
+        title: 'Game',
+      },
     },
     {
       component: NotFound,
       name: 'notFound',
       path: '**',
+      meta: {
+        title: 'Not found',
+      },
     },
   ],
   scrollBehavior(to, from, savedPosition) {

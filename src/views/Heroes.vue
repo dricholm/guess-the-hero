@@ -6,7 +6,7 @@
       :key="collection.title"
       class="mb-3"
     >
-      <HeroList :filter="collection.filter" type="portrait" @click="onClick" />
+      <HeroList :filter="collection.filter" @click="onClick" />
     </card>
   </div>
 </template>

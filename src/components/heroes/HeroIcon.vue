@@ -3,8 +3,7 @@
     :src="imageSrc"
     :alt="localizedName"
     :class="{
-      portrait: type === 'portrait',
-      icon: type !== 'portrait',
+      icon: true,
       small: small,
     }"
     v-b-tooltip
@@ -27,14 +26,14 @@ import Hero from '@/interfaces/Hero';
 export default class HeroIcon extends Vue {
   @Prop({ default: 0, type: Number })
   private id!: number;
-  @Prop({ default: 'icon', type: String })
-  private type!: string;
   @Prop({ default: false, type: Boolean })
   private small!: boolean;
 
   get name(): string {
     return this.valid
-      ? (heroesJson[this.id.toString() as keyof typeof heroesJson] as Hero).name
+      ? (heroesJson[
+          this.id.toString() as keyof typeof heroesJson
+        ] as Hero).name.slice(14)
       : 'Empty';
   }
 
@@ -54,10 +53,9 @@ export default class HeroIcon extends Vue {
   }
 
   get imageSrc(): string {
-    const folder = this.type === 'portrait' ? 'portraits' : 'heroes';
-    return this.valid
-      ? `${process.env.BASE_URL}img/${folder}/${this.name}.jpg`
-      : `${process.env.BASE_URL}img/${folder}/npc_dota_hero_default.jpg`;
+    return `${process.env.BASE_URL}img/heroes/${
+      this.valid ? this.name : 'default'
+    }.jpg`;
   }
 }
 </script>
@@ -69,19 +67,10 @@ img {
 }
 
 .icon {
-  background-image: url('../../../public/img/heroes/npc_dota_hero_default.jpg');
-  height: 72px;
-  width: 128px;
+  background-image: url('../../../public/img/heroes/default.jpg');
 
   &.small {
-    height: 36px;
     width: 64px;
   }
-}
-
-.portrait {
-  background-image: url('../../../public/img/portraits/npc_dota_hero_default.jpg');
-  height: 94px;
-  width: 71px;
 }
 </style>

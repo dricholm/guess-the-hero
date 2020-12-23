@@ -1,13 +1,9 @@
 <template>
-  <div
-    class="hero-grid"
-    :class="{ 'grid-portrait': type === 'portrait', small: small }"
-  >
+  <div class="hero-grid" :class="{ small: small }">
     <HeroIcon
       :id="hero.id"
       v-for="hero in heroes"
       :key="hero.id"
-      :type="type"
       class="hero-icon"
       :small="small"
       @click.native="click(hero.id)"
@@ -28,7 +24,6 @@ import Hero from '@/interfaces/Hero';
   },
 })
 export default class HeroList extends Vue {
-  @Prop(String) private type!: string;
   @Prop({ default: () => () => true, type: Function })
   private filter!: (data: Hero) => boolean;
   @Prop({ default: false, type: Boolean })
@@ -58,24 +53,13 @@ export default class HeroList extends Vue {
 <style lang="scss" scoped>
 .hero-grid {
   display: grid;
-  grid-auto-columns: 128px;
   grid-auto-flow: row dense;
-  grid-auto-rows: 72px;
   grid-gap: $spacer;
   grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+  place-items: center;
   width: 100%;
 
-  &.grid-portrait {
-    grid-auto-columns: 71px;
-    grid-auto-rows: 94px;
-    grid-gap: $spacer;
-    grid-template-columns: repeat(auto-fill, minmax(71px, 1fr));
-  }
-
   &.small {
-    grid-auto-columns: 64px;
-    grid-auto-rows: 36px;
-    grid-gap: $spacer;
     grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
   }
 

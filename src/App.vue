@@ -15,7 +15,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
+import { RouteConfig } from 'vue-router';
 
 import '@/styles/style.scss';
 
@@ -32,7 +33,17 @@ import Offline from '@/components/core/Offline.vue';
     Offline,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  a = 'a';
+
+  @Watch('$route', { immediate: true })
+  onRouteChange(to: RouteConfig, from: RouteConfig) {
+    const baseTitle = 'Guess the Hero';
+    document.title = to.meta.title
+      ? `${to.meta.title} - ${baseTitle}`
+      : baseTitle;
+  }
+}
 </script>
 
 <style lang="scss" scoped>

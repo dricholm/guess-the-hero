@@ -8,12 +8,12 @@
       <ItemList :ids="attributes" />
     </card>
 
-    <card header="Armaments" class="mb-3">
-      <ItemList :ids="armaments" />
+    <card header="Equipment" class="mb-3">
+      <ItemList :ids="equipment" />
     </card>
 
-    <card header="Arcane" class="mb-3">
-      <ItemList :ids="arcane" />
+    <card header="Miscellaneous" class="mb-3">
+      <ItemList :ids="miscellaneous" />
     </card>
 
     <card header="Secret Shop" class="mb-3">
@@ -100,19 +100,19 @@ import ItemList from '@/components/items/ItemList.vue';
 })
 export default class Items extends Vue {
   get consumables(): number[] {
-    return [46, 38, 237, 188, 42, 43, 216, 39, 44, 257, 40, 41];
+    return [46, 38, 237, 188, 42, 43, 216, 39, 44, 257, 40, 41, 609];
   }
 
   get attributes(): number[] {
     return [16, 13, 14, 15, 20, 17, 18, 19, 261, 21, 22, 23];
   }
 
-  get armaments(): number[] {
-    return [12, 11, 265, 181, 240, 2, 4, 10, 6, 7, 3, 485, 5, 8];
+  get equipment(): number[] {
+    return [11, 12, 265, 181, 240, 2, 25, 4, 10, 6, 3, 485, 7, 5, 8];
   }
 
-  get arcane(): number[] {
-    return [34, 244, 27, 28, 29, 25, 31, 279, 30, 26, 473, 215, 37, 1];
+  get miscellaneous(): number[] {
+    return [27, 28, 34, 593, 244, 31, 29, 30, 26, 473, 215, 37, 1];
   }
 
   get secretShop(): number[] {
@@ -120,30 +120,49 @@ export default class Items extends Vue {
   }
 
   get accessories(): number[] {
-    return [36, 77, 75, 73, 178, 63, 50, 67, 69, 172, 164, 65, 48, 247];
+    return [
+      36,
+      77,
+      75,
+      73,
+      178,
+      569,
+      596,
+      63,
+      50,
+      67,
+      69,
+      172,
+      65,
+      164,
+      48,
+      247,
+    ];
   }
 
   get support(): number[] {
-    return [88, 94, 86, 92, 214, 187, 180, 185, 81, 79, 269, 267, 90, 231];
+    return [86, 88, 94, 92, 214, 187, 180, 185, 79, 269, 81, 267, 90, 231];
   }
 
   get magical(): number[] {
     return [
-      254,
       190,
+      254,
+      106,
       102,
       232,
-      106,
-      104,
+      534,
       100,
       206,
-      229,
+      104,
       98,
+      229,
       108,
-      225,
       110,
-      96,
       235,
+      96,
+      1466,
+      610,
     ];
   }
 
@@ -152,38 +171,41 @@ export default class Items extends Vue {
       131,
       125,
       127,
-      129,
       256,
+      129,
+      692,
       242,
       226,
       116,
       263,
-      119,
       147,
-      121,
       123,
+      119,
       114,
       112,
+      121,
     ];
   }
 
   get weapons(): number[] {
     return [
       149,
-      151,
       223,
-      152,
+      151,
       143,
+      152,
+      168,
       145,
-      135,
       176,
+      225,
+      135,
+      139,
       137,
       141,
-      139,
       249,
       133,
-      208,
       250,
+      208,
     ];
   }
 
@@ -196,35 +218,38 @@ export default class Items extends Vue {
       252,
       166,
       174,
+      598,
       210,
-      168,
       273,
       154,
       277,
-      160,
       156,
+      160,
       158,
+      600,
+      603,
+      604,
     ];
   }
 
   get neutralTier1(): number[] {
-    return [287, 71, 239, 304, 305, 328, 354, 355, 356, 375, 349];
+    return [287, 304, 354, 355, 356, 375, 349, 305, 565, 577, 589];
   }
 
   get neutralTier2(): number[] {
-    return [288, 297, 212, 306, 334, 290, 357, 358, 359, 331, 360];
+    return [212, 334, 357, 358, 306, 331, 288, 290, 359, 680, 686];
   }
 
   get neutralTier3(): number[] {
-    return [308, 298, 299, 289, 326, 361, 376, 378, 381, 336, 309];
+    return [289, 326, 376, 378, 381, 309, 361, 573, 574, 676, 675];
   }
 
   get neutralTier4(): number[] {
-    return [330, 300, 311, 325, 335, 362, 363, 364, 365, 379, 377];
+    return [300, 311, 335, 362, 363, 379, 377, 336, 571, 585, 638];
   }
 
   get neutralTier5(): number[] {
-    return [291, 292, 294, 301, 366, 367, 368, 369, 370, 371, 372, 374];
+    return [291, 292, 294, 301, 366, 367, 370, 371, 372, 374, 678, 677];
   }
 
   get roshan(): number[] {
@@ -232,7 +257,32 @@ export default class Items extends Vue {
   }
 
   get removed(): number[] {
-    return [45, 286, 182, 293, 302, 307, 310, 313, 327];
+    return [
+      45,
+      71,
+      182,
+      239,
+      279,
+      286,
+      293,
+      297,
+      298,
+      299,
+      302,
+      307,
+      308,
+      310,
+      313,
+      325,
+      327,
+      328,
+      330,
+      360,
+      364,
+      365,
+      368,
+      369,
+    ];
   }
 }
 </script>

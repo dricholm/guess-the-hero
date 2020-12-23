@@ -9,8 +9,8 @@ describe('items', () => {
 
     cy.findByText(/consumables/i);
     cy.findByText(/attributes/i);
-    cy.findByText(/armaments/i);
-    cy.findByText(/arcane/i);
+    cy.findByText(/equipment/i);
+    cy.findByText(/miscellaneous/i);
     cy.findByText(/secret shop/i);
     cy.findByText(/accessories/i);
     cy.findByText(/support/i);
@@ -27,17 +27,6 @@ describe('items', () => {
     cy.findByText(/removed/i);
 
     const items = Object.values<Item>(itemsJson);
-
-    items
-      .filter(
-        ({ dname, id }) =>
-          dname &&
-          !/(recipe|vial)/i.test(dname) &&
-          ![218, 220, 241, 295, 312, 373, 1028, 1029, 1030, 1032].includes(id),
-      )
-      .forEach(({ dname }) => {
-        cy.findByAltText(dname);
-      });
 
     const tpScroll = items.find(({ id }) => id == 46);
 
