@@ -112,9 +112,7 @@ describe('HeroDetail.vue', () => {
     expect(cardBody.find('img').exists()).toBe(true);
 
     const image = wrapper.find('.overview img');
-    expect(image.attributes().src).toContain(
-      'heroes/npc_dota_hero_antimage.jpg',
-    );
+    expect(image.attributes().src).toContain('heroes/antimage.jpg');
   });
 
   it('should show stats', () => {

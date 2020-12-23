@@ -40,7 +40,7 @@ describe('Heroes.vue', () => {
     expect(imgs.length).toBe(strHeroes.length);
 
     strHeroes.forEach((hero: Hero, index: number) => {
-      expect(imgs.at(index).attributes().src).toContain(hero.name);
+      expect(imgs.at(index).attributes().src).toContain(hero.name.slice(14));
     });
   });
 
@@ -68,7 +68,7 @@ describe('Heroes.vue', () => {
     expect(imgs.length).toBe(agiHeroes.length);
 
     agiHeroes.forEach((hero: Hero, index: number) => {
-      expect(imgs.at(index).attributes().src).toContain(hero.name);
+      expect(imgs.at(index).attributes().src).toContain(hero.name.slice(14));
     });
   });
 
@@ -96,7 +96,7 @@ describe('Heroes.vue', () => {
     expect(imgs.length).toBe(intHeroes.length);
 
     intHeroes.forEach((hero: Hero, index: number) => {
-      expect(imgs.at(index).attributes().src).toContain(hero.name);
+      expect(imgs.at(index).attributes().src).toContain(hero.name.slice(14));
     });
   });
 });

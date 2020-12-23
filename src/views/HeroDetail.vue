@@ -153,7 +153,7 @@ export default class HeroDetail extends Vue {
   }
 
   private get heroImage(): string {
-    return `${process.env.BASE_URL}img/heroes/${this.hero.name}.jpg`;
+    return `${process.env.BASE_URL}img/heroes/${this.hero.name.slice(14)}.jpg`;
   }
 
   private get stats(): Array<{ title: string; value: string | number }> {
