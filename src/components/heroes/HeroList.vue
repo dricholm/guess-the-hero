@@ -1,13 +1,18 @@
 <template>
   <div class="hero-grid" :class="{ small: small }">
-    <HeroIcon
-      :id="hero.id"
+    <span
       v-for="hero in heroes"
       :key="hero.id"
-      class="hero-icon"
-      :small="small"
-      @click.native="click(hero.id)"
-    />
+      :to="isUrl ? `${hero.name.slice(14)}` : null"
+      :is="isUrl ? 'router-link' : 'span'"
+    >
+      <HeroIcon
+        :id="hero.id"
+        class="hero-icon"
+        :small="small"
+        @click.native="click(hero.id)"
+      />
+    </span>
   </div>
 </template>
 
@@ -28,6 +33,8 @@ export default class HeroList extends Vue {
   private filter!: (data: Hero) => boolean;
   @Prop({ default: false, type: Boolean })
   private small!: boolean;
+  @Prop({ default: false, type: Boolean })
+  private isUrl!: boolean;
 
   @Emit()
   private click(heroId: number) {

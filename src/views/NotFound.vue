@@ -11,3 +11,15 @@
     </p>
   </div>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component({
+  metaInfo: {
+    title: 'Not found',
+    meta: [{ content: 'noindex', name: 'robots' }],
+  },
+})
+export default class NotFound extends Vue {}
+</script>

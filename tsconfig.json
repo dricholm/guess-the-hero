@@ -11,7 +11,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["node", "jest"],
+    "types": ["node", "jest", "vue-meta"],
     "typeRoots": ["node_modules/@types", "./typings.d.ts"],
     "paths": {
       "@/*": ["src/*"]

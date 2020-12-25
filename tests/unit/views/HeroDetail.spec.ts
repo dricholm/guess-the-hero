@@ -5,7 +5,7 @@ import heroesJson from 'dotaconstants/build/heroes.json';
 
 describe('HeroDetail.vue', () => {
   it('should show error if hero does not exist', () => {
-    const $route = { params: { id: 999 } };
+    const $route = { params: { slug: 999 } };
     const wrapper = mount(HeroDetail, {
       mocks: {
         $route,
@@ -19,7 +19,7 @@ describe('HeroDetail.vue', () => {
   });
 
   it('should show cards', () => {
-    const $route = { params: { id: 1 } };
+    const $route = { params: { slug: 1 } };
     const wrapper = mount(HeroDetail, {
       mocks: {
         $route,
@@ -35,7 +35,7 @@ describe('HeroDetail.vue', () => {
   });
 
   it('should show previous and next hero', () => {
-    const $route = { params: { id: 1 } };
+    const $route = { params: { slug: 1 } };
     const wrapper = mount(HeroDetail, {
       mocks: {
         $route,
@@ -49,7 +49,7 @@ describe('HeroDetail.vue', () => {
   });
 
   it('should show next hero', () => {
-    const $route = { params: { id: 102 } };
+    const $route = { params: { slug: 102 } };
     const wrapper = mount(HeroDetail, {
       mocks: {
         $route,
@@ -64,7 +64,7 @@ describe('HeroDetail.vue', () => {
   });
 
   it('should show prev hero', () => {
-    const $route = { params: { id: 22 } };
+    const $route = { params: { slug: 22 } };
     const wrapper = mount(HeroDetail, {
       mocks: {
         $route,
@@ -79,7 +79,7 @@ describe('HeroDetail.vue', () => {
   });
 
   it('should show links', () => {
-    const $route = { params: { id: 39 } };
+    const $route = { params: { slug: 39 } };
     const wrapper = mount(HeroDetail, {
       mocks: {
         $route,
@@ -100,7 +100,7 @@ describe('HeroDetail.vue', () => {
   });
 
   it('should show overview', () => {
-    const $route = { params: { id: 1 } };
+    const $route = { params: { slug: 1 } };
     const wrapper = mount(HeroDetail, {
       mocks: {
         $route,
@@ -116,7 +116,7 @@ describe('HeroDetail.vue', () => {
   });
 
   it('should show stats', () => {
-    const $route = { params: { id: 1 } };
+    const $route = { params: { slug: 1 } };
     const wrapper = mount(HeroDetail, {
       mocks: {
         $route,

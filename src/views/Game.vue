@@ -78,6 +78,12 @@ import type { GameStats } from '@/store/game/types';
     Stats,
     BButton,
   },
+  metaInfo: {
+    meta: [
+      { content: 'Test your knowledge about Dota 2.', name: 'description' },
+    ],
+    title: 'Game',
+  },
 })
 export default class Game extends Vue {
   @Action('queryMatch', { namespace: 'game' })

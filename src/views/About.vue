@@ -24,3 +24,22 @@
     </p>
   </div>
 </template>
+
+<script lang="ts">
+import { Component, Vue, Watch } from 'vue-property-decorator';
+import { MetaInfo } from 'vue-meta';
+
+@Component({
+  metaInfo: {
+    meta: [
+      {
+        content:
+          'Get to know more about the site and how you can help improve it.',
+        name: 'description',
+      },
+    ],
+    title: 'About',
+  },
+})
+export default class App extends Vue {}
+</script>
