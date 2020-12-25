@@ -6,7 +6,7 @@
       :key="collection.title"
       class="mb-3"
     >
-      <HeroList :filter="collection.filter" @click="onClick" />
+      <HeroList :filter="collection.filter" :isUrl="true" />
     </card>
   </div>
 </template>
@@ -22,6 +22,12 @@ import Hero from '@/interfaces/Hero';
   components: {
     Card,
     HeroList,
+  },
+  metaInfo: {
+    meta: [
+      { content: 'Learn all about the heroes of Dota 2.', name: 'description' },
+    ],
+    title: 'Heroes',
   },
 })
 export default class Heroes extends Vue {
@@ -44,13 +50,6 @@ export default class Heroes extends Vue {
 
   private attributeHeroes(attribute: string) {
     return (data: Hero) => data.primary_attr === attribute;
-  }
-
-  private onClick(heroId: number) {
-    this.$router.push({
-      name: 'heroDetail',
-      params: { id: heroId.toString() },
-    });
   }
 }
 </script>

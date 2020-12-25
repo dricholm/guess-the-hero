@@ -3,14 +3,17 @@
     <div class="navigation">
       <router-link
         v-if="previousHero"
-        :to="{ name: 'heroDetail', params: { id: previousHero.id.toString() } }"
+        :to="{
+          name: 'heroDetail',
+          params: { slug: previousHero.name.slice(14) },
+        }"
         class="hero-link prev"
         >{{ previousHero.localized_name }}</router-link
       >
 
       <router-link
         v-if="nextHero"
-        :to="{ name: 'heroDetail', params: { id: nextHero.id.toString() } }"
+        :to="{ name: 'heroDetail', params: { slug: nextHero.name.slice(14) } }"
         class="hero-link next"
         >{{ nextHero.localized_name }}</router-link
       >
@@ -58,29 +61,58 @@
 </template>
 
 <script lang="ts">
-import heroesJson from 'dotaconstants/build/heroes.json';
 import { Component, Vue, Watch } from 'vue-property-decorator';
 import { RouteConfig } from 'vue-router';
+import { MetaInfo } from 'vue-meta';
+import heroesJson from 'dotaconstants/build/heroes.json';
+import heroesNamesJson from 'dotaconstants/build/hero_names.json';
 
 import Card from '@/components/core/Card.vue';
 import StatList from '@/components/core/StatList.vue';
 import Hero from '@/interfaces/Hero';
+
+function getHero(slug: string | number): Hero {
+  if (/\d+/.test(slug.toString())) {
+    return heroesJson[slug as keyof typeof heroesJson];
+  }
+  return heroesNamesJson[
+    `npc_dota_hero_${slug}` as keyof typeof heroesNamesJson
+  ];
+}
 
 @Component({
   components: {
     Card,
     StatList,
   },
+
+  metaInfo() {
+    const hero = getHero(this.$route.params.slug);
+
+    return {
+      link: hero
+        ? [
+            {
+              href: `${window.location.origin}/heroes/${hero.name.slice(14)}`,
+              rel: 'canonical',
+            },
+          ]
+        : undefined,
+      meta: hero
+        ? [
+            {
+              content: `Get to know more about the Dota 2 ${hero.primary_attr.toUpperCase()} ${hero.attack_type.toLowerCase()} hero, ${
+                hero.localized_name
+              }. `,
+              name: 'description',
+            },
+          ]
+        : undefined,
+      title: hero?.localized_name ?? 'Hero not found',
+    };
+  },
 })
 export default class HeroDetail extends Vue {
-  @Watch('$route', { immediate: true })
-  onRouteChange(to: RouteConfig, from: RouteConfig) {
-    const baseTitle = 'Guess the Hero';
-    document.title = `${
-      this.hero?.localized_name ?? 'Hero not found'
-    } - ${baseTitle}`;
-  }
-
   private attributeOrder: { [attribute: string]: number } = {
     agi: 1,
     int: 2,
@@ -88,14 +120,11 @@ export default class HeroDetail extends Vue {
   };
 
   private get error(): boolean {
-    return !Object.prototype.hasOwnProperty.call(
-      heroesJson,
-      this.$route.params.id,
-    );
+    return !this.hero;
   }
 
   private get hero(): Hero {
-    return heroesJson[this.$route.params.id as keyof typeof heroesJson] as Hero;
+    return getHero(this.$route.params.slug);
   }
 
   private get heroIdList(): number[] {
@@ -125,9 +154,7 @@ export default class HeroDetail extends Vue {
   }
 
   private get currentIndex(): number {
-    return this.heroIdList.findIndex(
-      (value: number) => value === +this.$route.params.id,
-    );
+    return this.heroIdList.findIndex((value: number) => value === this.hero.id);
   }
 
   private get previousHero(): Hero | null {

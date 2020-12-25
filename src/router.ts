@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import VueMeta from 'vue-meta';
 import Router from 'vue-router';
 import About from './views/About.vue';
 import Game from './views/Game.vue';
@@ -10,18 +11,16 @@ import Items from './views/Items.vue';
 import NotFound from './views/NotFound.vue';
 
 Vue.use(Router);
+Vue.use(VueMeta);
 
 export default new Router({
   base: process.env.BASE_URL,
-  mode: 'hash',
+  mode: 'history',
   routes: [
     {
       component: About,
       name: 'about',
       path: '/about',
-      meta: {
-        title: 'About',
-      },
     },
     {
       children: [
@@ -29,14 +28,11 @@ export default new Router({
           component: Heroes,
           name: 'heroes',
           path: '',
-          meta: {
-            title: 'Heroes',
-          },
         },
         {
           component: HeroDetail,
           name: 'heroDetail',
-          path: ':id',
+          path: ':slug',
         },
       ],
       component: HeroesRoot,
@@ -46,33 +42,30 @@ export default new Router({
       component: Home,
       name: 'home',
       path: '/',
-      meta: {
-        title: 'Dota 2 quiz',
+      beforeEnter: (to, from, next) => {
+        if (sessionStorage.getItem('redirect')) {
+          const redirect = sessionStorage.redirect;
+          delete sessionStorage.redirect;
+          next(redirect);
+        } else {
+          next();
+        }
       },
     },
     {
       component: Items,
       name: 'items',
       path: '/items',
-      meta: {
-        title: 'Items',
-      },
     },
     {
       component: Game,
       name: 'game',
       path: '/game',
-      meta: {
-        title: 'Game',
-      },
     },
     {
       component: NotFound,
       name: 'notFound',
       path: '**',
-      meta: {
-        title: 'Not found',
-      },
     },
   ],
   scrollBehavior(to, from, savedPosition) {

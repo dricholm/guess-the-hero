@@ -97,6 +97,12 @@ import ItemList from '@/components/items/ItemList.vue';
     Card,
     ItemList,
   },
+  metaInfo: {
+    meta: [
+      { content: 'Learn all about the items of Dota 2.', name: 'description' },
+    ],
+    title: 'Items',
+  },
 })
 export default class Items extends Vue {
   get consumables(): number[] {
@@ -286,3 +292,5 @@ export default class Items extends Vue {
   }
 }
 </script>
+
+metaInfo: { title: 'Items' }
