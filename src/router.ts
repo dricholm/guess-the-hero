@@ -42,15 +42,6 @@ export default new Router({
       component: Home,
       name: 'home',
       path: '/',
-      beforeEnter: (to, from, next) => {
-        if (sessionStorage.getItem('redirect')) {
-          const redirect = sessionStorage.redirect;
-          delete sessionStorage.redirect;
-          next(redirect);
-        } else {
-          next();
-        }
-      },
     },
     {
       component: Items,
