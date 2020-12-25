@@ -1,10 +1,14 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "01183b6a99f7b1965ffc",
-    "url": "/guess-the-hero/css/app.f4a202de.css"
+    "revision": "b6a1a821c16a705fa6e76b2c8c3e8f9b",
+    "url": "/guess-the-hero/404.html"
   },
   {
-    "revision": "52a1aae8e85171bdaa9a",
+    "revision": "1b0a90462eb2222be7e1",
+    "url": "/guess-the-hero/css/app.26fa3206.css"
+  },
+  {
+    "revision": "aef9d8a6cd5920d3c670",
     "url": "/guess-the-hero/css/chunk-vendors.2f5afe4a.css"
   },
   {
@@ -1908,16 +1912,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/guess-the-hero/img/items/yasha_and_kaya.jpg"
   },
   {
-    "revision": "a328e9d44805aae134cf021d87e8f7cf",
+    "revision": "d814e3f403856a41bab4e2fbfa7bd731",
     "url": "/guess-the-hero/index.html"
   },
   {
-    "revision": "01183b6a99f7b1965ffc",
-    "url": "/guess-the-hero/js/app.887b7941.js"
+    "revision": "1b0a90462eb2222be7e1",
+    "url": "/guess-the-hero/js/app.18973425.js"
   },
   {
-    "revision": "52a1aae8e85171bdaa9a",
-    "url": "/guess-the-hero/js/chunk-vendors.c291378d.js"
+    "revision": "aef9d8a6cd5920d3c670",
+    "url": "/guess-the-hero/js/chunk-vendors.30411e90.js"
   },
   {
     "revision": "6013001829d7ad6830f1a993ec3c64c4",
