@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "108221ab6b3562e19f15",
+    "revision": "50dc34a47c44dbabed4e",
     "url": "/guess-the-hero/css/app.26fa3206.css"
   },
   {
@@ -1908,12 +1908,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/guess-the-hero/img/items/yasha_and_kaya.jpg"
   },
   {
-    "revision": "0c71cdbe13f236825503535f42f24403",
+    "revision": "01c5718e70821f3bdb972b7a196c718e",
     "url": "/guess-the-hero/index.html"
   },
   {
-    "revision": "108221ab6b3562e19f15",
-    "url": "/guess-the-hero/js/app.4aedfe2c.js"
+    "revision": "50dc34a47c44dbabed4e",
+    "url": "/guess-the-hero/js/app.b472dfc0.js"
   },
   {
     "revision": "aef9d8a6cd5920d3c670",

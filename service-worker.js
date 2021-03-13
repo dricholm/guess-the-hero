@@ -1,4 +1,4 @@
-importScripts("/guess-the-hero/precache-manifest.04d894f023649a12b66f02d4067edbb4.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/guess-the-hero/precache-manifest.e01ca2b03b78cfb0c701f889c526541c.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 self.addEventListener('message', (event) => {
   switch (event.data) {
