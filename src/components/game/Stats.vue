@@ -166,12 +166,6 @@ export default class Game extends Vue {
     'position-stats'
     'economy-stats';
   grid-template-columns: 1fr;
-  // grid-template-rows: repeat(5, )
-  //   auto
-  //   auto
-  //   auto
-  //   auto
-  //   auto;
   grid-gap: $spacer;
 
   @include media-breakpoint-up(lg) {
@@ -180,10 +174,6 @@ export default class Game extends Vue {
       'hero-stats damage-stats'
       'position-stats economy-stats';
     grid-template-columns: repeat(2, 1fr);
-    // grid-template-rows:
-    //   auto
-    //   auto
-    //   auto;
   }
 
   .hero-stats {
