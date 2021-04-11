@@ -143,6 +143,7 @@ export default class Items extends Vue {
       164,
       48,
       247,
+      635,
     ];
   }
 
@@ -154,7 +155,6 @@ export default class Items extends Vue {
     return [
       190,
       254,
-      106,
       102,
       232,
       534,
@@ -266,6 +266,7 @@ export default class Items extends Vue {
     return [
       45,
       71,
+      106,
       182,
       239,
       279,

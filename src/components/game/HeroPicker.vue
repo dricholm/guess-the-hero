@@ -79,8 +79,8 @@ export default class HeroPicker extends Vue {
         ] as Hero).localized_name;
   }
 
-  private get heroData(): Array<[string, Hero]> {
-    return Object.entries(heroesJson);
+  private get heroData(): Array<Hero> {
+    return Object.values(heroesJson);
   }
 
   private get suggestedName(): string {
@@ -95,11 +95,10 @@ export default class HeroPicker extends Vue {
     if (text === '') {
       this.suggestedId = 0;
     } else {
-      const matchingHero = this.heroData.find(([id, data]: [string, Hero]) =>
-        data.localized_name.toLowerCase().startsWith(text.toLowerCase()),
+      const matchingHero = this.heroData.find((hero) =>
+        hero.localized_name.toLowerCase().startsWith(text.toLowerCase()),
       );
-      this.suggestedId =
-        typeof matchingHero === 'undefined' ? 0 : +matchingHero[0];
+      this.suggestedId = matchingHero?.id ?? 0;
     }
     this.filter(text);
   }

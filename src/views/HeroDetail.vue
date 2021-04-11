@@ -211,7 +211,7 @@ export default class HeroDetail extends Vue {
       { title: 'Projectile speed', value: this.hero.projectile_speed },
       { title: 'Attack rate', value: this.hero.attack_rate },
       { title: 'Move speed', value: this.hero.move_speed },
-      { title: 'Turn rate', value: this.hero.turn_rate },
+      { title: 'Turn rate', value: this.hero.turn_rate ?? '?' },
       {
         title: 'Captains mode enabled',
         value: this.hero.cm_enabled ? 'Yes' : 'No',
