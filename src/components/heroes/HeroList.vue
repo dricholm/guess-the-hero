@@ -37,9 +37,7 @@ export default class HeroList extends Vue {
   private isUrl!: boolean;
 
   @Emit()
-  private click(heroId: number) {
-    // TS lint empty block
-  }
+  private click(heroId: number) {}
 
   private get heroes(): Hero[] {
     return Object.values<Hero>(heroesJson)

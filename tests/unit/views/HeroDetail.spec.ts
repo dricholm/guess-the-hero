@@ -129,57 +129,57 @@ describe('HeroDetail.vue', () => {
     expect(title.length).toBe(23);
     expect(stats.length).toBe(23);
 
-    const amStats: Hero = heroesJson[1];
+    const heroStats: Hero = heroesJson[1];
 
     expect(title.at(0).text()).toBe('Primary attribute');
-    expect(stats.at(0).text()).toBe(amStats.primary_attr);
+    expect(stats.at(0).text()).toBe(heroStats.primary_attr);
     expect(title.at(1).text()).toBe('Attack type');
-    expect(stats.at(1).text()).toBe(amStats.attack_type);
+    expect(stats.at(1).text()).toBe(heroStats.attack_type);
     expect(title.at(2).text()).toBe('Roles');
-    expect(stats.at(2).text()).toBe(amStats.roles.join(', '));
+    expect(stats.at(2).text()).toBe(heroStats.roles.join(', '));
     expect(title.at(3).text()).toBe('Base health');
-    expect(stats.at(3).text()).toBe(amStats.base_health.toString());
+    expect(stats.at(3).text()).toBe(heroStats.base_health.toString());
     expect(title.at(4).text()).toBe('Base health regen');
     expect(stats.at(4).text()).toBe(
-      amStats.base_health_regen ? amStats.base_health_regen.toString() : '',
+      heroStats.base_health_regen ? heroStats.base_health_regen.toString() : '',
     );
     expect(title.at(5).text()).toBe('Base mana');
-    expect(stats.at(5).text()).toBe(amStats.base_mana.toString());
+    expect(stats.at(5).text()).toBe(heroStats.base_mana.toString());
     expect(title.at(6).text()).toBe('Base mana regen');
-    expect(stats.at(6).text()).toBe(amStats.base_mana_regen.toString());
+    expect(stats.at(6).text()).toBe(heroStats.base_mana_regen.toString());
     expect(title.at(7).text()).toBe('Base armor');
-    expect(stats.at(7).text()).toBe(amStats.base_armor.toString());
+    expect(stats.at(7).text()).toBe(heroStats.base_armor.toString());
     expect(title.at(8).text()).toBe('Base magic resistance');
-    expect(stats.at(8).text()).toBe(amStats.base_mr.toString());
+    expect(stats.at(8).text()).toBe(heroStats.base_mr.toString());
     expect(title.at(9).text()).toBe('Base attack');
     expect(stats.at(9).text()).toBe(
-      `${amStats.base_attack_min} - ${amStats.base_attack_max}`,
+      `${heroStats.base_attack_min} - ${heroStats.base_attack_max}`,
     );
     expect(title.at(10).text()).toBe('Base STR');
-    expect(stats.at(10).text()).toBe(amStats.base_str.toString());
+    expect(stats.at(10).text()).toBe(heroStats.base_str.toString());
     expect(title.at(11).text()).toBe('Base AGI');
-    expect(stats.at(11).text()).toBe(amStats.base_agi.toString());
+    expect(stats.at(11).text()).toBe(heroStats.base_agi.toString());
     expect(title.at(12).text()).toBe('Base INT');
-    expect(stats.at(12).text()).toBe(amStats.base_int.toString());
+    expect(stats.at(12).text()).toBe(heroStats.base_int.toString());
     expect(title.at(13).text()).toBe('STR gain');
-    expect(stats.at(13).text()).toBe(amStats.str_gain.toString());
+    expect(stats.at(13).text()).toBe(heroStats.str_gain.toString());
     expect(title.at(14).text()).toBe('AGI gain');
-    expect(stats.at(14).text()).toBe(amStats.agi_gain.toString());
+    expect(stats.at(14).text()).toBe(heroStats.agi_gain.toString());
     expect(title.at(15).text()).toBe('INT gain');
-    expect(stats.at(15).text()).toBe(amStats.int_gain.toString());
+    expect(stats.at(15).text()).toBe(heroStats.int_gain.toString());
     expect(title.at(16).text()).toBe('Attack range');
-    expect(stats.at(16).text()).toBe(amStats.attack_range.toString());
+    expect(stats.at(16).text()).toBe(heroStats.attack_range.toString());
     expect(title.at(17).text()).toBe('Projectile speed');
-    expect(stats.at(17).text()).toBe(amStats.projectile_speed.toString());
+    expect(stats.at(17).text()).toBe(heroStats.projectile_speed.toString());
     expect(title.at(18).text()).toBe('Attack rate');
-    expect(stats.at(18).text()).toBe(amStats.attack_rate.toString());
+    expect(stats.at(18).text()).toBe(heroStats.attack_rate.toString());
     expect(title.at(19).text()).toBe('Move speed');
-    expect(stats.at(19).text()).toBe(amStats.move_speed.toString());
+    expect(stats.at(19).text()).toBe(heroStats.move_speed.toString());
     expect(title.at(20).text()).toBe('Turn rate');
-    expect(stats.at(20).text()).toBe(amStats.turn_rate.toString());
+    expect(stats.at(20).text()).toBe(heroStats.turn_rate?.toString() ?? '?');
     expect(title.at(21).text()).toBe('Captains mode enabled');
-    expect(stats.at(21).text()).toBe(amStats.cm_enabled ? 'Yes' : 'No');
+    expect(stats.at(21).text()).toBe(heroStats.cm_enabled ? 'Yes' : 'No');
     expect(title.at(22).text()).toBe('Legs');
-    expect(stats.at(22).text()).toBe(amStats.legs.toString());
+    expect(stats.at(22).text()).toBe(heroStats.legs.toString());
   });
 });

@@ -1,10 +1,6 @@
 <template>
   <div class="stats-layout">
-    <card
-      header="Hero stats"
-      class="hero-stats"
-      body-class="flex-column justify-content-center"
-    >
+    <card header="Hero stats" class="hero-stats" body-class="flex-column">
       <toggleButton title="Level" :value="stats.level" />
       <toggleButton title="Kills" :value="stats.kills" />
       <toggleButton title="Deaths" :value="stats.deaths" />
@@ -16,11 +12,7 @@
       <toggleButton title="Teamfight participation" :value="teamfight" />
     </card>
 
-    <card
-      header="Economy"
-      class="economy-stats"
-      body-class="flex-column justify-content-center"
-    >
+    <card header="Economy" class="economy-stats" body-class="flex-column">
       <toggleButton title="Gold" :value="formatNumber(stats.gold)" />
       <toggleButton title="Gold spent" :value="formatNumber(stats.goldSpent)" />
       <toggleButton title="GPM" :value="formatNumber(stats.gpm)" />
@@ -30,7 +22,7 @@
     <card
       header="Damage and heal"
       class="damage-stats"
-      body-class="flex-column justify-content-center"
+      body-class="flex-column"
     >
       <toggleButton
         title="Hero damage"
@@ -47,22 +39,14 @@
       <toggleButton title="Towers destroyed" :value="stats.towersKilled" />
     </card>
 
-    <card
-      header="Position"
-      class="position-stats"
-      body-class="flex-column justify-content-center"
-    >
+    <card header="Position" class="position-stats" body-class="flex-column">
       <toggleButton title="Team" :value="team" />
       <toggleButton title="Roaming" :value="roaming" />
       <toggleButton title="Lane" :value="lane" />
       <toggleButton title="Role" :value="laneRole" />
     </card>
 
-    <card
-      header="Match"
-      class="match-stats"
-      body-class="flex-column justify-content-center"
-    >
+    <card header="Match" class="match-stats" body-class="flex-column">
       <toggleButton title="Duration" :value="duration" />
       <toggleButton title="Patch" :value="stats.patch" />
       <toggleButton title="Result" :value="result" />
@@ -177,29 +161,29 @@ export default class Game extends Vue {
   display: grid;
   grid-template-areas:
     'hero-stats'
-    'economy-stats'
+    'match-stats'
     'damage-stats'
     'position-stats'
-    'match-stats';
+    'economy-stats';
   grid-template-columns: 1fr;
-  grid-template-rows:
-    auto
-    auto
-    auto
-    auto
-    auto;
+  // grid-template-rows: repeat(5, )
+  //   auto
+  //   auto
+  //   auto
+  //   auto
+  //   auto;
   grid-gap: $spacer;
 
   @include media-breakpoint-up(lg) {
     grid-template-areas:
-      'hero-stats economy-stats'
+      'hero-stats match-stats'
       'hero-stats damage-stats'
-      'position-stats match-stats';
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows:
-      auto
-      auto
-      auto;
+      'position-stats economy-stats';
+    grid-template-columns: repeat(2, 1fr);
+    // grid-template-rows:
+    //   auto
+    //   auto
+    //   auto;
   }
 
   .hero-stats {
