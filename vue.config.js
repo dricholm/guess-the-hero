@@ -1,3 +1,6 @@
+require = require('esm')(module);
+const { routes } = require('./src/routes.js');
+
 module.exports = {
   css: {
     loaderOptions: {
@@ -13,7 +16,13 @@ module.exports = {
       },
     },
   },
-  publicPath: process.env.BASE_URL,
+  pluginOptions: {
+    sitemap: {
+      baseURL: 'https://www.guessthehero.com',
+      pretty: true,
+      routes,
+    },
+  },
   pwa: {
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
