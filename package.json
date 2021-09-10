@@ -17,7 +17,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
-    "dotaconstants": "^7.1.0",
+    "dotaconstants": "^7.5.0",
     "register-service-worker": "^1.7.2",
     "vue": "^2.6.12",
     "vue-class-component": "^7.2.6",
@@ -27,7 +27,7 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@testing-library/cypress": "^7.0.5",
+    "@testing-library/cypress": "^8.0.1",
     "@types/jest": "^26.0.22",
     "@types/nock": "^11.1.0",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
@@ -43,7 +43,7 @@
     "@vue/test-utils": "^1.1.2",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
-    "cypress": "^6.2.0",
+    "cypress": "^8.3.1",
     "eslint": "^7.24.0",
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-prettier": "^3.3.1",

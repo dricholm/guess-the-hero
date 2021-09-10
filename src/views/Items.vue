@@ -239,23 +239,85 @@ export default class Items extends Vue {
   }
 
   get neutralTier1(): number[] {
-    return [287, 304, 354, 355, 356, 375, 349, 305, 565, 577, 589];
+    return [
+      287,
+      354,
+      355,
+      356,
+      349,
+      305,
+      565,
+      577,
+      589,
+      838, // Pig Pole
+      840, // Tumbler's Toy
+    ];
   }
 
   get neutralTier2(): number[] {
-    return [212, 334, 357, 358, 306, 331, 288, 290, 359, 680, 686];
+    return [
+      212,
+      357,
+      358,
+      306,
+      331,
+      288,
+      290,
+      359,
+      680,
+      686,
+      828, // Brigand's Blade
+      835, // Fae Grenade
+    ];
   }
 
   get neutralTier3(): number[] {
-    return [289, 326, 376, 378, 381, 309, 361, 573, 574, 676, 675];
+    return [
+      289,
+      326,
+      376,
+      381,
+      309,
+      361,
+      573,
+      574,
+      676,
+      675,
+      834, // Blast Rig
+    ];
   }
 
   get neutralTier4(): number[] {
-    return [300, 311, 335, 362, 363, 379, 377, 336, 571, 585, 638];
+    return [
+      300,
+      311,
+      335,
+      362,
+      379,
+      336,
+      571,
+      585,
+      638,
+      825, // Ascetic's Cap
+      837, // Witchbane
+    ];
   }
 
   get neutralTier5(): number[] {
-    return [291, 292, 294, 301, 366, 367, 370, 371, 372, 374, 678, 677];
+    return [
+      291,
+      292,
+      294,
+      301,
+      366,
+      370,
+      371,
+      372,
+      374,
+      678,
+      677,
+      829, // Arcanist's Armor
+    ];
   }
 
   get roshan(): number[] {
@@ -276,6 +338,7 @@ export default class Items extends Vue {
       298,
       299,
       302,
+      304, // Ironwood Tree
       307,
       308,
       310,
@@ -284,11 +347,17 @@ export default class Items extends Vue {
       327,
       328,
       330,
+      334, // Imp Claw
       360,
+      363, // Illusionist's Cape
       364,
       365,
+      367, // Ballista
       368,
       369,
+      375, // Faded Broach
+      377, // Minotaur Horn
+      378, // Orb of Destruction
     ];
   }
 }
