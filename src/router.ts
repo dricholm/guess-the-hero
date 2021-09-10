@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueMeta from 'vue-meta';
 import Router from 'vue-router';
 // @ts-expect-error
-import { routes } from './routes';
+import routes from './routes';
 
 Vue.use(Router);
 Vue.use(VueMeta);

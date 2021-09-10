@@ -1,6 +1,6 @@
 const heroes = require('dotaconstants/build/heroes.json');
 
-export const routes = [
+module.exports = [
   {
     component: () =>
       import(/* webpackChunkName: "about" */ './views/About.vue'),

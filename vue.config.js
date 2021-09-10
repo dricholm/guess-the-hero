@@ -1,5 +1,4 @@
-require = require('esm')(module);
-const { routes } = require('./src/routes.js');
+const routes = require('./src/routes.js');
 
 module.exports = {
   css: {
