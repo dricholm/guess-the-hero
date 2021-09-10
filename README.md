@@ -7,7 +7,7 @@ A webapp for guessing DotA 2 heroes in public matches by seeing only the items p
 
 ## Live version
 
-The live version is available [here](https://dricholm.github.io/guess-the-hero/).
+The live version is available [here](https://www.guessthehero.com/).
 
 ## NPM scripts
 
