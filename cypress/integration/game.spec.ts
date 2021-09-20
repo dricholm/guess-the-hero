@@ -3,7 +3,8 @@ describe('game', () => {
     cy.visit('/');
     cy.findByText(/play now/i).click();
 
-    cy.findByText(/inventory/i);
+    // Extend timeout to wait for SSR on CI
+    cy.findByText(/inventory/i, { timeout: 15000 });
     cy.findByAltText(/abaddon/i);
 
     cy.findByLabelText(/filter/i).type('random text');
