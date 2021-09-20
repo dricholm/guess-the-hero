@@ -15,8 +15,8 @@ The live version is available [here](https://www.guessthehero.com/).
 # Install dependencies
 $ npm install
 
-# Serve application in development mode with hot reload
-$ npm start
+# Serve application in development at http://localhost:3000
+$ npm run dev
 
 # Build application for production mode
 $ npm run build
@@ -27,9 +27,6 @@ $ npm run lint
 # Run unit tests
 $ npm test
 
-# Run unit tests in watch mode
-$ npm run test:watch
-
 # Generate unit test code coverage
 $ npm run coverage
 
@@ -38,4 +35,10 @@ $ npm run e2e
 
 # Open Cypress
 $ npm run e2e:open
+
+# Open Storybook
+$ npm run storybook
+
+# Build Storybook
+$ npm run build-storybook
 ```

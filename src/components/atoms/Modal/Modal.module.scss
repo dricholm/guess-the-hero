@@ -1,0 +1,65 @@
+@import 'variables';
+
+$animation-duration: 0.2s;
+
+.container {
+  align-items: flex-end;
+  animation: fadeIn $animation-duration ease-out;
+  background-color: var(--color-bg-modal);
+  bottom: 0;
+  display: grid;
+  justify-items: stretch;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2;
+
+  @media screen and (min-width: $screen-md) {
+    place-items: center;
+  }
+}
+
+.close {
+  background: none;
+  border: 0;
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 3rem;
+  padding: 0 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  &:hover {
+    color: var(--color-red-500);
+  }
+}
+
+.modal {
+  animation: slideFromBottom $animation-duration ease-out;
+  border-radius: $border-radius;
+  box-shadow: var(--box-shadow-3);
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromBottom {
+  from {
+    transform: translateY(10%);
+  }
+
+  to {
+    transform: none;
+  }
+}

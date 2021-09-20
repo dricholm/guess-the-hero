@@ -1,0 +1,12 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inventory {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, auto);
+}

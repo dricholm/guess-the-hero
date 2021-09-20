@@ -1,5 +1,4 @@
 import itemsJson from 'dotaconstants/build/items.json';
-import Item from '../../src/interfaces/Item';
 
 describe('items', () => {
   it('should display item list', () => {
@@ -26,12 +25,19 @@ describe('items', () => {
     cy.findByText(/roshan/i);
     cy.findByText(/removed/i);
 
-    const items = Object.values<Item>(itemsJson);
+    const items =
+      // @ts-expect-error Not all values needed
+      Object.values<{ cost: number; dname: string; id: number }>(itemsJson);
 
-    const tpScroll = items.find(({ id }) => id == 46);
+    const tpScroll = items.find(({ id }) => id === 46);
 
     cy.findByAltText(tpScroll.dname).click();
     cy.findByText(tpScroll.dname);
-    cy.findByLabelText(/cost/i).findByText(tpScroll.cost.toString());
+    cy.findAllByAltText(/cost/i)
+      .parent()
+      .parent()
+      .findByText(tpScroll.cost.toString());
+    cy.findAllByLabelText(/close/i).click();
+    cy.findByText(tpScroll.dname).should('not.exist');
   });
 });
