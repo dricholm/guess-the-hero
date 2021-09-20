@@ -6,10 +6,10 @@ describe('game', () => {
     cy.findByText(/inventory/i);
     cy.findByAltText(/abaddon/i);
 
-    cy.findByPlaceholderText(/filter/i).type('random text');
+    cy.findByLabelText(/filter/i).type('random text');
     cy.findByText(/no hero/i);
 
-    cy.findByPlaceholderText(/filter/i)
+    cy.findByLabelText(/filter/i)
       .clear()
       .type('t');
     cy.findByAltText('Techies').click();
