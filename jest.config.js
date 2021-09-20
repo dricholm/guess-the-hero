@@ -1,23 +1,31 @@
+/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'vue'],
-  transform: {
-    '^.+\\.vue$': 'vue-jest',
-    '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$':
-      'jest-transform-stub',
-    '^.+\\.tsx?$': 'ts-jest',
+  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!**/*.stories.tsx'],
+  globals: {
+    'ts-jest': {
+      tsconfig: 'tsconfig.spec.json',
+    },
   },
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx'],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
+    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
   },
-  snapshotSerializers: ['jest-serializer-vue'],
-  testMatch: [
-    '**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)',
+  modulePaths: ['<rootDir>'],
+  preset: 'ts-jest',
+  restoreMocks: true,
+  roots: ['<rootDir>'],
+  setupFilesAfterEnv: ['<rootDir>/src/test/jest-setup.js'],
+  testEnvironment: 'jsdom',
+  testPathIgnorePatterns: [
+    '<rootDir>/.next/',
+    '<rootDir>/cypress/',
+    '<rootDir>/node_modules/',
   ],
-  transformIgnorePatterns: ['node_modules/(?!bootstrap-vue/)'],
-  setupFiles: ['./tests/config.ts', './tests/browserMocks.ts'],
+  transform: {
+    '^.+\\.(j|t)sx?$': 'ts-jest',
+  },
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
   ],
-  testPathIgnorePatterns: ['\\.git/', '<rootDir>/cypress/'],
 };

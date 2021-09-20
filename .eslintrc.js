@@ -1,14 +1,37 @@
 module.exports = {
-  root: true,
-  env: {
-    node: true,
-  },
-  extends: ['plugin:vue/essential', '@vue/prettier', '@vue/typescript'],
-  rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-  },
+  extends: [
+    'eslint:recommended',
+    'next/core-web-vitals',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:typescript-sort-keys/recommended',
+  ],
+  ignorePatterns: [
+    '.next/',
+    '.eslintrc.js',
+    'jest.config.js',
+    'next.config.js',
+    'next.sitemap.js',
+    'node_modules/',
+    'src/test',
+  ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    parser: '@typescript-eslint/parser',
+    project: './tsconfig.json',
+  },
+  plugins: ['@typescript-eslint', 'typescript-sort-keys'],
+  rules: {
+    '@typescript-eslint/array-type': [2, { default: 'generic' }],
+    '@typescript-eslint/no-shadow': 2,
+    '@typescript-eslint/no-unnecessary-boolean-literal-compare': 2,
+    '@typescript-eslint/no-unnecessary-condition': 2,
+    '@typescript-eslint/no-unused-vars': 2,
+    '@typescript-eslint/prefer-nullish-coalescing': 2,
+    '@typescript-eslint/prefer-optional-chain': 2,
+    '@typescript-eslint/prefer-string-starts-ends-with': 2,
+    '@typescript-eslint/restrict-plus-operands': 2,
+    'react/prop-types': 0,
+    'react/react-in-jsx-scope': 0,
+    'sort-keys': [2, 'asc', { natural: true }],
   },
 };

@@ -1,5 +1,4 @@
 import heroesJson from 'dotaconstants/build/heroes.json';
-import Hero from '../../src/interfaces/Hero';
 
 describe('heroes', () => {
   it('should display hero list', () => {
@@ -11,14 +10,10 @@ describe('heroes', () => {
     cy.findByText(/agility/i);
     cy.findByText(/intelligence/i);
 
-    const heroes = Object.values<Hero>(heroesJson);
+    const heroes = Object.values(heroesJson);
 
     heroes.forEach(({ localized_name }) => {
       cy.findByAltText(localized_name);
     });
-
-    const hero = heroes[0];
-    cy.findByAltText(hero.localized_name).click();
-    cy.findByText(hero.localized_name);
   });
 });

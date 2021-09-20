@@ -1,0 +1,92 @@
+@import 'variables';
+
+.container {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  height: 500px;
+}
+
+.filter {
+  align-items: baseline;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, min-content);
+  margin: 0 auto;
+
+  p {
+    margin: 0;
+  }
+
+  input {
+    background-color: var(--color-bg-stronger);
+    border: 0;
+    border-radius: $border-radius;
+    color: var(--color-text);
+    font-size: 1rem;
+    padding: 0.5rem;
+
+    &:disabled {
+      background-color: var(--color-bg);
+    }
+  }
+}
+
+.no-heroes {
+  place-self: center;
+}
+
+.heroes {
+  display: grid;
+  grid-auto-rows: 72px;
+  grid-template-columns: repeat(auto-fill, 128px);
+  justify-content: center;
+  overflow: hidden auto;
+  padding: 0.5rem;
+}
+
+.radio {
+  display: none;
+
+  &:checked {
+    + .label {
+      box-shadow: var(--box-shadow-3);
+      filter: brightness(1) saturate(1);
+      transform: scale(1.2);
+      transition-timing-function: ease-out;
+      z-index: 1;
+    }
+  }
+
+  &:disabled:not(:checked) {
+    + .label {
+      filter: brightness(1) saturate(0);
+    }
+  }
+}
+
+.label {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  filter: brightness(1) saturate(0.3);
+  gap: 1rem;
+  transition: filter 0.2s ease-in, transform 0.2s ease-in;
+
+  &:hover {
+    filter: brightness(1.1) saturate(1);
+  }
+}
+
+.cta {
+  background-color: var(--color-red);
+  border: 0;
+  border-radius: $border-radius;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+
+  &:hover {
+    background-color: var(--color-red-light);
+  }
+}

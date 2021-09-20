@@ -10,13 +10,15 @@ on:
 
 jobs:
   build:
-    name: Lint, test and build
+    name: Test, build and publish to Chromatic
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
 
     steps:
       - name: Checkout project
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Required to retrieve git history for Chromatic
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
@@ -29,8 +31,6 @@ jobs:
             ${{ runner.os }}-node-
       - name: Install dependencies
         run: npm ci
-      - name: Lint
-        run: npm run lint
       - name: Run unit tests
         run: npm run coverage
         env:
@@ -39,6 +39,13 @@ jobs:
         run: npm run build
       - name: Report coverage
         uses: codecov/codecov-action@v1
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          autoAcceptChanges: master
+          buildScriptName: build-storybook
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
   e2e:
     name: Run E2E tests
@@ -51,37 +58,5 @@ jobs:
       - name: Run Cypress
         uses: cypress-io/github-action@v2
         with:
-          start: npm start
-          wait-on: http://localhost:8080
-
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    needs: [build, e2e]
-    environment: github-pages
-    if: "github.event_name == 'push' && github.ref == 'refs/heads/master'"
-
-    steps:
-      - name: Checkout project
-        uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14'
-      - uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Install dependencies
-        run: npm ci
-      - name: Build website
-        run: npm run build
-      - name: Create 404.html
-        run: cp ./dist/index.html ./dist/404.html
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          start: npm run dev
+          wait-on: http://localhost:3000

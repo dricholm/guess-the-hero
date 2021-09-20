@@ -1,0 +1,9 @@
+@import 'variables';
+
+.container {
+  background-color: var(--color-red-bg);
+  border: 1px solid var(--color-red-border);
+  border-radius: $border-radius;
+  color: var(--color-red-text);
+  padding: 0.5rem;
+}

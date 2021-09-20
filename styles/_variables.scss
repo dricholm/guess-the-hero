@@ -1,0 +1,45 @@
+// Screen sizes
+$screen-sm: 640px;
+$screen-md: 768px;
+$screen-lg: 1024px;
+$screen-xl: 1280px;
+$screen-xxl: 1920px;
+
+// Colors
+$color-red: (
+  '100': hsl(12, 90%, 10%),
+  '200': hsl(12, 85%, 15%),
+  '300': hsl(12, 80%, 30%),
+  '400': hsl(12, 75%, 40%),
+  '500': hsl(12, 70%, 50%),
+  '600': hsl(12, 75%, 60%),
+  '700': hsl(12, 80%, 75%),
+  '800': hsl(12, 85%, 80%),
+  '900': hsl(12, 90%, 90%),
+);
+$color-grey: (
+  '100': hsl(206, 60%, 2%),
+  '200': hsl(206, 50%, 5%),
+  '300': hsl(206, 40%, 12%),
+  '400': hsl(206, 30%, 25%),
+  '500': hsl(206, 20%, 50%),
+  '600': hsl(206, 10%, 65%),
+  '700': hsl(206, 10%, 88%),
+  '800': hsl(206, 10%, 95%),
+  '900': hsl(206, 10%, 98%),
+);
+$color-success: (
+  '500': hsl(144, 72%, 37%),
+);
+
+$colors: (
+  'grey': $color-grey,
+  'red': $color-red,
+  'success': $color-success,
+);
+
+// Border
+$border-radius: 0.25rem;
+
+// Shadows
+$box-shadow: 1;
