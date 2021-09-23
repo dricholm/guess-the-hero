@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import Card from '.';
 
 describe('Card', () => {
-  it('should render a Card', () => {
+  it('should render with title and content', () => {
     const content = 'Card content';
     const title = 'Card heading';
 
@@ -12,7 +12,7 @@ describe('Card', () => {
     expect(screen.getByText(content)).toBeVisible();
   });
 
-  it('should render a Card without heading', () => {
+  it('should render without title', () => {
     const content = 'Without title content';
 
     render(<Card>{content}</Card>);

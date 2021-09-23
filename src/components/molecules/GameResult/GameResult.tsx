@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import Link from 'next/link';
 import { FC } from 'react';
 import Button from 'src/components/atoms/Button';
 import HeroIcon from 'src/components/atoms/HeroIcon';
@@ -29,14 +28,22 @@ const GameResult: FC<Props> = ({ heroId, isCorrect, matchId, onNewGame }) => {
       </div>
       <ul className={styles.links}>
         <li>
-          <Link href={`https://www.dotabuff.com/matches/${matchId}`}>
-            <a>DotaBuff</a>
-          </Link>
+          <a
+            href={`https://www.dotabuff.com/matches/${matchId}`}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            DotaBuff
+          </a>
         </li>
         <li>
-          <Link href={`https://www.opendota.com/matches/${matchId}`}>
-            <a>OpenDota</a>
-          </Link>
+          <a
+            href={`https://www.opendota.com/matches/${matchId}`}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            OpenDota
+          </a>
         </li>
       </ul>
       <div className={styles.cta}>

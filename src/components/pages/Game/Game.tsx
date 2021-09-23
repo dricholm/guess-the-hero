@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FC, useCallback, useState } from 'react';
+import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import Card from 'src/components/atoms/Card';
 import type { GameResultProps } from 'src/components/molecules/GameResult';
 import GameResult from 'src/components/molecules/GameResult';
@@ -29,6 +29,7 @@ const Game: FC<Props> = ({
     player: { heroId, items },
   },
 }) => {
+  const resultRef = useRef<HTMLDivElement>(null);
   const [isCorrect, setIsCorrect] = useState<GameResultProps['isCorrect']>();
   const handleSubmit = useCallback<HeroSelectProps['onSubmit']>(
     (selectedHeroId) => {
@@ -36,11 +37,16 @@ const Game: FC<Props> = ({
     },
     [heroId],
   );
+  useEffect(() => {
+    if (resultRef.current && isCorrect !== undefined) {
+      resultRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [isCorrect]);
 
   return (
     <div className={classNames('container', styles.container)}>
       {isCorrect !== undefined && (
-        <div className={styles.results}>
+        <div className={styles.results} ref={resultRef}>
           <Card title="Results">
             <GameResult
               heroId={heroId}

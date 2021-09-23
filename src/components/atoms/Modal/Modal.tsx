@@ -2,19 +2,19 @@ import { FC, MouseEventHandler, useCallback, useRef } from 'react';
 import styles from './Modal.module.scss';
 
 interface Props {
-  close: VoidFunction;
+  onClose: VoidFunction;
 }
 
-const Modal: FC<Props> = ({ children, close }) => {
+const Modal: FC<Props> = ({ children, onClose }) => {
   const container = useRef<HTMLDivElement>(null);
 
   const handleClick = useCallback<MouseEventHandler>(
     (event) => {
       if (event.target === event.currentTarget) {
-        close();
+        onClose();
       }
     },
-    [close],
+    [onClose],
   );
 
   return (
@@ -22,7 +22,7 @@ const Modal: FC<Props> = ({ children, close }) => {
       <button
         aria-label="Close modal"
         className={styles.close}
-        onClick={close}
+        onClick={onClose}
         type="button"
       >
         &times;

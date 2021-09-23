@@ -32,7 +32,7 @@ const ItemWithModal: FC<ItemIconProps> = ({ id, type }) => {
       </button>
       {id && isOpen && (
         <ClientOnlyPortal>
-          <Modal close={handleClose}>
+          <Modal onClose={handleClose}>
             <ItemDetails id={id} />
           </Modal>
         </ClientOnlyPortal>

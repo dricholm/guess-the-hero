@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import Footer from '.';
 
 describe('Footer', () => {
-  it('should render the Footer', () => {
+  it('should render with links', () => {
     const expectedLinks = [
       { text: 'About', url: '/about' },
       { text: 'GitHub', url: 'https://github.com/dricholm/guess-the-hero' },
