@@ -13,9 +13,13 @@ const Footer: FC = () => (
           </Link>
         </li>
         <li>
-          <Link href="https://github.com/dricholm/guess-the-hero">
-            <a>GitHub</a>
-          </Link>
+          <a
+            href="https://github.com/dricholm/guess-the-hero"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            GitHub
+          </a>
         </li>
       </ul>
       <p className={styles.text}>

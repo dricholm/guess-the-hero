@@ -7,7 +7,7 @@ jest.mock('next/router', () => ({
 }));
 
 describe('Header', () => {
-  it('should render the Header', () => {
+  it('should render with links', () => {
     (useRouter as jest.Mock).mockImplementation(() => ({ asPath: '/' }));
     const expectedLinks = [
       { text: 'GtH', url: '/' },
