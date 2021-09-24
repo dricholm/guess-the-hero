@@ -1,9 +1,21 @@
 @import 'variables';
 
 .container {
-  background-color: var(--color-red-bg);
-  border: 1px solid var(--color-red-border);
+  background-color: var(--textbox-color-bg);
+  border: 1px solid var(--textbox-color-border);
   border-radius: $border-radius;
-  color: var(--color-red-text);
+  color: var(--textbox-color-text);
   padding: 0.5rem;
+}
+
+.primary {
+  --textbox-color-bg: var(--color-red-bg);
+  --textbox-color-border: (--color-red-border);
+  --textbox-color-text: (--color-red-text);
+}
+
+.info {
+  --textbox-color-bg: var(--color-grey-bg);
+  --textbox-color-border: (--color-grey-border);
+  --textbox-color-text: (--color-grey-text);
 }

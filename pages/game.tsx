@@ -51,7 +51,7 @@ const GamePage: NextPage<GameState> = (props) => {
     switch (state.state) {
       case 'error':
         return (
-          <TextBox>
+          <TextBox variant="primary">
             <h1>Error</h1>
             <Button onClick={fetchNewGame}>Retry</Button>
           </TextBox>
