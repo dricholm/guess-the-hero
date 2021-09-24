@@ -22,7 +22,7 @@ const Heroes: FC = () => (
             )
             .map((hero) => (
               <div className={styles.hero} key={hero.id}>
-                <HeroIcon id={hero.id} />
+                <HeroIcon hasAlt={false} id={hero.id} />
                 <p className={styles.name}>{hero.localized_name}</p>
               </div>
             ))}
