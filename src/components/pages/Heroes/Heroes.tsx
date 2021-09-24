@@ -11,17 +11,22 @@ const Heroes: FC = () => (
   <div className={classNames('container', styles.container)}>
     {ATTRIBUTES.map((attribute) => (
       <Card key={attribute} title={attribute}>
-        {Object.values(heroesJson)
-          .filter(
-            (hero) =>
-              hero.primary_attr === attribute.substr(0, 3).toLowerCase(),
-          )
-          .sort((heroA, heroB) =>
-            heroA.localized_name.localeCompare(heroB.localized_name),
-          )
-          .map((hero) => (
-            <HeroIcon id={hero.id} key={hero.id} />
-          ))}
+        <div className={styles.grid}>
+          {Object.values(heroesJson)
+            .filter(
+              (hero) =>
+                hero.primary_attr === attribute.substr(0, 3).toLowerCase(),
+            )
+            .sort((heroA, heroB) =>
+              heroA.localized_name.localeCompare(heroB.localized_name),
+            )
+            .map((hero) => (
+              <div className={styles.hero} key={hero.id}>
+                <HeroIcon hasAlt={false} id={hero.id} />
+                {hero.localized_name}
+              </div>
+            ))}
+        </div>
       </Card>
     ))}
   </div>

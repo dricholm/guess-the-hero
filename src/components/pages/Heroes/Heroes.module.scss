@@ -1,7 +1,37 @@
+@import 'variables';
+
 .container {
   display: flex;
   flex-direction: column;
-  font-size: 0; // To clear empty space
   gap: 1rem;
   margin: 2rem auto;
+}
+
+.grid {
+  display: grid;
+  gap: 0.5rem 0;
+  grid-template-columns: auto;
+
+  @media screen and (min-width: $screen-sm) {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  @media screen and (min-width: $screen-lg) {
+    grid-template-columns: repeat(3, auto);
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    grid-template-columns: repeat(4, auto);
+  }
+
+  @media screen and (min-width: $screen-xxl) {
+    grid-template-columns: repeat(5, auto);
+  }
+}
+
+.hero {
+  align-items: center;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, min-content);
 }

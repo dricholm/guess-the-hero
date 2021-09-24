@@ -74,7 +74,7 @@ const ItemDetails: FC<Props> = ({ id }) => {
             </ul>
           )}
           {item.abilities?.map((ability) => (
-            <TextBox key={ability}>
+            <TextBox key={ability} variant="primary">
               <p
                 className={styles.paragraph}
                 dangerouslySetInnerHTML={{ __html: formatDescription(ability) }}

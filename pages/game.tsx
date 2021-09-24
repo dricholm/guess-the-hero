@@ -51,7 +51,7 @@ const GamePage: NextPage<GameState> = (props) => {
     switch (state.state) {
       case 'error':
         return (
-          <TextBox>
+          <TextBox variant="primary">
             <h1>Error</h1>
             <Button onClick={fetchNewGame}>Retry</Button>
           </TextBox>
@@ -74,7 +74,7 @@ const GamePage: NextPage<GameState> = (props) => {
       <Head>
         <title>Dota 2 - Guess the Hero</title>
         <meta
-          content="Guess the Dota 2 hero of a random match from seeing their inventory."
+          content="Play a quiz game of Dota 2. Guess the hero from a random match only by seeing their inventory."
           name="description"
         />
       </Head>

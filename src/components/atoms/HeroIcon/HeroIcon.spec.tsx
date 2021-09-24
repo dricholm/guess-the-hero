@@ -9,4 +9,13 @@ describe('HeroIcon', () => {
 
     expect(screen.getByAltText('Anti-Mage')).toBeVisible();
   });
+
+  it("should render a hero's image with empty alt", () => {
+    const id = 1;
+
+    render(<HeroIcon hasAlt={false} id={id} />);
+
+    expect(screen.getByRole('img')).toBeVisible();
+    expect(screen.queryByAltText('Anti-Mage')).toBeNull();
+  });
 });

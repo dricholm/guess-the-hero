@@ -38,7 +38,8 @@ const useItem = (id: number): Item | null =>
     if (!item) return null;
 
     return {
-      abilities: item.hint,
+      // Some hints have empty strings
+      abilities: item.hint?.filter(Boolean),
       attributes: item.attrib,
       cost: item.cost,
       displayName: item.dname,

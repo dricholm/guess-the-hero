@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import type { MouseEventHandler, ReactNode } from 'react';
 import { forwardRef } from 'react';
 import styles from './Button.module.scss';
@@ -7,18 +8,22 @@ interface Props {
   disabled?: boolean;
   href?: string;
   onClick?: MouseEventHandler;
+  size?: 'large';
   type?: 'button' | 'submit';
 }
 
 const Button = forwardRef<HTMLAnchorElement & HTMLButtonElement, Props>(
-  ({ children, disabled, href, onClick, type = 'button' }, ref) =>
-    href ? (
-      <a className={styles.button} href={href} onClick={onClick} ref={ref}>
+  ({ children, disabled, href, onClick, size, type = 'button' }, ref) => {
+    const classes = classNames(styles.button, {
+      [styles.large]: size === 'large',
+    });
+    return href ? (
+      <a className={classes} href={href} onClick={onClick} ref={ref}>
         {children}
       </a>
     ) : (
       <button
-        className={styles.button}
+        className={classes}
         disabled={disabled}
         onClick={onClick}
         ref={ref}
@@ -26,7 +31,8 @@ const Button = forwardRef<HTMLAnchorElement & HTMLButtonElement, Props>(
       >
         {children}
       </button>
-    ),
+    );
+  },
 );
 
 Button.displayName = 'Button';

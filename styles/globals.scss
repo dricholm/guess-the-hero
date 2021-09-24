@@ -5,15 +5,15 @@
     @each $level, $hsl in $map {
       --color-#{$color}-#{$level}: #{$hsl};
     }
+    --color-#{$color}-bg: #{map-get($map, '900')};
+    --color-#{$color}-border: #{map-get($map, '800')};
+    --color-#{$color}-text: #{map-get($map, '100')};
   }
 
   --color-bg: var(--color-grey-600);
   --color-bg-modal: #{rgba(map-get($color-grey, '300'), 0.3)};
   --color-bg-strong: var(--color-grey-700);
   --color-bg-stronger: var(--color-grey-800);
-  --color-red-bg: var(--color-red-900);
-  --color-red-border: var(--color-red-800);
-  --color-red-text: var(--color-red-100);
   --color-text: var(--color-grey-200);
 
   --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -21,13 +21,16 @@
   --box-shadow-3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
   @media (prefers-color-scheme: dark) {
+    @each $color, $map in $colors {
+      --color-#{$color}-bg: #{map-get($map, '100')};
+      --color-#{$color}-border: #{map-get($map, '200')};
+      --color-#{$color}-text: #{map-get($map, '900')};
+    }
+
     --color-bg: var(--color-grey-400);
     --color-bg-modal: #{rgba(map-get($color-grey, '700'), 0.3)};
     --color-bg-strong: var(--color-grey-300);
     --color-bg-stronger: var(--color-grey-200);
-    --color-red-bg: var(--color-red-100);
-    --color-red-border: var(--color-red-200);
-    --color-red-text: var(--color-red-900);
     --color-text: var(--color-grey-800);
   }
 }

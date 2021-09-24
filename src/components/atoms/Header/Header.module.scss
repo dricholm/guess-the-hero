@@ -25,13 +25,13 @@
 }
 
 .link {
-  color: var(--color-text);
+  color: var(--color-red-500);
   display: block;
   padding: 1rem;
   text-transform: uppercase;
 
   &:hover,
   &.active {
-    color: var(--color-red-500);
+    color: var(--color-text);
   }
 }
