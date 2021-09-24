@@ -61,13 +61,13 @@ const HeroSelect: FC<Props> = ({ isDisabled = false, onSubmit }) => {
 
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
-      <label className={styles.filter}>
-        <p>Filter</p>
+      <label className={styles.name}>
+        Filter by name
         <input
           className={styles.filter}
           disabled={isDisabled}
           onChange={handleFilterChange}
-          placeholder="Enter a hero name"
+          placeholder="Start typing a hero name"
           type="text"
           value={heroFilter}
         />
@@ -89,7 +89,7 @@ const HeroSelect: FC<Props> = ({ isDisabled = false, onSubmit }) => {
                   }}
                   type="radio"
                 />
-                <label className={styles.label} htmlFor={htmlId}>
+                <label className={styles['hero-label']} htmlFor={htmlId}>
                   <HeroIcon id={hero.id} />
                 </label>
               </Fragment>
@@ -100,9 +100,13 @@ const HeroSelect: FC<Props> = ({ isDisabled = false, onSubmit }) => {
         <div className={styles['no-heroes']}>No heroes match the filter.</div>
       )}
 
-      <Button disabled={isDisabled} type="submit">
-        {selectedHero ? `Select ${selectedHero.displayName}` : 'Choose a hero'}
-      </Button>
+      <div className={styles.cta}>
+        <Button disabled={isDisabled} size="large" type="submit">
+          {selectedHero
+            ? `Select ${selectedHero.displayName}`
+            : 'Choose a hero'}
+        </Button>
+      </div>
     </form>
   );
 };
