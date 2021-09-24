@@ -13,7 +13,7 @@ describe('heroes', () => {
     const heroes = Object.values(heroesJson);
 
     heroes.forEach(({ localized_name }) => {
-      cy.findByAltText(localized_name);
+      cy.findByText(localized_name);
     });
   });
 });
