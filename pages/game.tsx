@@ -130,7 +130,7 @@ const reducer = (state: GameState, action: Action): GameState => {
   }
 };
 
-const fetchRandomElement = <T extends unknown>(array: Array<T>): T =>
+const fetchRandomElement = <T,>(array: Array<T>): T =>
   array[Math.floor(Math.random() * array.length)];
 
 const fetchRandomMatchId = async () => {
