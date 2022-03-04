@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Base from '.';
 
 jest.mock('next/router', () => ({
+  Router: { events: { off: jest.fn(), on: jest.fn() } },
   useRouter: jest.fn(),
 }));
 
