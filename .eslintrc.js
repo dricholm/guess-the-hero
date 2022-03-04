@@ -5,6 +5,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:typescript-sort-keys/recommended',
+    'plugin:storybook/recommended',
   ],
   ignorePatterns: [
     '.next/',
