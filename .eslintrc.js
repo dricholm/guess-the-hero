@@ -8,13 +8,17 @@ module.exports = {
     'plugin:storybook/recommended',
   ],
   ignorePatterns: [
-    '.next/',
     '.eslintrc.js',
+    '.next/',
+    'coverage',
+    'cypress.config.ts',
+    'cypress',
     'jest.config.js',
     'next.config.js',
     'next.sitemap.js',
     'node_modules/',
     'src/test',
+    'stylelint.config.js',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {

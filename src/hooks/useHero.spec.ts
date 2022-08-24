@@ -1,5 +1,5 @@
+import { renderHook } from '@testing-library/react';
 import heroesJson from 'dotaconstants/build/heroes.json';
-import { renderHook } from '@testing-library/react-hooks';
 import { useHero } from '.';
 
 describe('useHero', () => {

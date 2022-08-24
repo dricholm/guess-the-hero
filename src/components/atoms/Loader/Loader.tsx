@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { FC } from 'react';
 import styles from './Loader.module.scss';
 
@@ -19,8 +19,8 @@ const Loader: FC = () => (
       </defs>
     </svg>
 
-    <div className={classNames(styles.line, styles.radiant)}></div>
-    <div className={classNames(styles.line, styles.dire)}></div>
+    <div className={clsx(styles.line, styles.radiant)}></div>
+    <div className={clsx(styles.line, styles.dire)}></div>
   </div>
 );
 

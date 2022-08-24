@@ -1,6 +1,6 @@
-import heroesJson from 'dotaconstants/build/heroes.json';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import heroesJson from 'dotaconstants/build/heroes.json';
 
 import HeroSelect from '.';
 
@@ -11,12 +11,13 @@ describe('HeroSelect', () => {
     onSubmit.mockClear();
   });
 
-  it('should submit selected hero', () => {
+  it('should submit selected hero', async () => {
     const hero = heroesJson['22'];
-    render(<HeroSelect onSubmit={onSubmit} />);
 
-    screen.getByAltText(hero.localized_name).click();
-    screen.getByText(/select/i).click();
+    render(<HeroSelect onSubmit={onSubmit} />);
+    await userEvent.click(screen.getByAltText(hero.localized_name));
+    await userEvent.click(screen.getByText(/select/i));
+
     expect(onSubmit).toHaveBeenCalledTimes(1);
     expect(onSubmit).toHaveBeenCalledWith(hero.id);
   });
@@ -31,17 +32,16 @@ describe('HeroSelect', () => {
     expect(screen.getByText(/choose/i)).toBeDisabled();
   });
 
-  it('should filter heroes based on input', () => {
+  it('should filter heroes based on input', async () => {
     render(<HeroSelect onSubmit={onSubmit} />);
 
-    userEvent.type(screen.getByLabelText(/filter/i), 'shadow');
+    await userEvent.type(screen.getByLabelText(/filter/i), 'shadow');
     const heroes = screen.getAllByRole('radio');
     expect(heroes).toHaveLength(3);
     expect(screen.getByAltText(/shadow demon/i)).toBeVisible();
     expect(screen.getByAltText(/shadow fiend/i)).toBeVisible();
     expect(screen.getByAltText(/shadow shaman/i)).toBeVisible();
-
-    userEvent.type(screen.getByLabelText(/filter/i), 'no hero');
+    await userEvent.type(screen.getByLabelText(/filter/i), 'no hero');
     expect(screen.getByText(/no heroes/i)).toBeVisible();
   });
 });

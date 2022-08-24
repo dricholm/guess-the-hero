@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 import Image from 'next/image';
 import { FC } from 'react';
 import ItemIcon from 'src/components/atoms/ItemIcon';
@@ -56,7 +56,7 @@ const ItemDetails: FC<Props> = ({ id }) => {
               {item.attributes.map((attribute) => (
                 <li key={attribute.key}>
                   <span
-                    className={classNames({
+                    className={clsx({
                       [styles.negative]: attribute.header.startsWith('-'),
                     })}
                   >

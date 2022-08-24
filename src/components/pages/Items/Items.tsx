@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { FC } from 'react';
 import ItemList from 'src/components/molecules/ItemList';
 import styles from './Items.module.scss';
@@ -96,17 +96,17 @@ const ITEMS = [
   },
   {
     ids: [
-      287,
-      354,
       355,
       356,
       349,
       305,
-      565,
       577,
       589,
       838, // Pig Pole
       840, // Tumbler's Toy
+      945, // Seeds of Serenity
+      946, // Lance of Pursuit
+      947, // Occult Bracelet
     ],
     title: 'Neutral tier 1',
   },
@@ -119,11 +119,11 @@ const ITEMS = [
       331,
       288,
       290,
-      359,
       680,
-      686,
       828, // Brigand's Blade
-      835, // Fae Grenade
+      990, // Eye of the Vizier
+      1076, // Specialist's Array
+      1077, // Dagger of Ristul
     ],
     title: 'Neutral tier 2',
   },
@@ -140,6 +140,7 @@ const ITEMS = [
       676,
       675,
       834, // Blast Rig
+      949, // Ogre Seal Totem
     ],
     title: 'Neutral tier 3',
   },
@@ -189,6 +190,7 @@ const ITEMS = [
       239,
       279,
       286,
+      287, // Keen Optic
       293,
       297,
       298,
@@ -204,6 +206,8 @@ const ITEMS = [
       328,
       330,
       334, // Imp Claw
+      354, // Ocean Heart
+      359, // Essence Ring
       360,
       363, // Illusionist's Cape
       364,
@@ -214,13 +218,16 @@ const ITEMS = [
       375, // Faded Broach
       377, // Minotaur Horn
       378, // Orb of Destruction
+      565, // Chipped Vest
+      686, // Quicksilver Amulet
+      835, // Fae Grenade
     ],
     title: 'Removed',
   },
 ];
 
 const Items: FC = () => (
-  <div className={classNames('container', styles.container)}>
+  <div className={clsx('container', styles.container)}>
     {ITEMS.map(({ ids, title }) => (
       <ItemList ids={ids} key={title} title={title} />
     ))}

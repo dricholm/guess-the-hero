@@ -1,8 +1,8 @@
-import { useRouter } from 'next/router';
+import clsx from 'clsx';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { FC } from 'react';
 import styles from './Header.module.scss';
-import classNames from 'classnames';
 
 const ITEMS: Array<{ href: string; text: string }> = [
   { href: '/game', text: 'Game' },
@@ -26,7 +26,7 @@ const Header: FC = () => {
           <li key={`${text}-${href}`}>
             <Link href={href}>
               <a
-                className={classNames(styles.link, {
+                className={clsx(styles.link, {
                   [styles.active]: asPath === href,
                 })}
               >

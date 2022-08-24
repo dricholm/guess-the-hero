@@ -1,7 +1,8 @@
-import { FC, MouseEventHandler, useCallback, useRef } from 'react';
+import { FC, MouseEventHandler, ReactNode, useCallback, useRef } from 'react';
 import styles from './Modal.module.scss';
 
 interface Props {
+  children: ReactNode;
   onClose: VoidFunction;
 }
 

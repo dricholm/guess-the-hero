@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import Card from 'src/components/atoms/Card';
 import styles from './About.module.scss';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 const About: FC = () => (
-  <div className={classNames('container', styles.container)}>
+  <div className={clsx('container', styles.container)}>
     <Card title="About">
       <h3>What is this site?</h3>
       <p>

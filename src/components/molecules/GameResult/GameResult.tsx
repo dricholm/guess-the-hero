@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { FC } from 'react';
 import Button from 'src/components/atoms/Button';
 import HeroIcon from 'src/components/atoms/HeroIcon';
@@ -17,9 +17,7 @@ const GameResult: FC<Props> = ({ heroId, isCorrect, matchId, onNewGame }) => {
 
   return (
     <div className={styles.container}>
-      <h3
-        className={classNames(styles.result, { [styles.correct]: isCorrect })}
-      >
+      <h3 className={clsx(styles.result, { [styles.correct]: isCorrect })}>
         {isCorrect ? 'Correct' : 'Incorrect'}
       </h3>
       <div className={styles.hero}>

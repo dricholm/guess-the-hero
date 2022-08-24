@@ -5,7 +5,7 @@ import type { ItemIconProps } from 'src/components/atoms/ItemIcon';
 import Modal from 'src/components/atoms/Modal';
 import ItemDetails from 'src/components/molecules/ItemDetails';
 import styles from './ItemWithModal.module.scss';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 const ItemWithModal: FC<ItemIconProps> = ({ id, type }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +20,7 @@ const ItemWithModal: FC<ItemIconProps> = ({ id, type }) => {
   return (
     <>
       <button
-        className={classNames(styles.button, {
+        className={clsx(styles.button, {
           [styles.neutral]: type === 'neutral',
         })}
         onClick={() => {

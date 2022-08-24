@@ -1,9 +1,13 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import Footer from 'src/components/atoms/Footer';
 import Header from 'src/components/atoms/Header';
-import PageLoader from 'src/components/atoms/PageLoader/PageLoader';
+import PageLoader from 'src/components/atoms/PageLoader';
 
-const Base: FC = ({ children }) => (
+interface Props {
+  children: ReactNode;
+}
+
+const Base: FC<Props> = ({ children }) => (
   <>
     <PageLoader />
     <Header />

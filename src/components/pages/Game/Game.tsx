@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import Card from 'src/components/atoms/Card';
 import type { GameResultProps } from 'src/components/molecules/GameResult';
@@ -44,7 +44,7 @@ const Game: FC<Props> = ({
   }, [isCorrect]);
 
   return (
-    <div className={classNames('container', styles.container)}>
+    <div className={clsx('container', styles.container)}>
       {isCorrect !== undefined && (
         <div className={styles.results} ref={resultRef}>
           <Card title="Results">

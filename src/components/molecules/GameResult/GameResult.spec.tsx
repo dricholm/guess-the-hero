@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import GameResult from '.';
 
 describe('GameResult', () => {
@@ -66,7 +67,7 @@ describe('GameResult', () => {
     );
   });
 
-  it('should call new game on button click', () => {
+  it('should call new game on button click', async () => {
     render(
       <GameResult
         heroId={heroId}
@@ -76,7 +77,7 @@ describe('GameResult', () => {
       />,
     );
 
-    screen.getByText(/new game/i).click();
+    await userEvent.click(screen.getByText(/new game/i));
     expect(onNewGame).toHaveBeenCalledTimes(1);
   });
 });
