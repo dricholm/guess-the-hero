@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 import heroesJson from 'dotaconstants/build/heroes.json';
 import { FC } from 'react';
 import Card from 'src/components/atoms/Card';
@@ -8,7 +8,7 @@ import styles from './Heroes.module.scss';
 const ATTRIBUTES = ['Strength', 'Agility', 'Intelligence'];
 
 const Heroes: FC = () => (
-  <div className={classNames('container', styles.container)}>
+  <div className={clsx('container', styles.container)}>
     {ATTRIBUTES.map((attribute) => (
       <Card key={attribute} title={attribute}>
         <div className={styles.grid}>

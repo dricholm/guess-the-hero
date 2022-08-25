@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { FC } from 'react';
 import { useItem } from 'src/hooks';
 import styles from './ItemIcon.module.scss';
@@ -14,7 +14,7 @@ const ItemIcon: FC<Props> = ({ id, type }) => {
   return (
     <img
       alt={item?.displayName ?? 'Empty slot'}
-      className={classNames(styles.image, {
+      className={clsx(styles.image, {
         [styles.backpack]: type === 'backpack',
         [styles.neutral]: type === 'neutral',
       })}

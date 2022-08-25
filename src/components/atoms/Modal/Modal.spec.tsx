@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Modal from '.';
 
 describe('Modal', () => {
@@ -10,13 +11,13 @@ describe('Modal', () => {
     expect(screen.getByText(content)).toBeVisible();
   });
 
-  it('should call onClose when the close button is clicked', () => {
+  it('should call onClose when the close button is clicked', async () => {
     const content = 'Modal content';
     const onClose = jest.fn();
 
     render(<Modal onClose={onClose}>{content}</Modal>);
 
-    screen.getByLabelText(/close/i).click();
+    await userEvent.click(screen.getByLabelText(/close/i));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 });

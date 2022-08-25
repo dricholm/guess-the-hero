@@ -25,9 +25,10 @@ describe('items', () => {
     cy.findByText(/roshan/i);
     cy.findByText(/removed/i);
 
-    const items =
+    const items = Object.values<{ cost: number; dname: string; id: number }>(
       // @ts-expect-error Not all values needed
-      Object.values<{ cost: number; dname: string; id: number }>(itemsJson);
+      itemsJson,
+    );
 
     const tpScroll = items.find(({ id }) => id === 46);
 

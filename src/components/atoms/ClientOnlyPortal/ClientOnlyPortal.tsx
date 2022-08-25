@@ -1,7 +1,11 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, ReactNode, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-const ClientOnlyPortal: FC = ({ children }) => {
+interface Props {
+  children: ReactNode;
+}
+
+const ClientOnlyPortal: FC<Props> = ({ children }) => {
   const ref = useRef<HTMLDivElement>();
   const [isMounted, setMounted] = useState(false);
 

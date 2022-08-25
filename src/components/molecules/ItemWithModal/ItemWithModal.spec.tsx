@@ -1,5 +1,6 @@
-import itemsJson from 'dotaconstants/build/items.json';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import itemsJson from 'dotaconstants/build/items.json';
 import ItemWithModal from '.';
 
 describe('ItemWithModal', () => {
@@ -8,7 +9,7 @@ describe('ItemWithModal', () => {
 
     render(<ItemWithModal id={item.id} />);
 
-    screen.getByAltText(item.dname).click();
+    await userEvent.click(screen.getByAltText(item.dname));
     expect(await screen.findByText(item.dname)).toBeVisible();
   });
 });

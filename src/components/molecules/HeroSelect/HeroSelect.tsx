@@ -74,27 +74,15 @@ const HeroSelect: FC<Props> = ({ isDisabled = false, onSubmit }) => {
       </label>
       {filteredHeroes.length ? (
         <div className={styles.heroes}>
-          {filteredHeroes.map((hero) => {
-            const htmlId = `hero-${hero.id}`;
-            return (
-              <Fragment key={hero.id}>
-                <input
-                  checked={selectedId === hero.id}
-                  disabled={isDisabled}
-                  className={styles.radio}
-                  id={htmlId}
-                  name="hero"
-                  onChange={() => {
-                    setSelectedId(hero.id);
-                  }}
-                  type="radio"
-                />
-                <label className={styles['hero-label']} htmlFor={htmlId}>
-                  <HeroIcon id={hero.id} />
-                </label>
-              </Fragment>
-            );
-          })}
+          {filteredHeroes.map((hero) => (
+            <HeroSelectIcon
+              checked={selectedId === hero.id}
+              disabled={isDisabled}
+              heroId={hero.id}
+              key={hero.id}
+              onSelect={setSelectedId}
+            />
+          ))}
         </div>
       ) : (
         <div className={styles['no-heroes']}>No heroes match the filter.</div>
@@ -108,6 +96,42 @@ const HeroSelect: FC<Props> = ({ isDisabled = false, onSubmit }) => {
         </Button>
       </div>
     </form>
+  );
+};
+
+interface HeroSelectIconProps {
+  checked: boolean;
+  disabled?: boolean;
+  heroId: number;
+  onSelect: (heroId: number) => void;
+}
+
+const HeroSelectIcon: FC<HeroSelectIconProps> = ({
+  checked,
+  disabled = false,
+  heroId,
+  onSelect,
+}) => {
+  const handleChange = useCallback(() => {
+    onSelect(heroId);
+  }, [heroId, onSelect]);
+  const htmlId = `hero-${heroId}`;
+
+  return (
+    <Fragment key={heroId}>
+      <input
+        checked={checked}
+        disabled={disabled}
+        className={styles.radio}
+        id={htmlId}
+        name="hero"
+        onChange={handleChange}
+        type="radio"
+      />
+      <label className={styles['hero-label']} htmlFor={htmlId}>
+        <HeroIcon id={heroId} />
+      </label>
+    </Fragment>
   );
 };
 

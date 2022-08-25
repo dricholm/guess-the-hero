@@ -1,11 +1,11 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 import Link from 'next/link';
 import { FC } from 'react';
 import styles from './Footer.module.scss';
 
 const Footer: FC = () => (
   <footer className={styles.container}>
-    <div className={classNames('container', styles.content)}>
+    <div className={clsx('container', styles.content)}>
       <ul className={styles.list}>
         <li>
           <Link href="/about">

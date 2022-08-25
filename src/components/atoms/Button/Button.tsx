@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 import type { MouseEventHandler, ReactNode } from 'react';
 import { forwardRef } from 'react';
 import styles from './Button.module.scss';
@@ -14,7 +14,7 @@ interface Props {
 
 const Button = forwardRef<HTMLAnchorElement & HTMLButtonElement, Props>(
   ({ children, disabled, href, onClick, size, type = 'button' }, ref) => {
-    const classes = classNames(styles.button, {
+    const classes = clsx(styles.button, {
       [styles.large]: size === 'large',
     });
     return href ? (
