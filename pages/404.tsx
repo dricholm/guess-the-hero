@@ -11,9 +11,7 @@ const Custom404: NextPage = () => (
     </Head>
     <div className="container">
       <h1>Not found</h1>
-      <Link href="/">
-        <a>To home page</a>
-      </Link>
+      <Link href="/">To home page</Link>
     </div>
   </>
 );

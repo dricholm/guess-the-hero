@@ -10,7 +10,7 @@ const Home: FC = () => (
     <h1>Test your Dota 2 knowledge</h1>
     <Card>
       <p>How well can you guess a hero from seeing their purchased items?</p>
-      <Link href="/game" passHref={true}>
+      <Link href="/game" passHref={true} legacyBehavior>
         <Button>Play now</Button>
       </Link>
     </Card>

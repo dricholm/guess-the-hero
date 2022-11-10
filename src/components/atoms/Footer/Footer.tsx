@@ -8,9 +8,7 @@ const Footer: FC = () => (
     <div className={clsx('container', styles.content)}>
       <ul className={styles.list}>
         <li>
-          <Link href="/about">
-            <a>About</a>
-          </Link>
+          <Link href="/about">About</Link>
         </li>
         <li>
           <a

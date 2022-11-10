@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { FC } from 'react';
 import ItemIcon from 'src/components/atoms/ItemIcon';
 import TextBox from 'src/components/atoms/TextBox';

@@ -16,22 +16,19 @@ const Header: FC = () => {
   return (
     <header className={styles.container}>
       <h1 className={styles.title}>
-        <Link href="/">
-          <a>GtH</a>
-        </Link>
+        <Link href="/">GtH</Link>
       </h1>
 
       <ul className={styles.list}>
         {ITEMS.map(({ href, text }) => (
           <li key={`${text}-${href}`}>
-            <Link href={href}>
-              <a
-                className={clsx(styles.link, {
-                  [styles.active]: asPath === href,
-                })}
-              >
-                {text}
-              </a>
+            <Link
+              href={href}
+              className={clsx(styles.link, {
+                [styles.active]: asPath === href,
+              })}
+            >
+              {text}
             </Link>
           </li>
         ))}
