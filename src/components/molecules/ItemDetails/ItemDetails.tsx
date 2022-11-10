@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import { FC } from 'react';
 import ItemIcon from 'src/components/atoms/ItemIcon';
 import TextBox from 'src/components/atoms/TextBox';
@@ -37,13 +37,7 @@ const ItemDetails: FC<Props> = ({ id }) => {
           <h3 className={styles.name}>{item.displayName}</h3>
           {Boolean(item.cost && item.cost > 0) && (
             <div className={styles.cost}>
-              <Image
-                alt="Cost"
-                height={17}
-                src="/img/gold.png"
-                unoptimized={true}
-                width={26}
-              />
+              <Image alt="Cost" height={17} src="/img/gold.png" width={26} />
               {item.cost}
             </div>
           )}
