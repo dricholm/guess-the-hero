@@ -4,7 +4,7 @@ import ItemWithModal from '../ItemWithModal';
 import styles from './ItemList.module.scss';
 
 interface Props {
-  ids: Array<number>;
+  ids: number[];
   title: string;
 }
 

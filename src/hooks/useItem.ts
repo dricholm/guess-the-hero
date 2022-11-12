@@ -3,8 +3,8 @@ import itemIdsJson from 'dotaconstants/build/item_ids.json';
 import { useMemo } from 'react';
 
 interface Item {
-  abilities?: Array<string>;
-  attributes: Array<Attribute>;
+  abilities?: string[];
+  attributes: Attribute[];
   cost: number;
   displayName: string;
   id: number;
@@ -19,7 +19,7 @@ interface Attribute {
   generated?: boolean;
   header: string;
   key: string;
-  value: string | Array<string>;
+  value: string | string[];
 }
 
 const useItem = (id: number): Item | null =>

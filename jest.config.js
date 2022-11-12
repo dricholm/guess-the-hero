@@ -1,6 +1,10 @@
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
-  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!**/*.stories.tsx'],
+  collectCoverageFrom: [
+    'app/**/*.{ts,tsx}',
+    'src/**/*.{ts,tsx}',
+    '!**/*.stories.tsx',
+  ],
   globals: {
     'ts-jest': {
       tsconfig: 'tsconfig.spec.json',

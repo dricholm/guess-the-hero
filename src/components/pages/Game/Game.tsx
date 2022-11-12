@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import Card from 'src/components/atoms/Card';
@@ -15,7 +17,7 @@ interface Player {
 }
 
 interface Props {
-  onNewGame: () => void;
+  onNewGame: () => Promise<void>;
   stats: {
     matchId: number;
     player: Player;

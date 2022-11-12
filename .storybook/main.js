@@ -32,7 +32,12 @@ module.exports = {
     __NEXT_NEW_LINK_BEHAVIOR: true,
   },
   staticDirs: ['../public'],
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: [
+    '../app/**/*.stories.mdx',
+    '../app/**/*.stories.@(js|jsx|ts|tsx)',
+    '../src/**/*.stories.mdx',
+    '../src/**/*.stories.@(js|jsx|ts|tsx)',
+  ],
   webpackFinal: (config) => {
     config.resolve.plugins = [
       ...(config.resolve.plugins || []),

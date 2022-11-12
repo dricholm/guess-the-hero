@@ -9,7 +9,6 @@ import {
   useMemo,
   useState,
 } from 'react';
-import Button from 'src/components/atoms/Button';
 import HeroIcon from 'src/components/atoms/HeroIcon';
 import { useHero } from 'src/hooks';
 import styles from './HeroSelect.module.scss';
@@ -89,11 +88,11 @@ const HeroSelect: FC<Props> = ({ isDisabled = false, onSubmit }) => {
       )}
 
       <div className={styles.cta}>
-        <Button disabled={isDisabled} size="large" type="submit">
+        <button className="btn btn-lg" disabled={isDisabled} type="submit">
           {selectedHero
             ? `Select ${selectedHero.displayName}`
             : 'Choose a hero'}
-        </Button>
+        </button>
       </div>
     </form>
   );

@@ -1,17 +1,19 @@
+'use client';
+
 import clsx from 'clsx';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { FC } from 'react';
 import styles from './Header.module.scss';
 
-const ITEMS: Array<{ href: string; text: string }> = [
-  { href: '/game', text: 'Game' },
+const ITEMS: { href: string; text: string }[] = [
+  { href: '/play', text: 'Play' },
   { href: '/heroes', text: 'Heroes' },
   { href: '/items', text: 'Items' },
 ];
 
 const Header: FC = () => {
-  const { asPath } = useRouter();
+  const pathname = usePathname();
 
   return (
     <header className={styles.container}>
@@ -25,7 +27,7 @@ const Header: FC = () => {
             <Link
               href={href}
               className={clsx(styles.link, {
-                [styles.active]: asPath === href,
+                [styles.active]: pathname === href,
               })}
             >
               {text}

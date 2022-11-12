@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'typescript-sort-keys'],
   rules: {
-    '@typescript-eslint/array-type': [2, { default: 'generic' }],
+    '@typescript-eslint/array-type': [2],
     '@typescript-eslint/no-shadow': 2,
     '@typescript-eslint/no-unnecessary-boolean-literal-compare': 2,
     '@typescript-eslint/no-unnecessary-condition': 2,
