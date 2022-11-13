@@ -45,7 +45,6 @@ const Match: React.FC<Props> = ({ id, onNext }) => {
   if (!data || !playerToGuess) {
     return <Loading message="Fetching match data..." />;
   }
-  console.log(data);
 
   const handleSubmit: HeroSelectProps['onSubmit'] = (heroId) => {
     setCorrect(heroId === playerToGuess.hero_id);
@@ -57,34 +56,32 @@ const Match: React.FC<Props> = ({ id, onNext }) => {
 
   return (
     <div className={clsx('container', styles.container)}>
-      <div className={styles.guess}>
-        <Card title="Inventory">
-          <HeroItems
-            backpack={[
-              playerToGuess.backpack_0,
-              playerToGuess.backpack_1,
-              playerToGuess.backpack_2,
-            ]}
-            inventory={[
-              playerToGuess.item_0,
-              playerToGuess.item_1,
-              playerToGuess.item_2,
-              playerToGuess.item_3,
-              playerToGuess.item_4,
-              playerToGuess.item_5,
-            ]}
-            neutral={playerToGuess.item_neutral}
-          />
-        </Card>
+      <Card title="Inventory">
+        <HeroItems
+          backpack={[
+            playerToGuess.backpack_0,
+            playerToGuess.backpack_1,
+            playerToGuess.backpack_2,
+          ]}
+          inventory={[
+            playerToGuess.item_0,
+            playerToGuess.item_1,
+            playerToGuess.item_2,
+            playerToGuess.item_3,
+            playerToGuess.item_4,
+            playerToGuess.item_5,
+          ]}
+          neutral={playerToGuess.item_neutral}
+        />
+      </Card>
 
-        <Card title="Heroes">
-          <HeroSelect
-            heroIds={data.players.map((player) => player.hero_id)}
-            disabled={hasSubmitted}
-            onSubmit={handleSubmit}
-          />
-        </Card>
-      </div>
+      <Card title="Heroes">
+        <HeroSelect
+          heroIds={data.players.map((player) => player.hero_id)}
+          disabled={hasSubmitted}
+          onSubmit={handleSubmit}
+        />
+      </Card>
 
       {hasSubmitted && (
         <Card title="Results">
