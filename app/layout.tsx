@@ -1,6 +1,11 @@
+'use client';
+
+import { QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { FC, ReactNode } from 'react';
 import Footer from 'src/components/atoms/Footer';
 import Header from 'src/components/atoms/Header';
+import queryClient from 'src/data/query-client';
 import 'styles/globals.scss';
 
 const RootLayout: FC<{ children: ReactNode }> = ({ children }) => (
@@ -9,10 +14,13 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => (
       <link rel="shortcut icon" href="/favicon.png" />
     </head>
     <body>
-      <Header />
-      <main>{children}</main>
-      <Footer />
-      <div className="absolute" id="modal" />
+      <QueryClientProvider client={queryClient}>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+        <div className="absolute" id="modal" />
+        <ReactQueryDevtools />
+      </QueryClientProvider>
     </body>
   </html>
 );

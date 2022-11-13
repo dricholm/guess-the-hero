@@ -17,7 +17,7 @@ interface Player {
 }
 
 interface Props {
-  onNewGame: () => Promise<void>;
+  onNewGame: VoidFunction;
   stats: {
     matchId: number;
     player: Player;

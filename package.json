@@ -19,9 +19,10 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@tanstack/react-query": "4.15.1",
     "clsx": "1.2.1",
     "dotaconstants": "7.13.0",
-    "next": "13.0.2",
+    "next": "13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -33,6 +34,7 @@
     "@storybook/manager-webpack5": "6.5.13",
     "@storybook/preset-scss": "1.0.3",
     "@storybook/react": "6.5.13",
+    "@tanstack/react-query-devtools": "4.16.0",
     "@testing-library/cypress": "8.0.3",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
@@ -45,7 +47,7 @@
     "css-loader": "6.7.1",
     "cypress": "11.0.1",
     "eslint": "8.27.0",
-    "eslint-config-next": "13.0.2",
+    "eslint-config-next": "13.0.3",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-cypress": "2.12.1",
     "eslint-plugin-react": "7.31.10",
@@ -57,13 +59,13 @@
     "jest-environment-jsdom": "29.3.1",
     "jest-watch-typeahead": "2.2.0",
     "lint-staged": "13.0.3",
-    "next-sitemap": "3.1.30",
+    "next-sitemap": "3.1.31",
     "prettier": "2.7.1",
     "sass": "1.56.1",
     "sass-loader": "13.2.0",
     "storybook-addon-next-router": "4.0.1",
     "style-loader": "3.3.1",
-    "stylelint": "14.14.1",
+    "stylelint": "14.15.0",
     "stylelint-config-prettier": "9.0.4",
     "stylelint-config-sass-guidelines": "9.0.1",
     "ts-jest": "29.0.3",
@@ -71,6 +73,9 @@
     "typescript": "4.8.4"
   },
   "overrides": {
+    "@testing-library/cypress": {
+      "cypress": "$cypress"
+    },
     "storybook-addon-next-router": {
       "next": "$next"
     }

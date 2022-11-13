@@ -13,16 +13,19 @@ export const getRandomElement = <T>(array: T[]): T =>
  */
 export const fetchPublicMatches = async (): Promise<ApiPublicMatch[]> => {
   const response = await fetch([BASE_URL, PATH_PUBLIC_MATCHES].join('/'));
-  return response.json();
+  if (response.ok) return response.json();
+  throw response;
 };
 
 export const fetchMatchData = async (
-  matchId: number,
+  matchId: number | undefined,
 ): Promise<ApiMatchData> => {
+  if (!matchId) throw new Error('Match ID is required');
   const response = await fetch(
     [BASE_URL, PATH_MATCH_DETAILS, matchId].join('/'),
   );
-  return response.json();
+  if (response.ok) return response.json();
+  throw response;
 };
 
 export const parseMatchData = (apiMatchData: ApiMatchData): MatchData => {
