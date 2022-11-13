@@ -29,7 +29,10 @@ const GamePage = () => {
   }
 
   return data ? (
-    <Match id={data[matchIndex].match_id} onNext={handleNext} />
+    <Match
+      id={data[data.length - 1 - matchIndex].match_id}
+      onNext={handleNext}
+    />
   ) : (
     <Loading message="Fetching list of public matches..." />
   );
