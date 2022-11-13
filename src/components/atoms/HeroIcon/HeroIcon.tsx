@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { FC } from 'react';
 import { useHero } from 'src/hooks';
 
@@ -12,7 +13,7 @@ const ItemIcon: FC<Props> = ({ hasAlt = true, id }) => {
   if (!hero) return null;
 
   return (
-    <img
+    <Image
       alt={hasAlt ? hero.displayName : ''}
       height={72}
       src={hero.imageSrc}

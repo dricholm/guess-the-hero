@@ -11,7 +11,7 @@ describe('Header', () => {
     (useRouter as jest.Mock).mockImplementation(() => ({ asPath: '/' }));
     const expectedLinks = [
       { text: 'GtH', url: '/' },
-      { text: 'Game', url: '/game' },
+      { text: 'Play', url: '/play' },
       { text: 'Heroes', url: '/heroes' },
       { text: 'Items', url: '/items' },
     ];

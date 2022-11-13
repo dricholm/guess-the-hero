@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { FC } from 'react';
-import Button from 'src/components/atoms/Button';
 import HeroIcon from 'src/components/atoms/HeroIcon';
 import { useHero } from 'src/hooks';
 import styles from './GameResult.module.scss';
@@ -45,7 +44,9 @@ const GameResult: FC<Props> = ({ heroId, isCorrect, matchId, onNewGame }) => {
         </li>
       </ul>
       <div className={styles.cta}>
-        <Button onClick={onNewGame}>New game</Button>
+        <button className="btn" onClick={onNewGame} type="button">
+          New game
+        </button>
       </div>
     </div>
   );

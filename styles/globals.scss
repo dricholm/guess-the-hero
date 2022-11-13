@@ -43,26 +43,26 @@ html,
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
+  display: grid;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 18px;
-  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content 1fr min-content;
   margin: 0;
+  min-height: 100vh;
   padding: 0;
 }
 
-/* stylelint-disable selector-max-id */
-#__next {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: min-content 1fr min-content;
-  height: 100%;
+// Workaround for added div
+// https://github.com/vercel/next.js/issues/42345#issuecomment-1304691380
+[data-nextjs-scroll-focus-boundary] {
+  display: contents;
 }
 
-#modal {
+.absolute {
   position: absolute;
 }
-/* stylelint-enable selector-max-id */
 
 a {
   color: var(--color-red-500);
@@ -101,8 +101,29 @@ a {
   }
 }
 
-.center {
-  display: grid;
-  height: 100%;
-  place-items: center;
+.btn {
+  background-color: var(--color-red-500);
+  border: 0;
+  border-radius: $border-radius;
+  color: var(--color-grey-900);
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.5rem;
+  transition: background-color 0.15s ease-in-out;
+
+  &:hover:not(&:disabled) {
+    background-color: var(--color-red-400);
+    box-shadow: var(--box-shadow-1);
+    color: var(--color-grey-900);
+  }
+
+  &:disabled {
+    background-color: var(--color-red-200);
+    color: var(--color-grey-600);
+  }
+
+  &.btn-lg {
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+  }
 }

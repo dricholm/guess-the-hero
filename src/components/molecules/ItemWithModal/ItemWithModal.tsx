@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, useCallback, useState } from 'react';
 import ClientOnlyPortal from 'src/components/atoms/ClientOnlyPortal';
 import ItemIcon from 'src/components/atoms/ItemIcon';

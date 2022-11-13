@@ -1,34 +1,18 @@
-import heroesJson from 'dotaconstants/build/heroes.json';
-import {
-  ChangeEventHandler,
-  FC,
-  FormEventHandler,
-  Fragment,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
-import Button from 'src/components/atoms/Button';
+'use client';
+
+import { FC, FormEventHandler, Fragment, useCallback, useState } from 'react';
 import HeroIcon from 'src/components/atoms/HeroIcon';
 import { useHero } from 'src/hooks';
 import styles from './HeroSelect.module.scss';
 
-const HEROES = Object.values(heroesJson).sort((heroA, heroB) =>
-  heroA.localized_name.localeCompare(heroB.localized_name),
-);
-
-const isHeroShown = (name: string, filter: string) =>
-  name.toLowerCase().includes(filter.toLowerCase());
-
 interface Props {
-  isDisabled?: boolean;
-  onSubmit: (id?: number) => void;
+  disabled?: boolean;
+  heroIds: number[];
+  onSubmit: (id: number) => void;
 }
 
-const HeroSelect: FC<Props> = ({ isDisabled = false, onSubmit }) => {
+const HeroSelect: FC<Props> = ({ heroIds, disabled = false, onSubmit }) => {
   const [selectedId, setSelectedId] = useState<number>();
-  const [heroFilter, setHeroFilter] = useState('');
   const handleSubmit = useCallback<FormEventHandler<HTMLFormElement>>(
     (event) => {
       event.preventDefault();
@@ -37,63 +21,28 @@ const HeroSelect: FC<Props> = ({ isDisabled = false, onSubmit }) => {
     },
     [onSubmit, selectedId],
   );
-  const handleFilterChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
-    (event) => {
-      setHeroFilter(event.currentTarget.value);
-    },
-    [],
-  );
-  const filteredHeroes = useMemo(
-    () => HEROES.filter((hero) => isHeroShown(hero.localized_name, heroFilter)),
-    [heroFilter],
-  );
   const selectedHero = useHero(selectedId);
-  useEffect(() => {
-    if (
-      !heroFilter ||
-      !selectedHero ||
-      isHeroShown(selectedHero.displayName, heroFilter)
-    ) {
-      return;
-    }
-    setSelectedId(undefined);
-  }, [heroFilter, selectedHero]);
 
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
-      <label className={styles.name}>
-        Filter by name
-        <input
-          className={styles.filter}
-          disabled={isDisabled}
-          onChange={handleFilterChange}
-          placeholder="Start typing a hero name"
-          type="text"
-          value={heroFilter}
-        />
-      </label>
-      {filteredHeroes.length ? (
-        <div className={styles.heroes}>
-          {filteredHeroes.map((hero) => (
-            <HeroSelectIcon
-              checked={selectedId === hero.id}
-              disabled={isDisabled}
-              heroId={hero.id}
-              key={hero.id}
-              onSelect={setSelectedId}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className={styles['no-heroes']}>No heroes match the filter.</div>
-      )}
+      <div className={styles.heroes}>
+        {heroIds.map((heroId) => (
+          <HeroSelectIcon
+            checked={selectedId === heroId}
+            disabled={disabled}
+            heroId={heroId}
+            key={heroId}
+            onSelect={setSelectedId}
+          />
+        ))}
+      </div>
 
       <div className={styles.cta}>
-        <Button disabled={isDisabled} size="large" type="submit">
+        <button className="btn btn-lg" disabled={disabled} type="submit">
           {selectedHero
             ? `Select ${selectedHero.displayName}`
             : 'Choose a hero'}
-        </Button>
+        </button>
       </div>
     </form>
   );

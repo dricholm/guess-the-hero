@@ -2,9 +2,6 @@ const path = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
-  core: {
-    builder: 'webpack5',
-  },
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
@@ -26,8 +23,21 @@ module.exports = {
     },
     'storybook-addon-next-router',
   ],
+  core: {
+    builder: 'webpack5',
+  },
+  env: {
+    // Until storybook-addon-next-router is not updated for Next.js 13
+    // See https://github.com/lifeiscontent/storybook-addon-next-router/issues/68
+    __NEXT_NEW_LINK_BEHAVIOR: true,
+  },
   staticDirs: ['../public'],
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: [
+    '../app/**/*.stories.mdx',
+    '../app/**/*.stories.@(js|jsx|ts|tsx)',
+    '../src/**/*.stories.mdx',
+    '../src/**/*.stories.@(js|jsx|ts|tsx)',
+  ],
   webpackFinal: (config) => {
     config.resolve.plugins = [
       ...(config.resolve.plugins || []),

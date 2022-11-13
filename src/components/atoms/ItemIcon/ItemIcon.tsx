@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Image from 'next/image';
 import { FC } from 'react';
 import { useItem } from 'src/hooks';
 import styles from './ItemIcon.module.scss';
@@ -12,7 +13,7 @@ const ItemIcon: FC<Props> = ({ id, type }) => {
   const item = useItem(id);
 
   return (
-    <img
+    <Image
       alt={item?.displayName ?? 'Empty slot'}
       className={clsx(styles.image, {
         [styles.backpack]: type === 'backpack',

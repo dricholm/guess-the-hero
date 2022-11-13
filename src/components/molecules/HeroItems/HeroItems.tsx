@@ -6,8 +6,8 @@ const BACKPACK = Array.from<number>({ length: 3 });
 const INVENTORY = Array.from<number>({ length: 6 });
 
 interface Props {
-  backpack?: Array<number>;
-  inventory?: Array<number>;
+  backpack?: number[];
+  inventory?: number[];
   neutral?: number;
 }
 

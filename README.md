@@ -15,6 +15,9 @@ The live version is available [here](https://www.guessthehero.com/).
 # Install dependencies
 $ npm install
 
+# Create mock service worker
+$ npm run msw
+
 # Serve application in development at http://localhost:3000
 $ npm run dev
 

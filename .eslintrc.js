@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'typescript-sort-keys'],
   rules: {
-    '@typescript-eslint/array-type': [2, { default: 'generic' }],
+    '@typescript-eslint/array-type': [2],
     '@typescript-eslint/no-shadow': 2,
     '@typescript-eslint/no-unnecessary-boolean-literal-compare': 2,
     '@typescript-eslint/no-unnecessary-condition': 2,
@@ -35,6 +35,7 @@ module.exports = {
     '@typescript-eslint/prefer-optional-chain': 2,
     '@typescript-eslint/prefer-string-starts-ends-with': 2,
     '@typescript-eslint/restrict-plus-operands': 2,
+    'no-console': 2,
     'react/prop-types': 0,
     'react/react-in-jsx-scope': 0,
     'sort-keys': [2, 'asc', { natural: true }],
