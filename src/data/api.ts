@@ -1,9 +1,8 @@
-import { Player } from 'src/components/pages/Game';
-import { ApiMatchData, ApiPublicMatch, MatchData } from '../../app/play/types';
+import { ApiMatchData, ApiPublicMatch } from './types';
 
-const BASE_URL = 'https://api.opendota.com/api';
-const PATH_PUBLIC_MATCHES = 'publicMatches';
-const PATH_MATCH_DETAILS = 'matches';
+export const BASE_URL = 'https://api.opendota.com/api';
+export const PATH_PUBLIC_MATCHES = 'publicMatches';
+export const PATH_MATCH_DETAILS = 'matches';
 
 /**
  * Fetches random public match IDs.
@@ -23,25 +22,4 @@ export const fetchMatchData = async (
   );
   if (response.ok) return response.json();
   throw response;
-};
-
-export const parseMatchData = (apiMatchData: ApiMatchData): MatchData => {
-  return {
-    id: apiMatchData.match_id,
-    players: apiMatchData.players.map((player) => {
-      const items: Player['items'] = {
-        backpack: [player.backpack_0, player.backpack_1, player.backpack_2],
-        inventory: [
-          player.item_0,
-          player.item_1,
-          player.item_2,
-          player.item_3,
-          player.item_4,
-          player.item_5,
-        ],
-      };
-      if (player.item_neutral) items.neutral = player.item_neutral;
-      return { heroId: player.hero_id, items };
-    }),
-  };
 };

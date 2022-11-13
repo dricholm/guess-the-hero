@@ -1,31 +1,33 @@
 describe('game', () => {
   it('should display match info and result', () => {
-    cy.visit('/');
-    cy.findByText(/play now/i).click();
+    cy.intercept('GET', 'https://api.opendota.com/api/publicMatches', {
+      fixture: 'public-matches.json',
+    });
+    cy.intercept('GET', 'https://api.opendota.com/api/matches/1234567890', {
+      fixture: 'match-1234567890.json',
+    });
 
-    // Extend timeout to wait for SSR on CI
-    cy.findByText(/inventory/i, { timeout: 15000 });
-    cy.findByAltText(/abaddon/i);
+    cy.visit('/play');
 
-    cy.findByLabelText(/filter/i).type('random text');
-    cy.findByText(/no hero/i);
-
-    cy.findByLabelText(/filter/i)
-      .clear()
-      .type('t');
-    cy.findByAltText('Techies').click();
-    cy.findByText(/select techies/i).click();
+    cy.findByText(/inventory/i);
+    cy.findByAltText(/shadow fiend/i).click();
+    cy.findByText(/select/i).click();
 
     cy.findByText(/results/i);
+    cy.findByText(/\bcorrect\b/i);
     cy.findByText(/dotabuff/i)
       .should('have.attr', 'href')
       .then((href) => {
-        expect(href).to.match(/https:\/\/www\.dotabuff\.com\/matches\/\d+/);
+        expect(href).to.match(
+          /https:\/\/www\.dotabuff\.com\/matches\/1234567890/,
+        );
       });
     cy.findByText(/opendota/i)
       .should('have.attr', 'href')
       .then((href) => {
-        expect(href).to.match(/https:\/\/www\.opendota\.com\/matches\/\d+/);
+        expect(href).to.match(
+          /https:\/\/www\.opendota\.com\/matches\/1234567890/,
+        );
       });
     cy.findByText(/new game/i);
   });

@@ -2,52 +2,36 @@
 // So API request is from the client to avoid reaching limit
 
 import { useQuery } from '@tanstack/react-query';
-import { useMemo } from 'react';
-import Game from 'src/components/pages/Game';
-import { getRandomElement } from 'src/data/utils';
-import {
-  fetchMatchData,
-  fetchPublicMatches,
-  parseMatchData,
-} from '../../src/data/api';
+import { useState } from 'react';
+import Match from 'src/components/organisms/Match';
+import { fetchPublicMatches } from '../../src/data/api';
 import Loading from '../loading';
 
 const GamePage = () => {
-  const matchesQuery = useQuery({
+  const { data, error, refetch } = useQuery({
     queryFn: fetchPublicMatches,
     queryKey: ['matches'],
     refetchOnWindowFocus: false,
   });
-  const randomMatch = useMemo(
-    () => matchesQuery.data && getRandomElement(matchesQuery.data),
-    [matchesQuery.data],
-  );
-  const matchQuery = useQuery({
-    enabled: Boolean(randomMatch),
-    queryFn: () => fetchMatchData(randomMatch?.match_id),
-    queryKey: ['match', randomMatch?.match_id],
-    refetchOnWindowFocus: false,
-  });
-  const match = useMemo(
-    () => matchQuery.data && parseMatchData(matchQuery.data),
-    [matchQuery.data],
-  );
-  const player = useMemo(
-    () => match && getRandomElement(match.players),
-    [match],
-  );
+  const [matchIndex, setMatchIndex] = useState(0);
 
-  if (matchesQuery.error || matchQuery.error) {
-    throw matchesQuery.error || matchQuery.error;
+  const handleNext = () => {
+    if (data && matchIndex < data.length - 1) {
+      setMatchIndex((current) => current + 1);
+      return;
+    }
+    refetch();
+    setMatchIndex(0);
+  };
+
+  if (error) {
+    throw error;
   }
 
-  return match && player ? (
-    <Game
-      onNewGame={matchesQuery.refetch}
-      stats={{ matchId: match.id, player }}
-    />
+  return data ? (
+    <Match id={data[matchIndex].match_id} onNext={handleNext} />
   ) : (
-    <Loading />
+    <Loading message="Fetching list of public matches..." />
   );
 };
 

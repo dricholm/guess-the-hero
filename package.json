@@ -16,7 +16,8 @@
     "e2e": "cypress run",
     "e2e:open": "cypress open",
     "storybook": "start-storybook",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "msw": "msw init public"
   },
   "dependencies": {
     "@tanstack/react-query": "4.15.1",
@@ -59,6 +60,8 @@
     "jest-environment-jsdom": "29.3.1",
     "jest-watch-typeahead": "2.2.0",
     "lint-staged": "13.0.3",
+    "msw": "0.48.2",
+    "msw-storybook-addon": "1.6.3",
     "next-sitemap": "3.1.31",
     "prettier": "2.7.1",
     "sass": "1.56.1",
@@ -79,5 +82,8 @@
     "storybook-addon-next-router": {
       "next": "$next"
     }
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

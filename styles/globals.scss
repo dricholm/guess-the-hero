@@ -101,12 +101,6 @@ a {
   }
 }
 
-.center {
-  display: grid;
-  height: 100%;
-  place-items: center;
-}
-
 .btn {
   background-color: var(--color-red-500);
   border: 0;
@@ -124,7 +118,8 @@ a {
   }
 
   &:disabled {
-    background-color: var(--color-red-700);
+    background-color: var(--color-red-200);
+    color: var(--color-grey-600);
   }
 
   &.btn-lg {

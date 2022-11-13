@@ -1,5 +1,3 @@
-import { Player } from 'src/components/pages/Game';
-
 export interface ApiPublicMatch {
   avg_mmr: number;
   avg_rank_tier: number;
@@ -31,32 +29,7 @@ export interface ApiMatchData {
    */
   first_blood_time: number;
   match_id: number;
-  players: {
-    assists: number;
-    backpack_0: number;
-    backpack_1: number;
-    backpack_2: number;
-    deaths: number;
-    denies: number;
-    gold: number;
-    gold_per_min: number;
-    hero_damage: number;
-    hero_healing: number;
-    hero_id: number;
-    item_0: number;
-    item_1: number;
-    item_2: number;
-    item_3: number;
-    item_4: number;
-    item_5: number;
-    item_neutral: number;
-    kills: number;
-    last_hits: number;
-    level: number;
-    player_slot: number;
-    tower_damage: number;
-    xp_per_min: number;
-  }[];
+  players: ApiPlayer[];
   radiant_score: number;
   radiant_win: boolean;
   /**
@@ -65,7 +38,30 @@ export interface ApiMatchData {
   start_time: number;
 }
 
-export interface MatchData {
-  id: number;
-  players: Player[];
+export interface ApiPlayer {
+  assists: number;
+  backpack_0: number;
+  backpack_1: number;
+  backpack_2: number;
+  deaths: number;
+  denies: number;
+  gold: number;
+  gold_per_min: number;
+  hero_damage: number;
+  hero_healing: number;
+  hero_id: number;
+  item_0: number;
+  item_1: number;
+  item_2: number;
+  item_3: number;
+  item_4: number;
+  item_5: number;
+  item_neutral: number;
+  kills: number;
+  last_hits: number;
+  level: number;
+  net_worth: number;
+  player_slot: number;
+  tower_damage: number;
+  xp_per_min: number;
 }

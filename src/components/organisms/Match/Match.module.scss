@@ -1,0 +1,25 @@
+@import 'variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem auto;
+
+  @media screen and (min-width: $screen-xl) {
+    align-items: center;
+  }
+}
+
+.guess {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  grid-template-columns: auto 1fr;
+  width: 100%;
+
+  @media screen and (min-width: $screen-xl) {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+}
