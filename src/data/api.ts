@@ -1,12 +1,9 @@
 import { Player } from 'src/components/pages/Game';
-import { ApiMatchData, ApiPublicMatch, MatchData } from './types';
+import { ApiMatchData, ApiPublicMatch, MatchData } from '../../app/play/types';
 
 const BASE_URL = 'https://api.opendota.com/api';
 const PATH_PUBLIC_MATCHES = 'publicMatches';
 const PATH_MATCH_DETAILS = 'matches';
-
-export const getRandomElement = <T>(array: T[]): T =>
-  array[Math.floor(Math.random() * array.length)];
 
 /**
  * Fetches random public match IDs.

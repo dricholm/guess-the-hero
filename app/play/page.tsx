@@ -4,13 +4,13 @@
 import { useQuery } from '@tanstack/react-query';
 import { useMemo } from 'react';
 import Game from 'src/components/pages/Game';
-import Loading from '../loading';
+import { getRandomElement } from 'src/data/utils';
 import {
   fetchMatchData,
   fetchPublicMatches,
-  getRandomElement,
   parseMatchData,
-} from './logic';
+} from '../../src/data/api';
+import Loading from '../loading';
 
 const GamePage = () => {
   const matchesQuery = useQuery({
