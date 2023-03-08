@@ -34,7 +34,10 @@ yarn-error.log*
 .vercel
 
 # Generated files
-public/mockServiceWorker.js
-public/robots.txt
-public/sitemap.xml
-public/sitemap-0.xml
+/public/mockServiceWorker.js
+/public/robots.txt
+/public/sitemap.xml
+/public/sitemap-0.xml
+
+# Storybook
+/storybook-static

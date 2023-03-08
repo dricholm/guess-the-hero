@@ -10,11 +10,6 @@ import 'styles/globals.scss';
 
 const RootLayout: FC<{ children: ReactNode }> = ({ children }) => (
   <html lang="en">
-    <head>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="width=device-width" />
-      <link rel="shortcut icon" href="/favicon.png" />
-    </head>
     <body>
       <QueryClientProvider client={queryClient}>
         <Header />

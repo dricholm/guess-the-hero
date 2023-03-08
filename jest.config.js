@@ -5,11 +5,6 @@ module.exports = {
     'src/**/*.{ts,tsx}',
     '!**/*.stories.tsx',
   ],
-  globals: {
-    'ts-jest': {
-      tsconfig: 'tsconfig.spec.json',
-    },
-  },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx'],
   moduleNameMapper: {
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
@@ -26,7 +21,7 @@ module.exports = {
     '<rootDir>/node_modules/',
   ],
   transform: {
-    '^.+\\.(j|t)sx?$': 'ts-jest',
+    '^.+\\.(j|t)sx?$': ['ts-jest', { tsconfig: 'tsconfig.spec.json' }],
   },
   watchPlugins: [
     'jest-watch-typeahead/filename',
