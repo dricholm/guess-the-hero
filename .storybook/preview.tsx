@@ -1,24 +1,15 @@
 import { Preview } from '@storybook/react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { initialize, mswDecorator } from 'msw-storybook-addon';
-import React from 'react';
 import '../styles/globals.scss';
+import { withReactQuery } from './decorators/react-query';
 
 initialize();
-
-const queryClient = new QueryClient();
 
 const preview: Preview = {
   decorators: [
     // @ts-expect-error External dependency error
     mswDecorator,
-    (Story) => (
-      <QueryClientProvider client={queryClient}>
-        <Story />
-        <ReactQueryDevtools />
-      </QueryClientProvider>
-    ),
+    withReactQuery,
   ],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },

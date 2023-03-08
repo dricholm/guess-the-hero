@@ -1,27 +1,24 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
+import { Meta, StoryObj } from '@storybook/react';
 import Component from './ItemDetails';
 
 export default {
   component: Component,
-  title: 'Molecules/ItemDetails',
-} as ComponentMeta<typeof Component>;
+} as Meta<typeof Component>;
 
-const Template: ComponentStory<typeof Component> = (args) => (
-  <Component {...args} />
-);
-
-export const Satanic = Template.bind({});
-Satanic.args = {
-  id: 156,
+export const Satanic: StoryObj<typeof Component> = {
+  args: {
+    id: 156,
+  },
 };
 
-export const PhilosophersStone = Template.bind({});
-PhilosophersStone.args = {
-  id: 290,
+export const PhilosophersStone: StoryObj<typeof Component> = {
+  args: {
+    id: 290,
+  },
 };
 
-export const Recipe = Template.bind({});
-Recipe.args = {
-  id: 109,
+export const Recipe: StoryObj<typeof Component> = {
+  args: {
+    id: 109,
+  },
 };

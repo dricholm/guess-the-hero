@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { rest } from 'msw';
 import { BASE_URL, PATH_MATCH_DETAILS } from 'src/data/api';
 import Component from './Match';
@@ -18,14 +18,9 @@ export default {
       ],
     },
   },
-  title: 'Organisms/Match',
-} as ComponentMeta<typeof Component>;
+} as Meta<typeof Component>;
 
-const Template: ComponentStory<typeof Component> = (args) => (
-  <Component {...args} />
-);
-
-export const Match = Template.bind({});
+export const Match: StoryObj<typeof Component> = {};
 
 const MATCH = {
   players: [

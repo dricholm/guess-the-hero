@@ -1,13 +1,8 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import Component from './Loader';
 
 export default {
   component: Component,
-  title: 'Atoms/Loader',
-} as ComponentMeta<typeof Component>;
+} as Meta<typeof Component>;
 
-const Template: ComponentStory<typeof Component> = (args) => (
-  <Component {...args} />
-);
-
-export const Loader = Template.bind({});
+export const Loader: StoryObj<typeof Component> = {};

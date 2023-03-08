@@ -1,5 +1,4 @@
 import { StorybookConfig } from '@storybook/nextjs';
-import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
 const config: StorybookConfig = {
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
@@ -10,21 +9,9 @@ const config: StorybookConfig = {
   },
   staticDirs: ['../public'],
   stories: [
-    '../app/**/*.mdx',
-    '../app/**/*.stories.@(js|jsx|ts|tsx)',
-    '../src/**/*.mdx',
-    '../src/**/*.stories.@(js|jsx|ts|tsx)',
+    '../@(app|src)/**/*.mdx',
+    '../@(app|src)/**/*.stories.@(js|jsx|ts|tsx)',
   ],
-  webpackFinal: (config) => {
-    if (config.resolve)
-      config.resolve.plugins = [
-        ...(config.resolve.plugins || []),
-        new TsconfigPathsPlugin({
-          extensions: config.resolve.extensions,
-        }),
-      ];
-    return config;
-  },
 };
 
 export default config;

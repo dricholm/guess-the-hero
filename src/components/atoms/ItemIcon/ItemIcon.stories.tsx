@@ -1,30 +1,28 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import Component from './ItemIcon';
 
 export default {
   component: Component,
-  title: 'Atoms/ItemIcon',
-} as ComponentMeta<typeof Component>;
+} as Meta<typeof Component>;
 
-const Template: ComponentStory<typeof Component> = (args) => (
-  <Component {...args} />
-);
+export const Empty: StoryObj<typeof Component> = {};
 
-export const Empty = Template.bind({});
-
-export const Normal = Template.bind({});
-Normal.args = {
-  id: 1,
+export const Normal: StoryObj<typeof Component> = {
+  args: {
+    id: 1,
+  },
 };
 
-export const Backpack = Template.bind({});
-Backpack.args = {
-  id: 1,
-  type: 'backpack',
+export const Backpack: StoryObj<typeof Component> = {
+  args: {
+    id: 1,
+    type: 'backpack',
+  },
 };
 
-export const Neutral = Template.bind({});
-Neutral.args = {
-  id: 287,
-  type: 'neutral',
+export const Neutral: StoryObj<typeof Component> = {
+  args: {
+    id: 287,
+    type: 'neutral',
+  },
 };
