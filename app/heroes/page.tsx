@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import heroesJson from 'dotaconstants/build/heroes.json';
+import { Metadata } from 'next';
 import { FC } from 'react';
 import Card from 'src/components/atoms/Card';
 import HeroIcon from 'src/components/atoms/HeroIcon';
@@ -31,5 +32,10 @@ const Heroes: FC = () => (
     ))}
   </div>
 );
+
+export const metadata: Metadata = {
+  description: "See all of Dota 2's heroes.",
+  title: 'Dota 2 heroes - Guess the Hero',
+};
 
 export default Heroes;

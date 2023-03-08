@@ -1,23 +1,20 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import Component from './GameResult';
 
 export default {
   component: Component,
-  title: 'Molecules/GameResult',
-} as ComponentMeta<typeof Component>;
+} as Meta<typeof Component>;
 
-const Template: ComponentStory<typeof Component> = (args) => (
-  <Component {...args} />
-);
-
-export const Correct = Template.bind({});
-Correct.args = {
-  heroId: 1,
-  isCorrect: true,
+export const Correct: StoryObj<typeof Component> = {
+  args: {
+    heroId: 1,
+    isCorrect: true,
+  },
 };
 
-export const Incorrect = Template.bind({});
-Incorrect.args = {
-  heroId: 2,
-  isCorrect: false,
+export const Incorrect: StoryObj<typeof Component> = {
+  args: {
+    heroId: 2,
+    isCorrect: false,
+  },
 };

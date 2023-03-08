@@ -1,41 +1,12 @@
-'use client';
-// So API request is from the client to avoid reaching limit
+import { Metadata } from 'next';
+import Play from 'src/components/organisms/Play/Play';
 
-import { useQuery } from '@tanstack/react-query';
-import { useState } from 'react';
-import Match from 'src/components/organisms/Match';
-import { fetchPublicMatches } from '../../src/data/api';
-import Loading from '../loading';
+const PlayPage = () => <Play />;
 
-const GamePage = () => {
-  const { data, error, refetch } = useQuery({
-    queryFn: fetchPublicMatches,
-    queryKey: ['matches'],
-    refetchOnWindowFocus: false,
-  });
-  const [matchIndex, setMatchIndex] = useState(0);
-
-  const handleNext = () => {
-    if (data && matchIndex < data.length - 1) {
-      setMatchIndex((current) => current + 1);
-      return;
-    }
-    refetch();
-    setMatchIndex(0);
-  };
-
-  if (error) {
-    throw error;
-  }
-
-  return data ? (
-    <Match
-      id={data[data.length - 1 - matchIndex].match_id}
-      onNext={handleNext}
-    />
-  ) : (
-    <Loading message="Fetching list of public matches..." />
-  );
+export const metadata: Metadata = {
+  description:
+    'Play a quiz game of Dota 2. Guess the hero from a random match only by seeing their inventory.',
+  title: 'Dota 2 - Guess the Hero',
 };
 
-export default GamePage;
+export default PlayPage;

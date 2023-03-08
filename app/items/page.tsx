@@ -1,7 +1,22 @@
 import clsx from 'clsx';
+import { Metadata } from 'next';
 import { FC } from 'react';
 import ItemList from 'src/components/molecules/ItemList';
 import styles from './styles.module.scss';
+
+const Items: FC = () => (
+  <div className={clsx('container', styles.container)}>
+    {ITEMS.map(({ ids, title }) => (
+      <ItemList ids={ids} key={title} title={title} />
+    ))}
+  </div>
+);
+
+export const metadata: Metadata = {
+  description:
+    'Get to know all the items Dota 2 has to offer and learn all about them. Check their abilities, costs, lore and even more.',
+  title: 'Dota 2 items - Guess the Hero',
+};
 
 const ITEMS = [
   {
@@ -225,13 +240,5 @@ const ITEMS = [
     title: 'Removed',
   },
 ];
-
-const Items: FC = () => (
-  <div className={clsx('container', styles.container)}>
-    {ITEMS.map(({ ids, title }) => (
-      <ItemList ids={ids} key={title} title={title} />
-    ))}
-  </div>
-);
 
 export default Items;

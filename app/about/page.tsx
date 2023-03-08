@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { Metadata } from 'next';
 import { FC } from 'react';
 import Card from 'src/components/atoms/Card';
 import styles from './styles.module.scss';
@@ -38,5 +39,11 @@ const About: FC = () => (
     </Card>
   </div>
 );
+
+export const metadata: Metadata = {
+  description:
+    'Read more information about the website, how it works and how you can contribute.',
+  title: 'About - Guess the Hero',
+};
 
 export default About;

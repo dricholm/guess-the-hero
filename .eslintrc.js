@@ -1,3 +1,4 @@
+/** @type {import('eslint').ESLint.ConfigData} */
 module.exports = {
   extends: [
     'eslint:recommended',
@@ -20,6 +21,16 @@ module.exports = {
     'src/test',
     'stylelint.config.js',
   ],
+  overrides: [
+    {
+      extends: ['plugin:jest/recommended'],
+      files: ['*.spec.ts', '*.spec.tsx'],
+      plugins: ['jest'],
+      parserOptions: {
+        project: './tsconfig.spec.json',
+      },
+    },
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
@@ -35,6 +46,7 @@ module.exports = {
     '@typescript-eslint/prefer-optional-chain': 2,
     '@typescript-eslint/prefer-string-starts-ends-with': 2,
     '@typescript-eslint/restrict-plus-operands': 2,
+    'arrow-body-style': [2],
     'no-console': 2,
     'react/prop-types': 0,
     'react/react-in-jsx-scope': 0,

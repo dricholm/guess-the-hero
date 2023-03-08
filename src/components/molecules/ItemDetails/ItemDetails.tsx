@@ -6,11 +6,10 @@ import TextBox from 'src/components/atoms/TextBox';
 import { useItem } from 'src/hooks';
 import styles from './ItemDetails.module.scss';
 
-const formatDescription = (description: string): string => {
-  return description
+const formatDescription = (description: string): string =>
+  description
     .replace(/\b(\d+)\b/g, '<strong>$&</strong>')
     .replace(/\n/g, '<br />');
-};
 
 interface Props {
   id: number;

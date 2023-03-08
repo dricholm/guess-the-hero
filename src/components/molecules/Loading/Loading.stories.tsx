@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import Component from './Loading';
 
 export default {
@@ -6,11 +6,6 @@ export default {
     message: 'Message',
   },
   component: Component,
-  title: 'Molecules/Loading',
-} as ComponentMeta<typeof Component>;
+} as Meta<typeof Component>;
 
-const Template: ComponentStory<typeof Component> = (args) => (
-  <Component {...args} />
-);
-
-export const Loading = Template.bind({});
+export const Loading: StoryObj<typeof Component> = {};

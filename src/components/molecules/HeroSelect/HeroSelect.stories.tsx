@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import Component from './HeroSelect';
 
@@ -8,16 +8,12 @@ export default {
     heroIds: Array.from({ length: 10 }, (_, index) => index + 1),
   },
   component: Component,
-  title: 'Molecules/HeroSelect',
-} as ComponentMeta<typeof Component>;
+} as Meta<typeof Component>;
 
-const Template: ComponentStory<typeof Component> = (args) => (
-  <Component {...args} />
-);
+export const HeroSelect: StoryObj<typeof Component> = {};
 
-export const HeroSelect = Template.bind({});
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
+export const Disabled: StoryObj<typeof Component> = {
+  args: {
+    disabled: true,
+  },
 };
