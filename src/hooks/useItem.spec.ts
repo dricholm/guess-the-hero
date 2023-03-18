@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react';
 import itemsJson from 'dotaconstants/build/items.json';
-import { useItem } from '.';
+import useItem from './useItem';
 
 describe('useItem', () => {
   it('should return null for ID 0', () => {

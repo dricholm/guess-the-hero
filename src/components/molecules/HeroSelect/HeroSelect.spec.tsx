@@ -1,8 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import heroesJson from 'dotaconstants/build/heroes.json';
-
-import HeroSelect from '.';
+import HeroSelect from './HeroSelect';
 
 describe('HeroSelect', () => {
   const onSubmit = jest.fn();

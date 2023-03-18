@@ -2,7 +2,7 @@
 
 import { FC, FormEventHandler, Fragment, useCallback, useState } from 'react';
 import HeroIcon from 'src/components/atoms/HeroIcon/HeroIcon';
-import { useHero } from 'src/hooks';
+import useHero from 'src/hooks/useHero';
 import styles from './HeroSelect.module.scss';
 
 export interface HeroSelectProps {

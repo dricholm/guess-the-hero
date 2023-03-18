@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Footer from '.';
+import Footer from './Footer';
 
 describe('Footer', () => {
   it('should render with links', () => {

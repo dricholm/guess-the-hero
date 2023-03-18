@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import ItemIcon from '.';
+import ItemIcon from './ItemIcon';
 
 describe('ItemIcon', () => {
   it("should render an item's image", () => {

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Loading from '.';
+import Loading from './Loading';
 
 describe('Loading', () => {
   it('should render without message', () => {

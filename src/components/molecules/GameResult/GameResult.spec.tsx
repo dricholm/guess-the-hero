@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import GameResult from '.';
+import GameResult from './GameResult';
 
 describe('GameResult', () => {
   const onNewGame = jest.fn();

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { FC } from 'react';
 import ItemIcon from 'src/components/atoms/ItemIcon/ItemIcon';
 import TextBox from 'src/components/atoms/TextBox/TextBox';
-import { useItem } from 'src/hooks';
+import useItem from 'src/hooks/useItem';
 import styles from './ItemDetails.module.scss';
 
 const formatDescription = (description: string): string =>

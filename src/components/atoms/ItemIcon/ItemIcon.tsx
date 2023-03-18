@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import { FC } from 'react';
-import { useItem } from 'src/hooks';
+import useItem from 'src/hooks/useItem';
 import styles from './ItemIcon.module.scss';
 
 export interface ItemIconProps {

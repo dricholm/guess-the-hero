@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import { FC } from 'react';
-import { useHero } from 'src/hooks';
+import useHero from 'src/hooks/useHero';
 import styles from './HeroIcon.module.scss';
 
 interface HeroIconProps {

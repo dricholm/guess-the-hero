@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { FC } from 'react';
 import HeroIcon from 'src/components/atoms/HeroIcon/HeroIcon';
-import { useHero } from 'src/hooks';
+import useHero from 'src/hooks/useHero';
 import styles from './GameResult.module.scss';
 
 interface GameResultProps {
