@@ -30,6 +30,7 @@ const Match: React.FC<Props> = ({ id, onNext }) => {
     [data?.players],
   );
 
+  const containerRef = useRef<HTMLDivElement>(null);
   const resultRef = useRef<HTMLDivElement>(null);
   const [correct, setCorrect] = useState<boolean>();
   useEffect(() => {
@@ -48,8 +49,13 @@ const Match: React.FC<Props> = ({ id, onNext }) => {
   };
   const hasSubmitted = correct !== undefined;
 
+  const handleNext = () => {
+    containerRef.current?.scrollIntoView({ behavior: 'smooth' });
+    onNext();
+  };
+
   return (
-    <div className={clsx('container', styles.container)}>
+    <div className={clsx('container', styles.container)} ref={containerRef}>
       <Card title="Inventory">
         <HeroItems
           backpack={
@@ -86,13 +92,13 @@ const Match: React.FC<Props> = ({ id, onNext }) => {
       </Card>
 
       {id && hasSubmitted && playerToGuess && (
-        <Card title="Results">
+        <Card className={styles.results} title="Results">
           <div ref={resultRef}>
             <GameResult
               heroId={playerToGuess.hero_id}
               isCorrect={correct}
               matchId={id}
-              onNewGame={onNext}
+              onNewGame={handleNext}
             />
           </div>
         </Card>

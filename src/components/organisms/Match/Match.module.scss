@@ -1,14 +1,24 @@
 @import 'variables';
 
 .container {
-  display: flex;
-  flex-direction: column;
+  align-items: start;
+  display: grid;
   gap: 1rem;
+  grid-template-columns: auto;
   margin: 2rem auto;
 
-  @media screen and (min-width: $screen-xl) {
-    flex-direction: row;
-    flex-wrap: wrap;
+  @media screen and (min-width: $screen-lg) {
+    grid-template-columns: repeat(2, auto);
     justify-content: center;
+  }
+}
+
+.results {
+  @media screen and (min-width: $screen-lg) {
+    grid-column: 1 / 3;
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    justify-self: center;
   }
 }
