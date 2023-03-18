@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import ClientOnlyPortal from '.';
+import ClientOnlyPortal from './ClientOnlyPortal';
 
 describe('ClientOnlyPortal', () => {
   it('should render', () => {

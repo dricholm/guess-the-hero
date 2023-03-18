@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import TextBox from '.';
+import TextBox from './TextBox';
 
 describe('TextBox', () => {
   it('should render', () => {

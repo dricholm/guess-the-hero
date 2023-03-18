@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import heroesJson from 'dotaconstants/build/heroes.json';
 import { Metadata } from 'next';
 import { FC } from 'react';
-import Card from 'src/components/atoms/Card';
-import HeroIcon from 'src/components/atoms/HeroIcon';
+import Card from 'src/components/atoms/Card/Card';
+import HeroIcon from 'src/components/atoms/HeroIcon/HeroIcon';
 import styles from './styles.module.scss';
 
 const ATTRIBUTES = ['Strength', 'Agility', 'Intelligence'];
@@ -16,7 +16,7 @@ const Heroes: FC = () => (
           {Object.values(heroesJson)
             .filter(
               (hero) =>
-                hero.primary_attr === attribute.substr(0, 3).toLowerCase(),
+                hero.primary_attr === attribute.substring(0, 3).toLowerCase(),
             )
             .sort((heroA, heroB) =>
               heroA.localized_name.localeCompare(heroB.localized_name),

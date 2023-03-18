@@ -30,9 +30,10 @@ $animation-duration: 0.2s;
   position: absolute;
   right: 0;
   top: 0;
+  transition: color 0.2s;
 
   &:hover {
-    color: var(--color-red-500);
+    color: var(--color-primary);
   }
 }
 

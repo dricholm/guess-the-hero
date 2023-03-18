@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { Metadata } from 'next';
 import { FC } from 'react';
-import Card from 'src/components/atoms/Card';
+import Card from 'src/components/atoms/Card/Card';
 import styles from './styles.module.scss';
 
 const About: FC = () => (

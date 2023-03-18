@@ -1,23 +1,29 @@
 'use client';
 
 import { FC, FormEventHandler, Fragment, useCallback, useState } from 'react';
-import HeroIcon from 'src/components/atoms/HeroIcon';
-import { useHero } from 'src/hooks';
+import HeroIcon from 'src/components/atoms/HeroIcon/HeroIcon';
+import useHero from 'src/hooks/useHero';
 import styles from './HeroSelect.module.scss';
 
-interface Props {
+export interface HeroSelectProps {
   disabled?: boolean;
-  heroIds: number[];
+  heroIds?: number[];
   onSubmit: (id: number) => void;
 }
 
-const HeroSelect: FC<Props> = ({ heroIds, disabled = false, onSubmit }) => {
+const HeroSelect: FC<HeroSelectProps> = ({
+  heroIds,
+  disabled = false,
+  onSubmit,
+}) => {
+  const loading = heroIds === undefined;
   const [selectedId, setSelectedId] = useState<number>();
   const handleSubmit = useCallback<FormEventHandler<HTMLFormElement>>(
     (event) => {
       event.preventDefault();
       if (!selectedId) return;
       onSubmit(selectedId);
+      setSelectedId(undefined);
     },
     [onSubmit, selectedId],
   );
@@ -26,19 +32,27 @@ const HeroSelect: FC<Props> = ({ heroIds, disabled = false, onSubmit }) => {
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
       <div className={styles.heroes}>
-        {heroIds.map((heroId) => (
-          <HeroSelectIcon
-            checked={selectedId === heroId}
-            disabled={disabled}
-            heroId={heroId}
-            key={heroId}
-            onSelect={setSelectedId}
-          />
-        ))}
+        {Array.from({ length: heroIds?.length ?? 10 }).map((_, index) => {
+          if (loading) return <HeroIcon key={`${index}-loading`} loading />;
+          const heroId = heroIds[index];
+          return (
+            <HeroSelectIcon
+              checked={selectedId === heroId}
+              disabled={disabled}
+              heroId={heroId}
+              key={heroId}
+              onSelect={setSelectedId}
+            />
+          );
+        })}
       </div>
 
       <div className={styles.cta}>
-        <button className="btn btn-lg" disabled={disabled} type="submit">
+        <button
+          className="btn btn-lg"
+          disabled={disabled || loading}
+          type="submit"
+        >
           {selectedHero
             ? `Select ${selectedHero.displayName}`
             : 'Choose a hero'}
@@ -84,5 +98,4 @@ const HeroSelectIcon: FC<HeroSelectIconProps> = ({
   );
 };
 
-export type { Props as HeroSelectProps };
 export default HeroSelect;

@@ -22,7 +22,7 @@ interface Attribute {
   value: string | string[];
 }
 
-const useItem = (id: number): Item | null =>
+const useItem = (id: number | undefined): Item | null =>
   useMemo<Item | null>(() => {
     if (!id || id === 0) return null;
 

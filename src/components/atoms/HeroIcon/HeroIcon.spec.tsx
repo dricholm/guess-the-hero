@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import HeroIcon from '.';
+import HeroIcon from './HeroIcon';
 
 describe('HeroIcon', () => {
   it("should render a hero's image", () => {

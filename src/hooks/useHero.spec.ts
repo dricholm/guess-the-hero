@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react';
 import heroesJson from 'dotaconstants/build/heroes.json';
-import { useHero } from '.';
+import useHero from './useHero';
 
 describe('useHero', () => {
   it('should return null for ID 0', () => {

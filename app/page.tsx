@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { FC } from 'react';
-import Card from 'src/components/atoms/Card';
+import Card from 'src/components/atoms/Card/Card';
 import styles from './styles.module.scss';
 
 const Index: FC = () => (
