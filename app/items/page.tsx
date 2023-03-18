@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { Metadata } from 'next';
 import { FC } from 'react';
-import ItemList from 'src/components/molecules/ItemList';
+import ItemList from 'src/components/molecules/ItemList/ItemList';
 import styles from './styles.module.scss';
 
 const Items: FC = () => (

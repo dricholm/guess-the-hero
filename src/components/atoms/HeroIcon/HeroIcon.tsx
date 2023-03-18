@@ -4,13 +4,17 @@ import { FC } from 'react';
 import { useHero } from 'src/hooks';
 import styles from './HeroIcon.module.scss';
 
-interface Props {
+interface HeroIconProps {
   hasAlt?: boolean;
   id?: number;
   loading?: boolean;
 }
 
-const ItemIcon: FC<Props> = ({ hasAlt = true, id, loading = false }) => {
+const ItemIcon: FC<HeroIconProps> = ({
+  hasAlt = true,
+  id,
+  loading = false,
+}) => {
   const hero = useHero(id);
 
   return hero ? (

@@ -1,13 +1,14 @@
 'use client';
 
-import { FC, useCallback, useState } from 'react';
-import ClientOnlyPortal from 'src/components/atoms/ClientOnlyPortal';
-import ItemIcon from 'src/components/atoms/ItemIcon';
-import type { ItemIconProps } from 'src/components/atoms/ItemIcon';
-import Modal from 'src/components/atoms/Modal';
-import ItemDetails from 'src/components/molecules/ItemDetails';
-import styles from './ItemWithModal.module.scss';
 import clsx from 'clsx';
+import { FC, useCallback, useState } from 'react';
+import ClientOnlyPortal from 'src/components/atoms/ClientOnlyPortal/ClientOnlyPortal';
+import ItemIcon, {
+  ItemIconProps,
+} from 'src/components/atoms/ItemIcon/ItemIcon';
+import Modal from 'src/components/atoms/Modal/Modal';
+import ItemDetails from '../ItemDetails/ItemDetails';
+import styles from './ItemWithModal.module.scss';
 
 const ItemWithModal: FC<ItemIconProps> = ({ id, type }) => {
   const [isOpen, setIsOpen] = useState(false);

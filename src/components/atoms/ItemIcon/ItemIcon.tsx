@@ -4,13 +4,17 @@ import { FC } from 'react';
 import { useItem } from 'src/hooks';
 import styles from './ItemIcon.module.scss';
 
-interface Props {
+export interface ItemIconProps {
   id?: number;
   loading?: boolean;
   type?: 'inventory' | 'backpack' | 'neutral';
 }
 
-const ItemIcon: FC<Props> = ({ id, loading = false, type = 'inventory' }) => {
+const ItemIcon: FC<ItemIconProps> = ({
+  id,
+  loading = false,
+  type = 'inventory',
+}) => {
   const item = useItem(id);
 
   return (
@@ -28,5 +32,4 @@ const ItemIcon: FC<Props> = ({ id, loading = false, type = 'inventory' }) => {
   );
 };
 
-export type { Props as ItemIconProps };
 export default ItemIcon;

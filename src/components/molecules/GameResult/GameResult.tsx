@@ -1,17 +1,22 @@
 import clsx from 'clsx';
 import { FC } from 'react';
-import HeroIcon from 'src/components/atoms/HeroIcon';
+import HeroIcon from 'src/components/atoms/HeroIcon/HeroIcon';
 import { useHero } from 'src/hooks';
 import styles from './GameResult.module.scss';
 
-interface Props {
+interface GameResultProps {
   heroId: number;
   isCorrect: boolean;
   matchId: number;
   onNewGame: () => void;
 }
 
-const GameResult: FC<Props> = ({ heroId, isCorrect, matchId, onNewGame }) => {
+const GameResult: FC<GameResultProps> = ({
+  heroId,
+  isCorrect,
+  matchId,
+  onNewGame,
+}) => {
   const hero = useHero(heroId);
 
   return (
@@ -52,5 +57,5 @@ const GameResult: FC<Props> = ({ heroId, isCorrect, matchId, onNewGame }) => {
   );
 };
 
-export type { Props as GameResultProps };
+export type { GameResultProps as GameResultProps };
 export default GameResult;

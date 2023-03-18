@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import heroesJson from 'dotaconstants/build/heroes.json';
 import { Metadata } from 'next';
 import { FC } from 'react';
-import Card from 'src/components/atoms/Card';
-import HeroIcon from 'src/components/atoms/HeroIcon';
+import Card from 'src/components/atoms/Card/Card';
+import HeroIcon from 'src/components/atoms/HeroIcon/HeroIcon';
 import styles from './styles.module.scss';
 
 const ATTRIBUTES = ['Strength', 'Agility', 'Intelligence'];

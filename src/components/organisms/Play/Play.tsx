@@ -3,7 +3,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import Match from 'src/components/organisms/Match';
+import Match from 'src/components/organisms/Match/Match';
 import { fetchPublicMatches } from 'src/data/api';
 
 const Play: React.FC = () => {

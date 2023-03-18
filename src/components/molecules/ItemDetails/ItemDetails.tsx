@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import { FC } from 'react';
-import ItemIcon from 'src/components/atoms/ItemIcon';
-import TextBox from 'src/components/atoms/TextBox';
+import ItemIcon from 'src/components/atoms/ItemIcon/ItemIcon';
+import TextBox from 'src/components/atoms/TextBox/TextBox';
 import { useItem } from 'src/hooks';
 import styles from './ItemDetails.module.scss';
 
@@ -11,11 +11,11 @@ const formatDescription = (description: string): string =>
     .replace(/\b(\d+)\b/g, '<strong>$&</strong>')
     .replace(/\n/g, '<br />');
 
-interface Props {
+interface ItemDetailsProps {
   id: number;
 }
 
-const ItemDetails: FC<Props> = ({ id }) => {
+const ItemDetails: FC<ItemDetailsProps> = ({ id }) => {
   const item = useItem(id);
 
   if (!item) return null;

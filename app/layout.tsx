@@ -3,8 +3,8 @@
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { FC, ReactNode } from 'react';
-import Footer from 'src/components/atoms/Footer';
-import Header from 'src/components/atoms/Header';
+import Footer from 'src/components/atoms/Footer/Footer';
+import Header from 'src/components/atoms/Header/Header';
 import queryClient from 'src/data/query-client';
 import 'styles/globals.scss';
 

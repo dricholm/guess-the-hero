@@ -1,18 +1,18 @@
 import { FC } from 'react';
-import ItemIcon from 'src/components/atoms/ItemIcon';
-import ItemWithModal from '../ItemWithModal';
+import ItemIcon from 'src/components/atoms/ItemIcon/ItemIcon';
+import ItemWithModal from '../ItemWithModal/ItemWithModal';
 import styles from './HeroItems.module.scss';
 
 const BACKPACK = Array.from<number>({ length: 3 });
 const INVENTORY = Array.from<number>({ length: 6 });
 
-interface Props {
+interface HeroItemsProps {
   backpack?: number[];
   inventory?: number[];
   neutral?: number;
 }
 
-const HeroItems: FC<Props> = ({ backpack, inventory, neutral }) => {
+const HeroItems: FC<HeroItemsProps> = ({ backpack, inventory, neutral }) => {
   const loading = [backpack, inventory, neutral].every(
     (prop) => prop === undefined,
   );
@@ -53,5 +53,4 @@ const HeroItems: FC<Props> = ({ backpack, inventory, neutral }) => {
   );
 };
 
-export type { Props as HeroItemsProps };
 export default HeroItems;

@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import clsx from 'clsx';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import Card from 'src/components/atoms/Card';
-import GameResult from 'src/components/molecules/GameResult';
-import HeroItems from 'src/components/molecules/HeroItems';
+import Card from 'src/components/atoms/Card/Card';
+import GameResult from 'src/components/molecules/GameResult/GameResult';
+import HeroItems from 'src/components/molecules/HeroItems/HeroItems';
 import HeroSelect, {
   HeroSelectProps,
-} from 'src/components/molecules/HeroSelect';
+} from 'src/components/molecules/HeroSelect/HeroSelect';
 import { fetchMatchData } from 'src/data/api';
 import styles from './Match.module.scss';
 

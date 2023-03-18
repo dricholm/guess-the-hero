@@ -1,12 +1,12 @@
 import { FC, MouseEventHandler, ReactNode, useCallback, useRef } from 'react';
 import styles from './Modal.module.scss';
 
-interface Props {
+interface ModalProps {
   children: ReactNode;
   onClose: VoidFunction;
 }
 
-const Modal: FC<Props> = ({ children, onClose }) => {
+const Modal: FC<ModalProps> = ({ children, onClose }) => {
   const container = useRef<HTMLDivElement>(null);
 
   const handleClick = useCallback<MouseEventHandler>(

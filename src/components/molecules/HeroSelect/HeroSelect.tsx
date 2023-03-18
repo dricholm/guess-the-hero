@@ -1,17 +1,21 @@
 'use client';
 
 import { FC, FormEventHandler, Fragment, useCallback, useState } from 'react';
-import HeroIcon from 'src/components/atoms/HeroIcon';
+import HeroIcon from 'src/components/atoms/HeroIcon/HeroIcon';
 import { useHero } from 'src/hooks';
 import styles from './HeroSelect.module.scss';
 
-interface Props {
+export interface HeroSelectProps {
   disabled?: boolean;
   heroIds?: number[];
   onSubmit: (id: number) => void;
 }
 
-const HeroSelect: FC<Props> = ({ heroIds, disabled = false, onSubmit }) => {
+const HeroSelect: FC<HeroSelectProps> = ({
+  heroIds,
+  disabled = false,
+  onSubmit,
+}) => {
   const loading = heroIds === undefined;
   const [selectedId, setSelectedId] = useState<number>();
   const handleSubmit = useCallback<FormEventHandler<HTMLFormElement>>(
@@ -94,5 +98,4 @@ const HeroSelectIcon: FC<HeroSelectIconProps> = ({
   );
 };
 
-export type { Props as HeroSelectProps };
 export default HeroSelect;
