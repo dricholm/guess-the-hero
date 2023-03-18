@@ -61,7 +61,7 @@
     "jest-watch-typeahead": "2.2.2",
     "lint-staged": "13.1.2",
     "msw": "1.1.0",
-    "msw-storybook-addon": "1.7.0",
+    "msw-storybook-addon": "1.8.0",
     "next-sitemap": "4.0.5",
     "prettier": "2.8.4",
     "sass": "1.58.3",
@@ -69,17 +69,9 @@
     "storybook": "^7.0.0-beta.62",
     "style-loader": "3.3.1",
     "stylelint": "15.2.0",
-    "stylelint-config-sass-guidelines": "9.0.1",
+    "stylelint-config-sass-guidelines": "10.0.0",
     "ts-jest": "29.0.5",
-    "typescript": "4.9.5"
-  },
-  "overrides": {
-    "msw-storybook-addon": {
-      "msw": "$msw"
-    },
-    "stylelint-config-sass-guidelines": {
-      "stylelint": "$stylelint"
-    }
+    "typescript": "5.0.2"
   },
   "msw": {
     "workerDirectory": "public"
