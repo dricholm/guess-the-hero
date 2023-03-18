@@ -16,7 +16,7 @@ const Heroes: FC = () => (
           {Object.values(heroesJson)
             .filter(
               (hero) =>
-                hero.primary_attr === attribute.substr(0, 3).toLowerCase(),
+                hero.primary_attr === attribute.substring(0, 3).toLowerCase(),
             )
             .sort((heroA, heroB) =>
               heroA.localized_name.localeCompare(heroB.localized_name),

@@ -7,17 +7,17 @@ import HeroItems from 'src/components/molecules/HeroItems';
 import HeroSelect, {
   HeroSelectProps,
 } from 'src/components/molecules/HeroSelect';
-import Loading from 'src/components/molecules/Loading';
 import { fetchMatchData } from 'src/data/api';
 import styles from './Match.module.scss';
 
 interface Props {
-  id: number;
+  id?: number;
   onNext: VoidFunction;
 }
 
 const Match: React.FC<Props> = ({ id, onNext }) => {
   const { data, error } = useQuery({
+    enabled: Boolean(id),
     queryFn: () => fetchMatchData(id),
     queryKey: ['match', id],
     refetchOnWindowFocus: false,
@@ -42,55 +42,57 @@ const Match: React.FC<Props> = ({ id, onNext }) => {
   }, [correct]);
 
   if (error) throw error;
-  if (!data || !playerToGuess) {
-    return <Loading message="Fetching match data..." />;
-  }
 
   const handleSubmit: HeroSelectProps['onSubmit'] = (heroId) => {
-    setCorrect(heroId === playerToGuess.hero_id);
+    setCorrect(heroId === playerToGuess?.hero_id);
   };
   const hasSubmitted = correct !== undefined;
-  const handleNext = () => {
-    onNext();
-  };
 
   return (
     <div className={clsx('container', styles.container)}>
       <Card title="Inventory">
         <HeroItems
-          backpack={[
-            playerToGuess.backpack_0,
-            playerToGuess.backpack_1,
-            playerToGuess.backpack_2,
-          ]}
-          inventory={[
-            playerToGuess.item_0,
-            playerToGuess.item_1,
-            playerToGuess.item_2,
-            playerToGuess.item_3,
-            playerToGuess.item_4,
-            playerToGuess.item_5,
-          ]}
-          neutral={playerToGuess.item_neutral}
+          backpack={
+            playerToGuess
+              ? [
+                  playerToGuess.backpack_0,
+                  playerToGuess.backpack_1,
+                  playerToGuess.backpack_2,
+                ]
+              : undefined
+          }
+          inventory={
+            playerToGuess
+              ? [
+                  playerToGuess.item_0,
+                  playerToGuess.item_1,
+                  playerToGuess.item_2,
+                  playerToGuess.item_3,
+                  playerToGuess.item_4,
+                  playerToGuess.item_5,
+                ]
+              : undefined
+          }
+          neutral={playerToGuess?.item_neutral}
         />
       </Card>
 
       <Card title="Heroes">
         <HeroSelect
-          heroIds={data.players.map((player) => player.hero_id)}
+          heroIds={data?.players.map((player) => player.hero_id)}
           disabled={hasSubmitted}
           onSubmit={handleSubmit}
         />
       </Card>
 
-      {hasSubmitted && (
+      {id && hasSubmitted && playerToGuess && (
         <Card title="Results">
           <div ref={resultRef}>
             <GameResult
               heroId={playerToGuess.hero_id}
               isCorrect={correct}
               matchId={id}
-              onNewGame={handleNext}
+              onNewGame={onNext}
             />
           </div>
         </Card>

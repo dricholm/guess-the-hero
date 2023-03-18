@@ -25,6 +25,12 @@
 .radio {
   display: none;
 
+  &:enabled {
+    + .hero-label {
+      cursor: pointer;
+    }
+  }
+
   &:checked {
     + .hero-label {
       box-shadow: var(--box-shadow-3);
@@ -43,11 +49,7 @@
 }
 
 .hero-label {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
   filter: brightness(1) saturate(0.3);
-  gap: 1rem;
   transition: filter 0.2s ease-in, transform 0.2s ease-in;
 
   &:hover {

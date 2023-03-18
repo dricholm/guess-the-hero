@@ -54,12 +54,6 @@ body {
   padding: 0;
 }
 
-// Workaround for added div
-// https://github.com/vercel/next.js/issues/42345#issuecomment-1304691380
-[data-nextjs-scroll-focus-boundary] {
-  display: contents;
-}
-
 .absolute {
   position: absolute;
 }
@@ -125,5 +119,16 @@ a {
   &.btn-lg {
     font-size: 1.25rem;
     padding: 0.5rem 1rem;
+  }
+}
+
+.pulse {
+  animation: 2000ms cubic-bezier(0.4, 0, 0.6, 1) 0ms infinite normal none
+    running pulse;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
   }
 }

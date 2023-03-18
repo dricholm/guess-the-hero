@@ -3,11 +3,10 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import Loading from 'src/components/molecules/Loading';
 import Match from 'src/components/organisms/Match';
 import { fetchPublicMatches } from 'src/data/api';
 
-const Play = () => {
+const Play: React.FC = () => {
   const { data, error, refetch } = useQuery({
     onSuccess: () => {
       setMatchIndex(0);
@@ -30,13 +29,11 @@ const Play = () => {
     throw error;
   }
 
-  return data ? (
+  return (
     <Match
-      id={data[data.length - 1 - matchIndex].match_id}
+      id={data?.[data.length - 1 - matchIndex].match_id}
       onNext={handleNext}
     />
-  ) : (
-    <Loading message="Fetching list of public matches..." />
   );
 };
 

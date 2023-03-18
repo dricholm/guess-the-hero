@@ -1,24 +1,28 @@
+import clsx from 'clsx';
 import Image from 'next/image';
 import { FC } from 'react';
 import { useHero } from 'src/hooks';
+import styles from './HeroIcon.module.scss';
 
 interface Props {
   hasAlt?: boolean;
-  id: number;
+  id?: number;
+  loading?: boolean;
 }
 
-const ItemIcon: FC<Props> = ({ hasAlt = true, id }) => {
+const ItemIcon: FC<Props> = ({ hasAlt = true, id, loading = false }) => {
   const hero = useHero(id);
 
-  if (!hero) return null;
-
-  return (
+  return hero ? (
     <Image
       alt={hasAlt ? hero.displayName : ''}
+      className={styles.container}
       height={72}
       src={hero.imageSrc}
       width={128}
     />
+  ) : (
+    <div className={clsx(styles.container, { pulse: loading })} />
   );
 };
 
