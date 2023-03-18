@@ -57,12 +57,6 @@ body {
   padding: 0;
 }
 
-// Workaround for added div
-// https://github.com/vercel/next.js/issues/42345#issuecomment-1304691380
-[data-nextjs-scroll-focus-boundary] {
-  display: contents;
-}
-
 .absolute {
   position: absolute;
 }
