@@ -1,3 +1,4 @@
+@use 'sass:map';
 @import 'variables';
 
 :root {
@@ -5,13 +6,13 @@
     @each $level, $hsl in $map {
       --color-#{$color}-#{$level}: #{$hsl};
     }
-    --color-#{$color}-bg: #{map-get($map, '900')};
-    --color-#{$color}-border: #{map-get($map, '800')};
-    --color-#{$color}-text: #{map-get($map, '100')};
+    --color-#{$color}-bg: #{map.get($map, '900')};
+    --color-#{$color}-border: #{map.get($map, '800')};
+    --color-#{$color}-text: #{map.get($map, '100')};
   }
 
   --color-bg: var(--color-grey-600);
-  --color-bg-modal: #{rgba(map-get($color-grey, '300'), 0.3)};
+  --color-bg-modal: #{rgba(map.get($color-grey, '300'), 0.3)};
   --color-bg-strong: var(--color-grey-700);
   --color-bg-stronger: var(--color-grey-800);
   --color-text: var(--color-grey-200);
@@ -23,13 +24,13 @@
 
   @media (prefers-color-scheme: dark) {
     @each $color, $map in $colors {
-      --color-#{$color}-bg: #{map-get($map, '100')};
-      --color-#{$color}-border: #{map-get($map, '200')};
-      --color-#{$color}-text: #{map-get($map, '900')};
+      --color-#{$color}-bg: #{map.get($map, '100')};
+      --color-#{$color}-border: #{map.get($map, '200')};
+      --color-#{$color}-text: #{map.get($map, '900')};
     }
 
     --color-bg: var(--color-grey-400);
-    --color-bg-modal: #{rgba(map-get($color-grey, '700'), 0.3)};
+    --color-bg-modal: #{rgba(map.get($color-grey, '700'), 0.3)};
     --color-bg-strong: var(--color-grey-300);
     --color-bg-stronger: var(--color-grey-200);
     --color-text: var(--color-grey-800);
@@ -54,6 +55,12 @@ body {
   margin: 0;
   min-height: 100vh;
   padding: 0;
+}
+
+// Workaround for added div
+// https://github.com/vercel/next.js/issues/42345#issuecomment-1304691380
+[data-nextjs-scroll-focus-boundary] {
+  display: contents;
 }
 
 .absolute {
