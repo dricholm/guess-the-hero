@@ -20,7 +20,6 @@ const Index: FC = () => (
 export const metadata: Metadata = {
   description:
     'A Dota 2 quiz game. Guess the hero from items bought in a match. See the purchased items of a hero and other optional stats and use them to try to guess the hero.',
-  icons: '/favicon.png',
   title: 'A Dota 2 quiz - Guess the Hero',
 };
 
