@@ -20,175 +20,312 @@ export const metadata: Metadata = {
 
 const ITEMS = [
   {
-    ids: [46, 38, 237, 188, 42, 43, 216, 39, 44, 257, 40, 41, 609],
+    ids: [
+      46, // TP
+      38, // Clarity
+      237, // Faerie Fire
+      188, // Smoke
+      42, // Ward
+      43, // Sentry
+      216, // Mango
+      39, // Salve
+      44, // Tango
+      1123, // Blood grenade
+      40, // Dust
+      41, // Bottle
+      609, // Shard
+    ],
     title: 'Consumables',
   },
   {
-    ids: [16, 13, 14, 15, 20, 17, 18, 19, 261, 21, 22, 23],
+    ids: [
+      16, // Branch
+      13, // Gauntlets
+      14, // Slippers
+      15, // Mantle
+      20, // Circlet
+      17, // Belt
+      18, // Band
+      19, // Robe
+      261, // Crown
+      21, // Ogre axe
+      22, // Blade of alacrity
+      23, // Staff of wizardry
+    ],
     title: 'Attributes',
   },
   {
-    ids: [11, 12, 265, 181, 240, 2, 25, 4, 10, 6, 3, 485, 7, 5, 8],
+    ids: [
+      11, // Quelling Blade
+      12, // Ring of protection
+      265, // Raindrops
+      181, // Orb of venom
+      240, // Blight stone
+      2, // Blades of attack
+      25, // Gloves of haste
+      4, // Chainmail
+      10, // Quarterstaff
+      6, // Helm of iron will
+      3, // Broadsword
+      485, // Blitz knuckles
+      7, // Javelin
+      5, // Claymore
+      8, // Mithril hammer
+    ],
     title: 'Equipment',
   },
   {
-    ids: [27, 28, 34, 593, 244, 31, 29, 30, 26, 473, 215, 37, 1],
+    ids: [
+      27, // Ring of regen
+      28, // Sage's mask
+      34, // Magic stick
+      593, // Fluffy hat
+      244, // Wind lace
+      31, // Cloak
+      29, // Boots
+      30, // Gem
+      26, // Morbid mask
+      473, // Voodoo mask
+      215, // Shadow amulet
+      37, // Ghost scepter
+      1, // Blink dagger
+    ],
     title: 'Miscellaneous',
   },
   {
-    ids: [56, 57, 59, 61, 60, 9, 32, 55, 24, 51, 58, 53, 52, 54],
+    ids: [
+      56, // Ring of health
+      57, // Void stone
+      1125, // Cornucopia
+      59, // Energy booster
+      61, // Vitality booster
+      60, // Point booster
+      32, // Talisman of evasion
+      9, // Platemail
+      55, // Hyperstone
+      24, // Ultimate orb
+      51, // Demon edge
+      58, // Mystic staff
+      53, // Reaver
+      52, // Eaglesong
+      54, // Sacred relic
+    ],
     title: 'Secret shop',
   },
   {
     ids: [
-      36, 77, 75, 73, 178, 569, 596, 63, 50, 67, 69, 172, 65, 164, 48, 247, 635,
+      36, // Wand
+      77, // Null talisman
+      75, // Wraith band
+      73, // Bracer
+      178, // Soul ring
+      569, // Orb of corrosion
+      596, // Falcon blade
+      63, // Treads
+      50, // Phase
+      67, // Oblivion staff
+      69, // Perseverance
+      172, // Mask of madness
+      65, // Midas
+      164, // Helm of the Dominator
+      48, // Travel
+      247, // Moon shard
+      635, // Helm of the Overlord
     ],
     title: 'Accessories',
   },
   {
     ids: [
-      86,
-      88,
-      94,
-      92,
-      214,
-      187,
-      180,
-      185,
-      79,
-      269,
-      81,
-      267,
-      90,
+      86, // Buckler
+      88, // Basilius
+      94, // Headdress
+      92, // Urn
+      214, // Tranquil
+      187, // Medallion
+      1128, // Pavise
+      180, // Arcane
+      185, // Drum
+      79, // Mekansm
+      269, // Holy locket
+      81, // Vlad
+      267, // Spirit vessel
+      90, // Pipe
+      231, // Greaves
       931, // Boots of Bearing
-      908, // Wraith Pact
-      231,
     ],
     title: 'Support',
   },
   {
     ids: [
-      190,
-      254,
-      102,
-      232,
-      534,
-      100,
-      206,
-      104,
-      98,
-      229,
-      108,
-      110,
-      235,
-      96,
-      1466,
-      911, // Revenant's Brooch
-      610,
+      190, // Veil
+      254, // Glimmer
+      102, // Force
+      232, // Lens
+      534, // Witch blade
+      100, // Eul
+      206, // Atos
+      104, // Dagon
+      98, // Orchid
+      229, // Solar crest
+      108, // Aghs
+      110, // Refresher
+      235, // Octarine core
+      96, // Scythe
+      1466, // Gleipnir
+      610, // Wind waker
     ],
     title: 'Magical',
   },
   {
     ids: [
-      131, 125, 127, 256, 129, 692, 242, 226, 116, 263, 147, 123, 119, 114, 112,
-      121,
+      125, // Vanguard
+      127, // Blade mail
+      256, // Aeon
+      129, // Soul booster
+      692, // Eternal shroud
+      242, // Crimson guard
+      226, // Lotus orb
+      116, // BKB
+      263, // Pike
+      147, // Manta
+      123, // Linken
+      119, // Shiva
+      114, // Heart
+      112, // AC
+      121, // Bloodstone
     ],
     title: 'Armor',
   },
   {
     ids: [
-      149, 223, 151, 143, 152, 168, 145, 176, 225, 135, 139, 137, 141, 249, 133,
-      250, 208,
+      149, // Crystalys
+      223, // Meteor hammer
+      151, // Armlet
+      143, // Basher
+      152, // Shadow blade
+      168, // Desolator
+      145, // Battle fury
+      176, // Ethereal blade
+      225, // Nullifier
+      135, // MKB
+      139, // Butterfly
+      137, // Radiance
+      141, // Daedalus
+      249, // Silver edge
+      133, // Rapier
+      250, // Bloodthorn
+      208, // Abyssal
+      911, // Revenant's Brooch
+      1097, // Disperser
     ],
     title: 'Weapons',
   },
   {
     ids: [
-      236, 162, 170, 259, 252, 166, 174, 598, 210, 273, 154, 277, 156, 160, 158,
-      600, 603, 604,
+      236, // Dragon lance
+      162, // Sange
+      170, // Yasha
+      259, // Kaya
+      252, // Echo sabre
+      166, // Maelstrom
+      174, // Diffusal
+      598, // Mage slayer
+      1107, // Phylactery
+      210, // Halberd
+      273, // KnS
+      154, // SnY
+      277, // YnK
+      156, // Satanic
+      160, // Skadi
+      158, // Mjollnir
+      600, // Overwhelming blink
+      603, // Swift blink
+      604, // Arcane blink
+      939, // Harpoon
     ],
     title: 'Artifacts',
   },
   {
     ids: [
-      355,
-      356,
-      349,
-      305,
-      577,
-      589,
+      356, // Trusty shovel
+      349, // Arcane ring
+      589, // Fairy's trinket
       838, // Pig Pole
       840, // Tumbler's Toy
-      945, // Seeds of Serenity
-      946, // Lance of Pursuit
-      947, // Occult Bracelet
+      945, // Seeds of serenity
+      946, // Lance of pursuit
+      947, // Occult bracelet
+      2097, // Duelist gloves
+      355, // Broom handle
+      375, // Faded Broach
+      1124, // Spark of courage
     ],
     title: 'Neutral tier 1',
   },
   {
     ids: [
-      212,
-      357,
-      358,
-      306,
-      331,
-      288,
-      290,
-      680,
-      828, // Brigand's Blade
-      990, // Eye of the Vizier
+      212, // Aquila
+      358, // Dragon scale
+      306, // Pupil's gift
+      331, // Vambrace
+      288, // Grove bow
+      290, // Philosopher's stone
+      680, // Bullwhip
+      378, // Orb of Destruction
       1076, // Specialist's Array
-      1077, // Dagger of Ristul
+      990, // Eye of the Vizier
+      297, // Vampire fangs
+      2193, // Gossamer cape
     ],
     title: 'Neutral tier 2',
   },
   {
     ids: [
-      289,
-      326,
-      376,
-      381,
-      309,
-      361,
-      573,
-      574,
-      676,
-      675,
-      834, // Blast Rig
+      289, // Quickening charm
+      950, // Defiant shell
+      376, // Paladin sword
+      2096, // Vindicator's axe
+      2190, // Dandelion amulet
+      381, // Titan Sliver
+      361, // Enchanted quiver
+      573, // Elven tunic
+      574, // Cloak of flames
+      676, // Ceremonial robe
+      675, // Psychic headband
       949, // Ogre Seal Totem
     ],
     title: 'Neutral tier 3',
   },
   {
     ids: [
-      300,
-      311,
-      335,
-      362,
-      379,
-      336,
-      571,
-      585,
-      638,
+      300, // Timeless relic
+      311, // Spell prism
       825, // Ascetic's Cap
-      837, // Witchbane
+      362, // Ninja gear
+      336, // Telescope
+      571, // Trickster
+      585, // Stormcrafter
+      638, // Penta-edged sword
+      364, // Havoc hammer
+      309, // Mind breaker
+      2192, // Martyr's plate
     ],
     title: 'Neutral tier 4',
   },
   {
     ids: [
-      291,
-      292,
-      294,
-      301,
-      366,
-      370,
-      371,
-      372,
-      374,
-      678,
-      677,
+      291, // Force boots
+      292, // Stygian desolator
+      294, // Seer stone
+      301, // Mirror shield
+      366, // Apex
+      370, // Book of the dead
+      371, // Fallen sky
       829, // Arcanist's Armor
+      372, // Pirate hat
+      374, // Ex machina
+      678, // Giant's ring
+      677, // Book of shadows
     ],
     title: 'Neutral tier 5',
   },
@@ -198,44 +335,53 @@ const ITEMS = [
   },
   {
     ids: [
-      45,
-      71,
-      106,
-      182,
-      239,
-      279,
-      286,
+      45, // Courier
+      71, // Poor man's shield
+      106, // Necro
+      131, // Hood
+      182, // Stout shield
+      239, // Iron talon
+      257, // Tome
+      279, // Ring of tarrasque
+      286, // Flyinc courier
       287, // Keen Optic
-      293,
-      297,
-      298,
-      299,
-      302,
+      293, // Phoenix ash
+      298, // Craggy coat
+      299, // Greater faerie fire
+      302, // Elixir
       304, // Ironwood Tree
-      307,
-      308,
-      310,
-      313,
-      325,
-      327,
-      328,
-      330,
+      305, // Royal jelly
+      307, // Tome of aghanim
+      308, // Repair kit
+      310, // Third eye
+      313, // Fusion rune
+      325, // Prince's knife
+      326, // Spider legs
+      327, // Helm of the undying
+      328, // Mango tree
+      330, // Witless shako
       334, // Imp Claw
+      335, // Flicker
       354, // Ocean Heart
+      357, // Nether shawl
       359, // Essence Ring
-      360,
+      360, // Clumsy net
       363, // Illusionist's Cape
-      364,
-      365,
+      365, // Magic lamp
       367, // Ballista
-      368,
-      369,
-      375, // Faded Broach
+      368, // Woodland striders
+      369, // Trident
       377, // Minotaur Horn
-      378, // Orb of Destruction
+      379, // Leveller
       565, // Chipped Vest
+      577, // Possessed mask
       686, // Quicksilver Amulet
+      828, // Brigand's Blade
+      834, // Blast Rig
+      837, // Witchbane
       835, // Fae Grenade
+      908, // Wraith Pact
+      1077, // Dagger of Ristul
     ],
     title: 'Removed',
   },
