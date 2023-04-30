@@ -80,4 +80,28 @@ describe('GameResult', () => {
     await userEvent.click(screen.getByText(/new game/i));
     expect(onNewGame).toHaveBeenCalledTimes(1);
   });
+
+  it('should show match URLs', () => {
+    render(
+      <GameResult
+        heroId={heroId}
+        isCorrect={true}
+        matchId={matchId}
+        onNewGame={onNewGame}
+      />,
+    );
+
+    expect(screen.getByText('DotaBuff')).toHaveAttribute(
+      'href',
+      `https://www.dotabuff.com/matches/${matchId}`,
+    );
+    expect(screen.getByText('OpenDota')).toHaveAttribute(
+      'href',
+      `https://www.opendota.com/matches/${matchId}`,
+    );
+    expect(screen.getByText('STRATZ')).toHaveAttribute(
+      'href',
+      `https://stratz.com/matches/${matchId}`,
+    );
+  });
 });

@@ -4,7 +4,7 @@ import HeroIcon from 'src/components/atoms/HeroIcon/HeroIcon';
 import useHero from 'src/hooks/useHero';
 import styles from './GameResult.module.scss';
 
-interface GameResultProps {
+export interface GameResultProps {
   heroId: number;
   isCorrect: boolean;
   matchId: number;
@@ -29,24 +29,17 @@ const GameResult: FC<GameResultProps> = ({
         <h3>{hero?.displayName}</h3>
       </div>
       <ul className={styles.links}>
-        <li>
-          <a
-            href={`https://www.dotabuff.com/matches/${matchId}`}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            DotaBuff
-          </a>
-        </li>
-        <li>
-          <a
-            href={`https://www.opendota.com/matches/${matchId}`}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            OpenDota
-          </a>
-        </li>
+        {SITES.map((site) => (
+          <li key={site.urlPrefix}>
+            <a
+              href={`${site.urlPrefix}${matchId}`}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {site.label}
+            </a>
+          </li>
+        ))}
       </ul>
       <div className={styles.cta}>
         <button className="btn" onClick={onNewGame} type="button">
@@ -57,5 +50,10 @@ const GameResult: FC<GameResultProps> = ({
   );
 };
 
-export type { GameResultProps as GameResultProps };
+const SITES = [
+  { label: 'DotaBuff', urlPrefix: 'https://www.dotabuff.com/matches/' },
+  { label: 'OpenDota', urlPrefix: 'https://www.opendota.com/matches/' },
+  { label: 'STRATZ', urlPrefix: 'https://stratz.com/matches/' },
+];
+
 export default GameResult;
