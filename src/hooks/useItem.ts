@@ -1,5 +1,5 @@
-import itemsJson from 'dotaconstants/build/items.json';
 import itemIdsJson from 'dotaconstants/build/item_ids.json';
+import itemsJson from 'dotaconstants/build/items.json';
 import { useMemo } from 'react';
 
 interface Item {
@@ -31,14 +31,26 @@ const useItem = (id: number | undefined): Item | null =>
       | undefined;
     if (!name) return null;
 
-    const item = itemsJson[name as keyof typeof itemsJson] as
-      | Record<string, any>
-      | undefined;
-    // There are items that are only in itemIds
-    if (!item) return null;
+    const item = (itemsJson[name as keyof typeof itemsJson] as
+      | {
+          [key: string]: unknown;
+          attrib: Attribute[];
+          cost: number;
+          dname: string;
+          hint?: string[];
+          lore: string;
+          notes: string;
+        }
+      | undefined) ?? {
+      attrib: [],
+      cost: 0,
+      dname: name.replaceAll('_', ' '),
+      hint: [],
+      lore: '',
+      notes: '',
+    };
 
     return {
-      // Some hints have empty strings
       abilities: item.hint?.filter(Boolean),
       attributes: item.attrib,
       cost: item.cost,
@@ -48,7 +60,7 @@ const useItem = (id: number | undefined): Item | null =>
         name.startsWith('recipe_') ? 'recipe' : name
       }.jpg`,
       lore: item.lore,
-      name: name,
+      name,
       note: item.notes,
     };
   }, [id]);

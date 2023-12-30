@@ -9,6 +9,7 @@ describe('heroes', () => {
     cy.findByText(/strength/i);
     cy.findByText(/agility/i);
     cy.findByText(/intelligence/i);
+    cy.findByText(/universal/i);
 
     const heroes = Object.values(heroesJson);
 

@@ -11,7 +11,7 @@ const useHero = (id?: number): Hero | null =>
   useMemo<Hero | null>(() => {
     if (!id) return null;
     const hero = heroesJson[id.toString() as keyof typeof heroesJson] as
-      | Record<string, any>
+      | { localized_name: string; name: string }
       | undefined;
     if (!hero) return null;
     return {
