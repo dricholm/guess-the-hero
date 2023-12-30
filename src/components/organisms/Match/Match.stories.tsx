@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
-import { rest } from 'msw';
+import { http } from 'msw';
 import { BASE_URL, PATH_MATCH_DETAILS } from 'src/data/api';
 import Component from './Match';
 
@@ -13,9 +13,12 @@ export default {
   parameters: {
     msw: {
       handlers: [
-        rest.get(
+        http.get(
           [BASE_URL, PATH_MATCH_DETAILS, 1].join('/'),
-          (_req, res, ctx) => res(ctx.json(MATCH)),
+          () =>
+            new Response(JSON.stringify(MATCH), {
+              headers: { 'Content-Type': 'application/json' },
+            }),
         ),
       ],
     },
