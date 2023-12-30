@@ -89,13 +89,15 @@ const ITEMS = [
       215, // Shadow amulet
       37, // Ghost scepter
       1, // Blink dagger
+      56, // Ring of health
+      57, // Void stone
     ],
     title: 'Miscellaneous',
   },
   {
     ids: [
-      56, // Ring of health
-      57, // Void stone
+      279, // Ring of tarrasque
+      1802, // Tiara of Selemene
       1125, // Cornucopia
       59, // Energy booster
       61, // Vitality booster
@@ -130,7 +132,6 @@ const ITEMS = [
       164, // Helm of the Dominator
       48, // Travel
       247, // Moon shard
-      635, // Helm of the Overlord
     ],
     title: 'Accessories',
   },
@@ -143,7 +144,7 @@ const ITEMS = [
       214, // Tranquil
       187, // Medallion
       1128, // Pavise
-      180, // Arcane
+      180, // Arcane Boots
       185, // Drum
       79, // Mekansm
       269, // Holy locket
@@ -152,6 +153,7 @@ const ITEMS = [
       90, // Pipe
       231, // Greaves
       931, // Boots of Bearing
+      1806, // Parasma
     ],
     title: 'Support',
   },
@@ -182,7 +184,6 @@ const ITEMS = [
       127, // Blade mail
       256, // Aeon
       129, // Soul booster
-      692, // Eternal shroud
       242, // Crimson guard
       226, // Lotus orb
       116, // BKB
@@ -193,6 +194,8 @@ const ITEMS = [
       114, // Heart
       112, // AC
       121, // Bloodstone
+      635, // Helm of the Overlord
+      692, // Eternal shroud
     ],
     title: 'Armor',
   },
@@ -217,6 +220,7 @@ const ITEMS = [
       208, // Abyssal
       911, // Revenant's Brooch
       1097, // Disperser
+      1808, // Khanda
     ],
     title: 'Weapons',
   },
@@ -251,12 +255,13 @@ const ITEMS = [
       349, // Arcane ring
       589, // Fairy's trinket
       838, // Pig Pole
-      840, // Tumbler's Toy
+      1157, // Safety bubble
       945, // Seeds of serenity
       946, // Lance of pursuit
       947, // Occult bracelet
       2097, // Duelist gloves
       355, // Broom handle
+      305, // Royal jelly
       375, // Faded Broach
       1124, // Spark of courage
     ],
@@ -264,8 +269,8 @@ const ITEMS = [
   },
   {
     ids: [
-      212, // Aquila
       358, // Dragon scale
+      1158, // Whisper of the dread
       306, // Pupil's gift
       331, // Vambrace
       288, // Grove bow
@@ -276,39 +281,42 @@ const ITEMS = [
       990, // Eye of the Vizier
       297, // Vampire fangs
       2193, // Gossamer cape
+      1167, // Light collector
     ],
     title: 'Neutral tier 2',
   },
   {
     ids: [
-      289, // Quickening charm
       950, // Defiant shell
       376, // Paladin sword
+      1159, // Nemesis curse
       2096, // Vindicator's axe
       2190, // Dandelion amulet
-      381, // Titan Sliver
+      298, // Craggy coat
       361, // Enchanted quiver
       573, // Elven tunic
       574, // Cloak of flames
       676, // Ceremonial robe
       675, // Psychic headband
       949, // Ogre Seal Totem
+      1803, // Doubloon
     ],
     title: 'Neutral tier 3',
   },
   {
     ids: [
       300, // Timeless relic
-      311, // Spell prism
-      825, // Ascetic's Cap
+      825, // Ascetic's cap
+      1160, // Aviana's feather
       362, // Ninja gear
       336, // Telescope
       571, // Trickster
       585, // Stormcrafter
-      638, // Penta-edged sword
+      1156, // Ancient guardian
       364, // Havoc hammer
       309, // Mind breaker
       2192, // Martyr's plate
+      1168, // Rattlecage
     ],
     title: 'Neutral tier 4',
   },
@@ -320,17 +328,23 @@ const ITEMS = [
       301, // Mirror shield
       366, // Apex
       370, // Book of the dead
-      371, // Fallen sky
       829, // Arcanist's Armor
       372, // Pirate hat
-      374, // Ex machina
       678, // Giant's ring
+      1161, // Unwavering condition
       677, // Book of shadows
+      365, // Magic lamp
     ],
     title: 'Neutral tier 5',
   },
   {
-    ids: [117, 33, 260, 271],
+    ids: [
+      117,
+      33,
+      260,
+      271,
+      1804, // Roshan's banner
+    ],
     title: 'Roshan',
   },
   {
@@ -340,20 +354,20 @@ const ITEMS = [
       106, // Necro
       131, // Hood
       182, // Stout shield
+      212, // Aquila
       239, // Iron talon
       257, // Tome
-      279, // Ring of tarrasque
       286, // Flyinc courier
       287, // Keen Optic
+      289, // Quickening charm
       293, // Phoenix ash
-      298, // Craggy coat
       299, // Greater faerie fire
       302, // Elixir
       304, // Ironwood Tree
-      305, // Royal jelly
       307, // Tome of aghanim
       308, // Repair kit
       310, // Third eye
+      311, // Spell prism
       313, // Fusion rune
       325, // Prince's knife
       326, // Spider legs
@@ -367,19 +381,23 @@ const ITEMS = [
       359, // Essence Ring
       360, // Clumsy net
       363, // Illusionist's Cape
-      365, // Magic lamp
       367, // Ballista
       368, // Woodland striders
       369, // Trident
+      371, // Fallen sky
+      374, // Ex machina
       377, // Minotaur Horn
       379, // Leveller
+      381, // Titan Sliver
       565, // Chipped Vest
       577, // Possessed mask
+      638, // Penta-edged sword
       686, // Quicksilver Amulet
       828, // Brigand's Blade
       834, // Blast Rig
       837, // Witchbane
       835, // Fae Grenade
+      840, // Tumbler's Toy
       908, // Wraith Pact
       1077, // Dagger of Ristul
     ],

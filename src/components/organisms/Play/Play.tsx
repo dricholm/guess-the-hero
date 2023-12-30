@@ -2,20 +2,21 @@
 // So API request is from the client to avoid reaching limit
 
 import { useQuery } from '@tanstack/react-query';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Match from 'src/components/organisms/Match/Match';
 import { fetchPublicMatches } from 'src/data/api';
 
 const Play: React.FC = () => {
   const { data, error, refetch } = useQuery({
-    onSuccess: () => {
-      setMatchIndex(0);
-    },
     queryFn: fetchPublicMatches,
     queryKey: ['matches'],
     refetchOnWindowFocus: false,
   });
   const [matchIndex, setMatchIndex] = useState(0);
+  useEffect(() => {
+    if (!data) return;
+    setMatchIndex(0);
+  }, [data]);
 
   const handleNext = () => {
     if (data && matchIndex < data.length - 1) {

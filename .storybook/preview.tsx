@@ -6,11 +6,7 @@ import { withReactQuery } from './decorators/react-query';
 initialize();
 
 const preview: Preview = {
-  decorators: [
-    // @ts-expect-error External dependency error
-    mswDecorator,
-    withReactQuery,
-  ],
+  decorators: [mswDecorator, withReactQuery],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
