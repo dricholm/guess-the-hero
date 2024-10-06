@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Image from 'next/image';
 import { FC } from 'react';
 import ItemIcon from 'src/components/atoms/ItemIcon/ItemIcon';
@@ -20,9 +19,11 @@ const ItemDetails: FC<ItemDetailsProps> = ({ id }) => {
 
   if (!item) return null;
 
+  const attributes = item.attributes.filter((attribute) => attribute.display);
+
   const hasBody =
-    item.attributes.length ||
-    Boolean(item.abilities?.length) ||
+    attributes.length ||
+    Boolean(item.abilities.length) ||
     item.note ||
     item.lore;
 
@@ -44,34 +45,20 @@ const ItemDetails: FC<ItemDetailsProps> = ({ id }) => {
       </header>
       {hasBody && (
         <div className={styles.body}>
-          {item.attributes.length > 0 && (
+          {attributes.length > 0 && (
             <ul className={styles.attributes}>
-              {item.attributes.map((attribute) => (
+              {attributes.map((attribute) => (
                 <li key={attribute.key}>
-                  <span
-                    className={clsx({
-                      [styles.negative]: attribute.header.startsWith('-'),
-                    })}
-                  >
-                    {attribute.header}
-                  </span>
                   <span className={styles['attribute-value']}>
-                    {typeof attribute.value === 'string'
-                      ? attribute.value
-                      : attribute.value.join(' / ')}
+                    {attribute.display?.replace('{value}', attribute.value)}
                   </span>
-                  &nbsp;
-                  <span>{attribute.footer}</span>
                 </li>
               ))}
             </ul>
           )}
-          {item.abilities?.map((ability) => (
-            <TextBox key={ability} variant="primary">
-              <p
-                className={styles.paragraph}
-                dangerouslySetInnerHTML={{ __html: formatDescription(ability) }}
-              />
+          {item.abilities.map((ability) => (
+            <TextBox key={ability.title} variant="primary">
+              <p className={styles.paragraph}>{ability.description}</p>
             </TextBox>
           ))}
           {item.note && (

@@ -1,5 +1,6 @@
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
-module.exports = {
+import { Config } from 'jest';
+
+const config: Config = {
   collectCoverageFrom: [
     'app/**/*.{ts,tsx}',
     'src/**/*.{ts,tsx}',
@@ -13,7 +14,7 @@ module.exports = {
   preset: 'ts-jest',
   restoreMocks: true,
   roots: ['<rootDir>'],
-  setupFilesAfterEnv: ['<rootDir>/src/test/jest-setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/src/test/jest-setup.ts'],
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: [
     '<rootDir>/.next/',
@@ -28,3 +29,5 @@ module.exports = {
     'jest-watch-typeahead/testname',
   ],
 };
+
+export default config;
