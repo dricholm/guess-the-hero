@@ -18,7 +18,7 @@
     "e2e:open": "cypress open",
     "storybook": "storybook dev",
     "build-storybook": "storybook build",
-    "msw": "msw init public"
+    "msw": "msw init public --save"
   },
   "dependencies": {
     "@tanstack/react-query": "5.59.0",
@@ -77,6 +77,8 @@
     "typescript": "5.6.2"
   },
   "msw": {
-    "workerDirectory": "public"
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
