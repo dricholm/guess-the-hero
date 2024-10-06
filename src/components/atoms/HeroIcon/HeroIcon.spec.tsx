@@ -15,7 +15,7 @@ describe('HeroIcon', () => {
 
     render(<HeroIcon hasAlt={false} id={id} />);
 
-    expect(screen.getByRole('img')).toBeVisible();
+    expect(screen.getByRole('presentation')).toBeVisible();
     expect(screen.queryByAltText('Anti-Mage')).toBeNull();
   });
 });

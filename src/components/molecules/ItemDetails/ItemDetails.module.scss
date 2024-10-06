@@ -62,10 +62,6 @@
   padding: 0;
 }
 
-.negative {
-  color: var(--danger-color);
-}
-
 .attribute-value {
   color: var(--color-text-strong);
   font-weight: bold;
@@ -73,4 +69,10 @@
 
 .paragraph {
   margin: 0;
+}
+
+.ability-top {
+  color: var(--color-text-strong);
+  font-weight: bold;
+  margin: 0 0 0.25rem;
 }

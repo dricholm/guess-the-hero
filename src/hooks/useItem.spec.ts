@@ -17,10 +17,11 @@ describe('useItem', () => {
     const { result } = renderHook(() => useItem(id));
 
     expect(result.current).toEqual({
-      abilities: item.hint,
+      abilities: item.abilities,
       attributes: item.attrib,
       cost: item.cost,
       displayName: item.dname,
+      hint: item.hint,
       id: item.id,
       imageSrc: `/img/items/${name}.jpg`,
       lore: item.lore,

@@ -1,12 +1,20 @@
 import { Preview } from '@storybook/react';
-import { initialize, mswDecorator } from 'msw-storybook-addon';
+import { initialize, mswLoader } from 'msw-storybook-addon';
 import '../styles/globals.scss';
 import { withReactQuery } from './decorators/react-query';
 
-initialize();
+initialize({
+  onUnhandledRequest: (req, print) => {
+    const url = new URL(req.url);
+    if (url.pathname.startsWith('/img/')) return;
+
+    print.warning();
+  },
+});
 
 const preview: Preview = {
-  decorators: [mswDecorator, withReactQuery],
+  decorators: [withReactQuery],
+  loaders: [mswLoader],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {

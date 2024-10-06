@@ -51,6 +51,7 @@ const ITEMS = [
       21, // Ogre axe
       22, // Blade of alacrity
       23, // Staff of wizardry
+      1122, // Diadem
     ],
     title: 'Attributes',
   },
@@ -64,7 +65,6 @@ const ITEMS = [
       2, // Blades of attack
       25, // Gloves of haste
       4, // Chainmail
-      10, // Quarterstaff
       6, // Helm of iron will
       3, // Broadsword
       485, // Blitz knuckles
@@ -142,7 +142,6 @@ const ITEMS = [
       94, // Headdress
       92, // Urn
       214, // Tranquil
-      187, // Medallion
       1128, // Pavise
       180, // Arcane Boots
       185, // Drum
@@ -253,7 +252,6 @@ const ITEMS = [
     ids: [
       356, // Trusty shovel
       349, // Arcane ring
-      589, // Fairy's trinket
       838, // Pig Pole
       1157, // Safety bubble
       945, // Seeds of serenity
@@ -263,6 +261,7 @@ const ITEMS = [
       355, // Broom handle
       305, // Royal jelly
       375, // Faded Broach
+      304, // Ironwood Tree
       1124, // Spark of courage
     ],
     title: 'Neutral tier 1',
@@ -272,7 +271,6 @@ const ITEMS = [
       358, // Dragon scale
       1158, // Whisper of the dread
       306, // Pupil's gift
-      331, // Vambrace
       288, // Grove bow
       290, // Philosopher's stone
       680, // Bullwhip
@@ -282,12 +280,14 @@ const ITEMS = [
       297, // Vampire fangs
       2193, // Gossamer cape
       1167, // Light collector
+      239, // Iron talon
     ],
     title: 'Neutral tier 2',
   },
   {
     ids: [
       950, // Defiant shell
+      331, // Vambrace
       376, // Paladin sword
       1159, // Nemesis curse
       2096, // Vindicator's axe
@@ -298,7 +298,6 @@ const ITEMS = [
       574, // Cloak of flames
       676, // Ceremonial robe
       675, // Psychic headband
-      949, // Ogre Seal Totem
       1803, // Doubloon
     ],
     title: 'Neutral tier 3',
@@ -315,8 +314,8 @@ const ITEMS = [
       1156, // Ancient guardian
       364, // Havoc hammer
       309, // Mind breaker
-      2192, // Martyr's plate
       1168, // Rattlecage
+      949, // Ogre Seal Totem
     ],
     title: 'Neutral tier 4',
   },
@@ -349,13 +348,14 @@ const ITEMS = [
   },
   {
     ids: [
+      10, // Quarterstaff
       45, // Courier
       71, // Poor man's shield
       106, // Necro
       131, // Hood
       182, // Stout shield
+      187, // Medallion
       212, // Aquila
-      239, // Iron talon
       257, // Tome
       286, // Flyinc courier
       287, // Keen Optic
@@ -363,7 +363,6 @@ const ITEMS = [
       293, // Phoenix ash
       299, // Greater faerie fire
       302, // Elixir
-      304, // Ironwood Tree
       307, // Tome of aghanim
       308, // Repair kit
       310, // Third eye
@@ -391,6 +390,7 @@ const ITEMS = [
       381, // Titan Sliver
       565, // Chipped Vest
       577, // Possessed mask
+      589, // Fairy's trinket
       638, // Penta-edged sword
       686, // Quicksilver Amulet
       828, // Brigand's Blade
@@ -400,6 +400,7 @@ const ITEMS = [
       840, // Tumbler's Toy
       908, // Wraith Pact
       1077, // Dagger of Ristul
+      2192, // Martyr's plate
     ],
     title: 'Removed',
   },

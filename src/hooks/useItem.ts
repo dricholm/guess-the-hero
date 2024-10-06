@@ -3,10 +3,11 @@ import itemsJson from 'dotaconstants/build/items.json';
 import { useMemo } from 'react';
 
 interface Item {
-  abilities?: string[];
+  abilities: Ability[];
   attributes: Attribute[];
   cost: number;
   displayName: string;
+  hint: string[];
   id: number;
   imageSrc: string;
   lore: string;
@@ -14,12 +15,16 @@ interface Item {
   note: string;
 }
 
+interface Ability {
+  description: string;
+  title: string;
+  type: string;
+}
+
 interface Attribute {
-  footer?: string;
-  generated?: boolean;
-  header: string;
+  display?: string;
   key: string;
-  value: string | string[];
+  value: string;
 }
 
 const useItem = (id: number | undefined): Item | null =>
@@ -34,14 +39,16 @@ const useItem = (id: number | undefined): Item | null =>
     const item = (itemsJson[name as keyof typeof itemsJson] as
       | {
           [key: string]: unknown;
+          abilities?: Ability[];
           attrib: Attribute[];
           cost: number;
           dname: string;
-          hint?: string[];
+          hint: string[];
           lore: string;
           notes: string;
         }
       | undefined) ?? {
+      abilities: [],
       attrib: [],
       cost: 0,
       dname: name.replaceAll('_', ' '),
@@ -51,10 +58,11 @@ const useItem = (id: number | undefined): Item | null =>
     };
 
     return {
-      abilities: item.hint?.filter(Boolean),
+      abilities: item.abilities ?? [],
       attributes: item.attrib,
       cost: item.cost,
       displayName: item.dname,
+      hint: item.hint,
       id,
       imageSrc: `/img/items/${
         name.startsWith('recipe_') ? 'recipe' : name
