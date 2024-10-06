@@ -58,6 +58,10 @@ const ItemDetails: FC<ItemDetailsProps> = ({ id }) => {
           )}
           {item.abilities.map((ability) => (
             <TextBox key={ability.title} variant="primary">
+              <p className={styles['ability-top']}>
+                {ability.type.substring(0, 1).toUpperCase()}
+                {ability.type.substring(1)}: {ability.title}
+              </p>
               <p className={styles.paragraph}>{ability.description}</p>
             </TextBox>
           ))}
