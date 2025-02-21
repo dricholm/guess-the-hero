@@ -1,4 +1,4 @@
-import { type StorybookConfig } from '@storybook/nextjs';
+import { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
   addons: [
