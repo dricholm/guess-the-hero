@@ -61,7 +61,8 @@ const ITEMS = [
       12, // Ring of protection
       265, // Raindrops
       181, // Orb of venom
-      240, // Blight stone
+      240, // Orb of blight
+      1575, // Orb of frost
       2, // Blades of attack
       25, // Gloves of haste
       4, // Chainmail
@@ -251,88 +252,59 @@ const ITEMS = [
   {
     ids: [
       356, // Trusty shovel
-      349, // Arcane ring
-      838, // Pig Pole
-      1157, // Safety bubble
-      945, // Seeds of serenity
-      946, // Lance of pursuit
       947, // Occult bracelet
-      2097, // Duelist gloves
-      355, // Broom handle
-      305, // Royal jelly
-      375, // Faded Broach
-      304, // Ironwood Tree
+      838, // Pig Pole
+      1599, // Mana draught
+      1606, // Pollywog charm
       1124, // Spark of courage
+      1600, // Ripper's lash
+      378, // Orb of Destruction
     ],
     title: 'Neutral tier 1',
   },
   {
     ids: [
-      358, // Dragon scale
-      1158, // Whisper of the dread
-      306, // Pupil's gift
-      288, // Grove bow
-      290, // Philosopher's stone
-      680, // Bullwhip
-      378, // Orb of Destruction
-      1076, // Specialist's Array
-      990, // Eye of the Vizier
-      297, // Vampire fangs
-      2193, // Gossamer cape
-      1167, // Light collector
+      359, // Essence Ring
       239, // Iron talon
+      2193, // Gossamer cape
+      1604, // Searing signet
+      828, // Brigand's Blade
+      840, // Tumbler's Toy
     ],
     title: 'Neutral tier 2',
   },
   {
     ids: [
-      950, // Defiant shell
-      331, // Vambrace
-      376, // Paladin sword
+      1605, // Serrated shiv
       1159, // Nemesis curse
-      2096, // Vindicator's axe
-      2190, // Dandelion amulet
-      298, // Craggy coat
-      361, // Enchanted quiver
-      573, // Elven tunic
-      574, // Cloak of flames
-      676, // Ceremonial robe
-      675, // Psychic headband
-      1803, // Doubloon
+      1602, // Gale guard
+      1603, // Gunpowder gauntlet
+      1158, // Whisper of the dread
+      362, // Ninja gear
     ],
     title: 'Neutral tier 3',
   },
   {
     ids: [
-      300, // Timeless relic
-      825, // Ascetic's cap
-      1160, // Aviana's feather
-      362, // Ninja gear
-      336, // Telescope
-      571, // Trickster
-      585, // Stormcrafter
-      1156, // Ancient guardian
-      364, // Havoc hammer
-      309, // Mind breaker
-      1168, // Rattlecage
       949, // Ogre Seal Totem
+      1601, // Crippling crossbow
+      1607, // Magnifying monocle
+      676, // Ceremonial robe
+      309, // Mind breaker
+      1608, // Pyrrhic cloak
     ],
     title: 'Neutral tier 4',
   },
   {
     ids: [
-      291, // Force boots
       292, // Stygian desolator
-      294, // Seer stone
-      301, // Mirror shield
-      366, // Apex
+      371, // Fallen sky
       370, // Book of the dead
-      829, // Arcanist's Armor
-      372, // Pirate hat
-      678, // Giant's ring
-      1161, // Unwavering condition
-      677, // Book of shadows
+      377, // Minotaur Horn
+      326, // Spider legs
       365, // Magic lamp
+      1598, // Unrelenting eye
+      372, // Pirate hat
     ],
     title: 'Neutral tier 5',
   },
@@ -359,47 +331,87 @@ const ITEMS = [
       257, // Tome
       286, // Flyinc courier
       287, // Keen Optic
+      288, // Grove bow
       289, // Quickening charm
+      290, // Philosopher's stone
+      291, // Force boots
       293, // Phoenix ash
+      294, // Seer stone
+      297, // Vampire fangs
+      298, // Craggy coat
       299, // Greater faerie fire
+      300, // Timeless relic
+      301, // Mirror shield
       302, // Elixir
+      304, // Ironwood Tree
+      305, // Royal jelly
+      306, // Pupil's gift
       307, // Tome of aghanim
       308, // Repair kit
       310, // Third eye
       311, // Spell prism
       313, // Fusion rune
       325, // Prince's knife
-      326, // Spider legs
       327, // Helm of the undying
       328, // Mango tree
       330, // Witless shako
+      331, // Vambrace
       334, // Imp Claw
       335, // Flicker
+      336, // Telescope
+      349, // Arcane ring
       354, // Ocean Heart
+      355, // Broom handle
       357, // Nether shawl
-      359, // Essence Ring
+      358, // Dragon scale
       360, // Clumsy net
+      361, // Enchanted quiver
       363, // Illusionist's Cape
+      364, // Havoc hammer
+      366, // Apex
       367, // Ballista
       368, // Woodland striders
       369, // Trident
-      371, // Fallen sky
       374, // Ex machina
-      377, // Minotaur Horn
+      375, // Faded Broach
+      376, // Paladin sword
       379, // Leveller
       381, // Titan Sliver
       565, // Chipped Vest
+      571, // Trickster
+      573, // Elven tunic
+      574, // Cloak of flames
       577, // Possessed mask
+      585, // Stormcrafter
       589, // Fairy's trinket
       638, // Penta-edged sword
+      675, // Psychic headband
+      677, // Book of shadows
+      678, // Giant's ring
+      680, // Bullwhip
       686, // Quicksilver Amulet
-      828, // Brigand's Blade
+      825, // Ascetic's cap
+      829, // Arcanist's Armor
       834, // Blast Rig
-      837, // Witchbane
       835, // Fae Grenade
-      840, // Tumbler's Toy
+      837, // Witchbane
       908, // Wraith Pact
+      945, // Seeds of serenity
+      946, // Lance of pursuit
+      950, // Defiant shell
+      990, // Eye of the Vizier
+      1076, // Specialist's Array
       1077, // Dagger of Ristul
+      1156, // Ancient guardian
+      1157, // Safety bubble
+      1160, // Aviana's feather
+      1161, // Unwavering condition
+      1167, // Light collector
+      1168, // Rattlecage
+      1803, // Doubloon
+      2096, // Vindicator's axe
+      2097, // Duelist gloves
+      2190, // Dandelion amulet
       2192, // Martyr's plate
     ],
     title: 'Removed',
