@@ -1,8 +1,12 @@
 import { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
-  docs: { autodocs: 'tag' },
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@chromatic-com/storybook',
+  ],
+  docs: {},
   framework: {
     name: '@storybook/nextjs',
     options: {},
