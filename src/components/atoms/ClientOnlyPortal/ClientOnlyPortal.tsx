@@ -8,7 +8,7 @@ interface ClientOnlyPortalProps {
 }
 
 const ClientOnlyPortal: FC<ClientOnlyPortalProps> = ({ children }) => {
-  const ref = useRef<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement>(null);
   const [isMounted, setMounted] = useState(false);
 
   useEffect(() => {
