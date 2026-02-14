@@ -1,5 +1,5 @@
 /** @type {import('stylelint').Config} */
-module.exports = {
+const config = {
   extends: ['stylelint-config-sass-guidelines'],
   rules: {
     'max-nesting-depth': [2],
@@ -10,3 +10,5 @@ module.exports = {
     'selector-no-qualifying-type': [true, { ignore: ['attribute'] }],
   },
 };
+
+export default config;

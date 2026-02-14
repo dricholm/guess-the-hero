@@ -1,4 +1,4 @@
-import heroesJson from 'dotaconstants/build/heroes.json';
+import { heroes as heroesJson } from 'dotaconstants';
 
 describe('heroes', () => {
   it('should display hero list', () => {

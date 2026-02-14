@@ -1,5 +1,4 @@
-import itemIdsJson from 'dotaconstants/build/item_ids.json';
-import itemsJson from 'dotaconstants/build/items.json';
+import { items, item_ids as itemIds } from 'dotaconstants';
 import { useMemo } from 'react';
 
 interface Item {
@@ -31,12 +30,12 @@ const useItem = (id: number | undefined): Item | null =>
   useMemo<Item | null>(() => {
     if (!id || id === 0) return null;
 
-    const name = itemIdsJson[id.toString() as keyof typeof itemIdsJson] as
+    const name = itemIds[id.toString() as keyof typeof itemIds] as
       | string
       | undefined;
     if (!name) return null;
 
-    const item = (itemsJson[name as keyof typeof itemsJson] as
+    const item = (items[name as keyof typeof items] as
       | {
           [key: string]: unknown;
           abilities?: Ability[];

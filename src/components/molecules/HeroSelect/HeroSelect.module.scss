@@ -1,4 +1,4 @@
-@import 'variables';
+@use 'variables' as *;
 
 .container {
   display: flex;
@@ -50,7 +50,9 @@
 
 .hero-label {
   filter: brightness(1) saturate(0.3);
-  transition: filter 0.2s ease-in, transform 0.2s ease-in;
+  transition:
+    filter 0.2s ease-in,
+    transform 0.2s ease-in;
 
   &:hover {
     filter: brightness(1.1) saturate(1);

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import itemsJson from 'dotaconstants/build/items.json';
+import { items as itemsJson } from 'dotaconstants';
 import ItemList from './ItemList';
 
 describe('ItemList', () => {

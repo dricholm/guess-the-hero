@@ -1,5 +1,5 @@
-import { action } from '@storybook/addon-actions';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { fn } from 'storybook/test';
 import { http } from 'msw';
 import { BASE_URL, PATH_MATCH_DETAILS } from 'src/data/api';
 import Component from './Match';
@@ -7,7 +7,7 @@ import Component from './Match';
 export default {
   args: {
     id: 1,
-    onNext: action('onNext'),
+    onNext: fn(),
   },
   component: Component,
   parameters: {

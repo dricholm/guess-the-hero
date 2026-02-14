@@ -34,6 +34,7 @@ const Match: React.FC<Props> = ({ id, onNext }) => {
   const resultRef = useRef<HTMLDivElement>(null);
   const [correct, setCorrect] = useState<boolean>();
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (id) setCorrect(undefined);
   }, [id]);
   useEffect(() => {

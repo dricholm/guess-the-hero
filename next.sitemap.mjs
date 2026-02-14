@@ -1,5 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
+const config = {
   changefreq: 'weekly',
   generateRobotsTxt: true,
   priority: 0.5,
@@ -12,3 +12,5 @@ module.exports = {
     alternateRefs: config.alternateRefs ?? [],
   }),
 };
+
+export default config;

@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import heroesJson from 'dotaconstants/build/heroes.json';
+import { heroes } from 'dotaconstants';
 import useHero from './useHero';
 
 describe('useHero', () => {
@@ -11,7 +11,7 @@ describe('useHero', () => {
 
   it('should return correct hero', () => {
     const id = 1;
-    const hero = heroesJson['1'];
+    const hero = heroes['1'];
 
     const { result } = renderHook(() => useHero(1));
 
