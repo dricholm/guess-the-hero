@@ -1,12 +1,12 @@
-import { action } from '@storybook/addon-actions';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { fn } from 'storybook/test';
 import Component from './HeroSelect';
 
 export default {
   args: {
     disabled: false,
     heroIds: Array.from({ length: 10 }, (_, index) => index + 1),
-    onSubmit: action('onSubmit'),
+    onSubmit: fn(),
   },
   component: Component,
 } as Meta<typeof Component>;

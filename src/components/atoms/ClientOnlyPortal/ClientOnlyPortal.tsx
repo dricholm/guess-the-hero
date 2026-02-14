@@ -22,7 +22,8 @@ const ClientOnlyPortal: FC<ClientOnlyPortalProps> = ({ children }) => {
   }, []);
 
   return isMounted
-    ? createPortal(children, ref.current ?? document.body)
+    ? // eslint-disable-next-line react-hooks/refs
+      createPortal(children, ref.current ?? document.body)
     : null;
 };
 

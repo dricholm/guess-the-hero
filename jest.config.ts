@@ -24,6 +24,7 @@ const config: Config = {
   transform: {
     '^.+\\.(j|t)sx?$': ['ts-jest', { tsconfig: 'tsconfig.spec.json' }],
   },
+  transformIgnorePatterns: ['/node_modules/(?!dotaconstants)'],
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',

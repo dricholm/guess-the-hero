@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import heroesJson from 'dotaconstants/build/heroes.json';
+import { heroes } from 'dotaconstants';
 import HeroSelect from './HeroSelect';
 
 describe('HeroSelect', () => {
@@ -11,7 +11,7 @@ describe('HeroSelect', () => {
   });
 
   it('should submit selected hero', async () => {
-    const hero = heroesJson['2'];
+    const hero = heroes['2'];
 
     render(<HeroSelect heroIds={[1, 2, 3, 4, 5]} onSubmit={onSubmit} />);
     await userEvent.click(screen.getByAltText(hero.localized_name));

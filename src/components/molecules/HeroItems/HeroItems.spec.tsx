@@ -1,12 +1,12 @@
-import itemsJson from 'dotaconstants/build/items.json';
 import { render, screen } from '@testing-library/react';
+import { items } from 'dotaconstants';
 import HeroItems from './HeroItems';
 
 describe('HeroItems', () => {
   it('should render items', () => {
-    const backpack = [itemsJson.recipe_armlet];
-    const inventory = [itemsJson.blink, itemsJson.boots];
-    const neutral = itemsJson.clumsy_net;
+    const backpack = [items.recipe_armlet];
+    const inventory = [items.blink, items.boots];
+    const neutral = items.clumsy_net;
 
     render(
       <HeroItems

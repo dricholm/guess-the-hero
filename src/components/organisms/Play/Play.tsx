@@ -15,6 +15,7 @@ const Play: React.FC = () => {
   const [matchIndex, setMatchIndex] = useState(0);
   useEffect(() => {
     if (!data) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMatchIndex(0);
   }, [data]);
 

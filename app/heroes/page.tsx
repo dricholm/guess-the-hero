@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import heroesJson from 'dotaconstants/build/heroes.json';
+import { heroes } from 'dotaconstants';
 import { Metadata } from 'next';
 import { FC } from 'react';
 import Card from 'src/components/atoms/Card/Card';
@@ -11,7 +11,7 @@ const Heroes: FC = () => (
     {ATTRIBUTES.map((attribute) => (
       <Card key={attribute.value} title={attribute.name}>
         <div className={styles.grid}>
-          {Object.values(heroesJson)
+          {Object.values(heroes)
             .filter((hero) => hero.primary_attr === attribute.value)
             .sort((heroA, heroB) =>
               heroA.localized_name.localeCompare(heroB.localized_name),

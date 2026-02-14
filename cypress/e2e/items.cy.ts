@@ -1,4 +1,4 @@
-import itemsJson from 'dotaconstants/build/items.json';
+import { items as itemsJson } from 'dotaconstants';
 
 describe('items', () => {
   it('should display item list', () => {

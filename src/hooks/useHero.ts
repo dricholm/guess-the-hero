@@ -1,4 +1,4 @@
-import heroesJson from 'dotaconstants/build/heroes.json';
+import { heroes } from 'dotaconstants';
 import { useMemo } from 'react';
 
 interface Hero {
@@ -10,7 +10,7 @@ interface Hero {
 const useHero = (id?: number): Hero | null =>
   useMemo<Hero | null>(() => {
     if (!id) return null;
-    const hero = heroesJson[id.toString() as keyof typeof heroesJson] as
+    const hero = heroes[id.toString() as keyof typeof heroes] as
       | { localized_name: string; name: string }
       | undefined;
     if (!hero) return null;

@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import itemsJson from 'dotaconstants/build/items.json';
+import { items } from 'dotaconstants';
 import useItem from './useItem';
 
 describe('useItem', () => {
@@ -12,7 +12,7 @@ describe('useItem', () => {
   it('should return correct item', () => {
     const id = 1;
     const name = 'blink';
-    const item = itemsJson[name];
+    const item = items[name];
 
     const { result } = renderHook(() => useItem(id));
 
